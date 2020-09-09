@@ -1,0 +1,38 @@
+{
+  "name": "wedeal-ft",
+  "version": "0.1.0",
+  "description": "Frontend de la aplicación WeDeal",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server",
+    "server": "webpack --mode development --open && npx serve dist -s",
+    "build": "webpack"
+  },
+  "keywords": [
+    "javascript",
+    "react",
+    "styled-components"
+  ],
+  "author": "Julio Denis",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "file-loader": "^6.1.0",
+    "html-webpack-plugin": "^4.4.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.10.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^3.11.0",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.0"
+  }
+}
