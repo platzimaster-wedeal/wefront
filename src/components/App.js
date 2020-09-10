@@ -5,12 +5,14 @@ import "../assets/styles/App.scss";
 
 // pages
 import Signup from "../container/Signup";
+import Signup1 from "../container/Signup1";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Signup} />
+        <Route exact path="/resgiter" component={Signup} />
+        <Route exact path="/register/userdata" component={Signup1} />
       </Switch>
     </BrowserRouter>
   );
