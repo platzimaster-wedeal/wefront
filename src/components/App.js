@@ -1,15 +1,17 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { GlobalStyle } from "../components/styles/GlobalStyles";
+import "../assets/styles/App.scss";
+
 // components
 
 // pages
-import Signup from "../pages/Signup/Signup";
+import Signup from "../container/Signup";
+
+
 
 const App = () => {
   return (
     <BrowserRouter>
-      <GlobalStyle />
       <Switch>
         <Route exact path="/" component={Signup} />
       </Switch>
