@@ -8,6 +8,7 @@
     "dev": "webpack-dev-server --mode development",
     "server": "webpack --mode development --open && npx serve dist -s",
     "build": "webpack --mode production"
+
   },
   "keywords": [
     "javascript",

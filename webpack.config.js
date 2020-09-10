@@ -1,5 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const path = require("path");
 
 module.exports = {
@@ -7,6 +9,7 @@ module.exports = {
     filename: "app.bundle.js",
     publicPath: "/",
   },
+
   resolve: {
     extensions: [".js", ".jsx"],
   },
@@ -14,10 +17,15 @@ module.exports = {
     open: true,
     port: 3000,
     historyApiFallback: true,
+
+  devServer: {
+    open: true,
+    port: 3000,
   },
   module: {
     rules: [
       {
+
         test: /\.(js|jsx )$/,
         exclude: "/node_module/",
         use: {
@@ -28,6 +36,7 @@ module.exports = {
         },
       },
       {
+
         test: /\.html$/,
         use: [
           {
@@ -62,8 +71,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "public/index.html",
     }),
+
     new MiniCssExtractPlugin({
       filename: "assets/[name].css",
     }),
+
   ],
 };
