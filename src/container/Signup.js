@@ -1,13 +1,22 @@
+/*  ----- SIGNUP ------ /*
+  The signup component, where the user must instruce an email and a password 
+  to get into the app
+/* ------------- */
+
 import React, { Fragment, useState } from "react";
 import "../assets/styles/components/Signup.scss";
 import logo from "../assets/static/WD4.png";
 
-const Signup = () => {
+// Utils
+import hasNumber from "../utils/hasNumber";
+
+const Signup = (props) => {
   const [form, setValues] = useState({
     email: "",
     password: "",
     cpassword: "",
   });
+
   const [errorPassword, setErrorPassword] = useState({
     matchPassword: false,
     lengthPassword: false,
@@ -20,11 +29,10 @@ const Signup = () => {
       [event.target.name]: event.target.value,
     });
   };
-  function hasNumber(myString) {
-    return /\d/.test(myString);
-  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (form.password !== form.cpassword) {
       setErrorPassword({
         ...errorPassword,
@@ -37,6 +45,7 @@ const Signup = () => {
       });
       return false;
     }
+
     if (form.password.length <= 5) {
       setErrorPassword({
         ...errorPassword,
@@ -50,6 +59,7 @@ const Signup = () => {
       });
       return false;
     }
+
     if (!hasNumber(form.password)) {
       setErrorPassword({
         ...errorPassword,
@@ -63,6 +73,7 @@ const Signup = () => {
       });
       return false;
     }
+    props.history.push("/register/userdata");
   };
 
   return (

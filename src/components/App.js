@@ -11,7 +11,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/resgiter" component={Signup} />
+        <Route exact path="/register" component={Signup} />
         <Route exact path="/register/userdata" component={Signup1} />
       </Switch>
     </BrowserRouter>

@@ -1,0 +1,91 @@
+@import "../Vars.scss";
+
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, $main-color, #0c8996);
+}
+
+.signup1 {
+  img {
+    width: 500px;
+    position: relative;
+    left: -70px;
+    bottom: 20px;
+  }
+
+  h1 {
+    margin: 0 auto;
+    margin-bottom: 2px;
+  }
+
+  &__form1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $color-ligth1;
+    border: 1px solid grey;
+    border-radius: 6px;
+    height: 490px;
+    width: 390px;
+    label {
+      margin-left: 18px;
+      margin-bottom: 10px;
+    }
+    .signup1__form-input {
+      margin-bottom: 20px;
+      margin-top: 5px;
+      margin-left: 18px;
+      width: 330px;
+      height: 37px;
+      border: 1px solid grey;
+      border-radius: 5px;
+      padding-left: 10px;
+    }
+    .signup1__form-error {
+      margin-top: -20px;
+      margin-left: 20px;
+      margin-bottom: 15px;
+      color: red;
+    }
+    .signup1__form-section {
+      margin: 0 auto;
+    }
+    .signup1__form-button {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 250px;
+      height: 60px;
+      margin-top: 10px;
+      background-color: $color-ligth2;
+      border: 1px solid $main-color;
+      border-radius: 6px;
+      color: black;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.2s ease-out;
+      &:hover {
+        background-color: #006097;
+        color: white;
+      }
+      i {
+        font-size: 30px;
+      }
+    }
+    p {
+      font-size: 14px;
+      color: grey;
+      margin: 0 auto;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+    a {
+      display: inline;
+      color: #0073b1;
+    }
+  }
+}
