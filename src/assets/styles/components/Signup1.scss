@@ -9,27 +9,28 @@
 }
 
 .signup1 {
-  img {
-    width: 500px;
-    position: relative;
-    left: -70px;
-    bottom: 20px;
-  }
+  height: 700px;
+  width: 450px;
 
   h1 {
     margin: 0 auto;
-    margin-bottom: 2px;
+    margin-bottom: 25px;
   }
 
   &__form1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: $color-ligth1;
     border: 1px solid grey;
     border-radius: 6px;
-    height: 490px;
-    width: 390px;
+    height: 100%;
+    max-width: 450px;
+    section {
+      display: flex;
+      flex-direction: column;
+    }
     label {
       margin-left: 18px;
       margin-bottom: 10px;
@@ -52,6 +53,9 @@
     }
     .signup1__form-section {
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .signup1__form-button {
       display: flex;
@@ -76,11 +80,22 @@
         font-size: 30px;
       }
     }
+    hr {
+      width: 100%;
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.459),
+        rgba(0, 0, 0, 0)
+      );
+      margin-bottom: 25px;
+    }
     p {
-      font-size: 14px;
+      font-size: 16px;
       color: grey;
       margin: 0 auto;
-      margin-top: 5px;
       margin-bottom: 10px;
     }
     a {

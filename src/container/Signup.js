@@ -1,9 +1,7 @@
-/*  ----- SIGNUP ------ /*
-  The signup component, where the user must instruce an email and a password 
-  to get into the app
-/* ------------- */
-
 import React, { Fragment, useState } from "react";
+import { connect } from "react-redux";
+import { registerRequest } from "../actions";
+
 import "../assets/styles/components/Signup.scss";
 import logo from "../assets/static/WD4.png";
 
@@ -32,7 +30,6 @@ const Signup = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     if (form.password !== form.cpassword) {
       setErrorPassword({
         ...errorPassword,
@@ -43,6 +40,7 @@ const Signup = (props) => {
         password: "",
         cpassword: "",
       });
+
       return false;
     }
 
@@ -57,6 +55,7 @@ const Signup = (props) => {
         password: "",
         cpassword: "",
       });
+
       return false;
     }
 
@@ -71,8 +70,10 @@ const Signup = (props) => {
         password: "",
         cpassword: "",
       });
+
       return false;
     }
+    props.registerRequest(form);
     props.history.push("/register/userdata");
   };
 
@@ -149,4 +150,8 @@ const Signup = (props) => {
   );
 };
 
-export default Signup;
+const mapDispatchToProps = {
+  registerRequest,
+};
+
+export default connect(null, mapDispatchToProps)(Signup);
