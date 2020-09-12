@@ -4,11 +4,18 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const SelectDate = (props) => {
   const [startDate, setStartDate] = useState(new Date());
+  const handleChange = (date) => {
+    setStartDate(date);
+    props.setState({
+      ...props.state,
+      birth: date.toDateString(),
+    });
+  };
   return (
     <DatePicker
       className={props.className}
       selected={startDate}
-      onChange={(date) => setStartDate(date)}
+      onChange={handleChange}
       peekNextMonth
       showMonthDropdown
       showYearDropdown
