@@ -1,6 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
+import { Provider } from "react-redux";
+import reducer from "./reducers/index";
+import { createStore } from "redux";
+
+// Global state
+const initialState = {
+  "user": {},
+};
+const store = createStore(reducer, initialState);
 
 // Render del componente principal al HTML
-ReactDOM.render(<App />, document.getElementById("App"));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("App")
+);
