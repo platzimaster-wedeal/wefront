@@ -5,8 +5,10 @@ import { Provider } from "react-redux";
 import reducer from "./reducers/index";
 import { createStore } from "redux";
 
-// Global statse
-const initialState = {};
+// Global state
+const initialState = {
+  "user": {},
+};
 const store = createStore(reducer, initialState);
 
 // Render del componente principal al HTML

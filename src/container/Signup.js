@@ -1,13 +1,20 @@
 import React, { Fragment, useState } from "react";
+import { connect } from "react-redux";
+import { registerRequest } from "../actions";
+
 import "../assets/styles/components/Signup.scss";
 import logo from "../assets/static/WD4.png";
 
-const Signup = () => {
+// Utils
+import hasNumber from "../utils/hasNumber";
+
+const Signup = (props) => {
   const [form, setValues] = useState({
     email: "",
     password: "",
     cpassword: "",
   });
+
   const [errorPassword, setErrorPassword] = useState({
     matchPassword: false,
     lengthPassword: false,
@@ -20,9 +27,7 @@ const Signup = () => {
       [event.target.name]: event.target.value,
     });
   };
-  function hasNumber(myString) {
-    return /\d/.test(myString);
-  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (form.password !== form.cpassword) {
@@ -35,8 +40,10 @@ const Signup = () => {
         password: "",
         cpassword: "",
       });
+
       return false;
     }
+
     if (form.password.length <= 5) {
       setErrorPassword({
         ...errorPassword,
@@ -48,8 +55,10 @@ const Signup = () => {
         password: "",
         cpassword: "",
       });
+
       return false;
     }
+
     if (!hasNumber(form.password)) {
       setErrorPassword({
         ...errorPassword,
@@ -61,8 +70,11 @@ const Signup = () => {
         password: "",
         cpassword: "",
       });
+
       return false;
     }
+    props.registerRequest(form);
+    props.history.push("/register/userdata");
   };
 
   return (
@@ -138,4 +150,8 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+const mapDispatchToProps = {
+  registerRequest,
+};
+
+export default connect(null, mapDispatchToProps)(Signup);
