@@ -126,7 +126,6 @@ const Signup1 = (props) => {
  );
 };
 const mapStateToProps = (state) => {
-
  return {
   user: state.user,
  };

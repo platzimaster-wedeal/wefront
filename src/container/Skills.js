@@ -10,7 +10,6 @@ const Skills = ({ user }) => {
 };
 
 const mapStateToProps = (state) => {
-
  return {
   user: state.user,
  };
