@@ -1,15 +1,14 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
 const path = require("path");
 
 module.exports = {
+  entry: "./src/index.jsx",
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: "app.bundle.js",
     publicPath: "/",
   },
-
   resolve: {
     extensions: [".js", ".jsx"],
   },
@@ -17,16 +16,11 @@ module.exports = {
     open: true,
     port: 3000,
     historyApiFallback: true,
-
-  devServer: {
-    open: true,
-    port: 3000,
   },
   module: {
     rules: [
       {
-
-        test: /\.(js|jsx )$/,
+        test: /\.(js|jsx)$/,
         exclude: "/node_module/",
         use: {
           loader: "babel-loader",
@@ -50,8 +44,21 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          "css-loader",
-          "sass-loader",
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            }
+          },
+          {
+            loader: 'resolve-url-loader'
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
         ],
       },
       {
@@ -60,11 +67,26 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "assets/[hash].[ext]",
+              filename: "[name]-[hash].[ext]",
+              outputPath: 'assets/images',
+              publicPath: 'assets/images'
             },
           },
         ],
       },
+      {
+        test: /\.(TTF)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              filename: "[name]-[hash].[ext]",
+              outputPath: "assets/fonts",
+              publicPath: "assets/fonts"
+            },
+            }
+        ]
+      }
     ],
   },
 
