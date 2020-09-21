@@ -1,0 +1,62 @@
+/*This mixin makes the value that we send $ breakpoint, that is, the screen size that we want the mediaquerie, we do not have to send sizes
+the only thing we have to say is what kind of mediaquerie you need*/
+
+/* HOW TO USE IT
+
+Media queries are added to every .scss file where you have component styles and require media queries for responsive views
+
+Example:
+
+@import "../breakpoints.scss";
+
+.menu ul {
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-right: 40px;
+
+  @include media(desktop-s) {
+    display: flex;
+  }
+}
+
+**********************/
+
+@mixin media($breakpoint) {
+  @if $breakpoint == desktop-l {
+    @media only screen and (min-width: 1440px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == desktop-s {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == tablet {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == mobile-l {
+    @media only screen and (min-width: 425px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == mobile-n {
+    @media only screen and (min-width: 375px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == mobile-2 {
+    @media only screen and (min-width: 320px) {
+      @content;
+    }
+  }
+}
