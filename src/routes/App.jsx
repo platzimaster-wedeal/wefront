@@ -8,16 +8,16 @@ import Skills from "../container/Skills";
 import CompanyData from "../container/CompanyData";
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/register" component={Signup} />
-        <Route exact path="/register/userdata" component={Signup1} />
-        <Route exact path="/register/selectSkills" component={Skills} />
-        <Route exact path="/register/copanydata" component={CompanyData} />
-      </Switch>
-    </BrowserRouter>
-  );
+ return (
+  <BrowserRouter>
+   <Switch>
+    <Route exact path="/register" component={Signup} />
+    <Route exact path="/register/userdata" component={Signup1} />
+    <Route exact path="/register/selectSkills" component={Skills} />
+    <Route exact path="/register/copanydata" component={CompanyData} />
+   </Switch>
+  </BrowserRouter>
+ );
 };
 
 export default App;
