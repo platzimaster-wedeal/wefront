@@ -1,0 +1,37 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "airbnb",
+        "prettier", 
+        "prettier/react"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "prettier"
+    ],
+    "rules": {
+        "no-console": "error",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "consistent-return":"off",
+        "react/prop-types": 0,
+        "jsx-a11y/label-has-associated-control": "off",
+        "react/button-has-type": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "import/prefer-default-export": "off",
+        "react/jsx-fragment": "off",
+        "no-unused-vars": ["error", { "vars": "all","varsIgnorePattern": "Fragment", "args": "none", "ignoreRestSiblings": true }]
+        
+        
+    },
+    "parser": "babel-eslint"
+}
