@@ -5,8 +5,8 @@
  "main": "src/index.js",
  "scripts": {
   "format": "prettier --write {*.js,src/**/*.{js,jsx}}",
-  "lint":"eslint ./",
-  "lint-fix":"eslint ./ --fix",
+  "lint": "eslint ./",
+  "lint-fix": "eslint ./ --fix",
   "dev": "webpack-dev-server --mode development",
   "server": "webpack --mode development --open && npx serve dist -s",
   "build": "webpack --mode production"
@@ -37,6 +37,7 @@
   "husky": "^4.3.0",
   "node-sass": "^4.14.1",
   "prettier": "^2.1.2",
+  "resolve-url-loader": "^3.1.1",
   "sass-loader": "^10.0.2",
   "webpack": "^4.44.1",
   "webpack-cli": "^3.3.12",

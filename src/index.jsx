@@ -2,14 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import App from "./components/App";
 import reducer from "./reducers/index";
+import "./assets/styles/App.scss";
+import App from "./routes/App";
 
 // Global state
 const initialState = {
- user: {
-  hola: "mundo",
- },
+ user: {},
 };
 const store = createStore(reducer, initialState);
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { registerRequest } from "../actions";
 import "../assets/styles/components/Signup.scss";
-import logo from "../assets/static/WD4.png";
+import logo from "../assets/static/img/WD4.png";
 
 // Utils
 import hasNumber from "../utils/hasNumber";
