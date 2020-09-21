@@ -1,0 +1,41 @@
+h1 {
+  font-family: $font-primary-bold;
+  font-size: 60px;
+  letter-spacing: 1.5px;
+  line-height: 3px;
+}
+
+h2 {
+  font-family: $font-primary-semibold;
+  font-size: 42px;
+  letter-spacing: 1.5px;
+  line-height: 3px;
+}
+h3 {
+  font-family: $font-primary;
+  font-size: 30px;
+  letter-spacing: 1px;
+  line-height: 3px;
+}
+h4 {
+  font-family: $font-primary;
+  font-size: 21px;
+  letter-spacing: 1px;
+  line-height: 3px;
+}
+
+p {
+  font-family: $font-secondary;
+  font-size: 25px;
+}
+
+strong {
+  font-family: $font-secondary-medium;
+  font-size: 25px;
+}
+
+small {
+  font-family: $font-secondary-extralight;
+  font-size: 15px;
+}
+

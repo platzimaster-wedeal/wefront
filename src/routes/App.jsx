@@ -1,16 +1,11 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import "../assets/styles/App.scss";
-
-// components
 
 // pages
 import Signup from "../container/Signup";
 import Signup1 from "../container/Signup1";
 import Skills from "../container/Skills";
 import CompanyData from "../container/CompanyData";
-
-
 
 const App = () => {
   return (

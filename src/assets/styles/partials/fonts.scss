@@ -1,0 +1,38 @@
+// ---------------- Primary font ----------------
+// ---------------- Primary font ----------------
+@font-face {
+  src: url('../../static/fonts/raleway/RALEWAY-MEDIUM.TTF');
+  font-family: 'RalewayFont';
+}
+@font-face {
+  src: url('../../static/fonts/raleway/RALEWAY-SEMIBOLD.TTF');
+  font-family: 'RalewayFontSemiBold';
+}
+@font-face {
+  src: url('../../static/fonts/raleway/RALEWAY-BOLD.TTF');
+  font-family: 'RalewayFontBold';
+}
+
+$font-primary: 'RalewayFont';
+$font-primary-semibold: 'RalewayFontSemiBold';  
+$font-primary-bold: 'RalewayFontBold';  
+
+
+// ---------------- Secondary font ----------------
+// ---------------- Secondary font ----------------
+@font-face {
+  src: url('../../static/fonts/workSans/WORKSANS-LIGHT.TTF');
+  font-family: 'WorkSans';
+}
+@font-face {
+  src: url('../../static/fonts/workSans/WORKSANS-EXTRALIGHT.TTF');
+  font-family: 'WorkSansExtraLight';
+}
+@font-face {
+  src: url('../../static/fonts/workSans/WORKSANS-MEDIUM.TTF');
+  font-family: 'WorkSansMedium';
+}
+
+$font-secondary-extralight: 'WorkSansExtraLight';
+$font-secondary: 'WorkSans';
+$font-secondary-medium: 'WorkSansMedium';
