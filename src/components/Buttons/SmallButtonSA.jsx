@@ -12,7 +12,7 @@ const buttonSize = (width, height, fontSize) => {
 const SmallButtonSA = ({ icon, width, height, fontSize }) => {
  const MdIcon = icon;
  return (
-  <button className="button-action" style={buttonSize(width, height, fontSize)}>
+  <button className="button-actionSA" style={buttonSize(width, height, fontSize)}>
    <MdIcon />
   </button>
  );
