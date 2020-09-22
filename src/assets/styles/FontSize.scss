@@ -1,0 +1,31 @@
+/*This mixin executes a sass function so that the font size that we define adjusts to the different devices.*/
+
+/* HOW TO USE IT
+
+You must import this mixin in every .scss file that will contain component styles and needs the font-size property
+
+Example:
+
+@import "../FontSize.scss";
+
+.header a {
+  color: #fff;
+  text-decoration: none;
+  font-family: $basicFontFamily;
+  font-size: 16px;
+  font-weight: 500;
+  @include font-size(16px);
+}
+
+**********************/
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+  line-height: calculateRem($size) 1.5;
+}
