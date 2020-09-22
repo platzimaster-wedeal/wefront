@@ -4,3 +4,9 @@
 @import '../../partials/sizes.scss';
 @import '../../partials/spacing.scss';
 @import '../../partials/text.scss';
+
+.button__container {
+    display: flex;
+    padding: 10px;
+    
+}

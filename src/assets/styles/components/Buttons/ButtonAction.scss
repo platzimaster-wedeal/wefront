@@ -1,0 +1,10 @@
+@import '../../partials/colors.scss';
+
+.button-action {
+    background-color: $color-primary;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-background;
+}
