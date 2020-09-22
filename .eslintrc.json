@@ -25,6 +25,7 @@
         "consistent-return":"off",
         "react/prop-types": 0,
         "jsx-a11y/label-has-associated-control": "off",
+        "jsx-a11y/control-has-associated-label": "off",
         "react/button-has-type": "off",
         "jsx-a11y/anchor-is-valid": "off",
         "import/prefer-default-export": "off",
