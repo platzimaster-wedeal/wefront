@@ -35,7 +35,7 @@ const Draw = () => {
     <Label name="Enginner" active />
     <Requirements title="Knowledge about hardaware of PCs" />
     <Location country="USA" active />
-    <Followers number='108' active />
+    <Followers number="108" active />
    </div>
   </>
  );
