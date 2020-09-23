@@ -1,0 +1,28 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../FontSize.scss";
+@import "../../partials/text.scss";
+
+.grapichData__followers__container {
+ display: flex;
+ align-items: center;
+
+ p {
+  color: $color-black-30;
+  font-weight: 400;
+  font-style: normal;
+  @include font-size(16px);
+ }
+
+ svg {
+  @include font-size(30px);
+ }
+}
+
+.followers__active--true svg {
+ fill: $color-primary;
+}
+
+.followers__active--false svg {
+ fill: $color-black-30;
+}
