@@ -7,6 +7,8 @@ import Button from "../components/Buttons/Button";
 import Label from "../components/Labels/Labels";
 import "../assets/styles/components/Draw/Draw.scss";
 
+import ProblemStatus from "../components/ProblemStatus/ProblemStatus";
+
 const Draw = () => {
  return (
   <>
@@ -31,6 +33,7 @@ const Draw = () => {
    <div className="andres__components__test container__test">
     <Label name="Enginner" active />
    </div>
+   <ProblemStatus />
   </>
  );
 };
