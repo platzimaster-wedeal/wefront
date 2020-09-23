@@ -1,0 +1,31 @@
+@import '../../partials/colors.scss';
+@import '../../partials/fonts.scss';
+@import '../../FontSize.scss';
+
+.button {
+    height: 60px;
+    width: 300px;
+    border-radius: 30px;
+    @include font-size(30px)
+}
+
+.button__primary {
+    background-color: $color-primary;
+    color: $color-white;
+    transition: .2s;
+    &:hover {
+        border: 1px solid $color-primary;
+        background-color: $color-background;
+        color: $color-black-60;
+    }
+}
+.button__secondary {
+    border: 1px solid $color-primary;
+    background-color: $color-background;
+    color: $color-black-60;
+    transition: .2s;
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+    }
+}
