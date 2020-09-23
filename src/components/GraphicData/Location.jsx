@@ -4,9 +4,9 @@ import "../../assets/styles/components/GraphicData/Location.scss"
 
 const Location = ({ country, active = false }) => {
  return (
-  <div className={`grapichData__container
+  <div className={`grapichData__location__container
     ${
-      active ? `grapichData__container__active--true` : `grapichData__container__active--false`
+      active ? `location__active--true` : `location__active--false`
     }`}>
    <MdPlace />
    <p>{country}</p>
