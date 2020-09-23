@@ -1,23 +1,25 @@
-import React, {useState,useEffect} from 'react';
-import { MdImage } from 'react-icons/md'
+import React from "react";
+import { MdImage } from "react-icons/md";
 
-const InputFile = ({widt, height, placeholder = 'Add something'}) => {
+import { useInputFile } from "../../hooks/useInputFile/useInputFile";
 
-  const [nameFile, setNameFile] = useState('') 
+const InputFile = ({
+ widt,
+ height,
+ placeholder = "Add something",
+ onChange = (ev) => {
+  console.log(ev.currentTarget.files[0].name);
+ },
+}) => {
+ const [nameFile, handleInputFile] = useInputFile();
 
-  const handleInputFile = (ev) => {
-    setNameFile(ev.currentTarget.files[0].name)
-  }
-
-  return (
-      <div className="input-file__view">
-        <input type="file" onChange={handleInputFile} />
-        <p>
-          { nameFile.length > 0 ? nameFile : placeholder }
-        </p>
-        <MdImage size="24" />
-      </div>
-  );
-} 
+ return (
+  <div className="input-file__view">
+   <input type="file" onChange={handleInputFile} />
+   <p>{nameFile.length > 0 ? nameFile : placeholder}</p>
+   <MdImage size="24" />
+  </div>
+ );
+};
 
 export default InputFile;

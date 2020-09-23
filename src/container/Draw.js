@@ -6,9 +6,8 @@ import ButtonAction from "../components/Buttons/ButtonAction";
 import Label from "../components/Labels/Labels";
 import "../assets/styles/components/Draw/Draw.scss";
 
-import InputFile from '../components/inputFile/InputFile'
-
 const Draw = () => {
+
  return (
   <>
    <div className="julio__components__test container__test">
@@ -29,20 +28,6 @@ const Draw = () => {
    </div>
    <div className="andres__components__test container__test">
     <Label name="Enginner" active />
-   </div>
-   <div>
-      <InputFile />
-      <input type="file" placeholder="SElect my dicks" />
-      <input type="text" placeholder="Write something" />
-      <input type="number" placeholder="Write some number" />
-      <input type="range" placeholder="Write some number" />
-      <textarea></textarea>
-      <select>
-         <option>Hello There!</option>
-         <option>Hello There!</option>
-         <option>Hello There!</option>
-      </select>
-      
    </div>
   </>
  );

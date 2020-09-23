@@ -71,26 +71,6 @@ input[type="text"]:hover, input[type="number"]:hover, textarea:hover, select:hov
   box-shadow: inset $shadow-small-green;
 } 
 
-
-// Range
-input[type="range"] {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  width: 72%;
-  max-width: 270px;
-  @include media(mobile-n){
-    border-radius: 15px;
-    max-width: 300px;
-  }
-  @include media(mobile-l){
-    max-width: 360px;
-  }
-  @include media(tablet){
-    max-width: 720px;
-  }
-}
-
 // Lists
 select {
   width: 12%;
