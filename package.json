@@ -11,7 +11,6 @@
   "dev": "webpack-dev-server --mode development",
   "server": "webpack --mode development --open && npx serve dist -s",
   "build": "webpack --mode production",
-  "test": "jest",
   "test:update": "jest --updateSnapshot",
   "test-watch": "jest --watch"
  },
