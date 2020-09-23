@@ -8,6 +8,7 @@
 .container__test {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     padding: 20px;
     width: fit-content;
     height: fit-content;

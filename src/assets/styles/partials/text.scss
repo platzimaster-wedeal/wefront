@@ -1,3 +1,7 @@
+@import '../FontSize.scss';
+@import './sizes.scss';
+@import '../Breakpoints.scss';
+
 h1 {
   font-family: $font-primary-bold;
   font-size: 60px;
@@ -39,3 +43,16 @@ small {
   font-size: 15px;
 }
 
+
+// Links
+
+.link {
+  font-family: $font-secondary-medium;
+  color: $color-black-90;
+  text-decoration: underline;
+
+  @include media(mobile-2) {
+    @include font-size($font-size-small);
+  }
+
+}

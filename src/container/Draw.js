@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { MdCameraAlt, MdClose, MdFilterList, MdModeEdit } from "react-icons/md";
 import SmallButtonCA from "../components/Buttons/SmallButtonCA";
 import SmallButtonSA from "../components/Buttons/SmallButtonSA";
@@ -7,6 +7,9 @@ import Button from "../components/Buttons/Button";
 import Label from "../components/Labels/Labels";
 import ProfilePicture from "../components/ProfilePictures/ProfilePicture";
 import julioPhoto from "../assets/static/img/julio.jpg";
+import Requirements from "../components/Requirements/Requirements";
+import Location from "../components/GraphicData/Location";
+import Followers from "../components/GraphicData/Followers";
 import "../assets/styles/components/Draw/Draw.scss";
 
 const Draw = () => {
@@ -34,6 +37,9 @@ const Draw = () => {
    </div>
    <div className="andres__components__test container__test">
     <Label name="Enginner" active />
+    <Requirements title="Knowledge about hardaware of PCs" />
+    <Location country="USA" active />
+    <Followers number="108" active />
    </div>
   </>
  );
