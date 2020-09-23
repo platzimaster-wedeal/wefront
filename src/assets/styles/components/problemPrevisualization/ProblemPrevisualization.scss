@@ -1,0 +1,21 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+
+.problemPrevisualization {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  svg {
+    margin-right: 6px;
+  }
+
+  &__state--true svg {
+    fill: $color-primary;
+  }
+
+  &__state--false svg {
+    fill: $color-black-60;
+  }
+}
