@@ -5,7 +5,10 @@ import SmallButtonSA from "../components/Buttons/SmallButtonSA";
 import ButtonAction from "../components/Buttons/ButtonAction";
 import Button from "../components/Buttons/Button";
 import Label from "../components/Labels/Labels";
+import ProfilePicture from "../components/ProfilePictures/ProfilePicture";
+import julioPhoto from "../assets/static/img/julio.jpg";
 import Requirements from "../components/Requirements/Requirements";
+
 import "../assets/styles/components/Draw/Draw.scss";
 
 const Draw = () => {
@@ -29,6 +32,8 @@ const Draw = () => {
     />
     <Button active>Make Deal!</Button>
     <Button>Make Deal!</Button>
+    <ProfilePicture source={julioPhoto} alt="Julio Picture" active />
+    <ProfilePicture source={julioPhoto} alt="Julio Picture" />
    </div>
    <div className="andres__components__test container__test">
     <Label name="Enginner" active />
