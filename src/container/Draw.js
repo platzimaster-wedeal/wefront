@@ -7,8 +7,6 @@ import Button from "../components/Buttons/Button";
 import Label from "../components/Labels/Labels";
 import "../assets/styles/components/Draw/Draw.scss";
 
-import ProblemPrevisualization from '../components/ProblemPrevisualization/ProblemPrevisualization'
-
 const Draw = () => {
  return (
   <>
@@ -33,8 +31,6 @@ const Draw = () => {
    <div className="andres__components__test container__test">
     <Label name="Enginner" active />
    </div>
-
-   <ProblemPrevisualization />
   </>
  );
 };
