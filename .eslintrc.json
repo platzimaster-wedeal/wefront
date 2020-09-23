@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": [
         "airbnb",
@@ -30,8 +31,8 @@
         "jsx-a11y/anchor-is-valid": "off",
         "import/prefer-default-export": "off",
         "react/jsx-fragment": "off",
-        "no-unused-vars": ["error", { "vars": "all","varsIgnorePattern": "Fragment", "args": "none", "ignoreRestSiblings": true }]
-        
+        "no-unused-vars": ["error", { "vars": "all","varsIgnorePattern": "Fragment", "args": "none", "ignoreRestSiblings": true }],
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}]
         
     },
     "parser": "babel-eslint"

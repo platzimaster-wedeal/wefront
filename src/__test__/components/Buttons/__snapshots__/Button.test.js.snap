@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Snapshot Comprobar la UI del componente Button 1`] = `
+<button
+  className="button button__secondary"
+/>
+`;
