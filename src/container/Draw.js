@@ -6,6 +6,7 @@ import ButtonAction from "../components/Buttons/ButtonAction";
 import Button from "../components/Buttons/Button";
 import Label from "../components/Labels/Labels";
 import Requirements from "../components/Requirements/Requirements";
+import Location from '../components/GraphicData/Location'
 import "../assets/styles/components/Draw/Draw.scss";
 
 const Draw = () => {
@@ -33,6 +34,7 @@ const Draw = () => {
    <div className="andres__components__test container__test">
     <Label name="Enginner" active />
     <Requirements title="Knowledge about hardaware of PCs" />
+    <Location country='USA' active={true}/>
    </div>
   </>
  );
