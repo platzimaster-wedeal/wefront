@@ -1,0 +1,22 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../FontSize.scss";
+@import "../../partials//text.scss";
+
+.requirements__container {
+ display: flex;
+ align-items: center;
+}
+
+p.requirements__container-content {
+  color: $color-black-90;
+  font-weight: 300;
+  font-style: normal;
+  @include font-size(27px);
+ }
+
+.requirements__container-icon {
+ color: $color-primary;
+ margin-right: 14px;
+ @include font-size(42px);
+}

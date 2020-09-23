@@ -1,10 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { MdCameraAlt, MdClose, MdFilterList, MdModeEdit } from "react-icons/md";
 import SmallButtonCA from "../components/Buttons/SmallButtonCA";
 import SmallButtonSA from "../components/Buttons/SmallButtonSA";
 import ButtonAction from "../components/Buttons/ButtonAction";
 import Button from "../components/Buttons/Button";
 import Label from "../components/Labels/Labels";
+import Requirements from "../components/Requirements/Requirements";
 import "../assets/styles/components/Draw/Draw.scss";
 
 const Draw = () => {
@@ -31,6 +32,7 @@ const Draw = () => {
    </div>
    <div className="andres__components__test container__test">
     <Label name="Enginner" active />
+    <Requirements title="Knowledge about hardaware of PCs" />
    </div>
   </>
  );
