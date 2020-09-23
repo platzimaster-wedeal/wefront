@@ -4,12 +4,15 @@
 @import './Media.scss';
 @import './Vars.scss';
 
+// Mixins
+@import './Breakpoints.scss';
+
 @import './partials/sizes.scss';
 @import './partials/spacing.scss';
 @import './partials/colors.scss';
 @import './partials/shadows.scss';
 @import './partials/text.scss';
-
+@import './partials/inputs.scss';
 
 :root {
   --color-primary: $color-primary;
