@@ -1,0 +1,85 @@
+// Inputs texts and numbers
+input[type="text"], input[type="number"], .input-file__view, textarea, select {
+  box-sizing: border-box;
+  padding: $space-size-extra-small;
+  min-width: 160px;
+  width: 72%;
+  max-width: 270px;
+  box-shadow: inset $shadow-extra-small;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  @include font-size($font-size-normal - 3);
+  font-family: $font-secondary;
+  color: $color-black-90;
+  background-color: #fff;
+  transition: .3s ease-in-out;
+  outline: none;
+
+  @include media(mobile-n){
+    border-radius: 15px;
+    max-width: 300px;
+  }
+  @include media(mobile-l){
+    max-width: 360px;
+  }
+  @include media(tablet){
+    padding: $space-size-small;
+    max-width: 720px;
+  }
+
+}
+input[type="text"]:focus, input[type="number"]:focus, textarea:focus, select:focus, input[type="file"]:focus {
+  border: 1px solid $color-primary-30;
+}
+input[type="text"]:hover, input[type="number"]:hover, textarea:hover, select:hover, input[type="file"]:hover {
+  box-shadow: inset $shadow-small-green;
+  border: 1px solid $color-primary-90;
+}
+
+// File
+.input-file__view input[type="file"] {
+  opacity: 0;
+  width: 100%;
+  position: absolute;
+}
+.input-file__view {
+  overflow: hidden;
+  display: inline-flex;
+  position: relative;
+  width: 42%;
+  padding: $space-size-small;
+  justify-content: space-between;
+  align-items: center;
+  transition: .3s ease-in-out;
+
+  & svg {
+    fill: $color-primary; 
+  }
+
+  & p {
+    @include font-size($font-size-small - 3);
+
+    @include media(mobile-l) {
+      @include font-size($font-size-normal - 3);
+    }
+  }
+}
+.input-file__view:hover {
+  box-shadow: inset $shadow-small-green;
+} 
+.input-file__view:focus {
+  box-shadow: inset $shadow-small-green;
+} 
+
+// Lists
+select {
+  width: 12%;
+  padding: $space-size-extra-small;
+  border-radius: 24px;
+  box-shadow: $shadow-extra-small;
+  
+}
+option {
+  border: 1px solid $color-primary-30;
+  @include font-size($font-size-small);
+}

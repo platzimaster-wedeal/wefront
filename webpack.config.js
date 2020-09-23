@@ -68,7 +68,7 @@ module.exports = {
       options: {
        filename: "[name]-[hash].[ext]",
        outputPath: "assets/images",
-       publicPath: "assets/images",
+       publicPath: "/assets/images",
       },
      },
     ],
@@ -81,7 +81,7 @@ module.exports = {
       options: {
        filename: "[name]-[hash].[ext]",
        outputPath: "assets/fonts",
-       publicPath: "assets/fonts",
+       publicPath: "/assets/fonts",
       },
      },
     ],

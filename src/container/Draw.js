@@ -8,6 +8,7 @@ import Label from "../components/Labels/Labels";
 import "../assets/styles/components/Draw/Draw.scss";
 
 const Draw = () => {
+
  return (
   <>
    <div className="julio__components__test container__test">
