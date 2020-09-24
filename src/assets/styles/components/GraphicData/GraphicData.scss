@@ -1,5 +1,6 @@
 @import '../../partials/sizes.scss';
 @import '../../partials/colors.scss';
+@import '../../partials/fonts.scss';
 @import '../../Breakpoints.scss';
 
 .graphic-data { 
@@ -10,6 +11,8 @@
 
   strong {
     color: $color-black-30;
+    font-family: $font-secondary;
+    padding: 0 $space-size-extra-small;
     @include font-size($font-size-small);
 
     @include media(tablet) {
@@ -19,7 +22,7 @@
 
   &--active {   
     svg {
-      fill: $color-primary;
+      fill: $color-primary !important;
     } 
   }
 
