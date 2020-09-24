@@ -1,14 +1,14 @@
 @import '../../partials/colors.scss';
 @import '../../partials/fonts.scss';
-@import '../../FontSize.scss';
+@import '../../partials/sizes.scss';
 
 .label {
   font-weight: 300;
   font-style: italic;
   color: $color-white;
-  padding: 10px 40px;
+  padding: 3px 30px;
   border-radius: 24px;
-  @include font-size(24px)
+  @include font-size($font-size-normal - 3);
 }
 
 .label__active {

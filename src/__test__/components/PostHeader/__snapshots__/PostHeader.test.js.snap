@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the component PostHeader :D Visual tests for the component should the comopnent have the same tree 1`] = `
+<section
+  className="post-header"
+>
+  <figure
+    className="post-header__picture"
+  >
+    <img
+      className="image image__isOnline"
+      src={Object {}}
+    />
+  </figure>
+  <div
+    className="post-header__user-info"
+  >
+    <div
+      className="post-header__user-info--main"
+    >
+      <h3>
+        Alan Walks
+      </h3>
+      <span>
+        Has a new problem!
+      </span>
+    </div>
+    <strong
+      className="post-header__user-info--profession"
+    >
+      <span
+        className="label label__inactive"
+      >
+        Engineer
+      </span>
+    </strong>
+  </div>
+  <small
+    className="post-header__time"
+  >
+    1hr
+  </small>
+</section>
+`;

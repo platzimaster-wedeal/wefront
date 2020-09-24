@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the component PostProblemDescription :D Visual tests for the component should the comopnent have the same tree 1`] = `
+<section
+  className="post-problem-description"
+>
+  <strong
+    className="post-problem-description__title"
+  >
+    Description
+  </strong>
+  <p
+    className="post-problem-description__content"
+  >
+    Here must be some long description of the problem, thank you, next!
+  </p>
+</section>
+`;

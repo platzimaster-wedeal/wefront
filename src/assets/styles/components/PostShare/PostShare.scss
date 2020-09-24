@@ -1,0 +1,27 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.post-share {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  padding: $space-size-normal 0;
+  margin: $space-size-normal 0;
+  border-top: 1px solid $color-black-30;
+  border-bottom: 1px solid $color-black-30;
+
+  &__content {
+    padding: 0 $space-size-normal;
+
+    & p {
+      padding-bottom: $space-size-small;
+      @include font-size($font-size-small);
+
+      @include media(tablet) {
+        @include font-size($font-size-normal);
+      }
+    }
+  }
+}
