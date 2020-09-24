@@ -5,7 +5,10 @@ import UserPhoto from "../../assets/static/img/users/user.jpg";
 
 // Stlyes
 import "../../assets/styles/components/PostHeader/PostHeader.scss";
+
+// Components
 import ProfilePicture from "../ProfilePictures/ProfilePicture";
+import Labels from "../Labels/Labels";
 
 const PostHeader = ({ name, share, time, profession, picture }) => {
  return (
@@ -19,7 +22,8 @@ const PostHeader = ({ name, share, time, profession, picture }) => {
      <span>{share ? "Has shared!" : "Has a new problem!"}</span>
     </div>
     <strong className="post-header__user-info--profession">
-     {profession || "Engineer"}
+     {share && profession && "Engineer"}
+     {!share && <Labels name="Engineer" />}
     </strong>
    </div>
    <small className="post-header__time">{time || "1hr"}</small>

@@ -28,7 +28,11 @@ exports[`Test for the component PostHeader :D Visual tests for the component sho
     <strong
       className="post-header__user-info--profession"
     >
-      Engineer
+      <span
+        className="label label__inactive"
+      >
+        Engineer
+      </span>
     </strong>
   </div>
   <small
