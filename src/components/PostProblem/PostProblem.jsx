@@ -15,7 +15,9 @@ const PostProblem = ({ user, post, onClick }) => {
    <div className="post-problem__content">
     <PostProblemPrevisualization />
     <div className="post-problem__actions">
-     <Button active>See More!</Button>
+     <Button active onClick={onClick}>
+      See More!
+     </Button>
     </div>
    </div>
   </article>
