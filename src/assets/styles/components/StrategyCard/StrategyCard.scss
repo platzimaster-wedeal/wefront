@@ -1,0 +1,93 @@
+@import "../../Breakpoints.scss";
+@import '../../partials/colors.scss';
+@import '../../partials/fonts.scss';
+@import '../../partials/shadows.scss';
+@import '../../partials/sizes.scss';
+@import '../../partials/spacing.scss';
+@import '../../partials/text.scss';
+
+.strategy {
+    box-shadow: $shadow-large;
+    border-radius: 12px;
+    min-width: 330px;
+    padding: 20px 30px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    
+    .container__title {
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 4px solid $color-primary;
+        margin-bottom: 15px;
+    }
+    &__container {
+        display: inline-flex;
+        p {
+            font-size: 16px;
+            color: $color-primary;
+            font-family: $font-secondary;
+            font-weight: 600;
+            line-height: 25px;
+            letter-spacing: 0.03em;
+        }
+        input {
+            font-style: italic;
+            font-weight: 200;
+            font-size: 16px;
+            padding-left: 15px;
+            margin-left: 20px;
+            &::placeholder {
+                color: black;
+            }
+        }
+        .strategy__container--btn {
+            width: 40px;
+            height: 40px;
+            font-size: 40px;
+            margin-left: 10px;
+        }
+    }
+
+    .strategy__container .strategy__container--img {
+        width: 50px;
+        height: 50px;
+    }
+
+    @include media(tablet) {
+        min-width: 650px;
+        &__container {
+            margin-bottom: 20px;
+            p {
+                font-size: 20px;
+                line-height: 35px;
+            }
+            input {
+                margin-left: 20px;
+                height: 45px;
+                width: 380px;
+                font-weight: 200;
+                font-size: 25px;
+                padding-left: 35px;
+            }
+        }
+        .strategy__container--btn {
+            width: 70px;
+            height: 70px;
+            font-size: 55px;
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            z-index: 1;
+        }
+    }
+    @include media(mobile-l) {
+        .strategy__container--btn {
+            margin-bottom: 5px;
+        }
+    }
+    
+    
+}
+
