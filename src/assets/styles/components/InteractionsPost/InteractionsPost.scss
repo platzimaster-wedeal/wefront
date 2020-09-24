@@ -1,0 +1,40 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../FontSize.scss";
+@import "../../partials/text.scss";
+
+.interactionsPost__container {
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: nowrap;
+ align-items: center;
+ min-width: 300px;
+ max-width: 900px;
+}
+
+.interactionsPost__favs,
+.interactionsPost__shares,
+.interactionsPost__comments {
+ display: flex;
+ align-items: center;
+ font-family: $font-secondary;
+ font-weight: bold;
+ color: $color-black-60;
+ margin-right: 90px;
+ @include font-size(30px);
+ cursor: pointer;
+
+ svg {
+  font-weight: normal;
+  margin-right: 10px;
+  @include font-size(42px);
+ }
+}
+
+.interactionsPost__icon--active {
+  color: $color-primary
+}
+
+.interactionsPost__icon--inactive {
+  color: $color-black-30
+}

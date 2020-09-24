@@ -1,31 +1,42 @@
 @import '../../partials/colors.scss';
 @import '../../partials/fonts.scss';
+@import '../../partials/shadows.scss';
 @import '../../FontSize.scss';
+@import '../../partials/sizes.scss';
+@import '../../Breakpoints.scss';
 
 .button {
-    height: 60px;
-    width: 300px;
+    height: 42px;
+    width: 150px;
     border-radius: 30px;
-    @include font-size(30px)
+    cursor: pointer;
+    box-shadow: $shadow-extra-small;
+    @include font-size($font-size-normal);
+
+    @include media(tablet) {
+        height: 42px;
+        width: 180px;
+    }
 }
 
 .button__primary {
     background-color: $color-primary;
     color: $color-white;
-    transition: .2s;
+    transition: .3s ease-in-out;
+    box-shadow: $shadow-normal-green;
     &:hover {
-        border: 1px solid $color-primary;
-        background-color: $color-background;
-        color: $color-black-60;
+        background-color: $color-primary-60;
+        box-shadow: $shadow-large-green;
     }
 }
 .button__secondary {
     border: 1px solid $color-primary;
     background-color: $color-background;
     color: $color-black-60;
-    transition: .2s;
+    transition: .3s ease-in-out;
     &:hover {
-        background-color: $color-primary;
-        color: $color-white;
+        background-color: $color-primary-30;
+        color: $color-black-30;
+        box-shadow: $shadow-normal-green;
     }
 }

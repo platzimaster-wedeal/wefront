@@ -18,12 +18,20 @@ const buttonSize = (width, height, fontSize, closeBtn) => {
  };
 };
 
-const SmallButtonCA = ({ icon, width, height, fontSize, closeBtn }) => {
+const SmallButtonCA = ({
+ icon,
+ width,
+ height,
+ fontSize,
+ closeBtn,
+ onClick,
+}) => {
  const MdIcon = icon;
  return (
   <button
    className="button-actionCA"
-   style={buttonSize(width, height, fontSize, closeBtn)}>
+   style={buttonSize(width, height, fontSize, closeBtn)}
+   onClick={onClick}>
    <MdIcon />
   </button>
  );

@@ -1,0 +1,46 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.profile-header {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+
+  &__description {
+    margin-top: $space-size-extra-small - 6;
+    @include font-size($font-size-small);
+    color: $color-black-90;
+
+    @include media(tablet) {
+      @include font-size($font-size-normal);
+    }
+  }
+
+  &__profession {
+     @include font-size($font-size-normal);
+    color: $color-black-60;
+
+    @include media(tablet) {
+      @include font-size($font-size-medium);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    
+    & button {
+      box-sizing: border-box;
+      margin: $space-size-small;
+    }
+  }
+  
+}

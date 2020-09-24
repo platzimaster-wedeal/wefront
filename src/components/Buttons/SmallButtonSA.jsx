@@ -9,12 +9,13 @@ const buttonSize = (width, height, fontSize) => {
  };
 };
 
-const SmallButtonSA = ({ icon, width, height, fontSize }) => {
+const SmallButtonSA = ({ icon, width, height, fontSize, onClick }) => {
  const MdIcon = icon;
  return (
   <button
    className="button-actionSA"
-   style={buttonSize(width, height, fontSize)}>
+   style={buttonSize(width, height, fontSize)}
+   onClick={onClick}>
    <MdIcon />
   </button>
  );
