@@ -71,7 +71,9 @@ exports[`Test for the component ProfileHeader :D Visual tests for the component 
       <button
         className="button button__primary"
       >
-         Edit 
+         
+        Edit
+         
       </button>
        
     </div>
