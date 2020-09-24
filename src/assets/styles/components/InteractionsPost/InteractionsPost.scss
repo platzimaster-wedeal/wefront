@@ -34,7 +34,7 @@
   @include font-size(30px);
 
   @include media(tablet) {
-    @include font-size(42px); 
+    @include font-size(30px); 
   }
  }
 }
