@@ -1,0 +1,22 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.post-problem-description {
+  width: 100%;
+  height: auto;
+
+  & strong {
+    @include font-size($font-size-normal);
+    font-weight: 500;
+    color: $color-black-60;
+  }
+
+  & p {
+    @include font-size($font-size-small);
+
+    @include media(tablet) {
+      @include font-size($font-size-normal);
+    }
+  }
+}
