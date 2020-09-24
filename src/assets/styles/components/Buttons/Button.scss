@@ -3,10 +3,7 @@
 @import '../../FontSize.scss';
 
 .button {
-    height: 60px;
-    width: 300px;
     border-radius: 30px;
-    @include font-size(30px)
 }
 
 .button__primary {
