@@ -69,6 +69,7 @@
       @include font-size($font-size-small);
       color: $color-black-60;
       letter-spacing: .6px;
+      padding: 6px 0;
 
       @include media(tablet) {
         display: inline-block;
