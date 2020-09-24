@@ -5,7 +5,7 @@ import { MdShare } from "react-icons/md";
 import { MdInsertComment } from "react-icons/md";
 import "../../assets/styles/components/InteractionsPost/InteractionsPost.scss";
 
-const InteractionsPost = ({ favs, shares, comments }) => {
+const PostInteractions = ({ favs, shares, comments }) => {
  const [activeFavs, setActiveFavs] = useState(false);
  const [activeShare, setActiveShare] = useState(false);
  const [activeComments, setActiveComments] = useState(false);
@@ -62,4 +62,4 @@ const InteractionsPost = ({ favs, shares, comments }) => {
  );
 };
 
-export default InteractionsPost;
+export default PostInteractions;
