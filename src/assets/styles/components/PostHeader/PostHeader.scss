@@ -1,0 +1,85 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../Breakpoints.scss';
+
+.post-header {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+  padding: $space-size-extra-small 0;
+
+  &__picture {
+    margin: 0 $space-size-normal; 
+  }
+
+  & .image {
+    width: 42px;
+    height: 42px;
+
+    @include media(tablet) {
+      width: 70px;
+      height: 70px;
+
+    }
+  }
+
+  &__user-info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    width: 70%;
+
+    &--main {
+      display: flex;
+      flex-flow: column nowrap;
+      margin-bottom: 2px;
+
+      @include media(tablet) {      
+        flex-flow: row nowrap;
+      }
+
+      & span {
+        padding-top: $space-size-extra-small;
+
+        @include media(tablet){
+          padding: 0;
+        }
+      }
+    }
+
+    
+
+    h3 {
+      color: $color-primary;
+      @include font-size($font-size-normal);
+
+      @include media(tablet) {
+        @include font-size($font-size-big);
+      }
+    }
+
+    strong {
+      display: none;
+      font-family: 'WorkSansExtraLight';
+      font-style: italic;
+      @include font-size($font-size-small);
+      color: $color-black-60;
+      letter-spacing: .6px;
+
+      @include media(tablet) {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__time {
+    @include font-size($font-size-small);
+    @include media(tablet) {
+      @include font-size($font-size-normal);
+    }
+  }
+}
