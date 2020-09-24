@@ -1,0 +1,24 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.post-problem {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: auto;
+  border-top: 1px solid $color-black-30;
+  border-bottom: 1px solid $color-black-30;
+  padding: $space-size-normal 0;
+  margin: $space-size-normal 0;
+  
+  &__content {
+    padding: 0 $space-size-normal;
+  }
+
+  &__actions {
+    padding: $space-size-small 0;
+  }
+
+}
