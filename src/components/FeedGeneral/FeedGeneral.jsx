@@ -5,6 +5,7 @@ import "../../assets/styles/components/FeedGeneral/FeedGeneral.scss";
 
 // Component
 import PostDefineType from "../PostDefineType/PostDefineType";
+import PostProblemDetail from "../PostProblemDetail/PostProblemDetail";
 
 const FeedGeneral = ({ page = "/", isConfigure }) => {
  const [isDetail, setIsDetail] = useState(false);
@@ -46,7 +47,7 @@ const FeedGeneral = ({ page = "/", isConfigure }) => {
     data.map((post, id) => (
      <PostDefineType key={id} data={post} onClick={handleDetailProblem} />
     ))}
-   {isDetail && "Detail Component :D"}
+   {isDetail && <PostProblemDetail />}
   </section>
  );
 };
