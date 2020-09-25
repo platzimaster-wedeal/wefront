@@ -1,0 +1,38 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/fonts.scss';
+@import '../../Breakpoints.scss';
+
+.graphic-data { 
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  strong {
+    color: $color-black-30;
+    font-family: $font-secondary;
+    padding: 0 $space-size-extra-small;
+    @include font-size($font-size-small);
+
+    @include media(tablet) {
+      @include font-size($font-size-normal);
+    }
+  }
+
+  &--active {   
+    svg {
+      fill: $color-primary !important;
+    } 
+  }
+
+  svg {
+    fill: $color-black-30;
+
+    @include media(tablet) {
+      size: 30px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

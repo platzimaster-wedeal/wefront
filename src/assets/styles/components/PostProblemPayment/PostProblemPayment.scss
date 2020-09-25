@@ -1,0 +1,50 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/fonts.scss';
+@import '../../Breakpoints.scss';
+
+.post-problem-payment {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+
+  & label {
+    font-family: $font-secondary-medium;
+    font-weight: 800;
+    color: $color-black-90;
+    padding: $space-size-small 0;
+    @include font-size($font-size-normal);
+
+    @include media(tablet) {
+      @include font-size($font-size-medium);
+    }
+  }
+
+  &__action-price {
+    @include font-size($font-size-normal);
+
+    & span {
+      color: $color-primary;
+      font-family: $font-secondary-medium;
+    }
+  }
+
+  &__range-price {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: $space-size-extra-small $space-size-normal;
+    & small {
+      @include font-size($font-size-small);
+
+      @include media(tablet) {
+        @include font-size($font-size-normal);
+      }
+    } 
+  }
+
+  & button {
+    margin-right: $space-size-normal;
+  }
+}

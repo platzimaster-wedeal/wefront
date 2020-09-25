@@ -1,0 +1,40 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.worker-information {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: $space-size-big 0;
+  border-top: 1px solid $color-black-30;
+  border-bottom: 1px solid $color-black-30;
+
+  &__title {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: $space-size-normal;
+    border-bottom: 3px solid $color-primary; 
+
+    h3 {
+      @include font-size($font-size-normal);
+      color: $color-primary;
+
+      @include media(tablet) {
+        @include font-size($font-size-big);
+      }
+    }
+
+    strong {
+      @include font-size($font-size-small - 3);
+      text-decoration: underline;
+      cursor: pointer;
+
+      @include media(tablet) {
+        @include font-size($font-size-small);
+      }
+    }
+  }
+}
