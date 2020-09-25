@@ -280,7 +280,7 @@ exports[`Test for the component PostProblemDetail :D Visual tests for the compon
     className="post-problem-detail__actions"
   >
     <button
-      className="button button__primary"
+      className="button button__primary undefined"
     >
       Apply!
     </button>
