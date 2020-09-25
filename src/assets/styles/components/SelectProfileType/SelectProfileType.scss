@@ -1,0 +1,108 @@
+@import '../../partials/colors.scss';
+@import '../../partials/fonts.scss';
+@import '../../partials/shadows.scss';
+@import '../../FontSize.scss';
+@import '../../partials/sizes.scss';
+@import '../../Breakpoints.scss';
+
+.cardSelect {
+    width: 470px;
+    height: 250px;
+    box-shadow: $shadow-normal;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    &__title {
+        border-bottom: 2px solid $color-primary;
+        width: 420px;
+        height: 30px;
+    }
+    &__title p{
+        color: $color-primary;
+        font-family: $font-primary;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 0px;
+        text-align: center;
+        letter-spacing: 0.03em;
+    }
+    .cardSelect__form {
+        width: inherit;
+        display: flex;
+        height: 150px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: -40px;
+        .cardSelect__form--select {
+            display: flex;
+            flex-direction: column;
+             label {
+                font-family: $font-secondary;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 147.1%;
+                letter-spacing: 0.02em;
+            }
+            select {
+                width: 200px;
+                border-radius: 8px;
+                color: $color-primary;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 147.1%;
+                letter-spacing: 0.02em;
+                margin-top: 5px;
+
+            }
+        }
+        .cardSelect__form--buttons {
+            width: inherit;
+            display: inherit;
+            justify-content: center;
+            button {
+                margin-left: 20px;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 147.1%;
+                letter-spacing: 0.02em;
+            }
+        }
+    }
+    @include media(tablet) {
+        width: 620px;
+        height: 384px;
+        &__title {
+            width: 530px;
+            height: 30px;
+        }
+        &__title p {
+        font-size: 35px;
+        
+        }
+        .cardSelect__form {
+            height: 188px;
+            margin-top: -100px;
+            .cardSelect__form--select {
+                label {
+                    font-size: 25px;
+                }
+                select {
+                    width: 280px;
+                }
+            }
+        }
+        .cardSelect__form--buttons  {
+            button {
+                width: 230px;
+                height: 35px;
+            }
+        }
+    }
+}
