@@ -1,0 +1,48 @@
+@import '../../partials/colors.scss';
+@import '../../partials/fonts.scss';
+@import '../../partials/shadows.scss';
+@import '../../partials/sizes.scss';
+@import '../../partials/spacing.scss';
+@import '../../partials/text.scss';
+
+.profileCard {
+    border-top: 2px solid $color-black-30;
+    border-bottom: 2px solid $color-black-30;
+    width: 560px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    .personHovered {
+        position: absolute;
+        right: 500px;
+        top: 30px;
+        z-index: 3;
+    }
+
+    &__image {
+        margin: 0 20px 0 20px;
+        width: 90px;
+        height: 90px;
+    }
+    &__container {
+        .profileCard__container--title {
+            font-family: $font-secondary;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 50px;
+            line-height: 49px;
+            letter-spacing: 0.03em;
+            color: $color-black-60;
+        }
+        .profileCard__container--subtitle {
+            font-style: italic;
+            font-weight: 200;
+            font-size: 30px;
+            line-height: 35px;
+            letter-spacing: 0.03em;
+            color: $color-black-60;
+        }
+    }
+    
+}

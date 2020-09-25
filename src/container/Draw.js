@@ -18,6 +18,7 @@ import Location from "../components/GraphicData/Location";
 import Followers from "../components/GraphicData/Followers";
 import PersonCard from "../components/PersonCard/PersonCard";
 import StrategyCard from "../components/StrategyCard/StrageyCard";
+import ProfileSmallCard from "../components/ProfileSmallCard/ProfileSmallCard";
 import "../assets/styles/components/Draw/Draw.scss";
 
 const Draw = () => {
@@ -73,6 +74,84 @@ const Draw = () => {
      subtitle="FullStack Develop">
      Hi I'm Julio Denis
     </PersonCard>
+    <br />
+    <ProfileSmallCard
+     subtitle="FullStack Developer"
+     title="Julio Denis"
+     altImage="Julio Smiling"
+     imageSource={julioPhoto}>
+     {(hovered) =>
+      hovered ? (
+       <PersonCard
+        className="personCard"
+        imgSource={julioPhoto}
+        title="Julio Denis"
+        subtitle="FullStack Develop">
+        Hi I'm Julio Denis
+       </PersonCard>
+      ) : (
+       false
+      )
+     }
+    </ProfileSmallCard>
+    <ProfileSmallCard
+     subtitle="FullStack Developer"
+     title="Julio Denis"
+     altImage="Julio Smiling"
+     imageSource={julioPhoto}>
+     {(hovered) =>
+      hovered ? (
+       <PersonCard
+        className="personCard"
+        imgSource={julioPhoto}
+        title="Julio Denis"
+        subtitle="FullStack Develop">
+        Hi I'm Julio Denis
+       </PersonCard>
+      ) : (
+       false
+      )
+     }
+    </ProfileSmallCard>
+    <ProfileSmallCard
+     subtitle="FullStack Developer"
+     title="Julio Denis"
+     altImage="Julio Smiling"
+     imageSource={julioPhoto}>
+     {(hovered) =>
+      hovered ? (
+       <PersonCard
+        className="personCard"
+        imgSource={julioPhoto}
+        title="Julio Denis"
+        subtitle="FullStack Develop">
+        Hi I'm Julio Denis
+       </PersonCard>
+      ) : (
+       false
+      )
+     }
+    </ProfileSmallCard>
+    <ProfileSmallCard
+     subtitle="FullStack Developer"
+     title="Julio Denis"
+     altImage="Julio Smiling"
+     imageSource={julioPhoto}>
+     {(hovered) =>
+      hovered ? (
+       <PersonCard
+        className="personCard"
+        imgSource={julioPhoto}
+        title="Julio Denis"
+        subtitle="FullStack Develop"
+        hovered={hovered}>
+        Hi I'm Julio Denis
+       </PersonCard>
+      ) : (
+       false
+      )
+     }
+    </ProfileSmallCard>
    </div>
    <div className="andres__components__test container__test">
     <Label name="Enginner" active />

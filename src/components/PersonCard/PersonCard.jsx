@@ -11,9 +11,14 @@ const PersonCard = ({
  children,
  starsNumber,
  active = false,
+ className,
+ hovered,
 }) => {
  return (
-  <div className="card">
+  <div
+   className={`card ${className} ${
+    hovered ? "personHovered" : "personHovered"
+   }`}>
    <div className="card__profile">
     <ProfilePicture
      className="card__profile--img"
