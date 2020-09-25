@@ -32,7 +32,8 @@
         "import/prefer-default-export": "off",
         "react/jsx-fragment": "off",
         "no-unused-vars": ["error", { "vars": "all","varsIgnorePattern": "Fragment", "args": "none", "ignoreRestSiblings": true }],
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}]
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
+        "react/no-unescaped-entities": "off"
         
     },
     "parser": "babel-eslint"

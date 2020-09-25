@@ -1,5 +1,6 @@
 @import '../../partials/colors.scss';
 @import '../../partials/shadows.scss';
+@import "../../breakpoints.scss";
 
 .button-actionCA {
     background-color: $color-background;
@@ -9,4 +10,17 @@
     align-items: center;
     color: $color-primary;
     box-shadow: $shadow-normal;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    @include media(mobile-l) {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+    @include media(tablet) {
+        width: 60px;
+        height: 60px;
+        font-size: 40px;
+    }
 }

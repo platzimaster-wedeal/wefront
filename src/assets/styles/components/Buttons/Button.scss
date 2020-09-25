@@ -6,17 +6,7 @@
 @import '../../Breakpoints.scss';
 
 .button {
-    height: 42px;
-    width: 150px;
     border-radius: 30px;
-    cursor: pointer;
-    box-shadow: $shadow-extra-small;
-    @include font-size($font-size-normal);
-
-    @include media(tablet) {
-        height: 42px;
-        width: 180px;
-    }
 }
 
 .button__primary {

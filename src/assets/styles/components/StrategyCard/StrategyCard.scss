@@ -45,7 +45,7 @@
         .strategy__container--btn {
             width: 40px;
             height: 40px;
-            font-size: 40px;
+            font-size: 20px;
             margin-left: 10px;
         }
     }
@@ -68,25 +68,22 @@
                 height: 45px;
                 width: 380px;
                 font-weight: 200;
-                font-size: 25px;
+                font-size: 35px;
                 padding-left: 35px;
             }
         }
         .strategy__container--btn {
             width: 70px;
             height: 70px;
-            font-size: 55px;
+            font-size: 45px;
             position: absolute;
             top: 20px;
             right: 45px;
             z-index: 1;
         }
     }
-    @include media(mobile-l) {
-        .strategy__container--btn {
-            margin-bottom: 5px;
-        }
-    }
+    
+    
     
     
 }

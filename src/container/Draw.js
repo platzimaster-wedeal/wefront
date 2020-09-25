@@ -7,6 +7,7 @@ import {
  MdCheck,
 } from "react-icons/md";
 import SmallButtonCA from "../components/Buttons/SmallButtonCA";
+import ButtonAction from "../components/Buttons/ButtonAction";
 import SmallButtonSA from "../components/Buttons/SmallButtonSA";
 import Button from "../components/Buttons/Button";
 import Label from "../components/Labels/Labels";
@@ -15,7 +16,7 @@ import julioPhoto from "../assets/static/img/julio.jpg";
 import Requirements from "../components/Requirements/Requirements";
 import Location from "../components/GraphicData/Location";
 import Followers from "../components/GraphicData/Followers";
-
+import PersonCard from "../components/PersonCard/PersonCard";
 import StrategyCard from "../components/StrategyCard/StrageyCard";
 import "../assets/styles/components/Draw/Draw.scss";
 
@@ -23,6 +24,7 @@ const Draw = () => {
  return (
   <>
    <div className="julio__components__test container__test">
+    <ButtonAction icon={MdModeEdit} />
     <SmallButtonCA
      icon={MdCameraAlt}
      width="100px"
@@ -63,6 +65,14 @@ const Draw = () => {
      title="Do you agree the deal of Alan?"
     />{" "}
     <br />
+   </div>
+   <div className="julio__components__test container__test">
+    <PersonCard
+     imgSource={julioPhoto}
+     title="Julio Denis"
+     subtitle="FullStack Develop">
+     Hi I'm Julio Denis
+    </PersonCard>
    </div>
    <div className="andres__components__test container__test">
     <Label name="Enginner" active />

@@ -9,7 +9,11 @@ const ProfilePicture = ({ source, alt, active, className }) => {
    alt={alt}
   />
  ) : (
-  <img className="image image__isOffline" src={source} alt={alt} />
+  <img
+   className={`image image__isOffline ${className}`}
+   src={source}
+   alt={alt}
+  />
  );
 };
 

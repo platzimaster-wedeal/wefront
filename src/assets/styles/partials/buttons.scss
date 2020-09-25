@@ -1,0 +1,15 @@
+button {
+    height: 40px;
+    width: 150px;
+    font-family: $font-secondary;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 147.1%;
+    letter-spacing: 0.02em;
+
+    @include media(tablet) {
+        height: 60px;
+        width: 300px;
+      }
+}
