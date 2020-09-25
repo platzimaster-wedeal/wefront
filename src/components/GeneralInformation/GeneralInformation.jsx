@@ -8,8 +8,7 @@ import SmallButtonSA from "../Buttons/SmallButtonSA";
 import "../../assets/styles/components/GeneralInformation/GeneralInformation.scss";
 
 const GeneralInformation = ({ name, followers, location, auth = false }) => {
-
-  const handleEditInfo = () => alert('Voy a editar')
+ const handleEditInfo = () => alert("Voy a editar");
 
  return (
   <div className="GeneralInformation__container">
@@ -40,7 +39,7 @@ const GeneralInformation = ({ name, followers, location, auth = false }) => {
    </div>
    <div className="GeneralInformation__item">
     <figure>
-    {auth ? (
+     {auth ? (
       <SmallButtonSA
        icon={MdModeEdit}
        width="20px"
