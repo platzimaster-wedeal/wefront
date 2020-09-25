@@ -1,11 +1,13 @@
 @import '../../partials/sizes.scss';
 @import '../../partials/colors.scss';
+@import '../../partials/fonts.scss';
 @import '../../Breakpoints.scss';
 
 .post-problem-previsualization {
   position: relative;
   width: 100%;
   height: auto;
+  margin: $space-size-small 0;
 
   &__info {
     display: flex;
@@ -24,17 +26,19 @@
 
     strong {
       color: $color-black-90;
+      font-family: $font-secondary;
       padding: 0 $space-size-small;
+      font-weight: 500px;
       @include font-size($font-size-small);
     }
   }
 
   &__description {
     padding: $space-size-small 0; 
-    @include font-size($font-size-normal);
+    @include font-size($font-size-small);
 
     @include media(tablet) {
-      @include font-size($font-size-medium);
+      @include font-size($font-size-normal);
     }
   }
 }

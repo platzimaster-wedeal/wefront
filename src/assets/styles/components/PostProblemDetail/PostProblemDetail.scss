@@ -1,0 +1,23 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.post-problem-detail {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  padding: $space-size-big;
+
+  &__actions {
+    display: flex;
+    flex-flow: row nowrap;
+    width: auto;
+    height: auto;
+    padding: $space-size-normal 0;
+  }
+
+}
