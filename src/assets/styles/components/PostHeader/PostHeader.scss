@@ -58,7 +58,7 @@
       @include font-size($font-size-normal);
 
       @include media(tablet) {
-        @include font-size($font-size-big);
+        @include font-size($font-size-medium + 3);
       }
     }
 

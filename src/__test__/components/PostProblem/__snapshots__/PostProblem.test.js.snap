@@ -11,7 +11,7 @@ exports[`Test for the component PostProblem :D Visual tests for the component sh
       className="post-header__picture"
     >
       <img
-        className="image image__isOnline"
+        className="image image__isOnline undefined"
         src={Object {}}
       />
     </figure>
