@@ -13,12 +13,15 @@ import Button from "../components/Buttons/Button";
 import Label from "../components/Labels/Labels";
 import ProfilePicture from "../components/ProfilePictures/ProfilePicture";
 import julioPhoto from "../assets/static/img/julio.jpg";
+import user from "../assets/static/img/users/user.jpg";
+import visitor from "../assets/static/img/users/visitor.jpg";
 import Requirements from "../components/Requirements/Requirements";
 import Location from "../components/GraphicData/Location";
 import Followers from "../components/GraphicData/Followers";
 import PersonCard from "../components/PersonCard/PersonCard";
 import StrategyCard from "../components/StrategyCard/StrageyCard";
 import ProfileSmallCard from "../components/ProfileSmallCard/ProfileSmallCard";
+import SelectProfileType from "../components/SelectProfileType/SelectProfileType";
 import "../assets/styles/components/Draw/Draw.scss";
 
 const Draw = () => {
@@ -42,12 +45,12 @@ const Draw = () => {
     <Button active>Make Deal!</Button>
     <Button>Make Deal!</Button>
     <ProfilePicture source={julioPhoto} alt="Julio Picture" active />
-    <ProfilePicture source={julioPhoto} alt="Julio Picture" />
+    <ProfilePicture source={user} alt="Julio Picture" />
    </div>
    <div className="julio__components__test container__test">
     <StrategyCard
      icon={MdAdd}
-     imgSource={julioPhoto}
+     imgSource={user}
      placeholder="What is your deal?"
      title="Do you want to make a deal with Alan?"
     />{" "}
@@ -61,7 +64,7 @@ const Draw = () => {
     <br />
     <StrategyCard
      icon={MdCheck}
-     imgSource={julioPhoto}
+     imgSource={user}
      placeholder="What is your deal?"
      title="Do you agree the deal of Alan?"
     />{" "}
@@ -79,12 +82,12 @@ const Draw = () => {
      subtitle="FullStack Developer"
      title="Julio Denis"
      altImage="Julio Smiling"
-     imageSource={julioPhoto}>
+     imageSource={user}>
      {(hovered) =>
       hovered ? (
        <PersonCard
         className="personCard"
-        imgSource={julioPhoto}
+        imgSource={user}
         title="Julio Denis"
         subtitle="FullStack Develop">
         Hi I'm Julio Denis
@@ -115,34 +118,16 @@ const Draw = () => {
     </ProfileSmallCard>
     <ProfileSmallCard
      subtitle="FullStack Developer"
-     title="Julio Denis"
+     title="Person 1"
      altImage="Julio Smiling"
-     imageSource={julioPhoto}>
+     imageSource={visitor}
+     active>
      {(hovered) =>
       hovered ? (
        <PersonCard
         className="personCard"
-        imgSource={julioPhoto}
-        title="Julio Denis"
-        subtitle="FullStack Develop">
-        Hi I'm Julio Denis
-       </PersonCard>
-      ) : (
-       false
-      )
-     }
-    </ProfileSmallCard>
-    <ProfileSmallCard
-     subtitle="FullStack Developer"
-     title="Julio Denis"
-     altImage="Julio Smiling"
-     imageSource={julioPhoto}>
-     {(hovered) =>
-      hovered ? (
-       <PersonCard
-        className="personCard"
-        imgSource={julioPhoto}
-        title="Julio Denis"
+        imgSource={visitor}
+        title="Person 1"
         subtitle="FullStack Develop"
         hovered={hovered}>
         Hi I'm Julio Denis
@@ -152,6 +137,9 @@ const Draw = () => {
       )
      }
     </ProfileSmallCard>
+   </div>
+   <div className="julio__components__test container__test">
+    <SelectProfileType />
    </div>
    <div className="andres__components__test container__test">
     <Label name="Enginner" active />
