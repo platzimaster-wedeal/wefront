@@ -24,6 +24,7 @@ import ProfileSmallCard from "../components/ProfileSmallCard/ProfileSmallCard";
 import SelectProfileType from "../components/SelectProfileType/SelectProfileType";
 import "../assets/styles/components/Draw/Draw.scss";
 
+
 const Draw = () => {
  return (
   <>

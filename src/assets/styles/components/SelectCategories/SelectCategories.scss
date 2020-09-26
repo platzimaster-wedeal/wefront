@@ -1,0 +1,70 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.select-categories {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+
+   &__title {
+    @include font-size($font-size-normal);
+    font-weight: 500;
+    color: $color-black-90;
+    padding: $space-size-extra-small 0;
+  }
+
+  &__select-list {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow-y: scroll;
+
+    & li {
+      margin: $space-size-small $space-size-small $space-size-small 0;
+      cursor: pointer;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow-y: scroll;
+
+    & li {
+      position: relative;
+      margin: $space-size-small $space-size-small $space-size-small 0;
+      cursor: pointer;
+    }
+
+    &--close {
+      &::before{
+        content: 'X';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 21px;
+        height: 21px;
+        background-color: $color-background;
+        border: 1px solid $color-primary;
+        border-radius: 50%;
+        opacity: 0;
+        right: -6%;
+        top: -12%;  
+        transition: .3s ease-in-out;
+        box-shadow: $shadow-normal;
+      }
+    }
+
+    &--close:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+  }
+}

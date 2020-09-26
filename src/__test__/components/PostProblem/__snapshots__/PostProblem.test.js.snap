@@ -152,7 +152,7 @@ exports[`Test for the component PostProblem :D Visual tests for the component sh
       className="post-problem__actions"
     >
       <button
-        className="button button__primary"
+        className="button button__primary undefined"
       >
         See More!
       </button>
