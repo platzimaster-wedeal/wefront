@@ -8,7 +8,7 @@ exports[`Test for the component PostHeader :D Visual tests for the component sho
     className="post-header__picture"
   >
     <img
-      className="image image__isOnline"
+      className="image image__isOnline undefined"
       src={Object {}}
     />
   </figure>

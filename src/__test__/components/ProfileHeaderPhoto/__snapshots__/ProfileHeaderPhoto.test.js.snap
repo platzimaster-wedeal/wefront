@@ -13,14 +13,7 @@ exports[`Test for the component ProfileHeader :D Visual tests for the component 
       src={Object {}}
     />
     <button
-      className="button-actionSA"
-      style={
-        Object {
-          "fontSize": "70px",
-          "height": "30px",
-          "width": "30px",
-        }
-      }
+      className="button-actionSA undefined"
     >
       <svg
         fill="currentColor"

@@ -12,7 +12,7 @@ const ProblemPrevisualization = ({ state = true, IdProblem = "#15131" }) => {
      ? "problemPrevisualization__state--true"
      : "problemPrevisualization__state--false"
    }`}>
-   <MdCheckCircle size="30" />
+   <MdCheckCircle size="24" />
    <a href="#" className="link">
     {IdProblem}
    </a>

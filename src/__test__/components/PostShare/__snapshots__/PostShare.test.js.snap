@@ -11,7 +11,7 @@ exports[`Test for the component PostShare :D Visual tests for the component shou
       className="post-header__picture"
     >
       <img
-        className="image image__isOnline"
+        className="image image__isOnline undefined"
         src={Object {}}
       />
     </figure>
@@ -30,9 +30,7 @@ exports[`Test for the component PostShare :D Visual tests for the component shou
       </div>
       <strong
         className="post-header__user-info--profession"
-      >
-        Engineer
-      </strong>
+      />
     </div>
     <small
       className="post-header__time"
