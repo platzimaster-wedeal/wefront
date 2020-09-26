@@ -1,5 +1,5 @@
 import React from "react";
-import { MdCheckCircle, MdErrorOutline } from "react-icons/md";
+import { MeCheck, MdErrorOutline } from "react-icons/md";
 
 import "../../assets/styles/components/ProblemStatus/ProblemStatus.scss";
 
@@ -11,12 +11,12 @@ const ProblemStatus = ({ status = true }) => {
    }`}>
    {status === true ? (
     <>
-     <MdCheckCircle size="30" />
+     <MeCheck size="24" />
      <small>Solved</small>
     </>
    ) : (
     <>
-     <MdErrorOutline size="30" />
+     <MdErrorOutline size="24" />
      <small>Solving</small>
     </>
    )}
