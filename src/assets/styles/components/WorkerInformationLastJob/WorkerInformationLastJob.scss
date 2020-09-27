@@ -1,0 +1,39 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../partials/fonts.scss';
+@import '../../FontSize.scss';
+@import '../../Breakpoints.scss';
+
+.worker-information-last-job {
+  position: relative;
+  max-width: 320px;
+  width: auto;
+  padding: $space-size-big;
+
+  @include media(tablet){
+    max-width: 50%;
+  }
+  
+  &__title {
+    margin: $space-size-extra-small 0;
+    font-weight: 400;
+    @include font-size($font-size-normal);
+
+    @include media(tablet) {
+      @include font-size($font-size-medium);
+    }
+  }
+
+  &__list li{
+    
+    @include font-size($font-size-small);
+
+    @include media(tablet) {
+      @include font-size($font-size-normal);
+    }  
+
+    & svg {
+      fill: $color-primary;
+    }
+  }
+}
