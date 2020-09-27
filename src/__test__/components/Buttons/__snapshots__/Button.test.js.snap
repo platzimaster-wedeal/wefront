@@ -1,7 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<ButtonAction/> ButtonAction snapshot 1`] = `
+<button
+  className="button-action undefined"
+>
+  <svg
+    fill="currentColor"
+    height="1em"
+    stroke="currentColor"
+    strokeWidth="0"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+    viewBox="0 0 24 24"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+    />
+  </svg>
+</button>
+`;
+
 exports[`Button Snapshot Comprobar la UI del componente Button 1`] = `
 <button
-  className="button button__secondary"
+  className="button button__secondary undefined"
 />
 `;
