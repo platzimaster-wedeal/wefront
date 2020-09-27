@@ -19,6 +19,7 @@ const ShareAndApplyContainer = ({
     <h2 className="container__img-profile--name">{profileName}</h2>
     <p className="container__img-profile--subtitle">{subtitle}</p>
    </div>
+   {children}
   </div>
  );
 };
