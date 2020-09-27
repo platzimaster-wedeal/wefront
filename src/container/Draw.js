@@ -91,7 +91,8 @@ const Draw = () => {
 
    <div className="container__test">
     <ShareAndApplyContainer
-     title="Create Your Share!"
+     title="Create Your Sharess!"
+     subtitle="Want to solve a problem"
      profileName="Julio Denis"
      profileImg={julioPhoto}
     />

@@ -3,6 +3,7 @@ import "../../assets/styles/layouts/ShareAndApplyContainer/ShareAndApplyContaine
 
 const ShareAndApplyContainer = ({
  title,
+ subtitle,
  profileImg,
  profileName,
  children,
@@ -16,7 +17,7 @@ const ShareAndApplyContainer = ({
      <img src={profileImg} alt={profileImg} />
     </figure>
     <h2 className="container__img-profile--name">{profileName}</h2>
-    <p className="container__img-profile--subtitle">Will Share</p>
+    <p className="container__img-profile--subtitle">{subtitle}</p>
    </div>
   </div>
  );
