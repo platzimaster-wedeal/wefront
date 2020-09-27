@@ -1,0 +1,67 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../FontSize.scss";
+@import "../../partials/text.scss";
+@import "../../partials/sizes.scss";
+
+.general__container {
+ width: 800px;
+ max-width: 800px;
+ background: #ffffff;
+ box-shadow: 0px 1px 21px 3px rgba(23, 23, 40, 0.09);
+ border-radius: 30px;
+ padding: 49px 54px;
+}
+
+.general__container--title {
+ font-weight: 500;
+ font-style: normal;
+ @include font-size($font-size-big);
+ color: $color-primary;
+ height: fit-content;
+ text-align: center;
+}
+
+.general__container--divider {
+ width: 100%;
+ border: 2px solid $color-primary;
+ border-radius: 3px;
+ margin: 0 0 41px 0;
+}
+
+.general__container--img-title {
+ display: flex;
+ align-items: center;
+}
+
+.general__container--img-profile {
+ width: 66px;
+ max-width: 66px;
+ height: 66px;
+ margin: 0;
+ margin-right: 32px;
+ padding: 0;
+
+ img {
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid $color-primary;
+ }
+}
+
+.container__img-profile--name {
+ color: $color-black-90;
+ @include font-size($font-size-large);
+}
+
+.container__img-profile--subtitle {
+ align-self: flex-end;
+ margin-bottom: 10px;
+ margin-left: 10px;
+ color: $color-black-60;
+ font-weight: 300;
+ font-style: normal;
+ @include font-size($font-size-medium);
+}
