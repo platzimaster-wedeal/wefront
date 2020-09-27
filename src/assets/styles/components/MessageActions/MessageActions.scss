@@ -1,0 +1,13 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../Breakpoints.scss';
+
+.message-actions {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: $space-size-small 0;
+
+  &__fav {
+    margin-right: $space-size-normal;
+  }
+}

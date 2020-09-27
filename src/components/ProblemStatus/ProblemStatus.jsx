@@ -1,25 +1,31 @@
 import React from "react";
-import { MdCheckCircle, MdErrorOutline } from "react-icons/md";
+import { MdCheck, MdErrorOutline } from "react-icons/md";
 
 import "../../assets/styles/components/ProblemStatus/ProblemStatus.scss";
 
-const ProblemStatus = ({ status = true }) => {
+const ProblemStatus = ({ status }) => {
+ const defineRender = (isSolving) => {
+  if (isSolving != false) {
+   return (
+    <>
+     <MdErrorOutline size="24" />
+     <small>Solving</small>
+    </>
+   );
+  } else if (isSolving != true) {
+   <>
+    <MdCheck size="24" />
+    <small>Solved</small>
+   </>;
+  }
+ };
+
  return (
   <div
    className={`problem-status ${
-    status ? "problem-status__state--true" : "problem-status__state--true"
+    status ? "problem-status__state--false" : "problem-status__state--true"
    }`}>
-   {status === true ? (
-    <>
-     <MdCheckCircle size="30" />
-     <small>Solved</small>
-    </>
-   ) : (
-    <>
-     <MdErrorOutline size="30" />
-     <small>Solving</small>
-    </>
-   )}
+   {defineRender(status)}
   </div>
  );
 };

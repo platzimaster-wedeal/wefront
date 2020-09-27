@@ -1,0 +1,68 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../FontSize.scss";
+@import "../../partials/text.scss";
+@import "../../partials/sizes.scss";
+
+.ProfileProblems__container {
+ width: fit-content;
+ max-width: 800px;
+ background: #ffffff;
+ box-shadow: 0px 1px 18px 3px rgba(23, 23, 40, 0.06);
+ border-radius: 30px;
+ padding: 47px 31px;
+ position: relative;
+
+ .ProfileProblems__icon--add {
+  position: absolute;
+  right: 31px;
+  bottom: 45px;
+  margin: 0;
+  padding: 0;
+  size: 100px;
+  cursor: pointer;
+ }
+}
+
+.ProfileProblems__title {
+ @include font-size($font-size-large);
+ font-weight: 500;
+ line-height: 70px;
+ color: $color-primary;
+
+ @include media(mobile-2) {
+  @include font-size($font-size-normal);
+  padding-bottom: 0px;
+ }
+
+ @include media(mobile-n) {
+  @include font-size($font-size-normal + 5);
+  padding-bottom: 0px;
+ }
+
+ @include media(mobile-l) {
+  @include font-size($font-size-medium);
+ }
+
+ @include media(tablet) {
+  @include font-size($font-size-large);
+  padding-bottom: 7px;
+ }
+}
+
+hr {
+ color: $color-primary;
+ border: 3px solid $color-primary;
+ border-radius: 3px;
+ margin-bottom: 35px;
+
+ @include media(mobile-2) {
+  border: 2px solid $color-primary;
+  margin-top: -5px;
+ }
+
+ @include media(tablet) {
+  border: 3px solid $color-primary;
+  margin-top: 10px;
+ }
+}

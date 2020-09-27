@@ -4,15 +4,18 @@
 
 .post-problem-description {
   width: 100%;
+  margin: $space-size-extra-small 0;
   height: auto;
 
   & strong {
     @include font-size($font-size-normal);
     font-weight: 500;
-    color: $color-black-60;
+    color: $color-black-90;
   }
 
   & p {
+    padding: $space-size-extra-small 0;
+    line-height: $space-size-big;
     @include font-size($font-size-small);
 
     @include media(tablet) {
