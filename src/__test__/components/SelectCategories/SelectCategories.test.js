@@ -19,21 +19,11 @@ describe("Tests for SelectCategories components", () => {
     typeof SelectCategoriesMounted.find(".select-categories label").text()
    ).toEqual("string");
   });
-  test("should the title of the component be Categories", () => {
-   expect(
-    SelectCategoriesMounted.find(".select-categories label").text()
-   ).toEqual("Categories");
-  });
 
   test("should the second title of the component be a string", () => {
    expect(
     typeof SelectCategoriesMounted.find(".select-categories small").text()
    ).toEqual("string");
-  });
-  test("should the second title of the component be Selected Categories", () => {
-   expect(
-    SelectCategoriesMounted.find(".select-categories small").text()
-   ).toEqual("Selected Categories");
   });
  });
 });

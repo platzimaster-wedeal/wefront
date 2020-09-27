@@ -1,0 +1,31 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.profile-preference {
+  position: relative;
+  width: 90%;
+  padding: $space-size-normal 0;
+
+  &__title {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    & strong {
+      @include font-size($font-size-normal);
+      color: $color-black-60;
+    }
+  }
+
+  &__preference {
+    & strong {
+      font-weight: 600 !important;
+      color: $color-primary !important;
+      font-size: $font-size-small;
+
+      @include font-size($font-size-normal);
+    }
+  }
+}
