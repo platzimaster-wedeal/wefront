@@ -20,7 +20,7 @@
     @include font-size($font-size-normal);
 
     @include media(tablet) {
-      @include font-size($font-size-medium);
+      @include font-size($font-size-normal);
     }
   }
 

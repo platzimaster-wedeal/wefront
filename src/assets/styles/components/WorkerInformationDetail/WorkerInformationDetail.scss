@@ -1,0 +1,32 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../Breakpoints.scss';
+
+.worker-information-detail {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @include media(mobile-l){
+    flex-flow: row wrap;
+  }
+  
+  &__main-information {
+    position: relative;
+    width: 50%;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  
+  &__secondary-information {
+    position: relative;
+    width: 50%;
+    display: flex;
+    flex-flow: column wrap;
+  }
+}
