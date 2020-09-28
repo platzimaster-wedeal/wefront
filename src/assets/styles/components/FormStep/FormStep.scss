@@ -10,7 +10,7 @@
   width: 90%;
   border-top: 1px solid $color-black-30;
   border-bottom: 1px solid $color-black-30;
-  padding: $space-size-normal 0;
+  padding: $space-size-small 0;
   margin: $space-size-medium 0;
 
   h2 {
@@ -20,12 +20,11 @@
     @include font-size($font-size-medium);
 
     @include media(tablet){
-      @include font-size($font-size-big);
+      @include font-size($font-size-medium);
     }
   }
 
   svg {
-    color: $color-black-90;
     transition: 0.2s ease-out;
   }
 

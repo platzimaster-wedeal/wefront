@@ -12,6 +12,7 @@ import Labels from "../Labels/Labels";
 const SelectCategories = ({
  categories = ["art", "science", "magician"],
  userCategories = [],
+ title,
 }) => {
  // States
  const [currentCategories, setCurrentCategories] = useState(userCategories);
@@ -29,7 +30,7 @@ const SelectCategories = ({
  const handleFilterCategory = (ev) => {
   ev.preventDefault();
   let filterCategories = categoryOptions.filter((category) =>
-   category.includes(ev.currentTarget.value)
+   category.toLowerCase().includes(ev.currentTarget.value.toLowerCase())
   );
   setFilterCategory(filterCategories);
  };
@@ -45,7 +46,7 @@ const SelectCategories = ({
  return (
   <div className="select-categories">
    <label htmlFor="categories" className="select-categories__title">
-    Categories
+    {title || "Tile of the select"}
    </label>
    <input
     type="text"
@@ -67,7 +68,7 @@ const SelectCategories = ({
      ))}
    </ul>
 
-   <small className="select-categories__title">Selected Categories</small>
+   <small className="select-categories__title">Selected Options</small>
    <ul className="select-categories__list">
     {currentCategories && currentCategories.length > 0 ? (
      currentCategories.map((category) => (
@@ -80,7 +81,7 @@ const SelectCategories = ({
       </li>
      ))
     ) : (
-     <li>There is no categories selected.</li>
+     <li>There is no options selected.</li>
     )}
    </ul>
   </div>

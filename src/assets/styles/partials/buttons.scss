@@ -1,6 +1,6 @@
 button {
     height: 40px;
-    width: 150px;
+    width: 120px;
     font-family: $font-secondary;
     font-style: normal;
     font-weight: 500;
@@ -9,7 +9,7 @@ button {
     letter-spacing: 0.02em;
 
     @include media(tablet) {
-        height: 60px;
-        width: 300px;
+        height: 42px;
+        width: 180px;
       }
 }
