@@ -128,5 +128,129 @@ exports[`Test for the component PostShare :D Visual tests for the component shou
       <button />
     </div>
   </div>
+  <div
+    className="post-share__comments"
+  >
+    <section
+      className="post-comments"
+    >
+      <strong
+        className="post-comments__action"
+        onClick={[Function]}
+      >
+        See all comments
+      </strong>
+      <div
+        className="post-comments__messages"
+      >
+        <article
+          className="message undefined"
+        >
+          <figure
+            className="message__photo"
+          >
+            <img
+              className="image image__isOffline undefined"
+              src={Object {}}
+            />
+          </figure>
+          <div
+            className="message__content undefined"
+          >
+            <div
+              className="message__content--msg"
+            >
+              <strong>
+                Tupac Shakur
+              </strong>
+              <p>
+                Mesg
+              </p>
+            </div>
+            <div
+              className="message__content--actions"
+            >
+              <div
+                className="message-actions"
+              >
+                <div
+                  className="message-actions__fav"
+                >
+                  <div
+                    className="graphic-data undefined"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="24"
+                      size="24"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"
+                      />
+                    </svg>
+                    <strong>
+                      0 favs
+                    </strong>
+                  </div>
+                </div>
+                <div
+                  className="message-actions__reply"
+                >
+                  <div
+                    className="graphic-data undefined"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="24"
+                      size="24"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"
+                      />
+                    </svg>
+                    <strong>
+                      Reply
+                    </strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div
+        className="post-comments__user-comment"
+      >
+        <img
+          className="image image__isOffline undefined"
+          src={Object {}}
+        />
+        <input
+          placeholder="What are you thinking?"
+          type="text"
+        />
+      </div>
+    </section>
+  </div>
 </article>
 `;
