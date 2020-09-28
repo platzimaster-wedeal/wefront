@@ -1,0 +1,37 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../Breakpoints.scss';
+
+.post-comments {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: $space-size-normal;
+
+  &__action {
+    @include font-size($font-size-small);
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__user-comment {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: $space-size-normal;
+
+    & .image {
+      width: 42px;
+      height: 42px;
+      margin-right: $space-size-small;
+    }
+  }
+}
