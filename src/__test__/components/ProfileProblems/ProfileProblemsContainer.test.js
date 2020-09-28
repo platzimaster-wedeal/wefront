@@ -9,9 +9,9 @@ describe("<Profile Problems Container/>", () => {
   expect(profileProblemsContainer.length).toEqual(1);
  });
  test("Render del título de un componente", () => {
-  expect(
-   profileProblemsContainer.find(".ProfileProblems__title").text()
-  ).toEqual("Problems Of Mine");
+  expect(profileProblemsContainer.find(".ProfileProblems__title").text()).toEqual(
+   "Problems Of Mine"
+  );
  });
 });
 

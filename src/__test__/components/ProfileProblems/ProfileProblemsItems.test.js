@@ -9,7 +9,9 @@ describe("<Profile Problems Items/>", () => {
   expect(profileProblemsItems.length).toEqual(1);
  });
  test("Render del título de un componente", () => {
-  expect(profileProblemsItems.find(".ProfileProblems__id").text()).toEqual("#");
+  expect(profileProblemsItems.find(".ProfileProblems__id").text()).toEqual(
+   "#"
+  );
  });
 });
 

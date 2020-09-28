@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // Styles
 import "../../assets/styles/components/PostShare/PostShare.scss";
@@ -6,16 +6,8 @@ import "../../assets/styles/components/PostShare/PostShare.scss";
 // Components
 import PostHeader from "../PostHeader/PostHeader";
 import PostInteractions from "../PostInteractions/PostInteractions";
-import PostComments from "../PostComments/PostComments";
 
-const PostShare = ({
- share,
- user,
- post,
- comments = ["Mesg", "Hello", "Damn"],
-}) => {
- const [seeComments, setSeeComments] = useState(true);
-
+const PostShare = ({ share, user, post }) => {
  return (
   <article className="post-share">
    <PostHeader share />
@@ -26,11 +18,6 @@ const PostShare = ({
       : "Optional description until I know what to put here, besides, a need to know how it looks :D"}
     </p>
     <PostInteractions />
-   </div>
-   <div className="post-share__comments">
-    {comments && seeComments && comments.length > 0 && (
-     <PostComments comments={comments} isPost />
-    )}
    </div>
   </article>
  );
