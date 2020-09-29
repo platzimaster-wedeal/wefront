@@ -40,7 +40,7 @@ exports[`Test for the component ProblemStatusCard :D Visual tests for the compon
     className="problem-status-card__status"
   >
     <div
-      className="problem-status problem-status__state--true"
+      className="problem-status problem-status__state--false"
     >
       <svg
         fill="currentColor"
@@ -58,11 +58,11 @@ exports[`Test for the component ProblemStatusCard :D Visual tests for the compon
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
         />
       </svg>
       <small>
-        Solved
+        Solving
       </small>
     </div>
   </div>

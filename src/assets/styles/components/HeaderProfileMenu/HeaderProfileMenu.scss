@@ -1,0 +1,139 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../FontSize.scss";
+@import "../../partials/text.scss";
+@import "../../partials/sizes.scss";
+
+.HeaderProfileMenu__container {
+ background: #ffffff;
+ box-shadow: 2px 3px 12px rgba(116, 116, 126, 0.3);
+ border-radius: 30px;
+ height: fit-content;
+ max-height: 806px;
+ width: fit-content;
+ max-width: 679px;
+ padding: 20px 26px 33px;
+ position: relative;
+
+ hr {
+  color: $color-primary;
+  border: 2px solid $color-primary;
+  border-radius: 3px;
+  margin-bottom: 24px;
+ }
+}
+
+.HeaderProfileMenu--name {
+ align-self: flex-end;
+ height: fit-content;
+ color: $color-primary;
+ line-height: 40px;
+ margin-right: 100px;
+
+ span {
+  font-family: $font-secondary;
+  font-style: italic;
+  font-weight: 200;
+  color: $color-black-60;
+  margin-top: -10px;
+  @include font-size($font-size-normal + 8);
+ }
+}
+
+.HeaderProfileMenu__name--profileImg {
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 10px;
+}
+
+.HeaderProfileMenu--profileImg {
+ width: 70px;
+ height: 70px;
+ object-fit: cover;
+ border-radius: 50%;
+ border: 3px solid $color-primary;
+ cursor: pointer;
+}
+
+.HeaderProfileMenu__nav--ul {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+
+ li {
+  font-weight: 700;
+  @include font-size($font-size-normal + 8);
+  padding: 21px 0;
+  border-top: 1px solid $color-black-30;
+ }
+
+ li:last-of-type {
+  border-bottom: 1px solid $color-black-30;
+ }
+}
+.nav__ul--link {
+ color: #0a3525;
+}
+
+.nav__ul--link:hover,
+.nav__ul--link:active {
+ color: $color-primary;
+}
+
+.HeaderProfileMenu__logout {
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin-top: 50px;
+ margin-bottom: 30px;
+ color: #0a3525;
+ font-weight: 700;
+ @include font-size($font-size-normal + 4);
+
+ svg {
+  width: 35px;
+  height: auto;
+  font-weight: 200;
+  color: #b9b9bf;
+  margin-right: 5px;
+ }
+}
+
+.HeaderProfileMenu__footer {
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+
+.HeaderProfileMenu__footer--terms {
+ font-style: italic;
+ font-weight: 200;
+ color: $color-black-60;
+ margin-bottom: 20px;
+ @include font-size($font-size-small + 1);
+
+ a {
+  color: $color-black-60;
+ }
+
+ a:hover {
+  color: $color-primary;
+ }
+}
+
+.HeaderProfileMenu__footer--logo {
+ @include font-size($font-size-normal + 3);
+ color: $color-primary;
+ text-align: center;
+ margin-top: 30px;
+
+ @include media(tablet) {
+  position: absolute;
+  right: 26px;
+  bottom: 65px;
+  @include font-size($font-size-large);
+ }
+}
