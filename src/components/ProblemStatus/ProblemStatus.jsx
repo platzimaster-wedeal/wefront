@@ -13,10 +13,12 @@ const ProblemStatus = ({ status }) => {
     </>
    );
   } else if (isSolving != true) {
-   <>
-    <MdCheck size="24" />
-    <small>Solved</small>
-   </>;
+   return (
+      <>
+        <MdCheck size="24" />
+        <small>Solved</small>
+      </> 
+    );
   }
  };
 

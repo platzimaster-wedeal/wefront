@@ -24,7 +24,6 @@ describe("Test for the component PostProblemDetail :D", () => {
      .text()
    ).toEqual("string");
   });
-
   test("Should the content of the action be Apply!", () => {
    expect(
     mount(<PostProblemDetail isWorker />)
