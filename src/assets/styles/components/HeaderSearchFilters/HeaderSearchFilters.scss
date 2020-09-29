@@ -1,0 +1,42 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../Breakpoints.scss';
+
+.header-search-filters {
+  position: relative;
+  width: 100%;
+
+  &__title {
+    @include font-size($font-size-medium);
+  }
+
+  &__inputs {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: $space-size-medium 0;
+
+    & strong {
+      @include font-size($font-size-normal);
+    }
+  }
+
+  &__inputs--range {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: $space-size-small 0;
+
+    & input[type="range"] {
+      width: 80%;
+      margin: $space-size-extra-small 0;
+    }
+  }
+
+  &__prices {
+    color: $color-primary;
+  }
+
+  &__select {
+    min-width: 90px;
+    margin: 0 $space-size-small;
+  }
+}
