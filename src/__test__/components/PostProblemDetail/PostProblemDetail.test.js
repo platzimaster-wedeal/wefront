@@ -17,18 +17,5 @@ describe("Test for the component PostProblemDetail :D", () => {
   test("Should the component render one element", () => {
    expect(PostProblemDetailMounted.length).toEqual(1);
   });
-  test("Should the content of the action string", () => {
-   expect(
-    typeof PostProblemDetailMounted.find(
-     ".post-problem-detail__actions button"
-    ).text()
-   ).toEqual("string");
-  });
-
-  test("Should the content of the action be Apply!", () => {
-   expect(
-    PostProblemDetailMounted.find(".post-problem-detail__actions button").text()
-   ).toEqual("Apply!");
-  });
  });
 });

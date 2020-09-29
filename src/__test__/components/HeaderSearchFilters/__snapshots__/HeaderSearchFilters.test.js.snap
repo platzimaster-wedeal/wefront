@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the component HeaderSearchFilters :D Visual tests for the component should the comopnent have the same tree 1`] = `
+<form
+  className="header-search-filters"
+  onSubmit={[Function]}
+>
+  <strong
+    className="header-search-filters__title"
+  >
+    Filters
+  </strong>
+  <div
+    className="header-search-filters__inputs"
+  >
+    <strong>
+      Location
+    </strong>
+    <label
+      htmlFor="location"
+    >
+      Current Country:
+      <select
+        className="header-search-filters__select"
+        id="location"
+        onChange={[Function]}
+      >
+        <option
+          value="USA"
+        >
+          USA
+        </option>
+        <option
+          value="COL"
+        >
+          COL
+        </option>
+      </select>
+    </label>
+  </div>
+  <div
+    className="header-search-filters__inputs"
+  >
+    <strong>
+      Category
+    </strong>
+    <div
+      className="select-categories"
+    >
+      <label
+        className="select-categories__title"
+        htmlFor="categories"
+      >
+        Select a category:
+      </label>
+      <input
+        id="categories"
+        onChange={[Function]}
+        placeholder="Search and select the skills that you want"
+        type="text"
+      />
+      <ul
+        className="select-categories__select-list"
+      >
+        <li
+          onClick={[Function]}
+        >
+          <span
+            className="label label__inactive"
+          >
+            Art
+          </span>
+        </li>
+        <li
+          onClick={[Function]}
+        >
+          <span
+            className="label label__inactive"
+          >
+            Engineer
+          </span>
+        </li>
+        <li
+          onClick={[Function]}
+        >
+          <span
+            className="label label__inactive"
+          >
+            AI
+          </span>
+        </li>
+      </ul>
+      <small
+        className="select-categories__title"
+      >
+        Selected Options
+      </small>
+      <ul
+        className="select-categories__list"
+      >
+        <li>
+          There is no options selected.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="header-search-filters__inputs"
+  >
+    <strong>
+      Price
+    </strong>
+    <div
+      className="header-search-filters__inputs--range"
+    >
+      <label
+        htmlFor="minimunPrice"
+      >
+        Select a minimun price:  
+        <strong
+          className="header-search-filters__prices"
+        >
+          0
+        </strong>
+         
+      </label>
+      <input
+        id="minimunPrice"
+        max="1000"
+        min="0"
+        onChange={[Function]}
+        type="range"
+        value={0}
+      />
+    </div>
+    <div
+      className="header-search-filters__inputs--range"
+    >
+      <label
+        htmlFor="maximunPrice"
+      >
+        Select a maximun price:  
+        <strong
+          className="header-search-filters__prices"
+        >
+          0
+        </strong>
+         
+      </label>
+      <input
+        id="maximunPrice"
+        max="1000"
+        min="0"
+        onChange={[Function]}
+        type="range"
+        value={0}
+      />
+    </div>
+  </div>
+  <button
+    className="button button__primary header-search-filters__action"
+  >
+    Apply
+  </button>
+</form>
+`;
