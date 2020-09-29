@@ -116,7 +116,8 @@ exports[`Test for the component HeaderSearchFilters :D Visual tests for the comp
       <label
         htmlFor="minimunPrice"
       >
-        Select a minimun price:  
+        Select a minimun price:
+         
         <strong
           className="header-search-filters__prices"
         >
@@ -139,7 +140,8 @@ exports[`Test for the component HeaderSearchFilters :D Visual tests for the comp
       <label
         htmlFor="maximunPrice"
       >
-        Select a maximun price:  
+        Select a maximun price:
+         
         <strong
           className="header-search-filters__prices"
         >

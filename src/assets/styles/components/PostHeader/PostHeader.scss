@@ -40,6 +40,8 @@
 
       @include media(tablet) {      
         flex-flow: row nowrap;
+        align-items: flex-end;
+
       }
 
       & span {
