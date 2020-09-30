@@ -19,16 +19,16 @@ describe("Test for the component PostProblemDetail :D", () => {
   });
   test("Should the content of the action string", () => {
    expect(
-    typeof PostProblemDetailMounted.find(
-     ".post-problem-detail__actions button"
-    ).text()
+    typeof PostProblemDetailMounted.find(".post-problem-detail__actions").text()
    ).toEqual("string");
   });
 
   test("Should the content of the action be Apply!", () => {
    expect(
-    PostProblemDetailMounted.find(".post-problem-detail__actions button").text()
-   ).toEqual("Apply!");
+    PostProblemDetailMounted.findWhere(
+     (n) => n.hasClass("post-problem-detail__actions") && n.text() === "Apply!"
+    )
+   );
   });
  });
 });

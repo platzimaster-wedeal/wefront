@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -24,4 +24,4 @@ const SelectDate = ({ className, setState, state }) => {
  );
 };
 
-export default SelectDate;
+export default SelectDate; */
