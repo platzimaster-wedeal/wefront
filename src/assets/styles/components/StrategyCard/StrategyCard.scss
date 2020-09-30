@@ -7,14 +7,16 @@
 @import '../../partials/text.scss';
 
 .strategy {
-    box-shadow: $shadow-large;
-    border-radius: 12px;
-    min-width: 330px;
-    padding: 20px 30px 20px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    width: 100%;
+    padding: $space-size-normal;
+    border-radius: 12px;
+    box-shadow: $shadow-small;
+    margin-bottom: $space-size-large;
+    background-color: #fff;
     
     .container__title {
         justify-content: space-between;
@@ -24,28 +26,29 @@
     }
     &__container {
         display: inline-flex;
-        p {
-            font-size: 16px;
+        h2 {
+            font-size: $font-size-normal;
             color: $color-primary;
             font-family: $font-secondary;
-            font-weight: 600;
-            line-height: 25px;
             letter-spacing: 0.03em;
+            padding: $space-size-small 0;
         }
         input {
-            font-style: italic;
-            font-weight: 200;
-            font-size: 16px;
-            padding-left: 15px;
-            margin-left: 20px;
+            font-size: $font-size-small;
+            color: $color-black-90;
             &::placeholder {
                 color: black;
+                font-size: $font-size-small;
+                font-style: italic;
             }
         }
         .strategy__container--btn {
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            top: 21%;
+            right: 3%;
+            font-size: 30px;
             margin-left: 10px;
         }
     }
@@ -53,33 +56,13 @@
     .strategy__container .strategy__container--img {
         width: 50px;
         height: 50px;
+        margin-right: $space-size-small;
     }
 
     @include media(tablet) {
-        min-width: 650px;
-        &__container {
-            margin-bottom: 20px;
-            p {
-                font-size: 20px;
-                line-height: 35px;
-            }
-            input {
-                margin-left: 20px;
-                height: 45px;
-                width: 380px;
-                font-weight: 200;
-                font-size: 35px;
-                padding-left: 35px;
-            }
-        }
         .strategy__container--btn {
-            width: 70px;
-            height: 70px;
-            font-size: 45px;
-            position: absolute;
-            top: 20px;
-            right: 45px;
-            z-index: 1;
+            width: 60px;
+            height: 60px;
         }
     }
     

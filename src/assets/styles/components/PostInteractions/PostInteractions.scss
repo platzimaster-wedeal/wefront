@@ -4,8 +4,9 @@
 
 .post-interactions {
   position: relative;
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-between;
   height: auto;
 }

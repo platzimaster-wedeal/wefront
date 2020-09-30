@@ -9,6 +9,7 @@ exports[`Test for the component PostShare :D Visual tests for the component shou
   >
     <figure
       className="post-header__picture"
+      onClick={[Function]}
     >
       <img
         className="image image__isOnline undefined"
@@ -21,7 +22,9 @@ exports[`Test for the component PostShare :D Visual tests for the component shou
       <div
         className="post-header__user-info--main"
       >
-        <h3>
+        <h3
+          onClick={[Function]}
+        >
           Alan Walks
         </h3>
         <span>

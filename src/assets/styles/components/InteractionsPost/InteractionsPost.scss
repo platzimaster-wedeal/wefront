@@ -18,6 +18,7 @@
 .interactionsPost__comments {
  display: inline-flex;
  align-items: center;
+ margin-right: 9px;
  font-family: $font-secondary;
  font-weight: bold;
  color: $color-black-60;
@@ -26,6 +27,7 @@
 
  @include media(tablet) {
   @include font-size($font-size-normal); 
+  margin-right: initial;
  }
 
  svg {

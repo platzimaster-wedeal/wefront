@@ -9,6 +9,7 @@ exports[`Test for the component PostProblemDetail :D Visual tests for the compon
   >
     <figure
       className="post-header__picture"
+      onClick={[Function]}
     >
       <img
         className="image image__isOnline undefined"
@@ -21,7 +22,9 @@ exports[`Test for the component PostProblemDetail :D Visual tests for the compon
       <div
         className="post-header__user-info--main"
       >
-        <h3>
+        <h3
+          onClick={[Function]}
+        >
           Alan Walks
         </h3>
         <span>
@@ -89,32 +92,6 @@ exports[`Test for the component PostProblemDetail :D Visual tests for the compon
         </svg>
         <strong>
           COL
-        </strong>
-      </div>
-      <div
-        className="graphic-data undefined"
-      >
-        <svg
-          fill="currentColor"
-          height={30}
-          size={30}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          viewBox="0 0 24 24"
-          width={30}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-          />
-        </svg>
-        <strong>
-          Day
         </strong>
       </div>
       <div

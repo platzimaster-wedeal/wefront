@@ -15,33 +15,6 @@ exports[`Test for the component ProfileHeader :D Visual tests for the component 
         aria-label="Tupac Shakur Walks"
         src={Object {}}
       />
-      <button
-        className="button-actionSA undefined"
-      >
-        <svg
-          fill="currentColor"
-          height="1em"
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="12"
-            cy="12"
-            r="3.2"
-          />
-          <path
-            d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"
-          />
-        </svg>
-      </button>
     </figure>
     <h2
       className="profile-header-photo__name"
@@ -65,10 +38,9 @@ exports[`Test for the component ProfileHeader :D Visual tests for the component 
         className="button button__primary undefined"
       >
          
-        Edit
+        Follow
          
       </button>
-       
     </div>
   </div>
 </section>
