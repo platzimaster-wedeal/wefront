@@ -1,0 +1,10 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.problem-status-information {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  width: 100%;
+}

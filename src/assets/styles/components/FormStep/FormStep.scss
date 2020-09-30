@@ -7,17 +7,21 @@
   display: flex;
   flex-flow: column nowrap;
   overflow: hidden;
-  width: 90%;
+  width: 100%;
   border-top: 1px solid $color-black-30;
   border-bottom: 1px solid $color-black-30;
-  padding: $space-size-small 0;
-  margin: $space-size-medium 0;
+  padding: $space-size-extra-small 0;
+  margin: $space-size-normal 0;
+
+  @include media(tablet) {
+    padding: $space-size-normal 0;
+  }
 
   h2 {
     color: $color-black-90;
     transition: 0.2s ease-out;
     line-height: 36px;
-    @include font-size($font-size-medium);
+    @include font-size($font-size-normal);
 
     @include media(tablet){
       @include font-size($font-size-medium);
@@ -43,7 +47,7 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    padding: $space-size-medium 0;
+    padding: $space-size-extra-small 0;
     cursor: pointer;
 
     &:hover {

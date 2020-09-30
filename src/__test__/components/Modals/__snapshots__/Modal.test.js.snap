@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the component Modal :D Visual tests for the component should the comopnent have the same tree 1`] = `
+<div
+  className="modal"
+>
+  <div
+    className="modal__title"
+  >
+    <h2>
+      Title of Modal
+    </h2>
+  </div>
+  <div
+    className="modal__content"
+  />
+  <div
+    className="modal__action"
+  >
+    <button
+      className="button button__primary undefined"
+    >
+      Close
+    </button>
+  </div>
+</div>
+`;
