@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the component HeaderSearchResults :D Visual tests for the component should the comopnent have the same tree 1`] = `
+<div
+  className="header-search-results"
+>
+  <div
+    className="header-search-results__header"
+  >
+    <strong
+      className="header-search-results__header--active"
+      onClick={[Function]}
+    >
+      Persons
+    </strong>
+    <strong
+      className={false}
+      onClick={[Function]}
+    >
+      Problems
+    </strong>
+  </div>
+  <section
+    className="header-search-results__results"
+  >
+    <span>
+      Sorry, we can't found what you looking for
+    </span>
+  </section>
+</div>
+`;
