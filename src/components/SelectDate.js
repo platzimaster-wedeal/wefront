@@ -2,6 +2,7 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+
 const SelectDate = ({ className, setState, state }) => {
  const [startDate, setStartDate] = useState(new Date());
  const handleChange = (date) => {
