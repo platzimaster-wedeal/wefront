@@ -31,13 +31,6 @@ const CreatePostProblemGeneral = () => {
       <option>Presence</option>
      </select>
     </div>
-    <div className="create-post-problem__inputs--select">
-     <label htmlFor="workingDay">Working Day:</label>
-     <select id="workingDay">
-      <option>Day</option>
-      <option>Night</option>
-     </select>
-    </div>
    </div>
 
    <div className="create-post-problem__inputs">

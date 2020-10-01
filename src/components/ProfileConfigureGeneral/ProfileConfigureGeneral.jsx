@@ -11,6 +11,26 @@ const ProfileConfigureGeneral = () => {
  return (
   <FormStep title="General Information">
    <div className="profile-configure__inputs">
+    <label htmlFor="username">Nickname:</label>
+    <input type="text" placeholder="Tell us your new nickname" id="username" />
+   </div>
+   <div className="profile-configure__inputs">
+    <label htmlFor="first_name">First Name:</label>
+    <input type="text" placeholder="Tell us your name" id="first_name" />
+   </div>
+   <div className="profile-configure__inputs">
+    <label htmlFor="last_name">Last Name:</label>
+    <input type="text" placeholder="Tell us last name" id="last_name" />
+   </div>
+   <div className="profile-configure__inputs">
+    <label htmlFor="email">Email:</label>
+    <input type="text" placeholder="Tell us your new email" id="email" />
+   </div>
+   <div className="profile-configure__inputs">
+    <label htmlFor="phone">Phone:</label>
+    <input type="text" placeholder="Tell us your new phone" id="phone" />
+   </div>
+   <div className="profile-configure__inputs">
     <label htmlFor="profession">Profession:</label>
     <input type="text" placeholder="Tell us your Profession" id="profession" />
    </div>

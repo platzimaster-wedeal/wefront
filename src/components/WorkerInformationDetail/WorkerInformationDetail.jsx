@@ -17,7 +17,6 @@ const WorkerInformationDetail = () => {
    </div>
    <div className="worker-information-detail__secondary-information">
     <WorkerInformationSkills />
-    <WorkerInformationLastProblems />
    </div>
   </article>
  );

@@ -1,0 +1,19 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+
+.user-information-container {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  padding: $space-size-large;
+
+  @include media(tablet) {
+    width: 90%;
+  }
+}

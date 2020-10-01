@@ -7,10 +7,10 @@ import "../../assets/styles/components/ProfileHeader/ProfileHeader.scss";
 import ProfileHeaderPhoto from "../ProfileHeaderPhoto/ProfileHeaderPhoto";
 import ProfileHeaderAction from "../ProfileHeaderActions/ProfileHeaderActions";
 
-const ProfileHeader = ({ description, profession }) => {
+const ProfileHeader = ({ description, profession, isUser = true }) => {
  return (
   <section className="profile-header">
-   <ProfileHeaderPhoto />
+   <ProfileHeaderPhoto isVisitor={true} />
    <small className="profile-header__description">
     {description && description}
    </small>
@@ -19,7 +19,7 @@ const ProfileHeader = ({ description, profession }) => {
    </strong>
 
    <div className="profile-header__actions">
-    <ProfileHeaderAction isVisitor={false} />
+    <ProfileHeaderAction isVisitor={isUser} />
    </div>
   </section>
  );

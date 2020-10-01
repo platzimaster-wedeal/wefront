@@ -1,10 +1,10 @@
 import React from "react";
 import "../../assets/styles/components/Buttons/ButtonAction.scss";
 
-const ButtonAction = ({ icon, className }) => {
+const ButtonAction = ({ icon, className, onClick }) => {
  const MdIcon = icon;
  return (
-  <button className={`button-action ${className}`}>
+  <button className={`button-action ${className}`} onClick={onClick}>
    <MdIcon />
   </button>
  );

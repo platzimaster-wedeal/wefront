@@ -16,7 +16,6 @@ const ProfileHeaderActions = ({
       {" "}
       {isFollowed ? "Followed" : "Follow"}{" "}
      </Button>
-     <Button onClick={onRecommend}> Recommend </Button>
     </div>
    ) : (
     <div className="profile-header__actions">

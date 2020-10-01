@@ -8,10 +8,11 @@ import "../../assets/styles/components/ProfileHeaderPhoto/ProfileHeaderPhoto.scs
 // Components
 import SmallButtonSA from "../Buttons/SmallButtonSA";
 
-const ProfileHeaderPhoto = (
- { name = "Tupac Shakur Walks", onPhoto },
- isVisitor = true
-) => {
+const ProfileHeaderPhoto = ({
+ name = "Tupac Shakur Walks",
+ onPhoto,
+ isVisitor = true,
+}) => {
  return (
   <div className="profile-header-photo">
    <figure className="profile-header-photo__figure">

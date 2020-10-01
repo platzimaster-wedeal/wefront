@@ -7,7 +7,7 @@ import SmallButtonSA from "../Buttons/SmallButtonSA";
 
 import "../../assets/styles/components/GeneralInformation/GeneralInformation.scss";
 
-const GeneralInformation = ({ name, followers, location, auth = false }) => {
+const GeneralInformation = ({ username, followers, location, auth = true }) => {
  const handleEditInfo = () => alert("Voy a editar");
 
  return (
@@ -19,16 +19,16 @@ const GeneralInformation = ({ name, followers, location, auth = false }) => {
      {auth ? (
       <SmallButtonSA
        icon={MdModeEdit}
-       width="20px"
-       height="20px"
-       fontSize="15px"
+       width="12px"
+       height="12px"
+       fontSize="9px"
        onClick={handleEditInfo}
       />
      ) : null}
 
      <MdPerson className="item--icon" />
     </figure>
-    <p className="item--text">{name}</p>
+    <p className="item--text">{username || "@Tupac"}</p>
    </div>
    <div className="GeneralInformation__item">
     <figure>
@@ -49,7 +49,7 @@ const GeneralInformation = ({ name, followers, location, auth = false }) => {
      ) : null}
      <MdHome className="item--icon" />
     </figure>
-    <p className="item--text">{location}</p>
+    <p className="item--text">{location || "COL"}</p>
    </div>
   </div>
  );

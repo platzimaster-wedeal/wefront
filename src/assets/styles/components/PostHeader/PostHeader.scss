@@ -14,6 +14,7 @@
 
   &__picture {
     margin: 0 $space-size-normal; 
+    cursor: pointer;
   }
 
   & .image {
@@ -58,7 +59,8 @@
     h3 {
       color: $color-primary;
       @include font-size($font-size-normal);
-
+      cursor: pointer;
+      
       @include media(tablet) {
         @include font-size($font-size-medium + 3);
       }

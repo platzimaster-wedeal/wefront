@@ -1,58 +1,75 @@
 @import "../../partials/colors.scss";
 @import "../../partials/fonts.scss";
+@import "../../partials/shadows.scss";
 @import "../../FontSize.scss";
 @import "../../partials/text.scss";
 @import "../../partials/sizes.scss";
 
+.HeaderProfileMenu__container_all {
+  position: relative;
+  width: auto;
+  height:auto;
+  padding: $space-size-normal;
+}
+
+.HeaderProfileMenu__container_nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  background-color: #fff;
+  box-shadow: $shadow-normal;
+  overflow-y: scroll;
+  border-radius: 12px;
+
+  &--active {
+    width: 360px;
+    height: auto;
+    z-index: 18;
+    padding: $space-size-medium $space-size-big;
+  }
+}
+
+
+
 .HeaderProfileMenu__container {
- background: #ffffff;
- box-shadow: 2px 3px 12px rgba(116, 116, 126, 0.3);
- border-radius: 30px;
- height: fit-content;
- max-height: 806px;
- width: fit-content;
- max-width: 679px;
- padding: 20px 26px 33px;
- position: relative;
+  width: 100%;
+  padding: $space-size-medium;
 
  hr {
   color: $color-primary;
-  border: 2px solid $color-primary;
+  border: 1px solid $color-primary !important;
   border-radius: 3px;
-  margin-bottom: 24px;
+
+  @include media(tablet) {
+    border: 1px solid $color-primary !important;
+  }
  }
 }
 
 .HeaderProfileMenu--name {
- align-self: flex-end;
- height: fit-content;
+  @include font-size($font-size-normal);
  color: $color-primary;
- line-height: 40px;
- margin-right: 100px;
 
  span {
   font-family: $font-secondary;
   font-style: italic;
   font-weight: 200;
   color: $color-black-60;
-  margin-top: -10px;
-  @include font-size($font-size-normal + 8);
+  @include font-size($font-size-small);
  }
 }
 
-.HeaderProfileMenu__name--profileImg {
- display: flex;
- justify-content: space-between;
- margin-bottom: 10px;
-}
-
 .HeaderProfileMenu--profileImg {
- width: 70px;
- height: 70px;
+  position: relative;
+ width: 51px;
+ height: 51px;
  object-fit: cover;
  border-radius: 50%;
  border: 3px solid $color-primary;
  cursor: pointer;
+ z-index: 21;
 }
 
 .HeaderProfileMenu__nav--ul {
@@ -61,9 +78,8 @@
  justify-content: space-between;
 
  li {
-  font-weight: 700;
-  @include font-size($font-size-normal + 8);
-  padding: 21px 0;
+  @include font-size($font-size-normal);
+  padding: $space-size-small;
   border-top: 1px solid $color-black-30;
  }
 
@@ -85,18 +101,16 @@
  display: flex;
  align-items: center;
  justify-content: center;
- margin-top: 50px;
- margin-bottom: 30px;
  color: #0a3525;
+ padding: $space-size-small;
  font-weight: 700;
- @include font-size($font-size-normal + 4);
+ @include font-size($font-size-small);
 
  svg {
-  width: 35px;
+  width: 21px;
   height: auto;
   font-weight: 200;
   color: #b9b9bf;
-  margin-right: 5px;
  }
 }
 
@@ -110,10 +124,8 @@
 
 .HeaderProfileMenu__footer--terms {
  font-style: italic;
- font-weight: 200;
  color: $color-black-60;
- margin-bottom: 20px;
- @include font-size($font-size-small + 1);
+ @include font-size($font-size-small);
 
  a {
   color: $color-black-60;
@@ -125,15 +137,12 @@
 }
 
 .HeaderProfileMenu__footer--logo {
- @include font-size($font-size-normal + 3);
+ @include font-size($font-size-normal);
  color: $color-primary;
  text-align: center;
- margin-top: 30px;
 
  @include media(tablet) {
   position: absolute;
-  right: 26px;
-  bottom: 65px;
   @include font-size($font-size-large);
  }
 }
