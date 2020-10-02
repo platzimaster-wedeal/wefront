@@ -1,10 +1,11 @@
 import React from "react";
+import { MdClose } from "react-icons/md";
 
 // Styles
 import "../../assets/styles/components/Modal/Modal.scss";
 
 // Components
-import Button from "../Buttons/Button";
+import SmallButtonCA from "../Buttons/SmallButtonCA";
 
 const Modal = ({ children, title, onClose }) => {
  return (
@@ -14,9 +15,7 @@ const Modal = ({ children, title, onClose }) => {
    </div>
    <div className="modal__content">{children}</div>
    <div className="modal__action">
-    <Button active onClick={onClose}>
-     Close
-    </Button>
+    <SmallButtonCA icon={MdClose} closeBtn onClick={onClose} />
    </div>
   </div>
  );

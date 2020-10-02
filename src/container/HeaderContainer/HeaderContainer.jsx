@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // Layouts
 import ChangeView from "../../layouts/ChangeView/ChangeView";
@@ -9,18 +9,10 @@ import ModalContainer from "../../components/Modals/ModalContainer";
 import Modal from "../../components/Modals/Modal";
 
 const HeaderContainer = ({ children }) => {
- const [isModalOpen, setIsModalOpen] = useState(false);
- const handleModal = () => setIsModalOpen(false);
-
  return (
   <div>
    <HeaderSearch />
    {children}
-   {isModalOpen && (
-    <ModalContainer>
-     <Modal onClose={handleModal} />
-    </ModalContainer>
-   )}
   </div>
  );
 };

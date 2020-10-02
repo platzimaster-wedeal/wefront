@@ -20,10 +20,11 @@ const ProfileHeaderPhoto = ({
     {isVisitor != true && (
      <SmallButtonSA
       icon={MdPhotoCamera}
-      width="30px"
-      height="30px"
-      font-size="21px"
+      width="24px"
+      height="24px"
+      font-size="12px"
       onClick={onPhoto}
+      className="profile-header-photo__figure--action"
      />
     )}
    </figure>

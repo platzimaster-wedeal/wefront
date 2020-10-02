@@ -28,5 +28,6 @@ exports[`<ButtonAction/> ButtonAction snapshot 1`] = `
 exports[`Button Snapshot Comprobar la UI del componente Button 1`] = `
 <button
   className="button button__secondary undefined"
+  type="button"
 />
 `;

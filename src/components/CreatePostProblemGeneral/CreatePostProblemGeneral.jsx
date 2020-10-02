@@ -6,6 +6,7 @@ import "../../assets/styles/components/CreatePostProblem/CreatePostProblem.scss"
 // Compoents
 import FormStep from "../FormStep/FormStep";
 import SelectCategories from "../SelectCategories/SelectCategories";
+import SelectDate from "../DatePicker/SelectDate";
 
 const CreatePostProblemGeneral = () => {
  return (
@@ -35,6 +36,14 @@ const CreatePostProblemGeneral = () => {
 
    <div className="create-post-problem__inputs">
     <SelectCategories />
+   </div>
+
+   <div className="create-post-problem__inputs">
+    <label>Schedule</label>
+    <div className="create-post-problem__inputs--select">
+     <label htmlFor="modality">Select a Date:</label>
+     <SelectDate />
+    </div>
    </div>
 
    <div className="create-post-problem__inputs">

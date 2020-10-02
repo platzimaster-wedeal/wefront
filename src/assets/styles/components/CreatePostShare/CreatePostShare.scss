@@ -7,89 +7,73 @@
 .CreatePostShare__container {
  display: flex;
  flex-direction: column;
- margin-top: 40px;
- width: 100%;
  padding: 0;
+
+ & strong {
+   @include font-size($font-size-normal);
+   color: $color-black-60;
+ }
+
+ &__header {
+   display: flex;
+   flex-flow: row nowrap;
+   width: 100%;
+   align-items: flex-end;
+   padding: $space-size-normal 0;
+
+   & img {
+     width: 51px;
+     height: 51px;
+     margin-right: $space-size-small;
+   }
+
+   &--name {
+     display: flex;
+     flex-flow: column nowrap;
+     align-items: flex-start;
+     
+     @include media(tablet) {
+       flex-flow: row nowrap;
+       align-items: flex-end;
+     }
+   }
+
+   & h3 {
+     @include font-size($font-size-normal + 6);
+
+     @include media(tablet) {
+       @include font-size($font-size-big);
+     }
+   }
+
+  
+ }
+
+ & .input-file__view {
+   margin: $space-size-small 0;
+ }
 }
 
 .CreatePostShare__input {
- height: 284px;
- max-height: 284px;
+ @include font-size($font-size-normal);
+ color: $color-black-90;
  width: 100% !important;
- padding: 16px 30px;
- font-style: italic;
- font-weight: 200;
- color: $color-black-60;
- margin-bottom: 40px;
- @include font-size($font-size-medium);
-}
+ margin: $space-size-small 0;
 
-.CreatePostShare__label {
- background-color: #fff;
- height: 60px;
- box-shadow: inset 0px 1px 9px 3px rgba(23, 23, 40, 0.09);
- border-radius: 12px;
- width: fit-content;
- display: flex;
- align-items: center;
- padding: 0 25px;
- font-style: italic;
- font-weight: 200;
- color: $color-black-60;
- margin-bottom: 40px;
- cursor: pointer;
-}
+ @include media(tablet) {
+  width: 90% !important;
+ }
 
-.CreatePostShare__label--input {
- width: 0.1px;
- height: 0.1px;
- opacity: 0;
- overflow: hidden;
- position: absolute;
- z-index: -1;
-}
-
-.CreatePostShare__label--icon {
- color: $color-primary;
- width: 40px;
- height: 40px;
- margin-left: 30px;
+ &::placeholder {
+    @include font-size($font-size-small);
+    font-style: italic;
+    color: $color-black-60;
+ }
 }
 
 .CreatePostShare__buttons {
- button {
-  width: fit-content !important;
-  border-radius: 30px;
-  font-weight: 800;
-  font-style: normal;
-  @include font-size($font-size-normal + 8);
-  cursor: pointer;
- }
-
- button:first-of-type {
-  padding: 0 100px;
-  background-color: $color-primary;
-  margin-right: 25px;
-  box-shadow: 0px 1px 18px 6px rgba(38, 211, 149, 0.12);
-  color: #fff;
- }
-
- button:first-of-type:hover {
-  color: $color-black-60;
-  border: 1px solid $color-primary;
-  background-color: #fff;
- }
-
- button:last-of-type {
-  padding: 0 40px;
-  border: 1px solid $color-primary;
-  box-sizing: border-box;
-  border-radius: 30px;
-  color: $color-black-60;
- }
-
- button:last-of-type:hover {
-  color: #fff;
-  background-color: $color-primary;
- }
+  & button {
+    margin-right: $space-size-normal;
+  }
 }
+

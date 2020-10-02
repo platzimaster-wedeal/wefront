@@ -4,11 +4,16 @@ import ButtonAction from "../Buttons/ButtonAction";
 import "../../assets/styles/components/StrategyCard/StrategyCard.scss";
 
 const StrategyCard = ({ title, imgSource, icon, placeholder, onClick }) => {
+ const handleSubmit = (ev) => ev.preventDefault();
  return (
-  <form className="strategy" onClick={onClick}>
+  <form className="strategy" onSubmit={handleSubmit} onClick={onClick}>
    <div className="strategy__container container__title">
     <h2>{title}</h2>
-    <ButtonAction className="strategy__container--btn" icon={icon} />
+    <ButtonAction
+     className="strategy__container--btn"
+     icon={icon}
+     onClick={onClick}
+    />
    </div>
    <div className="strategy__container">
     <ProfilePicture

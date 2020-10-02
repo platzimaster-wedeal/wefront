@@ -131,6 +131,7 @@ exports[`Test for the component PostProblem :D Visual tests for the component sh
       <button
         className="button button__primary undefined"
         onClick={[Function]}
+        type="button"
       >
         See More!
       </button>

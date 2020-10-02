@@ -3,6 +3,7 @@
 exports[`<SmallButtonCA/> UI Snapshot for SmallButtonCA component 1`] = `
 <button
   className="button-actionCA undefined"
+  type="button"
 >
   <svg
     fill="currentColor"

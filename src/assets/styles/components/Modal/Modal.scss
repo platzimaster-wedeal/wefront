@@ -17,7 +17,7 @@
   overflow-y: scroll;
 
   @include media(tablet) {
-    width: 60%;
+    width: 54%;
     height: auto;
     max-height: 96vh;
   }
@@ -40,6 +40,12 @@
         @include font-size($font-size-medium);
       }
     }
+  }
+
+  &__action {
+    position: absolute;
+    top: 6%;
+    right: 6%;
   }
 
  

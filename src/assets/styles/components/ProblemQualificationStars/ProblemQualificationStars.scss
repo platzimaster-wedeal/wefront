@@ -1,0 +1,37 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.problem-qualification-stars {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row nowrap;
+
+  &__all {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+
+    & svg {
+      fill: $color-black-30;
+    }
+  }
+
+  &__selected {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+
+    & svg {
+      fill: $color-primary;
+    }
+  }
+}

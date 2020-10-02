@@ -1,0 +1,100 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.landing-page {
+  background-color: $color-background;
+
+  &__section {
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    height: auto;
+    padding: $space-size-normal;
+    margin: $space-size-small 0;
+
+    @include media(tablet){
+      padding: $space-size-large;
+      margin: $space-size-small 0;
+    }
+
+     // Secitons
+    &-what {
+      
+      @include media(tablet){
+        & .landing-page__section--img {
+          width: 50%;
+        }
+        & .landing-page__section--content {
+          width: 50%;
+        }
+      }
+    }
+
+    
+
+    &--content {
+      position: relative;
+      display: flex;
+      flex-flow: column;
+      width: 100%;
+      z-index: 9;
+
+      @include media(tablet){
+        width: 50%;
+
+        &-why {
+          width: 100%;
+        }
+      }
+
+      &-why {
+        width: 100%;
+      }
+    }
+
+    &--cards {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: flex-start;
+      width: auto;
+      padding: $space-size-big 0;
+
+      &-medium {
+        justify-content: space-around;
+      }
+
+      & .landing-card-small {
+        margin-right: $space-size-large;
+      }
+    }
+
+    &--img {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      z-index: 3;
+      opacity: 0.3;
+
+      @include media(tablet){
+        position: relative;
+        width: 50%;
+        opacity: 1;
+      }
+
+      & img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+ 
+}

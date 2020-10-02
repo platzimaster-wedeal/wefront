@@ -1,0 +1,45 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.landing-card-small {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 21px;
+  background-color: #fff;
+  box-shadow: $shadow-small;
+  transition: .3s ease-in-out;
+  cursor: pointer;
+
+  @include media(tablet) {
+    width: 150px;
+    height: 150px;
+  }
+
+  &__title {
+    color: $color-black-90;
+    text-shadow: 0 0 0 $color-primary;
+    transition: .3s ease-in-out;
+    @include font-size($font-size-normal);
+
+    @include media(tablet) {
+      @include font-size($font-size-medium);
+    }
+  }
+
+  &:hover{ 
+    box-shadow: $shadow-large-green;
+    transform: scale(1.01);
+
+  }
+  &:hover &__title {
+    color: $color-primary;
+    text-shadow: 0 0 6px $color-primary-60;
+  }
+}

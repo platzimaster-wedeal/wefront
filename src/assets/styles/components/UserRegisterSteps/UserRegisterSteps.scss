@@ -1,0 +1,51 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.user-register__form-step {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: auto;
+
+  &--paragrahp {
+    @include font-size($font-size-normal);
+    margin-bottom: $space-size-normal;
+  }
+
+  &--row {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+
+    & .user-register__form-step--inputs {
+      margin-right: $space-size-normal;
+      width: 100%;
+      @include media(tablet) {
+        width: 42%;
+      }
+      & input[type="text"],input[type="number"], input[type="date"], input[type="password"] {
+        width: 100%;
+      }
+    }
+  }
+
+  &--inputs {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 6px;
+
+    & input[type="text"],input[type="number"], input[type="date"], input[type="password"] {
+      width: 100%;
+    }
+
+    & label {
+      @include font-size($font-size-normal);
+      color: $color-black-60;
+      padding: 3px 0;
+      font-weight: 700;
+    }
+  }
+}

@@ -1,19 +1,23 @@
 import React from "react";
 import PhotoUser from "../../assets/static/img/users/user.jpg";
-import { MdAdd } from "react-icons/md";
+
+// Utils
+import { defineTypeStrategy } from "../../utils/defineTypeStrategy";
 
 // Components
 import StrategyCard from "../../components/StrategyCard/StrageyCard";
 import FeedGeneral from "../../components/FeedGeneral/FeedGeneral";
 
-const FeedContainer = () => {
+const FeedContainer = ({ strategyAction, type }) => {
+ const strategy = defineTypeStrategy(type);
  return (
   <div>
    <StrategyCard
-    title={"Do you want share something, Alan?"}
+    title={strategy.title}
     imgSource={PhotoUser}
-    icon={MdAdd}
-    placeholder={"What are you thinking?"}
+    icon={strategy.icon}
+    placeholder={strategy.placeholder}
+    onClick={strategyAction}
    />
    <FeedGeneral />
   </div>

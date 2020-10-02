@@ -16,16 +16,6 @@ const GeneralInformation = ({ username, followers, location, auth = true }) => {
    <hr />
    <div className="GeneralInformation__item">
     <figure>
-     {auth ? (
-      <SmallButtonSA
-       icon={MdModeEdit}
-       width="12px"
-       height="12px"
-       fontSize="9px"
-       onClick={handleEditInfo}
-      />
-     ) : null}
-
      <MdPerson className="item--icon" />
     </figure>
     <p className="item--text">{username || "@Tupac"}</p>
@@ -39,14 +29,6 @@ const GeneralInformation = ({ username, followers, location, auth = true }) => {
    </div>
    <div className="GeneralInformation__item">
     <figure>
-     {auth ? (
-      <SmallButtonSA
-       icon={MdModeEdit}
-       width="20px"
-       height="20px"
-       fontSize="15px"
-      />
-     ) : null}
      <MdHome className="item--icon" />
     </figure>
     <p className="item--text">{location || "COL"}</p>

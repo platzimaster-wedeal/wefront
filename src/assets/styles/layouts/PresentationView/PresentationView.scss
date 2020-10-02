@@ -1,0 +1,108 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.presentation-view {
+  display: flex;
+  flex-flow: column-reverse;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: $space-size-medium;
+  overflow: hidden;
+
+  @include media(tablet) {
+    padding: $space-size-large + 30;
+    flex-flow: row nowrap;
+    height: 81vh;
+  }
+
+   &--register {
+    @include media(tablet) {
+      padding: $space-size-large + 15;
+      height: 90vh;
+    }
+  }
+
+  &__login {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+
+    @include media(tablet) {
+      width: 60%;
+    }
+  }
+
+  &__application {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+
+    @include media(tablet) {
+      width: 40%;
+    }
+
+    &--title{
+      color: $color-primary;
+      @include font-size($font-size-medium + 51);
+
+
+      @include media(tablet) {
+        @include font-size($font-size-large + 51);
+        text-shadow: 0 0 12px $color-primary-60;
+      }
+    }
+
+    &--version {
+      @include font-size($font-size-small);
+
+      
+      @include media(tablet) {
+        @include font-size($font-size-normal);
+      }
+    }
+
+    &--list {
+      padding: $space-size-big 0;
+
+      & li {
+        @include font-size($font-size-normal);
+      }
+    }
+
+    &--footer {
+      position: absolute;
+      justify-self: flex-end;
+      bottom: 0;
+    }
+  }
+
+  &__image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    z-index: 1;
+    opacity: .6;
+
+    & img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

@@ -28,11 +28,11 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: $color-background;
-  
 }
 
 /* width */
@@ -48,12 +48,13 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,.0);
-  // background: $color-primary-30;
+  // background: rgba(0,0,0,.0);
+  background: $color-primary-30;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0,0,0,.0);
-  // background: $color-primary-60;
+  // background: rgba(0,0,0,.0);
+  background: $color-primary-60;
 }
+
