@@ -2,10 +2,17 @@ import React from "react";
 import { MdSearch } from "react-icons/md";
 import ProfileSmallCard from "../ProfileSmallCard/ProfileSmallCard";
 import PersonCard from "../PersonCard/PersonCard";
+import Loading from "../Loading/Loading";
 import "../../assets/styles/components/ConnectionsCards/ConnectionsCards.scss";
 import julioPhoto from "../../assets/static/img/users/user.jpg";
 
+// Redux
+import { useSelector } from "react-redux";
+
 const ConnectionsCards = () => {
+
+  const { connections } = useSelector(state => state.ProfileReducer)
+
  const handleSearchConnection = () => {
   alert("Searching");
  };
@@ -25,7 +32,7 @@ const ConnectionsCards = () => {
    </div>
    <hr />
    <div className="ConnectionsCards__container--list">
-    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((person) => (
+    {connections && connections.length > 0 ? connections.map((person) => (
      <ProfileSmallCard
       Key={person}
       subtitle="FullStack Developer"
@@ -45,8 +52,8 @@ const ConnectionsCards = () => {
         false
        )
       }
-     </ProfileSmallCard>
-    ))}
+     </ProfileSmallCard> 
+    )) : <Loading />}
    </div>
   </div>
  );

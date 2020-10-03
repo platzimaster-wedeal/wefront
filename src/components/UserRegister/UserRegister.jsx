@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 // Styles
 import "../../assets/styles/components/UserRegister/UserRegister.scss";
@@ -9,7 +10,11 @@ import UserRegisterPersonalStep from "../UserRegisterPersonalStep/UserRegisterPe
 import UserRegisterUserStep from "../UserRegisterUserStep/UserRegisterUserStep";
 import UserRegisterTypeStep from "../UserRegisterTypeStep/UserRegisterTypeStep";
 
-const UserRegister = () => {
+const UserRegister = ({onSubmit}) => {
+
+const user = useSelector(state => state.UserReducer)
+
+
  const [currentStep, setCurrentStep] = useState(0);
  const nextStep = () => setCurrentStep((prev) => prev + 1);
  const beforeStep = () => setCurrentStep((prev) => prev - 1);
@@ -30,12 +35,10 @@ const UserRegister = () => {
   }
  };
 
- const handleRegister = () => {};
 
- const handleOnSubmit = (ev) => ev.preventDefault();
 
  return (
-  <form onSubmit={handleOnSubmit} className="user-register">
+  <form onSubmit={onSubmit} className="user-register">
    <div className="user-register__title">
     <h3>register</h3>
    </div>
@@ -45,7 +48,7 @@ const UserRegister = () => {
    <div className="user-register__actions">
     {currentStep > 0 && <Button onClick={beforeStep}>Back</Button>}
     {currentStep === 2 ? (
-     <Button active onClick={handleRegister}>
+     <Button active type="submit" onClick={onSubmit}>
       Register!
      </Button>
     ) : (

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+// Redux
+import { useSelector } from 'react-redux'
+
 // Layouts
 import ChangeView from "../../layouts/ChangeView/ChangeView";
 
@@ -14,6 +17,8 @@ import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
 import FeedContainer from "../../container/FeedContainer/FeedContainer";
 
 const Deals = () => {
+
+
  // Handle Modal Create Problem
  const [isModalProblem, setIsModalProblem] = useState(false);
  const actionProblem = () => setIsModalProblem(!isModalProblem);

@@ -32,6 +32,7 @@ const Landing = () => {
   <section className="landing-page">
    <LandingHeader goToLogin={goToLogin} isLanding isRegister />
 
+
    {/* First section */}
    <article className="landing-page__section" id="introduction">
     <div className="landing-page__section--content">

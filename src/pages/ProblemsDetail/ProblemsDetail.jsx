@@ -1,5 +1,8 @@
 import React from "react";
 
+// Redux
+import {useSelector} from "react-redux"
+
 // Layouts
 import ChangeView from "../../layouts/ChangeView/ChangeView";
 
@@ -12,6 +15,12 @@ import PostProblemDetail from "../../components/PostProblemDetail/PostProblemDet
 import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
 
 const ProblemsDetail = () => {
+
+// Redux state
+const { currentProblem } = useSelector(state => state.ProblemsReducer )
+const { employeer } = useSelector(state => state.ProfileReducer )
+
+
  return (
   <HeaderContainer>
    <ChangeView
@@ -19,7 +28,7 @@ const ProblemsDetail = () => {
     firstViewTitle="About Problem"
     secondViewTitle="Connections">
     <FeedDetail title="About The Problem">
-     <PostProblemDetail isWorker={false} />
+     <PostProblemDetail isWorker={employeer} problem={currentProblem} />
     </FeedDetail>
    </ChangeView>
   </HeaderContainer>
