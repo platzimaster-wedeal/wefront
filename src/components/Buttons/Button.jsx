@@ -1,13 +1,25 @@
 import React from "react";
 import "../../assets/styles/components/Buttons/Button.scss";
 
-const Button = ({ children, active = false, className, onClick }) => {
+const Button = ({
+ children,
+ active = false,
+ className,
+ onClick,
+ type = "button",
+}) => {
  return active ? (
-  <button className={`button button__primary ${className}`} onClick={onClick}>
+  <button
+   type={type}
+   className={`button button__primary ${className}`}
+   onClick={onClick}>
    {children}
   </button>
  ) : (
-  <button className={`button button__secondary ${className}`}>
+  <button
+   type={type}
+   className={`button button__secondary ${className}`}
+   onClick={onClick}>
    {children}
   </button>
  );

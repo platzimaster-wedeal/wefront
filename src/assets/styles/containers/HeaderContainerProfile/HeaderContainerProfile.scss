@@ -1,0 +1,9 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.header-container-profile {
+  overflow-y: scroll;
+  height: auto;
+}

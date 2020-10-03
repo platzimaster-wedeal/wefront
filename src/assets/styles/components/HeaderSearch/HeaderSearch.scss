@@ -14,13 +14,18 @@
   height: 72px;
   background-color: #fff;
   box-shadow: $shadow-normal;
-  padding: $space-size-small;
+  padding: $space-size-big;
   z-index: 99;
+
+  @include media(tablet) {
+    padding: $space-size-large;
+  }
 
   &__logo {
     @include font-size($font-size-medium);
     color: $color-primary;
     font-family: $font-primary-bold;
+    margin-right: $space-size-medium;
 
     @include media(tablet) {
       @include font-size($font-size-big);
@@ -30,7 +35,7 @@
   &__search {
     position: relative;
     min-width: 180px;
-    width: 60%;
+    width: 100%;
   }
 
   &__nav {

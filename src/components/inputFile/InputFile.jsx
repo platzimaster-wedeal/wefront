@@ -7,6 +7,7 @@ const InputFile = ({
  widt,
  height,
  placeholder = "Add something",
+ name,
  onChange = (ev) => {
   console.log(ev.currentTarget.files[0].name);
  },
@@ -15,7 +16,7 @@ const InputFile = ({
 
  return (
   <div className="input-file__view">
-   <input type="file" onChange={handleInputFile} />
+   <input type="file" onChange={handleInputFile} id={name} name={name} />
    <p>{nameFile.length > 0 ? nameFile : placeholder}</p>
    <MdImage size="24" />
   </div>

@@ -22,6 +22,8 @@
     &-name {
       display: flex;
       flex-flow: row nowrap;
+      align-items: flex-end;
+      
 
       & h4 {
         margin: 0;

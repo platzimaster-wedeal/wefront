@@ -14,6 +14,7 @@
     flex-flow: row nowrap;
     padding: $space-size-extra-small 0;
     border-bottom: 2px solid $color-black;
+    align-items: flex-end;
 
     h4 {
       color: $color-black-90;

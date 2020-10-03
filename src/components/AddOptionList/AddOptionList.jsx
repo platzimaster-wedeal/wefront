@@ -9,14 +9,20 @@ import "../../assets/styles/components/AddOptionList/AddOptionList.scss";
 import SmallButtonSA from "../Buttons/SmallButtonSA";
 import Requirements from "../Requirements/Requirements";
 
-const AddOptionList = ({ title = "Add your option", options = [] }) => {
+const AddOptionList = ({
+ title = "Add your option",
+ options = [],
+ type = null,
+}) => {
  const [currentOptions, setCurrentOptions] = useState(options);
  const [option, setOption] = useState("");
 
  const handleAddOption = (ev) => {
   ev.preventDefault();
-  setCurrentOptions((prev) => [...prev, option]);
-  setOption("");
+  if (option.length > 0) {
+   setCurrentOptions((prev) => [...prev, option]);
+   setOption("");
+  }
  };
 
  const handleOption = (ev) => {

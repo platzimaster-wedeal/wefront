@@ -161,6 +161,7 @@ exports[`Test for the component HeaderSearchFilters :D Visual tests for the comp
   </div>
   <button
     className="button button__primary header-search-filters__action"
+    type="button"
   >
     Apply
   </button>

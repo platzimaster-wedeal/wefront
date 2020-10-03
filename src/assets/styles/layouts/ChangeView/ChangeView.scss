@@ -5,6 +5,7 @@
 
 
 .change-view-header {
+  box-sizing: border-box;
   position: relative;
   z-index: 3;
   display: flex;
@@ -73,6 +74,7 @@
   }
 
   &__first {
+    box-sizing: border-box;
     position: absolute;
     width: 100%;
     margin: 0 $space-size-extra-big;

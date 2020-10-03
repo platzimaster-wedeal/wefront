@@ -1,0 +1,55 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.landing-paragraph {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+
+  &--left {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  &--center {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  &--right {
+    width: 100%;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  &__title {
+    color: $color-primary;
+    @include font-size($font-size-big);
+    margin: $space-size-normal 0;
+    text-shadow: 0 0 9px $color-primary-60;
+
+    @include media(tablet) {
+      @include font-size($font-size-large + 42);
+      text-shadow: 0 0 12px $color-primary-90;
+    }
+  }
+
+  &__content {
+    color: $color-black-60;
+    @include font-size($font-size-normal)
+    letter-spacing: .9px;
+    line-height: 42px;
+
+    @include media(tablet) {
+      @include font-size($font-size-big - 9);
+    }
+  }
+
+  & button {
+    margin: $space-size-normal 0;
+  }
+}

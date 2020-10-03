@@ -17,6 +17,8 @@
     box-shadow: $shadow-small;
     margin-bottom: $space-size-large;
     background-color: #fff;
+    transition: .3s ease-in-out;
+    cursor: pointer;
     
     .container__title {
         justify-content: space-between;

@@ -1,33 +1,39 @@
 import React, { useState, createRef } from "react";
+import PhotoUser from "../../assets/static/img/users/user.jpg";
 import { MdInsertPhoto } from "react-icons/md";
 import "../../assets/styles/components/CreatePostShare/CreatePostShare.scss";
 
-const CreatePostShare = () => {
+import InputFile from "../inputFile/InputFile";
+import Button from "../Buttons/Button";
+import ProfilePicture from "../ProfilePictures/ProfilePicture";
+
+const CreatePostShare = ({ userName = "Tupac Shakur", onCancel }) => {
  const [fileName, setFileName] = useState("Add something to share:");
- const inputRef = createRef();
- const getFileName = () => {
-  setFileName(inputRef.current.files[0].name);
- };
+
  return (
   <form className="CreatePostShare__container">
+   <div className="CreatePostShare__container__header">
+    <ProfilePicture active source={PhotoUser} />
+    <div className="CreatePostShare__container__header--name">
+     <h3>{userName}</h3>
+     <span>Will share</span>
+    </div>
+   </div>
    <textarea
     className="CreatePostShare__input"
     type="text"
     placeholder="What are you thinking?"
+    rows="9"
    />
-   <label className="CreatePostShare__label" htmlFor="fileName">
-    {fileName} <MdInsertPhoto className="CreatePostShare__label--icon" />
-    <input
-     ref={inputRef}
-     type="file"
-     className="CreatePostShare__label--input"
-     id="fileName"
-     onChange={() => getFileName()}
-    />
-   </label>
+   <strong>Add some image to your share:</strong>
+   <InputFile />
    <div className="CreatePostShare__buttons">
-    <button type="submit">Share</button>
-    <button type="button">Close</button>
+    <Button active type="button">
+     Share
+    </Button>
+    <Button type="button" onClick={onCancel}>
+     Close
+    </Button>
    </div>
   </form>
  );

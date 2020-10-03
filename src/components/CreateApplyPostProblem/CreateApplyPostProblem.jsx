@@ -1,7 +1,14 @@
 import React, { Fragment } from "react";
 import "../../assets/styles/components/CreateApplyPostProblem/CreateApplyPostProblem.scss";
 
-const CreateApplyPostProblem = ({ price, currency, schedule }) => {
+import Button from "../Buttons/Button";
+
+const CreateApplyPostProblem = ({
+ price = 999,
+ currency = "USD",
+ schedule = "12/08/2020",
+ onCancel,
+}) => {
  return (
   <Fragment>
    <h4 className="PostProblem__title">Resume Of The Deal</h4>
@@ -16,15 +23,20 @@ const CreateApplyPostProblem = ({ price, currency, schedule }) => {
      Schedule: <span>{schedule}</span>
     </p>
    </div>
-   <p className="PostProblem__optional--tile">Comment (Optional):</p>
+   <p className="PostProblem__optional--tile">Comment:</p>
    <textarea
     className="PostProblem__input"
     type="text"
     placeholder="Some questions or recommendation?"
+    cols="50"
    />
    <div className="PostProblem__buttons">
-    <button type="submit">Apply</button>
-    <button type="button">Edit</button>
+    <Button type="submit" active>
+     Apply
+    </Button>
+    <Button type="submit" onClick={onCancel}>
+     Cancel
+    </Button>
    </div>
   </Fragment>
  );

@@ -16,10 +16,10 @@ const ProblemsDetail = () => {
   <HeaderContainer>
    <ChangeView
     SecondView={<ConnectionsCards />}
-    firstViewTitle="Detail"
+    firstViewTitle="About Problem"
     secondViewTitle="Connections">
-    <FeedDetail>
-     <PostProblemDetail />
+    <FeedDetail title="About The Problem">
+     <PostProblemDetail isWorker={false} />
     </FeedDetail>
    </ChangeView>
   </HeaderContainer>

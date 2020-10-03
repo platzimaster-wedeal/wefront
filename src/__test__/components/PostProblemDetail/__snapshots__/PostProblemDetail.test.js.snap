@@ -209,6 +209,20 @@ exports[`Test for the component PostProblemDetail :D Visual tests for the compon
       </li>
     </ul>
   </section>
+  <section
+    className="post-problem-description"
+  >
+    <strong
+      className="post-problem-description__title"
+    >
+      Schedule
+    </strong>
+    <p
+      className="post-problem-description__content"
+    >
+      02-09-2020
+    </p>
+  </section>
   <div
     className="post-problem-payment"
   >
@@ -258,8 +272,9 @@ exports[`Test for the component PostProblemDetail :D Visual tests for the compon
   />
   <button
     className="button button__primary undefined"
+    type="button"
   >
-    Edit!
+    Edit
   </button>
 </article>
 `;

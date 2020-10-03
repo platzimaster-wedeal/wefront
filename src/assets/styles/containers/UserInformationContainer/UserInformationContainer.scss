@@ -11,9 +11,9 @@
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  padding: $space-size-large;
+  padding: $space-size-extra-small $space-size-big;
 
   @include media(tablet) {
-    width: 90%;
+    width: 100%;
   }
 }

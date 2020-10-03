@@ -1,5 +1,5 @@
 // Inputs texts and numbers
-input[type="text"], input[type="number"], .input-file__view, textarea, select {
+input[type="text"], input[type="number"], input[type="email"], input[type="password"], input[type="date"], .input-file__view, textarea, select {
   box-sizing: border-box;
   padding: $space-size-extra-small;
   min-width: 160px;
@@ -28,10 +28,10 @@ input[type="text"], input[type="number"], .input-file__view, textarea, select {
   }
 
 }
-input[type="text"]:focus, input[type="number"]:focus, textarea:focus, select:focus, input[type="file"]:focus {
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="date"]:focus, textarea:focus, select:focus, input[type="file"]:focus {
   border: 1px solid $color-primary-30;
 }
-input[type="text"]:hover, input[type="number"]:hover, textarea:hover, select:hover, input[type="file"]:hover {
+input[type="text"]:hover, input[type="number"]:hover, input[type="password"]:hover,  input[type="email"]:hover, input[type="date"]:hover, textarea:hover, select:hover, input[type="file"]:hover {
   box-shadow: inset $shadow-small-green;
   border: 1px solid $color-primary-90;
 }
@@ -41,6 +41,7 @@ input[type="text"]:hover, input[type="number"]:hover, textarea:hover, select:hov
   opacity: 0;
   width: 100%;
   position: absolute;
+  cursor: pointer;
 }
 .input-file__view {
   overflow: hidden;
@@ -51,6 +52,7 @@ input[type="text"]:hover, input[type="number"]:hover, textarea:hover, select:hov
   justify-content: space-between;
   align-items: center;
   transition: .3s ease-in-out;
+  cursor: pointer;
 
   & svg {
     fill: $color-primary; 

@@ -9,7 +9,7 @@
   flex-flow: column nowrap;
   width: 100%;
   height: auto;
-  padding: $space-size-big;
+  padding: $space-size-small;
 
   @include media(tablet) {
     padding: $space-size-big 0;

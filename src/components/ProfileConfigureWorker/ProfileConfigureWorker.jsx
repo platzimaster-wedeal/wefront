@@ -7,7 +7,7 @@ import "../../assets/styles/components/ProfileConfigure/ProfileConfigure.scss";
 import FormStep from "../FormStep/FormStep";
 import SelectCategories from "../SelectCategories/SelectCategories";
 import ProfilePreference from "../ProfilePreference/ProfilePreference";
-import AddOptionList from "../AddOptionList/AddOptionList";
+import AddExperienceList from "../AddExperienceList/AddExperienceList";
 
 const ProfileConfigureWorker = () => {
  return (
@@ -21,7 +21,7 @@ const ProfileConfigureWorker = () => {
    </div>
 
    <div className="profile-configure__inputs">
-    <AddOptionList title="Experience" />
+    <AddExperienceList title="Experience" />
    </div>
 
    <div className="profile-configure__inputs">

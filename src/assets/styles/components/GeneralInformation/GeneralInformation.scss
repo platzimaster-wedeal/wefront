@@ -8,7 +8,6 @@
  position: relative;
  width: 100%;
  padding: $space-size-medium;
- margin: $space-size-medium 0;
  background: #fff;
  border-radius: 12px;
  box-shadow: $shadow-small;
@@ -19,6 +18,11 @@
    padding: 0;
    position: relative;
  }
+}
+
+.GeneralInformation__item--edit {
+  width: 18px;
+  height: 18px;
 }
 
 .item--icon {

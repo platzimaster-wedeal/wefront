@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Stlyes
 import "../../assets/styles/components/ProblemStatusInformation/ProblemStatusInformation.scss";
@@ -7,6 +7,10 @@ import "../../assets/styles/components/ProblemStatusInformation/ProblemStatusInf
 import PostHeader from "../PostHeader/PostHeader";
 import FormStep from "../FormStep/FormStep";
 import ProfileWorkerCard from "../ProfileWorkerCard/ProfileWorkerCard";
+import ProblemQualification from "../ProblemQualification/ProblemQualification";
+import Button from "../Buttons/Button";
+import ModalContainer from "../Modals/ModalContainer";
+import Modal from "../Modals/Modal";
 
 const ProblemStatusInformation = ({
  isWorker,
@@ -15,12 +19,25 @@ const ProblemStatusInformation = ({
  problemWorker = "@Alan",
  workersApplied = [],
 }) => {
+ // Handle Problem Solved
+ const [isProblemSolved, setIsProblemSolved] = useState(false);
+
+ const handleProblemSolved = () => setIsProblemSolved(!isProblemSolved);
+
+ // Define the status of the problem
  const RenderStatus = () => {
   if (problemStatus)
    return (
-    <span className="problem-status-information__status-message">
-     The user {problemWorker} is solving the problem.
-    </span>
+    <>
+     <span className="problem-status-information__status-message">
+      The user {problemWorker} is solving the problem.
+     </span>
+     {!isWorker && !isProblemSolved && (
+      <Button active onClick={handleProblemSolved}>
+       Problem Solved
+      </Button>
+     )}
+    </>
    );
 
   return (
@@ -49,7 +66,13 @@ const ProblemStatusInformation = ({
    <PostHeader />
    <FormStep title="Current Status">{RenderStatus()}</FormStep>
 
-   {!isWorker && RenderWorkers()}
+   {!isWorker && !problemStatus && RenderWorkers()}
+
+   {isProblemSolved && (
+    <FormStep title="Qualification Of Worker">
+     <ProblemQualification />
+    </FormStep>
+   )}
   </article>
  );
 };
