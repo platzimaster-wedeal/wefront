@@ -7,13 +7,13 @@ import InputFile from "../inputFile/InputFile";
 import Button from "../Buttons/Button";
 import ProfilePicture from "../ProfilePictures/ProfilePicture";
 
-const CreatePostShare = ({ userName = "Tupac Shakur", onCancel }) => {
+const CreatePostShare = ({ userName = "No Name", avatar, onCancel }) => {
  const [fileName, setFileName] = useState("Add something to share:");
 
  return (
   <form className="CreatePostShare__container">
    <div className="CreatePostShare__container__header">
-    <ProfilePicture active source={PhotoUser} />
+    <ProfilePicture active source={avatar || PhotoUser} />
     <div className="CreatePostShare__container__header--name">
      <h3>{userName}</h3>
      <span>Will share</span>

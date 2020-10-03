@@ -8,7 +8,7 @@ import { defineTypeStrategy } from "../../utils/defineTypeStrategy";
 import StrategyCard from "../../components/StrategyCard/StrageyCard";
 import FeedGeneral from "../../components/FeedGeneral/FeedGeneral";
 
-const FeedContainer = ({ strategyAction, type }) => {
+const FeedContainer = ({ strategyAction, type, data = [] }) => {
  const strategy = defineTypeStrategy(type);
  return (
   <div>
@@ -19,7 +19,7 @@ const FeedContainer = ({ strategyAction, type }) => {
     placeholder={strategy.placeholder}
     onClick={strategyAction}
    />
-   <FeedGeneral />
+   <FeedGeneral data={data} />
   </div>
  );
 };

@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+
 
 // Styles
 import "../../assets/styles/components/UserRegisterSteps/UserRegisterSteps.scss";
 
 const UserRegisterPersonalStep = () => {
+
  return (
   <div className="user-register__form-step">
    <p className="user-register__form-step--paragrahp">
@@ -37,7 +39,7 @@ const UserRegisterPersonalStep = () => {
      <input
       type="number"
       placeholder="Tell us your phone number"
-      name="phone"
+      name="telephone"
       id="phone"
      />
     </div>

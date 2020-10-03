@@ -23,15 +23,15 @@ import CreateApplyPostProblem from "../CreateApplyPostProblem/CreateApplyPostPro
 import ModalContainer from "../Modals/ModalContainer";
 import Modal from "../Modals/Modal";
 
-const PostProblemDetail = ({ data, isWorker, isSolving = false }) => {
+const PostProblemDetail = ({ problem, isWorker }) => {
  // Modal state hook
  const [isOpenStatus, setIsOpenStatus] = useModal(false);
  const [isOpenApply, setIsOpenApply] = useModal(false);
 
  const defineAction = () => {
-  if (isSolving) return <PostProblemStatus status={isSolving} />;
+  if (problem.state) return <PostProblemStatus status={isSolving} />;
 
-  if (isWorker && !isSolving)
+  if (isWorker && !problem.state)
    return (
     <Button active onClick={setIsOpenApply}>
      Apply!
@@ -41,12 +41,12 @@ const PostProblemDetail = ({ data, isWorker, isSolving = false }) => {
 
  return (
   <article className="post-problem-detail">
-   <PostHeader />
+   <PostHeader name={problem.employeer_name}/>
    <PostProblemPrevisualization />
    <PostProblemDescription />
    <PostProblemRequirements />
    <PostProblemSchedule />
-   {!isSolving ? (
+   {!problem.state ? (
     <>
      <PostProblemPayment />
     </>
@@ -55,8 +55,8 @@ const PostProblemDetail = ({ data, isWorker, isSolving = false }) => {
    )}
 
    <div className="post-problem-detail__actions">{defineAction()}</div>
-   {!isWorker && !isSolving && <Button active>Edit</Button>}
-   {!isWorker && isSolving && (
+   {!isWorker && !problem.state && <Button active>Edit</Button>}
+   {!isWorker && problem.state && (
     <Button active onClick={setIsOpenStatus}>
      {" "}
      Status{" "}

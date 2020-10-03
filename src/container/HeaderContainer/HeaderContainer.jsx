@@ -1,5 +1,8 @@
 import React from "react";
 
+// Redux
+import { useSelector } from "react-redux";
+
 // Layouts
 import ChangeView from "../../layouts/ChangeView/ChangeView";
 
@@ -9,9 +12,12 @@ import ModalContainer from "../../components/Modals/ModalContainer";
 import Modal from "../../components/Modals/Modal";
 
 const HeaderContainer = ({ children }) => {
+
+  const profile = useSelector(state => state.ProfileReducer)
+
  return (
   <div>
-   <HeaderSearch />
+   <HeaderSearch user={profile}/>
    {children}
   </div>
  );

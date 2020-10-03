@@ -1,0 +1,65 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.loading {
+  width: auto;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+ 
+
+  &-square {
+    width: 21px;
+    height: 21px;
+    border: 3px solid $color-primary;
+    box-shadow: $shadow-large-green;
+    background-color: transparent;
+    animation: loading infinite 1.9s ease-in-out;
+  }
+
+  &-text {
+    padding: $space-size-extra-small;
+    letter-spacing: 1.1px;
+
+    &::after {
+      content: '';
+      animation: loading-text infinite 1.9s ease-in-out;
+    }
+  }
+}
+
+@keyframes loading{
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading-text{
+  0% {
+    content: '';
+  }
+  15% {
+    content: '.';
+  }
+  30% {
+    content: '..';
+  }
+  45% {
+    content: '...';
+  }
+  60% {
+    content: '..';
+  }
+  75% {
+    content: '.';
+  }
+  100% {
+    content: '';
+  }
+}

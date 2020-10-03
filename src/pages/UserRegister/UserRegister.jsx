@@ -7,9 +7,15 @@ import PresentationView from "../../layouts/PresentationView/PresentationView";
 import Register from "../../components/UserRegister/UserRegister";
 
 const UserRegister = () => {
+
+  const onSubmit = (ev) => {
+    ev.preventDefault()
+
+  }
+
  return (
   <PresentationView isRegister={true}>
-   <Register />
+   <Register onSubmit={onSubmit}/>
   </PresentationView>
  );
 };

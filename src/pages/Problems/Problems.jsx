@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+// Redux
+import { useSelector } from "react-redux";
+
 // Layouts
 import ChangeView from "../../layouts/ChangeView/ChangeView";
 
@@ -14,6 +17,10 @@ import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
 import FeedContainer from "../../container/FeedContainer/FeedContainer";
 
 const Problems = () => {
+
+ // Posts Redux State
+  const { profilePosts } = useSelector(state => state.PostsReducer)
+
  // Handle Modal Create Problem
  const [isModalProblem, setIsModalProblem] = useState(false);
  const actionProblem = () => setIsModalProblem(!isModalProblem);
@@ -24,7 +31,7 @@ const Problems = () => {
     SecondView={<ConnectionsCards />}
     firstViewTitle="Problems"
     secondViewTitle="Connections">
-    <FeedContainer strategyAction={actionProblem} type="problem" />
+    <FeedContainer strategyAction={actionProblem} type="problem" data={profilePosts}/>
     {isModalProblem && (
      <ModalContainer>
       <Modal title="Creata a new Problem" onClose={actionProblem}>
