@@ -1,3 +1,104 @@
-@import '../../partials/sizes.scss';
-@import '../../partials/colors.scss';
-@import '../../Breakpoints.scss';
+@import "../../partials/sizes.scss";
+@import "../../partials/colors.scss";
+@import "../../Breakpoints.scss";
+
+.landing__footer {
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ align-items: center;
+ background: #ffffff;
+ box-shadow: 0px 1px 21px 6px rgba(0, 0, 0, 0.06);
+ padding: 30px 30px;
+
+ @include media(tablet) {
+  padding: 30px 150px;
+ }
+}
+
+.landing__footer--navegation {
+ width: 100%;
+ text-align: center;
+ margin-bottom: 40px;
+
+ @include media(tablet) {
+  width: fit-content;
+  margin-bottom: 0px;
+ }
+
+ @include media(desktop-s ) {
+  width: 300px;
+ }
+}
+
+.foote__navegation--title {
+ color: $color-primary;
+ font-weight: 500;
+ @include font-size($font-size-medium);
+ margin-bottom: 16px;
+}
+
+.foote__navegation--item a {
+ color: $color-black-60;
+}
+
+.foote__navegation--item a:hover {
+ color: $color-primary;
+}
+
+.foote__navegation--item {
+ margin-bottom: 14px;
+}
+
+.foote__navegation--item:last-of-type {
+ margin-bottom: 0;
+}
+
+.FooterImg {
+ display: none;
+
+ @include media(desktop-l) {
+  display: block;
+  width: 400px;
+  margin: 0;
+  opacity: 0.5;
+ }
+}
+
+.landing__footer--terms {
+ width: 100%;
+ text-align: center;
+
+ @include media(tablet) {
+  width: fit-content;
+ }
+
+ @include media(desktop-s ) {
+  width: 300px;
+ }
+}
+
+.footer__terms--logo {
+ color: $color-primary;
+ @include font-size($font-size-big);
+ margin-bottom: 30px;
+}
+
+.footer__terms,
+.footer__terms a {
+ font-style: italic;
+ color: $color-black-60;
+ opacity: 0.8;
+ @include font-size($font-size-normal + 3);
+}
+
+.footer__terms a:hover {
+ color: $color-primary;
+ font-weight: 600;
+}
+
+.footer__terms:first-of-type {
+ margin-bottom: 16px;
+ opacity: 1;
+}
