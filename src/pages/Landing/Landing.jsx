@@ -16,6 +16,7 @@ import LandingHeader from "../../components/LandingHeader/LandingHeader";
 import LandingParagraph from "../../components/LandingParagraph/LandingParagraph";
 import LandingCardSmall from "../../components/LandingCardSmall/LandingCardSmall";
 import LandingCard from "../../components/LandingCard/LandingCard";
+import LandingFooter from "../../components/LandingFooter/LandingFooter"
 
 const Landing = () => {
  // History of react router dom
@@ -100,7 +101,9 @@ const Landing = () => {
      <img src={WeFindClose} alt="We find the closest workers" />
     </figure>
    </article>
+   <LandingFooter/>
   </section>
+  
  );
 };
 
