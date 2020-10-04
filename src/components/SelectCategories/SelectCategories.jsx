@@ -12,6 +12,7 @@ import Labels from "../Labels/Labels";
 const SelectCategories = ({
  categories = ["art", "science", "magician"],
  userCategories = [],
+ setCategories,
  title,
 }) => {
  // States
@@ -24,6 +25,7 @@ const SelectCategories = ({
   if (currentCategories.includes(category)) return null;
 
   setCurrentCategories((prevs) => [...prevs, category]);
+  setCategories((prevs) => [...prevs, category])
  };
 
  // Handle the filter of the categories, for use find the skill or category that need

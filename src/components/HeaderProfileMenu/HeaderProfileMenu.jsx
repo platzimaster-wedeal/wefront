@@ -13,12 +13,13 @@ const HeaderProfileMenu = ({ profileName, profileImg, profileType }) => {
 
  return (
   <div className="HeaderProfileMenu__container_all">
-   <img
-    className="HeaderProfileMenu--profileImg"
-    src={profileImg}
-    alt={profileImg}
-    onClick={handleDisplay}
-   />
+    <figure className="HeaderProfileMenu--profileImg">
+      <img
+        src={profileImg}
+        alt={profileName}
+        onClick={handleDisplay}
+    />
+    </figure>
    <div
     className={`HeaderProfileMenu__container_nav ${
      displayMenu && "HeaderProfileMenu__container_nav--active"

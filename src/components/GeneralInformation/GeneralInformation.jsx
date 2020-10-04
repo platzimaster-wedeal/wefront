@@ -7,7 +7,7 @@ import SmallButtonSA from "../Buttons/SmallButtonSA";
 
 import "../../assets/styles/components/GeneralInformation/GeneralInformation.scss";
 
-const GeneralInformation = ({ username, followers, location, auth = true }) => {
+const GeneralInformation = ({ username, followers, location, isProfile = false }) => {
  const handleEditInfo = () => alert("Voy a editar");
 
  return (

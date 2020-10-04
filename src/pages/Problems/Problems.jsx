@@ -19,7 +19,7 @@ import FeedContainer from "../../container/FeedContainer/FeedContainer";
 const Problems = () => {
 
  // Posts Redux State
-  const { profilePosts } = useSelector(state => state.PostsReducer)
+  const { problems } = useSelector(state => state.ProblemsReducer)
 
  // Handle Modal Create Problem
  const [isModalProblem, setIsModalProblem] = useState(false);
@@ -31,7 +31,7 @@ const Problems = () => {
     SecondView={<ConnectionsCards />}
     firstViewTitle="Problems"
     secondViewTitle="Connections">
-    <FeedContainer strategyAction={actionProblem} type="problem" data={profilePosts}/>
+    <FeedContainer strategyAction={actionProblem} type="problem" data={problems}/>
     {isModalProblem && (
      <ModalContainer>
       <Modal title="Creata a new Problem" onClose={actionProblem}>

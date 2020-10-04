@@ -15,14 +15,15 @@ const INITIAL_STATE = {
   experience: [],
   skills: [],
   postulations: [],
-  followers: 0
+  followers: 0,
+  problems: []
 }
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
 
     case GET_PROFILE:
-      return {...action.payload}
+      return {...state, ...action.payload}
       
     case PATCH_PROFILE:
       return {...state, ...action.payload }

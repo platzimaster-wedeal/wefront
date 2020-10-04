@@ -6,12 +6,8 @@ import Loading from "../Loading/Loading";
 import "../../assets/styles/components/ConnectionsCards/ConnectionsCards.scss";
 import julioPhoto from "../../assets/static/img/users/user.jpg";
 
-// Redux
-import { useSelector } from "react-redux";
 
-const ConnectionsCards = () => {
-
-  const { connections } = useSelector(state => state.ProfileReducer)
+const ConnectionsCards = ({connections, isLoading, isError = null}) => {
 
  const handleSearchConnection = () => {
   alert("Searching");
@@ -32,7 +28,7 @@ const ConnectionsCards = () => {
    </div>
    <hr />
    <div className="ConnectionsCards__container--list">
-    {connections && connections.length > 0 ? connections.map((person) => (
+    {isError ? (<span>{isError}</span>) : isLoading ? (<Loading />) : connections && connections.length > 0 ? connections.map((person) => (
      <ProfileSmallCard
       Key={person}
       subtitle="FullStack Developer"
@@ -53,7 +49,7 @@ const ConnectionsCards = () => {
        )
       }
      </ProfileSmallCard> 
-    )) : <Loading />}
+    )) : <span>You don't have connections yet</span>}
    </div>
   </div>
  );

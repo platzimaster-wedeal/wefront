@@ -13,6 +13,7 @@
   padding: $space-size-medium;
   background-color: #fff;
   box-shadow: $shadow-normal;
+  overflow-y: scroll;
 
   @include media(tablet) {
     width: 60%;
@@ -23,6 +24,14 @@
     padding: $space-size-small 0;
     border-bottom: 3px solid $color-primary;
     margin-bottom: $space-size-small;
+  }
+
+  &__error {
+    display: inline;
+    @include font-size($font-size-small);
+    color: red;
+    padding: 0 6px;
+    
   }
 
   &__inputs {

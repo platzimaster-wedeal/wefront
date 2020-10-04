@@ -9,7 +9,7 @@ import "../../assets/styles/components/UserLogin/UserLogin.scss";
 import Button from "../Buttons/Button";
 import Loading from "../Loading/Loading";
 
-const UserLogin = ({onLogin, isLoading}) => {
+const UserLogin = ({onLogin, isLoading, isError}) => {
 
 // Handles state of form values 
   const [username, setUsername] = useInputForm('') 
@@ -28,6 +28,7 @@ const UserLogin = ({onLogin, isLoading}) => {
    onLogin(data)
  };
 
+
  return (
   <form onSubmit={handleOnSubmit} className="user-login">
    <div className="user-login__title">
@@ -42,6 +43,13 @@ const UserLogin = ({onLogin, isLoading}) => {
     <label htmlFor="password" >Password</label>
     <input type="password" placeholder="Write your password" id="password" onChange={setpassword} />
     <small>Forgot the password?</small>
+    {
+      isError != null && (
+        <span className="user-login__error">
+          *{isError}
+        </span>
+      )
+    }
    </div>
 
    <div className="user-login__actions">

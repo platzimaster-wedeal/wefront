@@ -14,7 +14,8 @@ const INITIAL_STATE = {
   skills: [],
   postulations: [],
   followers: 0,
-  followed: false
+  followed: false,
+  problems: []
 }
 
 export default (state = INITIAL_STATE, action) => {

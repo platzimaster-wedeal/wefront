@@ -1,5 +1,8 @@
 import React from "react";
 
+// Redux
+import { useSelector } from "react-redux";
+
 // Styles
 import "../../assets/styles/containers/HeaderContainerProfile/HeaderContainerProfile.scss";
 
@@ -12,9 +15,11 @@ import ModalContainer from "../../components/Modals/ModalContainer";
 import Modal from "../../components/Modals/Modal";
 
 const HeaderContainerProfile = ({ children }) => {
+
+  const profile = useSelector(state => state.ProfileReducer)
  return (
   <div className="header-container-profile">
-   <HeaderSearch />
+   <HeaderSearch user={profile}/>
    {children}
   </div>
  );

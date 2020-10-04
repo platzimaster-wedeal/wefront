@@ -10,23 +10,28 @@ import ModalContainer from "../../components/Modals/ModalContainer";
 import Modal from "../../components/Modals/Modal";
 import ModalAddImage from "../../components/ModalAddImage/ModalAddImage";
 
-const ProfileHeader = ({ description, profession, isUser = false }) => {
+const ProfileHeader = ({ user, isUser = false }) => {
  // Handle Modal
  const [isModalChangeImg, setIsModalChangeImg] = useState(false);
  const handleModal = () => setIsModalChangeImg(!isModalChangeImg);
 
  return (
   <section className="profile-header">
-   <ProfileHeaderPhoto isVisitor={isUser} onPhoto={handleModal} />
+    <ProfileHeaderPhoto 
+      name={user.first_name}
+      avatar={user.avatar}
+      isProfile={isUser} 
+      onPhoto={handleModal} 
+    />
    <small className="profile-header__description">
-    {description && description}
+    {user && user.description}
    </small>
    <strong className="profile-header__profession">
-    {profession && profession}
+    {user && user.profession}
    </strong>
 
    <div className="profile-header__actions">
-    <ProfileHeaderAction isVisitor={isUser} />
+    <ProfileHeaderAction isProfile={isUser} />
    </div>
    {isModalChangeImg && (
     <ModalContainer>

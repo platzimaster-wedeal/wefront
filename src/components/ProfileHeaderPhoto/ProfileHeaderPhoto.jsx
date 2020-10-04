@@ -10,14 +10,15 @@ import SmallButtonSA from "../Buttons/SmallButtonSA";
 
 const ProfileHeaderPhoto = ({
  name = "Tupac Shakur Walks",
+ avatar,
  onPhoto,
- isVisitor = true,
+ isProfile = false,
 }) => {
  return (
   <div className="profile-header-photo">
    <figure className="profile-header-photo__figure">
-    <img src={ImgUser} alt={name} aria-label={name} />
-    {isVisitor != true && (
+    <img src={avatar || ImgUser} alt={name} aria-label={name} />
+    {isProfile && (
      <SmallButtonSA
       icon={MdPhotoCamera}
       width="24px"

@@ -41,7 +41,7 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
 
     case GET_PROBLEMS:
-      return {...state, problems: action.payload }
+      return {...state, problems: [...action.payload] }
 
     case GET_PROBLEM:
       return {...state, currentProblem: action.payload }
