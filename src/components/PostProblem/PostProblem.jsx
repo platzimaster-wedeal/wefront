@@ -9,20 +9,21 @@ import PostHeader from "../PostHeader/PostHeader";
 import PostProblemPrevisualization from "../PostProblemPrevisualization/PostProblemPrevisualization";
 import Button from "../Buttons/Button";
 
-const PostProblem = ({ user, post, onClick }) => {
+const PostProblem = ({ post, onClick }) => {
  const history = useHistory();
 
- const goToDetail = () => {
-  history.push("/detail/problem");
- };
 
  return (
   <article className="post-problem">
-   <PostHeader />
+   <PostHeader id={post && post.id_user} name={post && post.employer_name} />
    <div className="post-problem__content">
-    <PostProblemPrevisualization />
+    <PostProblemPrevisualization 
+      title={post && post.title}
+      idProblem={post && post.id}
+      short_description={post && post.short_description}
+    />
     <div className="post-problem__actions">
-     <Button active onClick={goToDetail}>
+     <Button active onClick={() => onClick(post ? post.id : 1)}>
       See More!
      </Button>
     </div>

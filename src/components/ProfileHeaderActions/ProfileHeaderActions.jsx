@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import Button from "../buttons/Button";
 
 const ProfileHeaderActions = ({
- isVisitor = true,
+ isProfile = false,
  isFollowed = false,
  onFollow,
  onRecommend,
@@ -14,7 +14,7 @@ const ProfileHeaderActions = ({
 
  return (
   <>
-   {isVisitor != false ? (
+   {!isProfile ? (
     <div className="profile-header__actions">
      <Button onClick={onFollow} active>
       {" "}

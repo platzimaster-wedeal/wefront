@@ -11,9 +11,9 @@ import "../../assets/styles/components/PostHeader/PostHeader.scss";
 import ProfilePicture from "../ProfilePictures/ProfilePicture";
 import Labels from "../Labels/Labels";
 
-const PostHeader = ({ name, share, time, profession, picture }) => {
+const PostHeader = ({ id = 20, name, share, time, profession, picture }) => {
  const history = useHistory();
- const goToProfile = () => history.push("/user/profile/id");
+ const goToProfile = () => history.push(`/user/profile/${id}`);
 
  return (
   <section className="post-header">

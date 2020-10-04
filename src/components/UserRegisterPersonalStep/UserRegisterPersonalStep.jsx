@@ -1,10 +1,27 @@
 import React, {useState, useEffect} from "react";
+import {useInputForm} from '../../hooks/useInputForm/useInputForm'
 
 
 // Styles
 import "../../assets/styles/components/UserRegisterSteps/UserRegisterSteps.scss";
 
-const UserRegisterPersonalStep = () => {
+const UserRegisterPersonalStep = ({setInformation}) => {
+
+  const [firstName, setFirstName] = useInputForm('')
+  const [lastName, setLastName] = useInputForm('')
+  const [telephone, setTelephone] = useInputForm('')
+  const [birth, setBirth] = useInputForm('')
+  const [email, setEmail] = useInputForm('')
+
+  useEffect(() => {
+    setInformation({
+      first_name: firstName,
+      last_name: lastName,
+      telephone,
+      date_of_birth: birth,
+      email
+    })
+  }, [firstName, lastName, telephone, birth, email])
 
  return (
   <div className="user-register__form-step">
@@ -21,6 +38,7 @@ const UserRegisterPersonalStep = () => {
       placeholder="Tell us your first name"
       name="first_name"
       id="first_name"
+      onChange={setFirstName}
      />
     </div>
     <div className="user-register__form-step--inputs">
@@ -30,6 +48,7 @@ const UserRegisterPersonalStep = () => {
       placeholder="Tell us your last name"
       id="last_name"
       name="last_name"
+      onChange={setLastName}
      />
     </div>
    </div>
@@ -41,6 +60,7 @@ const UserRegisterPersonalStep = () => {
       placeholder="Tell us your phone number"
       name="telephone"
       id="phone"
+      onChange={setTelephone}
      />
     </div>
     <div className="user-register__form-step--inputs">
@@ -50,6 +70,7 @@ const UserRegisterPersonalStep = () => {
       placeholder="Tell us your last name"
       id="date_of_birth"
       name="date_of_birth"
+      onChange={setBirth}
      />
     </div>
    </div>
@@ -60,6 +81,7 @@ const UserRegisterPersonalStep = () => {
      placeholder="Tell us your first email"
      name="email"
      id="email"
+     onChange={setEmail}
     />
    </div>
   </div>

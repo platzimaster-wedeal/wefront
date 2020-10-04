@@ -62,14 +62,20 @@
 }
 
 .HeaderProfileMenu--profileImg {
-  position: relative;
- width: 51px;
- height: 51px;
- object-fit: cover;
+ position: relative;
+ width: 54px;
+ height: 54px;
  border-radius: 50%;
  border: 3px solid $color-primary;
  cursor: pointer;
  z-index: 21;
+ overflow: hidden;
+
+ & img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+ }
 }
 
 .HeaderProfileMenu__nav--ul {

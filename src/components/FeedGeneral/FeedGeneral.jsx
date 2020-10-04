@@ -9,14 +9,14 @@ import PostProblemDetail from "../PostProblemDetail/PostProblemDetail";
 import Loading from "../../components/Loading/Loading";
 
 
-const FeedGeneral = ({ data = [] }) => {
+const FeedGeneral = ({ data = [], isLoading, isError }) => {
 
  return (
   <section className="feed-general">
-   { data && data.length > 0 ? data.map((post, id) => (
-     <PostDefineType key={id} data={post} />
+   { isError ? <span>{isError}</span> : isLoading ? <Loading /> : data && data.length > 0 ? data.map(post => (
+     <PostDefineType key={post.id} data={post} />
     )) : (
-      <Loading />
+      <span>There is no posts!!</span>
     ) 
     
     }

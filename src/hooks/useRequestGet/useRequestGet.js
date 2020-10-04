@@ -9,9 +9,7 @@ export const useRequestGet = (url) => {
     mode: 'cors',
     cache: 'no-cache',
     headers: {
-      'Authorization': 'bearer ' + (token ? token : ''),
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      'Authorization': `Bearer ${token || ''}`,
     },
   })
 

@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 
+// Services
+import { getProblems } from '../../services/ProblemsService/problemsService'
+
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { GET_PROBLEMS } from "../../redux/types/Problems/ProblemsTypes";
@@ -32,43 +35,47 @@ const Home = () => {
  const actionShare = () => setIsModalShare(!isModalShare);
 
 //  Handle GET of problems
-const url = 'https://wedeal.herokuapp.com/api/v1/problems'
+const [isLoading, setIsLoading] = useState(true)
+const [isError, setIsError] = useState(null)
 const prevPage = useRef() 
-const [pageOfGet, setPageOfGet] = useState(1)
+const [pageOfGet, setPageOfGet] = useState(0)
 const dispatchGetProblems = useDispatch()
 const dispatchGetPosts = useDispatch()
 
 useEffect( () => {
   const prevNumber = prevPage.current = pageOfGet 
   const getData = async () => {
-    if(pageOfGet > prevNumber) {
       try {
-        const resp = await useRequestGet(url)
-        const data = await resp.json()
-        dispatchGetProblems({type: GET_PROBLEMS, payload: data.body})
-        dispatchGetPosts({type: GET_POSTS, payload: data.body})
+        const resp = await getProblems()
+        dispatchGetProblems({type: GET_PROBLEMS, payload: resp.body})
+        dispatchGetPosts({type: GET_POSTS, payload: resp.body})
+        setIsLoading(false)
       } catch(err){
-        console.log(err, '----- Get Problems error ------')
+        setIsLoading(false)
+        console.log(err)
       }
-    }
   }
-  getData()
-  
+  if(posts.length > 0) {
+    setIsLoading(false)
+    return 
+  } else {
+    getData()
+  }
 }, [pageOfGet])
 
  return (
   <HeaderContainer>
    <ChangeView
-      SecondView={<ConnectionsCards />}
+      SecondView={<ConnectionsCards connections={profile.connections} isLoading={isLoading} isError={isError} />}
       firstViewTitle="Home"
       secondViewTitle="Connections"
    >
-      <FeedContainer strategyAction={actionShare} type="share" data={posts} />
+      <FeedContainer strategyAction={actionShare} type="share" data={posts} isLoading={isLoading} isError={isError} />
       {isModalShare && (
       <ModalContainer>
         <Modal title="Share Something!" onClose={actionShare}>
           <CreatePostShare 
-            username={profile.username} 
+            name={profile.first_name} 
             avatar={profile.avatar} 
             onCancel={actionShare} 
           />

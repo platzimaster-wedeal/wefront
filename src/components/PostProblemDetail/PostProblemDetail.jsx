@@ -18,12 +18,17 @@ import Button from "../Buttons/Button";
 import PostProblemStatus from "../PostProblemStatus/PostProblemStatus";
 import ProblemStatusInformation from "../ProblemStatusInformation/ProblemStatusInformation";
 import CreateApplyPostProblem from "../CreateApplyPostProblem/CreateApplyPostProblem";
+import Loading from "../Loading/Loading";
 
 // Modal
 import ModalContainer from "../Modals/ModalContainer";
 import Modal from "../Modals/Modal";
 
-const PostProblemDetail = ({ problem, isWorker }) => {
+const PostProblemDetail = ({ problem, isWorker, isError = null, isLoading = true }) => {
+
+
+console.log(isError, 'HEEEELLLOOOOOO')
+
  // Modal state hook
  const [isOpenStatus, setIsOpenStatus] = useModal(false);
  const [isOpenApply, setIsOpenApply] = useModal(false);
@@ -39,29 +44,37 @@ const PostProblemDetail = ({ problem, isWorker }) => {
    );
  };
 
+  const RenderDetail = () => (
+    <>
+      <PostHeader name={problem.employeer_name}/>
+      <PostProblemPrevisualization />
+      <PostProblemDescription />
+      <PostProblemRequirements />
+      <PostProblemSchedule />
+      {!problem.state ? (
+        <>
+        <PostProblemPayment />
+        </>
+      ) : (
+        <PostProblemPayment agreed agreedPrice={922} />
+      )}
+
+      <div className="post-problem-detail__actions">{defineAction()}</div>
+      {!isWorker && !problem.state && <Button active>Edit</Button>}
+      {!isWorker && problem.state && (
+        <Button active onClick={setIsOpenStatus}>
+        {" "}
+        Status{" "}
+        </Button>
+      )}
+    </>
+  )
+
  return (
   <article className="post-problem-detail">
-   <PostHeader name={problem.employeer_name}/>
-   <PostProblemPrevisualization />
-   <PostProblemDescription />
-   <PostProblemRequirements />
-   <PostProblemSchedule />
-   {!problem.state ? (
-    <>
-     <PostProblemPayment />
-    </>
-   ) : (
-    <PostProblemPayment agreed agreedPrice={922} />
-   )}
-
-   <div className="post-problem-detail__actions">{defineAction()}</div>
-   {!isWorker && !problem.state && <Button active>Edit</Button>}
-   {!isWorker && problem.state && (
-    <Button active onClick={setIsOpenStatus}>
-     {" "}
-     Status{" "}
-    </Button>
-   )}
+    {
+      isError ? (<span className="post-problem-detail__error">{isError}</span>) : isLoading ? (<Loading />) : RenderDetail()
+    }
 
    {isOpenStatus && (
     <ModalContainer>
