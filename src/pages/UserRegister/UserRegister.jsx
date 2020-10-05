@@ -32,7 +32,6 @@ const UserRegister = () => {
 
 // Redux state
   const newUser = useSelector(state => state.UserReducer)
-  console.log(newUser)
 
   const onSubmit = async () => {
     try {

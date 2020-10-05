@@ -79,7 +79,7 @@ useEffect( () => {
         setIsLoading(false)
       } catch(err){
         setIsLoading(false)
-        console.log(err)
+        console.error(err)
       }
   }
   if(posts.length > 0) {

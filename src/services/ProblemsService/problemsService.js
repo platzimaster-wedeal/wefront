@@ -5,6 +5,7 @@ import { useRequestGet } from '../../hooks/useRequestGet/useRequestGet'
 const URL_GET_PROBLEMS = 'https://wedeal.herokuapp.com/api/v1/problems'
 const URL_GET_PROBLEM = id => `https://wedeal.herokuapp.com/api/v1/problems/${id}`
 const URL_CREATE_PROBLEM = 'https://wedeal.herokuapp.com/api/v1/problems'
+const URL_APPLY = 'https://wedeal.herokuapp.com/api/v1/applyProblem'
 
 export const getProblems = async () => {
   const data = await useRequestGet(URL_GET_PROBLEMS)
@@ -39,8 +40,8 @@ export const createProblem = async (data) => {
   return resp
 } 
 
-export const applyProblem = async (data) => {
-    const resp_data = await useRequestPost(data)
+export const applyToProblem = async (data) => {
+    const resp_data = await useRequestPost(URL_APPLY, data)
     const resp = await resp_data.json()
 
     if(resp.error) {

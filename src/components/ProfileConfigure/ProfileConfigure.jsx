@@ -31,7 +31,7 @@ const ProfileConfigure = ({ isWorker, user }) => {
       profileName={user.first_name}
       profileLastName={user.last_name}
       profileEmail={user.email}
-      profilePhone={user.phone}
+      profilePhone={user.telephone}
       profileCountry={user.country}
    />
    {isWorker ? (

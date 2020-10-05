@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom'
 
 // Redux
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { GET_PROFILE_DEALS } from '../../redux/types/Problems/ProblemsTypes'
 
 // Services
 import { createProblem } from "../../services/ProblemsService/problemsService"
@@ -24,7 +25,17 @@ import FeedContainer from "../../container/FeedContainer/FeedContainer";
 
 const Deals = () => {
   // Redux state
-  const { problems, newProblem } = useSelector(state => state.ProblemsReducer)
+  const { problems, newProblem, profileDeals } = useSelector(state => state.ProblemsReducer)
+
+  // Handle set profile deals
+  const setProfileDeals = useDispatch()
+  useEffect(() => {
+    if(profileDeals.lenght > 0) {
+      const deals = profileDeals.filter(problem => problem.state === "solving")
+      setProfileDeals({type: GET_PROFILE_DEALS, payload: deals })
+    }
+    
+  }, [profileDeals])
 
   // Handle Create Problem
   const [isLoading, setIsLoading] = useState(false)
@@ -42,6 +53,8 @@ const Deals = () => {
    try {
     setIsLoading(true)
     const resp = await createProblem(newProblem)
+    setIsLoading(false)
+    setIsCreated(true)
    } catch(err) {
      setIsError(err)
      setIsLoading(false)
@@ -53,7 +66,7 @@ const Deals = () => {
  return (
   <HeaderContainer>
    <ChangeView
-    SecondView={<DealsComponent deals={[1, 2, 3]} />}
+    SecondView={<DealsComponent deals={profileDeals} />}
     firstViewTitle="Current Problems"
     secondViewTitle="Deals">
     <FeedContainer strategyAction={actionProblem} type="problem" />

@@ -1,7 +1,4 @@
-import React from "react";
-
-// Hooks
-import { useInputForm } from "../../hooks/useInputForm/useInputForm";
+import React, {useEffect} from "react";
 
 // Styles
 import "../../assets/styles/components/PostProblemPayment/PostProblemPayment.scss";
@@ -9,8 +6,7 @@ import "../../assets/styles/components/PostProblemPayment/PostProblemPayment.scs
 // Components
 import Button from "../Buttons/Button";
 
-const PostProblemPayment = ({ agreed = false, agreedPrice = 0, salaryMin = 0, salaryMax = 1000 }) => {
- const [price, setPrice] = useInputForm(0);
+const PostProblemPayment = ({ agreed = false, agreedPrice = 0, salaryMin = 0, salaryMax = 1000, setState, state }) => {
 
  return (
   <div className="post-problem-payment">
@@ -21,7 +17,7 @@ const PostProblemPayment = ({ agreed = false, agreedPrice = 0, salaryMin = 0, sa
    <p className="post-problem-payment__action-price">
     {agreed != true ? "Select your price:" : "Agreed Price:"}{" "}
     <span className="post-problem-payment__current-price">
-     ${Number(agreedPrice) > 0 ? Number(agreedPrice) : price}
+     ${Number(agreedPrice) > 0 ? Number(agreedPrice) : state}
     </span>
    </p>
    {agreed != true && (
@@ -35,7 +31,7 @@ const PostProblemPayment = ({ agreed = false, agreedPrice = 0, salaryMin = 0, sa
       </small>
      </div>
 
-     <input type="range" onChange={setPrice} max={salaryMax} min={salaryMin} />
+     <input type="range" onChange={setState} max={salaryMax} min={salaryMin} />
     </>
    )}
   </div>

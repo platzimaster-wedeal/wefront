@@ -3,11 +3,11 @@ import { useParams, useHistory } from 'react-router-dom'
 import { useRequestGet } from '../../hooks/useRequestGet/useRequestGet'
 
 // Services
-import { getProblem, applyProblem } from '../../services/ProblemsService/problemsService'
+import { getProblem, applyToProblem } from '../../services/ProblemsService/problemsService'
 
 // Redux
 import {useSelector,useDispatch} from "react-redux"
-import { GET_PROBLEM } from '../../redux/types/Problems/ProblemsTypes'
+import { GET_PROBLEM, APPLY_PROBLEM } from '../../redux/types/Problems/ProblemsTypes'
 
 // Layouts
 import ChangeView from "../../layouts/ChangeView/ChangeView";
@@ -19,6 +19,7 @@ import PostProblemDetail from "../../components/PostProblemDetail/PostProblemDet
 import ModalContainer from "../../components/Modals/ModalContainer"
 import Modal from "../../components/Modals/Modal"
 import ModalMessage from "../../components/ModalMessage/ModalMessage"
+import Loading from "../../components/Loading/Loading"
 
 // Containers
 import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
@@ -29,7 +30,7 @@ const history = useHistory()
 
 // Redux state
 const { id } = useSelector(state => state.AuthReducer )
-const { currentProblem } = useSelector(state => state.ProblemsReducer )
+const { currentProblem, applyProblem } = useSelector(state => state.ProblemsReducer )
 const { employeer } = useSelector(state => state.ProfileReducer )
 
 // Handle GET problem
@@ -41,7 +42,7 @@ useEffect(() => {
   const handleGetProblem = async () => {
     try {
       const resp = await getProblem(idProblem)
-      getProblemDispatch({type: GET_PROBLEM, payload: resp.body})
+      getProblemDispatch({type: GET_PROBLEM, payload: {...resp.body}})
       setIsLoading(false)
     } catch(err) {
       setIsError(err)
@@ -50,20 +51,28 @@ useEffect(() => {
     }
   }
   handleGetProblem()
-}, [isLoading, isError])
+}, [isLoading, isError, idProblem])
 
 // Handle Apply Problem
+const applyProblemDispatch = useDispatch()
 const [isLoadingApply, setIsLoadingApply] = useState(false)
 const [isApplied, setIsApplied] = useState(false)
-const onApplied = () => setIsApplied(false)
+const onApplied = () => {
+  setIsApplied(false)
+  history.push('/user/deals')
+}
 
 const [isErrorApply, setIsErrorApply] = useState(null)
-const onError = () => history.go(0)
+const onError = () => {
+  setIsErrorApply(null)
+  history.push('/home')
+}
 const onApply = async () => {
   try {
     setIsLoadingApply(true)
-    const resp = await applyProblem()
-    setIsLoadingApply(true)
+    const resp = await applyToProblem(applyProblem)
+    setIsLoadingApply(false)
+    setIsApplied(true)
   } catch(err) {
     setIsError(err)
     setIsLoadingApply(false)
@@ -78,7 +87,13 @@ const onApply = async () => {
     firstViewTitle="About Problem"
     secondViewTitle="Connections">
     <FeedDetail title="About The Problem">
-     <PostProblemDetail idUser={id} problem={currentProblem} isLoading={isLoading} isError={isError} onApply={onApply}  />
+     <PostProblemDetail 
+      idUser={id} 
+      problem={currentProblem} 
+      isLoading={isLoading} 
+      isError={isError} 
+      onApply={onApply}  
+    />
     </FeedDetail>
    </ChangeView>
    {

@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 // Hooks
+import { useInputForm } from "../../hooks/useInputForm/useInputForm";
+
+
+import { useDispatch } from "react-redux";
+import { APPLY_PROBLEM } from '../../redux/types/Problems/ProblemsTypes'
+
+// Hooks
 import { useModal } from "../../hooks/useModal/useModal";
 
 // Styles
@@ -34,12 +41,29 @@ const PostProblemDetail = ({ problem, idUser, isError = null, isLoading = true, 
 
  // Modal state hook
  const [isOpenStatus, setIsOpenStatus] = useModal(false);
- const [isOpenApply, setIsOpenApply] = useModal(false);
 
+//  Handle apply
+  const setApplyProblem = useDispatch()
+  let dataApplyProblem = {
+    id_employer: idUser,
+    id_job_offer: problem.id,
+    status: "solving",
+  }
+  const [isOpenApply, setIsOpenApply] = useModal(false);
+  const [price, setPrice] = useInputForm(0)
+  useEffect(() => {
+    dataApplyProblem = { 
+      ...dataApplyProblem,
+      price: price
+    } 
+    setApplyProblem({type: APPLY_PROBLEM, paylaod: dataApplyProblem })
+  }, [price])
+
+
+// defining UI
  const defineAction = () => {
   if (problem.state) return <PostProblemStatus status={problem.state} />;
-
-  if (!isUser && problem.state)
+  if (!isUser)
    return (
     <Button active onClick={setIsOpenApply}>
      Apply!
@@ -71,12 +95,14 @@ const PostProblemDetail = ({ problem, idUser, isError = null, isLoading = true, 
         schedule={problem.schedule}
       />
 
-      {problem.state ? (
+      {!problem.state ? (
         <>
-        <PostProblemPayment 
-          salaryMax={problem.salary_range1}
-          salaryMin={problem.salary_range2}
-        />
+          <PostProblemPayment 
+            salaryMax={problem.salary_range2}
+            salaryMin={problem.salary_range1}
+            setState={setPrice}
+            state={price}
+          />
         </>
       ) : (
         <PostProblemPayment agreed agreedPrice={problem.salary_range2} />
@@ -113,7 +139,7 @@ const PostProblemDetail = ({ problem, idUser, isError = null, isLoading = true, 
     <ModalContainer>
      <Modal title="Apply To Problem!" onClose={setIsOpenApply}>
       <CreateApplyPostProblem 
-        price={problem.currentPrice}
+        price={price}
         schedule={problem.schedule}
         onCancel={setIsOpenApply}
         onApply={onApply}
