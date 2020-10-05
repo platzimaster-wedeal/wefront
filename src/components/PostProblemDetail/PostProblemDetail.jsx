@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // Hooks
 import { useModal } from "../../hooks/useModal/useModal";
@@ -24,19 +24,22 @@ import Loading from "../Loading/Loading";
 import ModalContainer from "../Modals/ModalContainer";
 import Modal from "../Modals/Modal";
 
-const PostProblemDetail = ({ problem, isWorker, isError = null, isLoading = true }) => {
+const PostProblemDetail = ({ problem, idUser, isError = null, isLoading = true, onApply }) => {
 
-
-console.log(isError, 'HEEEELLLOOOOOO')
+  // Validating the user
+  const [isUser, setIsUser] = useState(false) 
+  useEffect(() => {
+    if(problem.id_user === idUser) setIsUser(true)
+  }, [isUser, idUser])
 
  // Modal state hook
  const [isOpenStatus, setIsOpenStatus] = useModal(false);
  const [isOpenApply, setIsOpenApply] = useModal(false);
 
  const defineAction = () => {
-  if (problem.state) return <PostProblemStatus status={isSolving} />;
+  if (problem.state) return <PostProblemStatus status={problem.state} />;
 
-  if (isWorker && !problem.state)
+  if (!isUser && problem.state)
    return (
     <Button active onClick={setIsOpenApply}>
      Apply!
@@ -46,22 +49,42 @@ console.log(isError, 'HEEEELLLOOOOOO')
 
   const RenderDetail = () => (
     <>
-      <PostHeader name={problem.employeer_name}/>
-      <PostProblemPrevisualization />
-      <PostProblemDescription />
-      <PostProblemRequirements />
-      <PostProblemSchedule />
-      {!problem.state ? (
+      <PostHeader 
+        name={problem.employer_name}
+        avatar={problem.employer_avatar}
+        profession={problem.employer_profession}
+      />
+      <PostProblemPrevisualization 
+        title={problem.title}
+        idProblem={problem.id}
+        short_description={problem.short_description}
+        modality={problem.modality}
+        location={problem.location}
+      />
+      <PostProblemDescription 
+        description={problem.long_description}
+      />
+      <PostProblemRequirements 
+        requirements={problem.requirements}
+      />
+      <PostProblemSchedule 
+        schedule={problem.schedule}
+      />
+
+      {problem.state ? (
         <>
-        <PostProblemPayment />
+        <PostProblemPayment 
+          salaryMax={problem.salary_range1}
+          salaryMin={problem.salary_range2}
+        />
         </>
       ) : (
-        <PostProblemPayment agreed agreedPrice={922} />
+        <PostProblemPayment agreed agreedPrice={problem.salary_range2} />
       )}
 
       <div className="post-problem-detail__actions">{defineAction()}</div>
-      {!isWorker && !problem.state && <Button active>Edit</Button>}
-      {!isWorker && problem.state && (
+      {/* {isUser && problem.state && <Button active>Edit</Button>} */}
+      {isUser && problem.state && (
         <Button active onClick={setIsOpenStatus}>
         {" "}
         Status{" "}
@@ -79,14 +102,22 @@ console.log(isError, 'HEEEELLLOOOOOO')
    {isOpenStatus && (
     <ModalContainer>
      <Modal title="Status Of Problem" onClose={setIsOpenStatus}>
-      <ProblemStatusInformation />
+      <ProblemStatusInformation 
+        isUser={isUser}
+        problemUser={problem.employer_name}
+      />
      </Modal>
     </ModalContainer>
    )}
    {isOpenApply && (
     <ModalContainer>
      <Modal title="Apply To Problem!" onClose={setIsOpenApply}>
-      <CreateApplyPostProblem />
+      <CreateApplyPostProblem 
+        price={problem.currentPrice}
+        schedule={problem.schedule}
+        onCancel={setIsOpenApply}
+        onApply={onApply}
+      />
      </Modal>
     </ModalContainer>
    )}

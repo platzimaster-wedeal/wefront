@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { useRequestGet } from '../../hooks/useRequestGet/useRequestGet'
 
 // Services
-import { getProblem } from '../../services/ProblemsService/problemsService'
+import { getProblem, applyProblem } from '../../services/ProblemsService/problemsService'
 
 // Redux
 import {useSelector,useDispatch} from "react-redux"
@@ -16,24 +16,31 @@ import ChangeView from "../../layouts/ChangeView/ChangeView";
 import FeedDetail from "../../components/FeedDetail/FeedDetail";
 import ConnectionsCards from "../../components/ConnetionsCards/ConnectionsCards";
 import PostProblemDetail from "../../components/PostProblemDetail/PostProblemDetail";
+import ModalContainer from "../../components/Modals/ModalContainer"
+import Modal from "../../components/Modals/Modal"
+import ModalMessage from "../../components/ModalMessage/ModalMessage"
 
 // Containers
 import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
 
 const ProblemsDetail = () => {
+
+const history = useHistory()
+
 // Redux state
+const { id } = useSelector(state => state.AuthReducer )
 const { currentProblem } = useSelector(state => state.ProblemsReducer )
 const { employeer } = useSelector(state => state.ProfileReducer )
 
 // Handle GET problem
-const { id } = useParams()
+const { idProblem } = useParams()
 const getProblemDispatch = useDispatch()
 const [isLoading, setIsLoading] = useState(true)
 const [isError, setIsError] = useState(null)
 useEffect(() => {
   const handleGetProblem = async () => {
     try {
-      const resp = await getProblem(id)
+      const resp = await getProblem(idProblem)
       getProblemDispatch({type: GET_PROBLEM, payload: resp.body})
       setIsLoading(false)
     } catch(err) {
@@ -45,6 +52,25 @@ useEffect(() => {
   handleGetProblem()
 }, [isLoading, isError])
 
+// Handle Apply Problem
+const [isLoadingApply, setIsLoadingApply] = useState(false)
+const [isApplied, setIsApplied] = useState(false)
+const onApplied = () => setIsApplied(false)
+
+const [isErrorApply, setIsErrorApply] = useState(null)
+const onError = () => history.go(0)
+const onApply = async () => {
+  try {
+    setIsLoadingApply(true)
+    const resp = await applyProblem()
+    setIsLoadingApply(true)
+  } catch(err) {
+    setIsError(err)
+    setIsLoadingApply(false)
+    console.error(err)
+  }
+}
+
  return (
   <HeaderContainer>
    <ChangeView
@@ -52,9 +78,39 @@ useEffect(() => {
     firstViewTitle="About Problem"
     secondViewTitle="Connections">
     <FeedDetail title="About The Problem">
-     <PostProblemDetail isWorker={employeer} problem={currentProblem} isLoading={isLoading} isError={isError}  />
+     <PostProblemDetail idUser={id} problem={currentProblem} isLoading={isLoading} isError={isError} onApply={onApply}  />
     </FeedDetail>
    </ChangeView>
+   {
+     isErrorApply && (
+        <ModalContainer>
+          <Modal title="Oops!">
+            <ModalMessage type="error" message="We sorry! Something wrong happen!" onClose={onError} />
+          </Modal>
+        </ModalContainer> 
+     )
+   }
+   {
+     isLoadingApply && (
+        <ModalContainer>
+          <Modal title="Apply">
+            <>
+              <Loading />
+              <span>Wait a moment while we validate your information :D</span>
+            </>
+          </Modal> 
+        </ModalContainer> 
+     )
+   }
+   {
+     isApplied && (
+        <ModalContainer>
+          <Modal title="Awesome!">
+            <ModalMessage type="Great" message="Congrats! You apply to his problem! Wait for the response :D" onClose={onApplied} />
+          </Modal>
+        </ModalContainer> 
+     )
+   }
   </HeaderContainer>
  );
 };

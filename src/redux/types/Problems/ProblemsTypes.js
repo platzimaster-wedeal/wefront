@@ -1,3 +1,4 @@
+export const GET_NEXT_PROBLEMS = 'GET_NEXT_PROBLEMS'
 export const GET_PROBLEMS = 'GET_PROBLEMS'
 export const GET_PROBLEM = 'GET_PROBLEM'
 export const INSERT_PROBLEM = 'INSERT_PROBLEM'

@@ -8,6 +8,7 @@ const CreateApplyPostProblem = ({
  currency = "USD",
  schedule = "12/08/2020",
  onCancel,
+ onApply
 }) => {
  return (
   <Fragment>
@@ -31,10 +32,10 @@ const CreateApplyPostProblem = ({
     cols="50"
    />
    <div className="PostProblem__buttons">
-    <Button type="submit" active>
+    <Button active onClick={onApply}>
      Apply
     </Button>
-    <Button type="submit" onClick={onCancel}>
+    <Button onClick={onCancel}>
      Cancel
     </Button>
    </div>

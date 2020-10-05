@@ -32,7 +32,7 @@ const LandingHeader = ({ goToLogin, goToRegister, isRegister, isLanding }) => {
       </>
      ) : (
       <li>
-       <Link to="/">Home</Link>
+       <Link to="/">About Us</Link>
       </li>
      )}
     </ul>

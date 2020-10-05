@@ -7,6 +7,7 @@ const SelectDate = ({ className, setState, state }) => {
  const [startDate, setStartDate] = useState(new Date().toString());
  const handleChange = (date) => {
   setStartDate(date.toString());
+  setState(date.toString())
  };
  return (
   <div className={`flatDate ${className}`}>

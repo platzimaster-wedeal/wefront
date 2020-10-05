@@ -9,7 +9,7 @@ import "../../assets/styles/components/PostProblemPayment/PostProblemPayment.scs
 // Components
 import Button from "../Buttons/Button";
 
-const PostProblemPayment = ({ agreed = false, agreedPrice = 0 }) => {
+const PostProblemPayment = ({ agreed = false, agreedPrice = 0, salaryMin = 0, salaryMax = 1000 }) => {
  const [price, setPrice] = useInputForm(0);
 
  return (
@@ -28,14 +28,14 @@ const PostProblemPayment = ({ agreed = false, agreedPrice = 0 }) => {
     <>
      <div className="post-problem-payment__range-price">
       <small>
-       min: <span> $0 </span>
+       min: <span> ${salaryMin} </span>
       </small>
       <small>
-       max: <span> $1000 </span>
+       max: <span> ${salaryMax} </span>
       </small>
      </div>
 
-     <input type="range" onChange={setPrice} max={1000} min={0} />
+     <input type="range" onChange={setPrice} max={salaryMax} min={salaryMin} />
     </>
    )}
   </div>

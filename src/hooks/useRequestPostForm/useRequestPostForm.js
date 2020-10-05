@@ -10,9 +10,6 @@ export const useRequestPostForm = (url, data) => {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
     redirect: 'follow',
     referrerPolicy: 'no-referrer', 
     body: formData

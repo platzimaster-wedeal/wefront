@@ -1,6 +1,7 @@
-import { GET_PROBLEMS, GET_PROBLEM, INSERT_PROBLEM, PATCH_PROBLEM } from '../../Types/Problems/ProblemsTypes'
+import { GET_PROBLEMS, GET_PROBLEM, INSERT_PROBLEM, PATCH_PROBLEM, GET_NEXT_PROBLEMS } from '../../Types/Problems/ProblemsTypes'
 
 const INITIAL_STATE = {
+  pageProblems: 1,
   problems: [],
   currentProblem: {
     id: null,
@@ -17,6 +18,7 @@ const INITIAL_STATE = {
     salary_range1: 0,
     salary_range2: 0,
     state: 0,
+    currentPrice: 0,
     postulations: [],
     user: {},
   },
@@ -25,14 +27,12 @@ const INITIAL_STATE = {
     employeer_name: '',
     short_description: '',
     long_description: '',
-    file: null,
+    myFile: null,
     schedule: '',
     categories: [],
     modality: 0,
     requirements: [],
-    salary_range1: 0,
-    salary_range2: 0,
-    state: 0,
+    price: 0,
     id_user: 0,
   }
 }
@@ -51,6 +51,9 @@ export default (state = INITIAL_STATE, action) => {
 
     case PATCH_PROBLEM:
       return {...state, newProblem: {...action.payload} }
+
+    case GET_NEXT_PROBLEMS:
+      return {...state, pageProblems: state.pageProblems + 1  }
 
       
     default:

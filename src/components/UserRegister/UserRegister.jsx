@@ -14,7 +14,6 @@ import Loading from "../Loading/Loading";
 
 const UserRegister = ({onSubmit, isLoading, isError}) => {
 
-  console.log(isError, 'HEHELJELK')
 
   // Redux State
   const patchUser = useDispatch()
