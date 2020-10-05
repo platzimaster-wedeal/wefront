@@ -43,6 +43,7 @@ const SelectCategories = ({
    (currCategory) => currCategory != category
   );
   setCurrentCategories(newCurrentCategories);
+  setCategories(newCurrentCategories);
  };
 
  return (

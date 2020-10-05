@@ -37,7 +37,7 @@ const { isAuth } = useSelector(state => state.AuthReducer)
         <>
           <Route exact path="/home" component={Home} />
           <Route exact path="/problems" component={Problems} />
-          <Route exact path="/detail/problem/:id?" component={ProblemsDetail} />
+          <Route exact path="/detail/problem/:idProblem" component={ProblemsDetail} />
           <Route exact path="/user/configuration" component={UserConfigure} />
           <Route exact path="/user/profile/:idUser?" component={UserProfile} />
           <Route exact path="/user/deals" component={Deals} />

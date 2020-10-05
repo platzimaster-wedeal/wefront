@@ -13,7 +13,7 @@ import ModalContainer from "../Modals/ModalContainer";
 import Modal from "../Modals/Modal";
 
 const ProblemStatusInformation = ({
- isWorker,
+ isUser,
  problemUser,
  problemStatus = true,
  problemWorker = "@Alan",
@@ -32,7 +32,7 @@ const ProblemStatusInformation = ({
      <span className="problem-status-information__status-message">
       The user {problemWorker} is solving the problem.
      </span>
-     {!isWorker && !isProblemSolved && (
+     {isUser && !isProblemSolved && (
       <Button active onClick={handleProblemSolved}>
        Problem Solved
       </Button>
@@ -66,7 +66,7 @@ const ProblemStatusInformation = ({
    <PostHeader />
    <FormStep title="Current Status">{RenderStatus()}</FormStep>
 
-   {!isWorker && !problemStatus && RenderWorkers()}
+   {isUser && !problemStatus && RenderWorkers()}
 
    {isProblemSolved && (
     <FormStep title="Qualification Of Worker">

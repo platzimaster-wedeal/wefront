@@ -1,3 +1,4 @@
+import { useRequestPostForm } from '../../hooks/useRequestPostForm/useRequestPostForm'
 import { useRequestPost } from '../../hooks/useRequestPost/useRequestPost'
 import { useRequestGet } from '../../hooks/useRequestGet/useRequestGet'
 
@@ -28,7 +29,7 @@ export const getProblem = async (id) => {
 } 
 
 export const createProblem = async (data) => {
-  const resp_data = await useRequestPost(URL_CREATE_PROBLEM, data)
+  const resp_data = await useRequestPostForm(URL_CREATE_PROBLEM, data)
   const resp = await resp_data.json()
 
   if(resp.error) {
@@ -37,3 +38,14 @@ export const createProblem = async (data) => {
 
   return resp
 } 
+
+export const applyProblem = async (data) => {
+    const resp_data = await useRequestPost(data)
+    const resp = await resp_data.json()
+
+    if(resp.error) {
+      throw new Error(resp.body)
+    }
+
+    return resp
+}

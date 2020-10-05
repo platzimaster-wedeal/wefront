@@ -12,6 +12,7 @@ import Requirements from "../Requirements/Requirements";
 const AddOptionList = ({
  title = "Add your option",
  options = [],
+ setState,
  type = null,
 }) => {
  const [currentOptions, setCurrentOptions] = useState(options);
@@ -21,6 +22,7 @@ const AddOptionList = ({
   ev.preventDefault();
   if (option.length > 0) {
    setCurrentOptions((prev) => [...prev, option]);
+   setState((prev) => [...prev, option])
    setOption("");
   }
  };

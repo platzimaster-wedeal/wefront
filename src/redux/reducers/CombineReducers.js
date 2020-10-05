@@ -7,6 +7,8 @@ import ProfileReducer from './Auth/ProfileReducer'
 import PostsReducer from './Posts/PostsReducer'
 import SharesReducer from './Shares/SharesReducer'
 import ProblemsReducer from './Problems/ProblemsReducer'
+import LanguagesReducer from './Languages/LanguagesReducer'
+import CategoriesReducer from './Categories/CategoriesReducer'
 
 export default combineReducers({
   AuthReducer,
@@ -14,5 +16,7 @@ export default combineReducers({
   ProfileReducer,
   PostsReducer,
   SharesReducer,
-  ProblemsReducer
+  ProblemsReducer,
+  LanguagesReducer,
+  CategoriesReducer
 })

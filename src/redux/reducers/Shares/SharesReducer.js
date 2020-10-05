@@ -1,6 +1,7 @@
-import { INSERT_SHARE, GET_SHARES } from '../../Types/Shares/ShareTypes'
+import { INSERT_SHARE, GET_SHARES, GET_NEXT_SHARES } from '../../Types/Shares/ShareTypes'
 
 const INITIAL_STATE = {
+  pageShares: 1, 
   shares: [],
   newShare: {
     title: '',
@@ -21,6 +22,9 @@ export default (state = INITIAL_STATE, action) => {
 
     case GET_SHARES:
       return {...state, shares: action.payload }
+      
+    case GET_NEXT_SHARES:
+      return {...state, pageShares: state.pageShares + 1 }
       
     default:
       return {...state}

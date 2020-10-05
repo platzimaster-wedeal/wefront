@@ -35,18 +35,18 @@ const Landing = () => {
 
    {/* First section */}
    <article className="landing-page__section" id="introduction">
-    <div className="landing-page__section--content">
+    <div className="landing-page__section--content to-right">
      <LandingParagraph
       title="WeDeal"
       content="The perfect place to find and connect with the best workers of your zone"
      />
      <div className="landing-page__section--cards">
-      <LandingCardSmall title="What?" />
-      <LandingCardSmall title="Why?" />
-      <LandingCardSmall title="Who?" />
+      <LandingCardSmall title="What?" animations="to-right" />
+      <LandingCardSmall title="Why?"  animations="to-right"/>
+      <LandingCardSmall title="Who?" animations="to-right"/>
      </div>
     </div>
-    <figure className="landing-page__section--img">
+    <figure className="landing-page__section--img to-left">
      <img src={WeStayInTouch} alt="We stay in touch" />
     </figure>
    </article>
@@ -79,9 +79,9 @@ const Landing = () => {
       position="center"
      />
      <div className="landing-page__section--cards landing-page__section--cards-medium">
-      <LandingCard title="What You Need" image={WeFindImg} />
-      <LandingCard title="Whenever You Want" image={WeCalendar} />
+      <LandingCard title="Whoever You Need" image={WeFindImg} />
       <LandingCard title="Whatever You Need" image={WeWorkEnergy} />
+      <LandingCard title="Whenever You Want" image={WeCalendar} />
      </div>
     </div>
    </article>

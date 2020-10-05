@@ -9,20 +9,23 @@ import PostInteractions from "../PostInteractions/PostInteractions";
 import PostComments from "../PostComments/PostComments";
 
 const PostShare = ({
- share,
- user,
  post,
- comments = ["Mesg", "Hello", "Damn"],
+ comments = false,
 }) => {
  const [seeComments, setSeeComments] = useState(true);
 
  return (
   <article className="post-share">
-   <PostHeader share />
+   <PostHeader 
+    name={post.name}
+    avatar={post.avatar}
+    profession={post.profession}
+    share 
+    />
    <div className="post-share__content">
     <p>
-     {share && share.content
-      ? share.content
+     {post && post.content
+      ? post.content
       : "Optional description until I know what to put here, besides, a need to know how it looks :D"}
     </p>
     <PostInteractions />
