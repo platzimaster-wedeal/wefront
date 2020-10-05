@@ -1,5 +1,4 @@
 import React from "react";
-import ImgUser from "../../assets/static/img/users/user.jpg";
 import { MdPhotoCamera } from "react-icons/md";
 
 // Style
@@ -9,7 +8,7 @@ import "../../assets/styles/components/ProfileHeaderPhoto/ProfileHeaderPhoto.scs
 import SmallButtonSA from "../Buttons/SmallButtonSA";
 
 const ProfileHeaderPhoto = ({
- name = "Tupac Shakur Walks",
+ name,
  avatar,
  onPhoto,
  isProfile = false,
@@ -17,7 +16,7 @@ const ProfileHeaderPhoto = ({
  return (
   <div className="profile-header-photo">
    <figure className="profile-header-photo__figure">
-    <img src={avatar || ImgUser} alt={name} aria-label={name} />
+    <img src={avatar} alt={name} aria-label={name} />
     {isProfile && (
      <SmallButtonSA
       icon={MdPhotoCamera}

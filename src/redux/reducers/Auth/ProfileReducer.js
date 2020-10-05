@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   avatar: '',
   phone: 0,
   type: 0,
+  country: '',
   languages: [],
   location: {},
   connections: [],

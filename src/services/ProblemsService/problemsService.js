@@ -4,7 +4,7 @@ import { useRequestGet } from '../../hooks/useRequestGet/useRequestGet'
 
 const URL_GET_PROBLEMS = 'https://wedeal.herokuapp.com/api/v1/problems'
 const URL_GET_PROBLEM = id => `https://wedeal.herokuapp.com/api/v1/problems/${id}`
-const URL_CREATE_PROBLEM = ''
+const URL_CREATE_PROBLEM = 'https://wedeal.herokuapp.com/api/v1/problems'
 
 export const getProblems = async () => {
   const data = await useRequestGet(URL_GET_PROBLEMS)

@@ -9,6 +9,7 @@ import SharesReducer from './Shares/SharesReducer'
 import ProblemsReducer from './Problems/ProblemsReducer'
 import LanguagesReducer from './Languages/LanguagesReducer'
 import CategoriesReducer from './Categories/CategoriesReducer'
+import CountriesReducer from './Countries/CountriesReducer'
 
 export default combineReducers({
   AuthReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
   SharesReducer,
   ProblemsReducer,
   LanguagesReducer,
-  CategoriesReducer
+  CategoriesReducer,
+  CountriesReducer
 })

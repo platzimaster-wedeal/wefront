@@ -7,12 +7,14 @@ import {GET_AUTH} from '../../redux/types/Auth/AuthTypes'
 import {GET_PROFILE} from '../../redux/types/Auth/ProfileTypes'
 import {GET_CATEGORIES} from '../../redux/types/Categories/CategoriesTypes'
 import {GET_LANGUAGES} from '../../redux/types/Languages/LanguagesTypes'
+import {GET_COUNTRIES} from '../../redux/types/Countries/CountriesTypes'
 
 // Services
 import { getAuth } from '../../services/AuthService/authService'
 import { getProfile } from '../../services/AuthService/profileService'
 import { getCategories } from '../../services/CategoriesServices/categoriesServices'
 import { getLanguages } from '../../services/LanguagesServices/languagesServices'
+import { getCountries } from '../../services/CountriesServices/countriesServices'
 
 // Tools
 import { setCookie } from '../../utils/setCookie'
@@ -34,14 +36,24 @@ const UserLogin = () => {
    // Handle Get general data
   const getLanguagesDispatch = useDispatch()
   const getCategoriesDispatch = useDispatch()
+  const getCountriesDispatch = useDispatch()
 
   useEffect(() => {
      const getGeneralData = async () => {
-        const data_languages = await getLanguages()
-        getLanguagesDispatch({type: GET_LANGUAGES, payload: [...data_languages]})
+        try {
+            const data_languages = await getLanguages()
+            getLanguagesDispatch({type: GET_LANGUAGES, payload: [...data_languages]})
 
-        const data_categories = await getCategories()
-        getCategoriesDispatch({type: GET_CATEGORIES, payload: [...data_categories]})
+            const data_categories = await getCategories()
+            getCategoriesDispatch({type: GET_CATEGORIES, payload: [...data_categories]})
+
+            const data_countries = await getCountries()
+            getCountriesDispatch({type: GET_COUNTRIES, paylaod: [...data_countries.body]})
+            console.log(data_countries)
+        }catch(err){
+           console.log(err)
+        }
+        
      }
      getGeneralData()
      

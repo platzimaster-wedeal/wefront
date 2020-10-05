@@ -19,7 +19,7 @@ const StrategyCard = ({ title, imgSource, icon, placeholder, onClick }) => {
     <ProfilePicture
      className="strategy__container--img"
      source={imgSource}
-     alt="Julio smiling"
+     alt={title}
      active
     />
     <input type="text" placeholder={placeholder} />

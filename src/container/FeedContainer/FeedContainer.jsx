@@ -1,5 +1,5 @@
 import React from "react";
-import PhotoUser from "../../assets/static/img/users/user.jpg";
+import { useSelector } from 'react-redux'
 
 // Utils
 import { defineTypeStrategy } from "../../utils/defineTypeStrategy";
@@ -9,12 +9,15 @@ import StrategyCard from "../../components/StrategyCard/StrageyCard";
 import FeedGeneral from "../../components/FeedGeneral/FeedGeneral";
 
 const FeedContainer = ({ strategyAction, type, data, isLoading, isError = null }) => {
+
+const { avatar } = useSelector(state => state.ProfileReducer)
+
  const strategy = defineTypeStrategy(type);
  return (
   <div>
    <StrategyCard
     title={strategy.title}
-    imgSource={PhotoUser}
+    imgSource={avatar}
     icon={strategy.icon}
     placeholder={strategy.placeholder}
     onClick={strategyAction}
