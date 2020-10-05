@@ -14,7 +14,7 @@ const UserInformationContainer = ({isProfile, user = {}}) => {
       isProfile={isProfile} 
       username={user.username}
       followers={user.followers}
-      location={user.location}
+      location={user.country}
     />
    <ProfileProblemsContainer  
       isProfile={isProfile} 

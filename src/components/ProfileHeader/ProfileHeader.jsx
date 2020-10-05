@@ -18,8 +18,8 @@ const ProfileHeader = ({ user, isUser = false }) => {
  return (
   <section className="profile-header">
     <ProfileHeaderPhoto 
-      name={user.first_name}
-      avatar={user.avatar}
+      name={user && user.first_name}
+      avatar={user && user.avatar}
       isProfile={isUser} 
       onPhoto={handleModal} 
     />

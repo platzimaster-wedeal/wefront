@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
+import { useSelector } from 'react-redux'
+
 
 // Layouts
 import ChangeViewProfile from "../../layouts/ChangeViewProfile/ChangeViewProfile";
@@ -14,18 +16,24 @@ import HeaderContainerProfile from "../../container/HeaderContainerProfile/Heade
 import UserInformationContainer from "../../container/UserInformationContainer/UserInformationContainer";
 
 const UserConfigure = () => {
+
+// Redux state
+  const { id } = useSelector(state => state.AuthReducer)
+  const profile = useSelector(state => state.ProfileReducer)
+  const { profilePosts } = useSelector(state => state.PostsReducer)
+
  return (
   <HeaderContainerProfile>
-   <ProfileHeader isUser />
+   <ProfileHeader isUser isProfile user={profile}/>
    <ChangeViewProfile
     SecondView={
      <FeedDetail title="Configuration">
-      <ProfileConfigure isWorker />
+      <ProfileConfigure isWorker={profile.employeer} user={profile} />
      </FeedDetail>
     }
     firstViewTitle="General Information"
     secondViewTitle="Configure">
-    <UserInformationContainer />
+    <UserInformationContainer isProfile user={profile} />
    </ChangeViewProfile>
   </HeaderContainerProfile>
  );

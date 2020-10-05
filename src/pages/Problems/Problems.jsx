@@ -34,7 +34,9 @@ const Problems = () => {
  const [isCreated, setIsCreated] = useState(false)
  const onCreated = () => history.push('/user/deals')
  const [isError, setIsError] = useState(null)
- const onError = () => history.go(0)
+ const onError = () => {
+   setIsError(null)
+ }
 
  const [isModalProblem, setIsModalProblem] = useState(false);
  const actionProblem = () => setIsModalProblem(!isModalProblem);

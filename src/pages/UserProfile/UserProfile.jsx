@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
 
 // Reux
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { GET_USER } from '../../redux/types/User/UserTypes' 
+
+// Services
+import { getUser } from '../../services/UserService/userService'
 
 // Layouts
 import ChangeViewProfile from "../../layouts/ChangeViewProfile/ChangeViewProfile";
@@ -11,6 +15,8 @@ import ChangeViewProfile from "../../layouts/ChangeViewProfile/ChangeViewProfile
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ModalContainer from "../../components/Modals/ModalContainer";
 import Modal from "../../components/Modals/Modal";
+import ModalMessage from "../../components/ModalMessage/ModalMessage";
+import Loading from "../../components/Loading/Loading";
 import CreatePostShare from "../../components/CreatePostShare/CreatePostShare";
 
 // Containers
@@ -29,13 +35,38 @@ const UserProfile = () => {
   const { profilePosts } = useSelector(state => state.PostsReducer)
 
   // Handle validation of user
+  // Effect of profile
   useEffect(() => {
-    
-    if(Number(idUser)) {
-      if(idUser === id) setIsProfile(true)
-    } else setIsProfile(true)
+    if(!idUser || Number(idUser) === id) {
+      setIsProfile(true)
+      return
+    }
 
-  }, [id, profile, isProfile])
+  }, [profile, isProfile, idUser])
+
+  // Effect of user
+  const getUserDispatch = useDispatch()
+  const [isLoadingUser, setIsLoadingUser] = useState(false)
+  const [isError, setIsError] = useState(null)
+  useEffect(() => {
+    if(Number(idUser)) {
+      setIsProfile(false)
+    }
+    const getUserData = async () => {
+      try {
+        setIsLoadingUser(true)
+        const { body } = await getUser(idUser)
+        getUserDispatch({type: GET_USER, payload: {...body}})
+        setIsLoadingUser(false)
+      } catch(err) {
+        setIsError(err)
+        setIsLoadingUser(false)
+        console.error(err)
+      }
+    } 
+    getUserData()
+
+  }, [idUser])
 
  // Handle modal share
  const [isModalShare, setIsModalShare] = useState(false);
@@ -45,7 +76,7 @@ const UserProfile = () => {
   <HeaderContainerProfile>
    <ProfileHeader isUser={isProfile} user={isProfile ? profile : user} />
    <ChangeViewProfile
-    SecondView={<FeedContainer strategyAction={actionShare} type="share" data={profilePosts} />}
+    SecondView={isLoadingUser ? <Loading /> : <FeedContainer strategyAction={actionShare} type="share" data={profilePosts} />}
     firstViewTitle="Posts"
     secondViewTitle="Information">
     <UserInformationContainer isProfile={isProfile} user={isProfile ? profile : user} />

@@ -25,7 +25,7 @@ const GeneralInformation = ({ username, followers, location, isProfile = false }
      <MdGroup className="item--icon" />
     </figure>
 
-    <p className="item--text">{followers} Followers</p>
+    <p className="item--text">{followers || 0} Followers</p>
    </div>
    <div className="GeneralInformation__item">
     <figure>

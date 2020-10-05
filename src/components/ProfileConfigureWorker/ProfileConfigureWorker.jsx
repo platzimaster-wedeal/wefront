@@ -9,14 +9,14 @@ import SelectCategories from "../SelectCategories/SelectCategories";
 import ProfilePreference from "../ProfilePreference/ProfilePreference";
 import AddExperienceList from "../AddExperienceList/AddExperienceList";
 
-const ProfileConfigureWorker = () => {
+const ProfileConfigureWorker = ({categories, experience}) => {
  return (
   <FormStep title="Worker Information">
    <div className="profile-configure__inputs">
     <SelectCategories
      title="Categories"
      categories={["Engineer", "Art", "Electronic"]}
-     userCategories={["Art"]}
+     userCategories={categories}
     />
    </div>
 

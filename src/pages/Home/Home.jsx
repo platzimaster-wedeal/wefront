@@ -71,12 +71,11 @@ useEffect( () => {
   const prevNumber = prevPage.current = pageOfGet 
   const getData = async () => {
       try {
-        // const resp_problems = await getProblems()
+        const resp_problems = await getProblems()
         const resp_shares = await getPosts()
-        // dispatchGetProblems({type: GET_PROBLEMS, payload: [...resp_problems.body]})
+        dispatchGetProblems({type: GET_PROBLEMS, payload: [...resp_problems.body]})
         dispatchGetShares({type: GET_SHARES, payload: [...resp_shares.body]})
-        // dispatchSetPosts({type: GET_POSTS, payload: [...resp_shares.body, ...resp_problems.body]})
-        dispatchSetPosts({type: GET_POSTS, payload: [] })
+        dispatchSetPosts({type: GET_POSTS, payload: [...resp_shares.body, ...resp_problems.body]})
         setIsLoading(false)
       } catch(err){
         setIsLoading(false)
