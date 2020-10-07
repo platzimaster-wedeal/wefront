@@ -43,7 +43,7 @@ const SelectCategories = ({
    (currCategory) => currCategory.title != category.title
   );
   setCurrentCategories(newCurrentCategories);
-  setCategories(newCurrentCategories);
+  setCategories(newCurrentCategories.map(curr => curr.id));
  };
 
  return (

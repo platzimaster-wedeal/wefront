@@ -81,6 +81,8 @@ const UserLogin = () => {
       }
   } 
 
+
+// ----------------- RENDER OF THE COMPONENT -----------------
  return (
   <PresentationView isRegister={false}>
    <Login onLogin={handleLogin} isLoading={isLoading} isError={isError} />

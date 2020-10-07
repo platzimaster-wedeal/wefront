@@ -24,6 +24,7 @@ const [problemSpecificInfomartion, setProblemSpecificInformation] = useState({})
     ...problemInfomartion,
     ...problemSpecificInfomartion
   }
+  console.log(data)
   const resp = await onCreate(data)
   
  };

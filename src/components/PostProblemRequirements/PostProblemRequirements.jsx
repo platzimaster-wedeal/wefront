@@ -12,22 +12,9 @@ const PostProblemRequirements = ({ requirements }) => {
     Minimun Requirements
    </strong>
    <ul className="post-problem-requirements__list">
-    {requirements ? (
-     requirements.map((req) => (
-      <li key={req}>
-       <Requirements title={req} />
-      </li>
-     ))
-    ) : (
-     <>
       <li>
-       <Requirements title="Knowledge about PCs" />
+       <Requirements title={requirements} />
       </li>
-      <li>
-       <Requirements title="Knowledge about PCs" />
-      </li>
-     </>
-    )}
    </ul>
   </section>
  );

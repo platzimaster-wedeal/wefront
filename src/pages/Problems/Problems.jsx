@@ -45,7 +45,7 @@ const Problems = () => {
  const onCreateProblem = async (data) => {
    try {
     setIsLoading(true)
-    console.log(data)
+    console.log(data, '_____________DATA PROBLEM___________---')
     const resp = await createProblem(data)
    } catch(err) {
      setIsError(err)
@@ -55,6 +55,8 @@ const Problems = () => {
 
  }
 
+
+// ----------------- RENDER OF THE COMPONENT -----------------
  return (
   <HeaderContainer>
    <ChangeView

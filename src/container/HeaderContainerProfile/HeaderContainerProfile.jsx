@@ -29,7 +29,7 @@ const HeaderContainerProfile = ({ children }) => {
 
  return (
   <div className="header-container-profile">
-   <HeaderSearch user={profile}/>
+   <HeaderSearch user={profile} onLogout={onLogout} />
    {children}
   </div>
  );

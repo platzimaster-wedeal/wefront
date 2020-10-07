@@ -5,12 +5,12 @@ import { useInputForm } from "../../hooks/useInputForm/useInputForm";
 import { useModal } from "../../hooks/useModal/useModal";
 
 // Redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { APPLY_PROBLEM } from '../../redux/types/Problems/ProblemsTypes'
 
 // Services
 import { postScoreUser } from '../../services/UserService/userService'
-import { getJobOffer } from '../../services/ProblemsService/problemsService'
+import { getJobOffer, getWorkersJob } from '../../services/ProblemsService/problemsService'
 
 // Styles
 import "../../assets/styles/components/PostProblemDetail/PostProblemDetail.scss";
@@ -34,11 +34,12 @@ import ModalContainer from "../Modals/ModalContainer";
 import Modal from "../Modals/Modal";
 import ModalMessage from "../ModalMessage/ModalMessage";
 
-const PostProblemDetail = ({ problem, idUser, isError = null, isLoading = true, onApply }) => {
+const PostProblemDetail = ({ problem, idJobOffer, setDataApply, idUser, isError = null, isLoading = true, onApply }) => {
 
   // ----------------------- Validating the user -----------------------
   const [isUser, setIsUser] = useState(false) 
   useEffect(() => {
+    console.log(idJobOffer, '___JOB___OFFER___')
     if(problem.id_user === idUser) setIsUser(true)
   }, [isUser, idUser])
 
@@ -46,10 +47,9 @@ const PostProblemDetail = ({ problem, idUser, isError = null, isLoading = true, 
  const [isOpenStatus, setIsOpenStatus] = useModal(false);
 
 //  ---------------- Handle apply ----------------
-  const setApplyProblem = useDispatch()
   let dataApplyProblem = {
     id_employee: idUser,
-    id_employers_job_offer: problem.id_employer_job_offer,
+    id_employers_job_offer: idJobOffer,
     hired: 0,
     status: "solving",
   }
@@ -60,7 +60,7 @@ const PostProblemDetail = ({ problem, idUser, isError = null, isLoading = true, 
       ...dataApplyProblem,
       price: price
     } 
-    setApplyProblem({type: APPLY_PROBLEM, paylaod: dataApplyProblem })
+    setDataApply(dataApplyProblem)
   }, [price])
 
 // ---------------- Handle on qualificate to the employe ----------------
@@ -68,15 +68,17 @@ const [jobOffer, setJobOffer] = useState({})
 useEffect(() => {
   const getOfferInformation = async () => {
     try {
+      console.log(problem.id_employer_job_offer)
       const data = await getJobOffer(problem.id_employer_job_offer)
-      const resp = await data.json()
-      setJobOffer({...resp.body})
+      setJobOffer({...data.body})
     }catch(err) {
       console.error(err)
     }
   }
-  getOfferInformation()
-}, [])
+  if(idJobOffer || problem.id_employer_job_offer) {
+    getOfferInformation()
+  }
+}, [problem.id_employer_job_offer, idJobOffer])
 const [dataQualificate, setDataQualificate] = useState({})
 const [isLoadingScore, setIsLoadingScore] = useState(false)
 const [isQualificated, setIsQualificated] = useState(false)
@@ -84,7 +86,7 @@ const onQualificate = async () => {
   const dataScore = {
     ...dataQualificate,
     id_employer: idUser,
-    id_employee: jobOffer.id_employer
+    id_employee: jobOffer.id_employee
   }
   try {
     setIsLoadingScore(true)
@@ -96,6 +98,24 @@ const onQualificate = async () => {
     console.error(err)
   }
 } 
+
+ // ----------------------- Get workers of job offers -----------------------
+  const [workersJob, setWorkersJob] = useState({})
+  const { id_employer } = useSelector(state => state.ProfileReducer)
+  useEffect(() => {
+    const getWorkers = async () => {
+      try {
+        const data = await getWorkersJob(id_employer)
+        setWorkersJob(data.body)
+        console.log(data, '____DATA____')
+      } catch(err){
+        
+      }
+    }
+    if(id_employer){
+      getWorkers()
+    }
+  }, [id_employer])
 
 // ---------------- defining UI of button action ----------------
  const defineAction = () => {
@@ -126,7 +146,7 @@ const onQualificate = async () => {
         description={problem.long_description}
       />
       <PostProblemRequirements 
-        requirements={problem.requirements}
+        requirements={problem.requeriments}
       />
       <PostProblemSchedule 
         schedule={problem.schedule}
@@ -146,7 +166,7 @@ const onQualificate = async () => {
       )}
 
       <div className="post-problem-detail__actions">{defineAction()}</div>
-      {!problem.state && (
+      {problem.state && (
         <Button active onClick={setIsOpenStatus}>
         {" "}
         Status{" "}
@@ -171,6 +191,7 @@ const onQualificate = async () => {
         problemWorker={problem.employer_name}
         setInformation={setDataQualificate}
         onQualificate={onQualificate}
+        workersApplied={workersJob}
       />
      </Modal>
     </ModalContainer>

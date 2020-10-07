@@ -37,15 +37,12 @@ const Home = () => {
   const history = useHistory()
 
 
-  // Posts Redux State
+// ---------------- Redux State ----------------
   const { id } = useSelector(state => state.AuthReducer)
   const { posts } = useSelector(state => state.PostsReducer)
   const { newShare } = useSelector(state => state.SharesReducer)
   const profile = useSelector(state => state.ProfileReducer)
 
- // ---------------- handle the modal of create share
- const [isModalShare, setIsModalShare] = useState(false);
- const actionShare = () => setIsModalShare(!isModalShare);
 
 // ---------------- Handle GET of problems
 const [isLoading, setIsLoading] = useState(true)
@@ -57,7 +54,7 @@ const dispatchGetShares = useDispatch()
 const dispatchSetPosts = useDispatch()
 
 useEffect( () => {
-// Defining next request
+// ---------------- Defining next request
   const prevNumber = prevPage.current = pageOfGet 
   const getData = async () => {
       try {
@@ -83,6 +80,9 @@ useEffect( () => {
 
 
 // ---------------- Handle create share
+const [isModalShare, setIsModalShare] = useState(false);
+const actionShare = () => setIsModalShare(!isModalShare);
+
 const [isLoadingShare, setIsLoadingShare] = useState(false)
 const [shareData, setShareData] = useState({})
 
@@ -116,7 +116,6 @@ const onNewShare = async () => {
 }
 
 // ----------------- RENDER OF THE COMPONENT -----------------
-
  return (
   <HeaderContainer>
    <ChangeView

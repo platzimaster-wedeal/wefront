@@ -10,7 +10,10 @@
  width: auto;
  height: auto;
  padding: $space-size-normal;
- margin-right: -50px;
+
+ @include media(tablet) {
+   margin-right: -20px;
+ }
 }
 
 .HeaderNotifications__content_container {

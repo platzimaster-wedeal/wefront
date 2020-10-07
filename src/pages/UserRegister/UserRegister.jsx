@@ -62,11 +62,12 @@ const UserRegister = () => {
   const [isRegistered, setIsRegistered] = useState(false)
   const onClose = () => history.push('/login')
 
-  const onSubmit = async () => {
+  const onSubmit = async (data) => {
     try {
       setIsLoading(true)      
-      const resp = await registerUser(newUser)    
+      const resp = await registerUser(data)    
       setIsLoading(false)
+      setIsRegistered(true)
       
     } catch(err){
       setIsError(err)

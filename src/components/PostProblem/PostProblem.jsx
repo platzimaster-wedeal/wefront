@@ -10,12 +10,12 @@ import PostProblemPrevisualization from "../PostProblemPrevisualization/PostProb
 import Button from "../Buttons/Button";
 
 const PostProblem = ({ post, onClick }) => {
- const history = useHistory();
+const history = useHistory();
 
 
  return (
   <article className="post-problem">
-   <PostHeader id={post && post.id_user} name={post && post.employer_name} />
+   <PostHeader id={post && post.id_employer} name={post && post.employer_name} picture={post.user_avatar} />
    <div className="post-problem__content">
     <PostProblemPrevisualization 
       title={post && post.title}
