@@ -1,4 +1,4 @@
-import { GET_AUTH, DELETE_AUTH } from '../../Types/Auth/AuthTypes'
+import { GET_AUTH, DELETE_AUTH } from '../../types/Auth/AuthTypes'
 
 const INITIAL_STATE = {
   isAuth: false,

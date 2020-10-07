@@ -1,4 +1,4 @@
-import { GET_PROFILE, PATCH_PROFILE, GET_LOCATION, SET_PREFERENCE_PROFILE } from '../../Types/Auth/ProfileTypes'
+import { GET_PROFILE, PATCH_PROFILE, GET_LOCATION, SET_PREFERENCE_PROFILE } from '../../types/Auth/ProfileTypes'
 
 const INITIAL_STATE = {
   username: '',

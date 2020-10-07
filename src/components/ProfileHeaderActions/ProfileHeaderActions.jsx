@@ -6,7 +6,7 @@ import { FOLLOW_USER, UNFOLLOW_USER } from '../../redux/types/User/UserTypes'
 
 
 import { useHistory } from "react-router-dom";
-import Button from "../buttons/Button";
+import Button from "../Buttons/Button";
 
 // Services
 import { postFollowUser, postUnfollowUser } from '../../services/UserService/userService'

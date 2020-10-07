@@ -1,4 +1,4 @@
-import { GET_POSTS, GET_USER_POSTS, GET_PROFILE_POSTS } from '../../Types/Posts/PostTypes'
+import { GET_POSTS, GET_USER_POSTS, GET_PROFILE_POSTS } from '../../types/Posts/PostTypes'
 
 const INITIAL_STATE = {
   posts: [],

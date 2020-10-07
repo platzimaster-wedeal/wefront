@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PhotoUser from "../../assets/static/img/users/user.jpg";
 
 // Stlyes
-import "../../assets/styles/Components/HeaderSearchResults/HeaderSearchResults.scss";
+import "../../assets/styles/components/HeaderSearchResults/HeaderSearchResults.scss";
 
 // Components
 import ProfileSmallCard from "../ProfileSmallCard/ProfileSmallCard";

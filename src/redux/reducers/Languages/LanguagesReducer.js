@@ -1,4 +1,4 @@
-import { GET_LANGUAGES } from '../../types/languages/LanguagesTypes' 
+import { GET_LANGUAGES } from '../../types/Languages/LanguagesTypes' 
 
 const INITIAL_STATE = {
   languages: [],
