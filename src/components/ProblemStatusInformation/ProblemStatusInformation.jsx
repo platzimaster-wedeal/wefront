@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
 // Stlyes
 import "../../assets/styles/components/ProblemStatusInformation/ProblemStatusInformation.scss";
@@ -16,16 +16,16 @@ import Modal from "../Modals/Modal";
 const ProblemStatusInformation = ({
  isUser,
  problemStatus = true,
- problemWorker = "@",
+ problemEmployer = "",
+ employerAvatar,
+ problemWorker,
  workersApplied = [],
  setInformation,
- onQualificate
+ onQualificate,
 }) => {
-  
-  // const profile = useSelector(state => state.ProfileReducer)
+ // const profile = useSelector(state => state.ProfileReducer)
 
-  const [profile, setProfile] = useState({}) 
-
+ const [profile, setProfile] = useState({});
 
  // ---------------- Handle Problem Solved
  const [isProblemSolved, setIsProblemSolved] = useState(false);
@@ -59,7 +59,16 @@ const ProblemStatusInformation = ({
   return (
    <FormStep title="Workers That Applied">
     {workersApplied && workersApplied.length > 0 ? (
-     workersApplied.map((worker, i) => <ProfileWorkerCard id="" name="" picture="" description="" follows="" key={i} />)
+     workersApplied.map((worker, i) => (
+      <ProfileWorkerCard
+       id=""
+       name=""
+       picture=""
+       description=""
+       follows=""
+       key={i}
+      />
+     ))
     ) : (
      <span className="problem-status-information__workers-message">
       No workers have come forward yet
@@ -71,14 +80,17 @@ const ProblemStatusInformation = ({
 
  return (
   <article className="problem-status-information">
-   <PostHeader />
+   <PostHeader name={problemEmployer} picture={employerAvatar} />
    <FormStep title="Current Status">{RenderStatus()}</FormStep>
 
    {isUser && !problemStatus && RenderWorkers()}
 
    {isUser && isProblemSolved && (
     <FormStep title="Qualification Of Worker">
-     <ProblemQualification setInformation={setInformation} onQualificate={onQualificate} />
+     <ProblemQualification
+      setInformation={setInformation}
+      onQualificate={onQualificate}
+     />
     </FormStep>
    )}
   </article>

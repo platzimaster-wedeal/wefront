@@ -5,7 +5,13 @@ import "../../assets/styles/components/PostProblemPrevisualization/PostProblemPr
 // Components
 import PostProblemGraphicData from "../PostProblemGraphicData/PostProblemGraphicData";
 
-const PostProblemPrevisualization = ({ title, idProblem, short_description, modality = 'Remote', location = 'COL' }) => {
+const PostProblemPrevisualization = ({
+ title,
+ idProblem,
+ short_description,
+ modality = "Remote",
+ location = "COL",
+}) => {
  return (
   <div className="post-problem-previsualization">
    <div className="post-problem-previsualization__info">

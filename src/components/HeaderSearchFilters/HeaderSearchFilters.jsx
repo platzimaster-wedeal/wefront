@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 import { useInputForm } from "../../hooks/useInputForm/useInputForm";
 
 // Styles
@@ -10,13 +10,12 @@ import SelectCategories from "../SelectCategories/SelectCategories";
 import Button from "../Buttons/Button";
 
 const HeaderSearchFilters = () => {
-
-  const { categories } = useSelector(state => state.CategoriesReducer)
+ const { categories } = useSelector((state) => state.CategoriesReducer);
 
  const [location, setLocation] = useInputForm("");
  const [minimumPrice, setMinimumPrice] = useInputForm(0);
  const [maximumPrice, setMaximumPrice] = useInputForm(0);
- const [filterCategories, setFilterCategories] = useState([])
+ const [filterCategories, setFilterCategories] = useState([]);
 
  const handleSubmit = (ev) => {
   ev.preventDefault();
@@ -82,7 +81,10 @@ const HeaderSearchFilters = () => {
     </div>
    </div>
 
-   <Button onClick={handleSubmit} active className="header-search-filters__action">
+   <Button
+    onClick={handleSubmit}
+    active
+    className="header-search-filters__action">
     Apply
    </Button>
   </div>

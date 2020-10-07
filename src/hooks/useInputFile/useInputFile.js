@@ -6,7 +6,7 @@ export const useInputFile = () => {
 
  const handleInput = (ev) => {
   setName(ev.currentTarget.files[0].name);
-  setFile(ev.currentTarget.files[0])
+  setFile(ev.currentTarget.files[0]);
  };
 
  return [name, handleInput, file];

@@ -1,0 +1,2 @@
+export const GET_USER_PREDICT = "GET_USER_PREDICT";
+export const GET_JOB_PREDICT = "GET_JOB_PREDICT";

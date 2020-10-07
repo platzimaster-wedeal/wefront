@@ -12,9 +12,9 @@ const PostProblemRequirements = ({ requirements }) => {
     Minimun Requirements
    </strong>
    <ul className="post-problem-requirements__list">
-      <li>
-       <Requirements title={requirements} />
-      </li>
+    <li>
+     <Requirements title={requirements} />
+    </li>
    </ul>
   </section>
  );

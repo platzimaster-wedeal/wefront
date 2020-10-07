@@ -1,14 +1,14 @@
-import { useRequestGet } from '../../hooks/useRequestGet/useRequestGet'
+import { useRequestGet } from "../../hooks/useRequestGet/useRequestGet";
 
-const URL = 'https://wedeal.herokuapp.com/api/v1/countries'
+const URL = "https://wedeal.herokuapp.com/api/v1/countries";
 
 export const getCountries = async () => {
-  const data = await useRequestGet(URL)
-  const resp = data.json()
+ const data = await useRequestGet(URL);
+ const resp = data.json();
 
-  if(resp.error) {
-    throw new Error(resp.body)
-  }
+ if (resp.error) {
+  throw new Error(resp.body);
+ }
 
-  return resp
-}
+ return resp;
+};

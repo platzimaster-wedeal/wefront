@@ -11,13 +11,22 @@ const HeaderNotificationsContent = ({ user, action, time }) => {
    <div className="HeaderNotifications__content">
     <ul className="HeaderNotifications__content--ul">
      <li>
-      <Link className="content__ul--link" to="#">@{user}</Link> {action} <span>{time}</span>
+      <Link className="content__ul--link" to="#">
+       @{user}
+      </Link>{" "}
+      {action} <span>{time}</span>
      </li>
      <li>
-      <Link className="content__ul--link" to="#">@{user}</Link> {action} <span className="content__ul--span">{time}</span>
+      <Link className="content__ul--link" to="#">
+       @{user}
+      </Link>{" "}
+      {action} <span className="content__ul--span">{time}</span>
      </li>
      <li>
-      <Link className="content__ul--link" to="#">@{user}</Link> {action} <span>{time}</span>
+      <Link className="content__ul--link" to="#">
+       @{user}
+      </Link>{" "}
+      {action} <span>{time}</span>
      </li>
     </ul>
    </div>

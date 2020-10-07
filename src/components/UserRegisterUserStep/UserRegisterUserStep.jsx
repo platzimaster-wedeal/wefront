@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from "react";
-import {useInputForm} from '../../hooks/useInputForm/useInputForm'
-import {useInputFile} from '../../hooks/useInputFile/useInputFile'
-
+import React, { useState, useEffect } from "react";
+import { useInputForm } from "../../hooks/useInputForm/useInputForm";
+import { useInputFile } from "../../hooks/useInputFile/useInputFile";
 
 // Styles
 import "../../assets/styles/components/UserRegisterSteps/UserRegisterSteps.scss";
@@ -9,28 +8,25 @@ import "../../assets/styles/components/UserRegisterSteps/UserRegisterSteps.scss"
 // Components
 import InputFile from "../inputFile/InputFile";
 
-const UserRegisterUserStep = ({setInformation}) => {
+const UserRegisterUserStep = ({ setInformation }) => {
+ // State
+ const [username, setUsername] = useInputForm("");
+ const [degree, setDegree] = useInputForm("");
+ const [password, setPassword] = useInputForm("");
+ const [confirmPassword, setConfirmPassword] = useInputForm("");
+ const [description, setDescription] = useInputForm("");
+ const [avatar, setAvatar, avatarFile] = useInputFile("");
 
-// State
-const [username, setUsername] = useInputForm('')
-const [degree, setDegree] = useInputForm('')
-const [password, setPassword] = useInputForm('')
-const [confirmPassword, setConfirmPassword] = useInputForm('')
-const [description, setDescription] = useInputForm('')
-const [avatar, setAvatar, avatarFile] = useInputFile('')
-
-
-
-useEffect(() => {
+ useEffect(() => {
   setInformation({
-    username,
-    degree_title: degree,
-    password,
-    confirmPassword,
-    description,
-    myAvatar: avatarFile
-  })
-}, [username, degree, password, description, avatar])
+   username,
+   degree_title: degree,
+   password,
+   confirmPassword,
+   description,
+   myAvatar: avatarFile,
+  });
+ }, [username, degree, password, description, avatar]);
 
  return (
   <div className="user-register__form-step">
@@ -101,7 +97,12 @@ useEffect(() => {
 
    <div className="user-register__form-step--inputs">
     <label htmlFor="myAvatar">Photo</label>
-    <InputFile placeholder="Select an profile image" name="myAvatar" state={avatar} setState={setAvatar} />
+    <InputFile
+     placeholder="Select an profile image"
+     name="myAvatar"
+     state={avatar}
+     setState={setAvatar}
+    />
    </div>
   </div>
  );

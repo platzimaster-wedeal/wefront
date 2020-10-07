@@ -30,20 +30,19 @@ const AddExperienceList = ({
 
  const [currentOptions, setCurrentOptions] = useState(options);
 
- const [newOption, setNewOption] = useState({})
+ const [newOption, setNewOption] = useState({});
  const handleAddOption = () => {
-
   if (newOption.title.length > 0) {
    setCurrentOptions((prev) => [...prev, newOption]);
-   setOptions((prev) => [...prev, newOption])
+   setOptions((prev) => [...prev, newOption]);
   }
-  setIsModalAddExp(false)
+  setIsModalAddExp(false);
  };
 
  const handleOption = () => {
   setOption((prev) => [...prev, newOption]);
-  setOptions((prev) => [...prev, newOption])
-  setIsModalAddExp(false)
+  setOptions((prev) => [...prev, newOption]);
+  setIsModalAddExp(false);
  };
 
  return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 import ProfilePicture from "../ProfilePictures/ProfilePicture";
 import "../../assets/styles/components/ProfileSmallCard/ProfileSmallCard.scss";
 
@@ -13,11 +13,11 @@ const ProfileSmallCard = ({
  children,
 }) => {
  const [hovered, setHover] = useState(false);
- const history = useHistory()
+ const history = useHistory();
 
  const goToUserProfile = () => {
-   history.push(`/user/profile/${idUser}`)
- }
+  history.push(`/user/profile/${idUser}`);
+ };
 
  return (
   <div
@@ -32,7 +32,9 @@ const ProfileSmallCard = ({
     active={active}
    />
    <div className="profileCard__container">
-    <p className="profileCard__container--title" onClick={goToUserProfile}>{title}</p>
+    <p className="profileCard__container--title" onClick={goToUserProfile}>
+     {title}
+    </p>
     <p className="profileCard__container--subtitle"> {subtitle}</p>
    </div>
   </div>
