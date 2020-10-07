@@ -15,10 +15,10 @@ const history = useHistory();
 
  return (
   <article className="post-problem">
-   <PostHeader id={post && post.id_employer} name={post && post.employer_name} picture={post.user_avatar} />
+   <PostHeader id={post && post.user_id} name={post && post.employer_name} picture={post.user_avatar} />
    <div className="post-problem__content">
     <PostProblemPrevisualization 
-      title={post && post.title}
+      title={post && post.category}
       idProblem={post && post.id}
       short_description={post && post.short_description}
       modality={post && post.modality}

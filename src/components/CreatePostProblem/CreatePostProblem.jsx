@@ -11,7 +11,7 @@ import Button from "../Buttons/Button";
 const CreatePostProblem = ({ onCancel, onCreate, setProblemData }) => {
 
   const { id } = useSelector(state => state.AuthReducer) 
-  const { first_name } = useSelector(state => state.ProfileReducer)
+  const { first_name, id_employer } = useSelector(state => state.ProfileReducer)
 
 // Handle create new problem data
 const [problemInfomartion, setProblemInformation] = useState({})
@@ -19,13 +19,12 @@ const [problemSpecificInfomartion, setProblemSpecificInformation] = useState({})
 
  const handleSubmitForm = async () => {
    const data = {
-     id_employer: Number(id),
+     id_employer: Number(id_employer),
      employer_name: first_name,
     ...problemInfomartion,
     ...problemSpecificInfomartion
   }
-  console.log(data)
-  const resp = await onCreate(data)
+  await onCreate(data)
   
  };
 

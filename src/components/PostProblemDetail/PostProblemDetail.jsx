@@ -34,12 +34,11 @@ import ModalContainer from "../Modals/ModalContainer";
 import Modal from "../Modals/Modal";
 import ModalMessage from "../ModalMessage/ModalMessage";
 
-const PostProblemDetail = ({ problem, idJobOffer, setDataApply, idUser, isError = null, isLoading = true, onApply }) => {
+const PostProblemDetail = ({ problem, idJobOffer, setDataApply, idUser, idEmployee, isError = null, isLoading = true, onApply }) => {
 
   // ----------------------- Validating the user -----------------------
   const [isUser, setIsUser] = useState(false) 
   useEffect(() => {
-    console.log(idJobOffer, '___JOB___OFFER___')
     if(problem.id_user === idUser) setIsUser(true)
   }, [isUser, idUser])
 
@@ -48,10 +47,9 @@ const PostProblemDetail = ({ problem, idJobOffer, setDataApply, idUser, isError 
 
 //  ---------------- Handle apply ----------------
   let dataApplyProblem = {
-    id_employee: idUser,
+    id_employee: idEmployee,
     id_employers_job_offer: idJobOffer,
     hired: 0,
-    status: "solving",
   }
   const [isOpenApply, setIsOpenApply] = useModal(false);
   const [price, setPrice] = useInputForm(0)
@@ -68,7 +66,6 @@ const [jobOffer, setJobOffer] = useState({})
 useEffect(() => {
   const getOfferInformation = async () => {
     try {
-      console.log(problem.id_employer_job_offer)
       const data = await getJobOffer(problem.id_employer_job_offer)
       setJobOffer({...data.body})
     }catch(err) {
@@ -107,7 +104,6 @@ const onQualificate = async () => {
       try {
         const data = await getWorkersJob(id_employer)
         setWorkersJob(data.body)
-        console.log(data, '____DATA____')
       } catch(err){
         
       }
@@ -119,7 +115,7 @@ const onQualificate = async () => {
 
 // ---------------- defining UI of button action ----------------
  const defineAction = () => {
-  if (problem.state) return <PostProblemStatus status={problem.state} />;
+  if (problem.employer_job_offer_status === "available") return <PostProblemStatus status={problem.state} />;
   if (!isUser)
    return (
     <Button active onClick={setIsOpenApply}>
@@ -152,7 +148,7 @@ const onQualificate = async () => {
         schedule={problem.schedule}
       />
 
-      {!problem.state ? (
+      {!problem.employer_job_offer_status === "available" ? (
         <>
           <PostProblemPayment 
             salaryMax={problem.salary_range2}
@@ -166,7 +162,7 @@ const onQualificate = async () => {
       )}
 
       <div className="post-problem-detail__actions">{defineAction()}</div>
-      {problem.state && (
+      {isUser && problem.employer_job_offer_status === "available" && (
         <Button active onClick={setIsOpenStatus}>
         {" "}
         Status{" "}

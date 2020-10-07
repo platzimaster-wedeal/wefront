@@ -21,6 +21,8 @@ const HeaderContainer = ({ children }) => {
   const logoutDispatch = useDispatch()
 
   const onLogout = () => {
+    window.localStorage.removeItem('token')
+    window.localStorage.removeItem('id')
     logoutDispatch({type: DELETE_AUTH})
     history.push('/')
   }

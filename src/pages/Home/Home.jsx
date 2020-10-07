@@ -7,11 +7,13 @@ import { useSelector, useDispatch } from "react-redux";
 // Services
 import { getProblems } from '../../services/ProblemsService/problemsService'
 import { getPosts, createPost } from '../../services/PostsServices/postsServices'
+import { getConnections } from '../../services/AuthService/profileService'
 
 // Redux
 import { GET_PROBLEMS } from "../../redux/types/Problems/ProblemsTypes";
 import { GET_POSTS } from "../../redux/types/Posts/PostTypes";
 import { GET_SHARES } from "../../redux/types/Shares/ShareTypes";
+import { SET_CONNECTIONS } from "../../redux/types/Auth/profileTypes";
 
 import { GET_LOCATION } from "../../redux/types/Auth/ProfileTypes";
 
@@ -41,6 +43,7 @@ const Home = () => {
   const { id } = useSelector(state => state.AuthReducer)
   const { posts } = useSelector(state => state.PostsReducer)
   const { newShare } = useSelector(state => state.SharesReducer)
+  const { problems } = useSelector(state => state.ProblemsReducer)
   const profile = useSelector(state => state.ProfileReducer)
 
 
@@ -49,9 +52,8 @@ const [isLoading, setIsLoading] = useState(true)
 const [isError, setIsError] = useState(null)
 const prevPage = useRef() 
 const [pageOfGet, setPageOfGet] = useState(0)
-const dispatchGetProblems = useDispatch()
-const dispatchGetShares = useDispatch()
-const dispatchSetPosts = useDispatch()
+const dispatch = useDispatch()
+
 
 useEffect( () => {
 // ---------------- Defining next request
@@ -60,9 +62,11 @@ useEffect( () => {
       try {
         const resp_problems = await getProblems()
         const resp_shares = await getPosts()
-        dispatchGetProblems({type: GET_PROBLEMS, payload: [...resp_problems.body]})
-        dispatchGetShares({type: GET_SHARES, payload: [...resp_shares.body]})
-        dispatchSetPosts({type: GET_POSTS, payload: [...resp_shares.body, ...resp_problems.body]})
+        const resp_cooncts = await getConnections(id)
+        dispatch({type: GET_PROBLEMS, payload: [...resp_problems.body]})
+        dispatch({type: GET_SHARES, payload: [...resp_shares.body]})
+        dispatch({type: GET_POSTS, payload: [...resp_shares.body, ...resp_problems.body]})
+        dispatch({type: SET_CONNECTIONS, payload: resp_cooncts.body })
         // dispatchSetPosts({type: GET_POSTS, payload: []})
         setIsLoading(false)
       } catch(err){
@@ -150,14 +154,14 @@ const onNewShare = async () => {
         )}
         {isShareCreated && (
         <ModalContainer>
-          <Modal title="Awesome">
+          <Modal title="Awesome" onClose={onCreatedShare}>
             <ModalMessage type="great" message="Your post was shared!" onClose={onCreatedShare} />
           </Modal>
         </ModalContainer>
         )}
         {isErrorShare && (
         <ModalContainer>
-          <Modal title="Oops!">
+          <Modal title="Oops!" onClose={onErrorShare}>
             <ModalMessage type="error" message="Sorry something went wrong!" onClose={onErrorShare} />
           </Modal>
         </ModalContainer>

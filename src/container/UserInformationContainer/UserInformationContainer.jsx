@@ -12,7 +12,7 @@ const UserInformationContainer = ({isProfile, user = {}}) => {
   <div className="user-information-container">
     <GeneralInformation 
       isProfile={isProfile} 
-      username={user.username}
+      username={user.first_name}
       followers={user.followers}
       location={user.country}
     />

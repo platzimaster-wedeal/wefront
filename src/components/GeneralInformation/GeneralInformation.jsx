@@ -27,12 +27,12 @@ const GeneralInformation = ({ username, followers = 0, location, isProfile = fal
 
     <p className="item--text">{followers} Followers</p>
    </div>
-   <div className="GeneralInformation__item">
+   {/* <div className="GeneralInformation__item">
     <figure>
      <MdHome className="item--icon" />
     </figure>
     <p className="item--text">{location || "COL"}</p>
-   </div>
+   </div> */}
   </div>
  );
 };

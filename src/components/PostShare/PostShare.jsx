@@ -17,9 +17,9 @@ const PostShare = ({
  return (
   <article className="post-share">
    <PostHeader 
-    name={post.employer_name}
+    name={post.user_firstname}
     avatar={post.user_avatar}
-    id={post.id_employer}
+    id={post.id_user}
     share 
     />
    <div className="post-share__content">

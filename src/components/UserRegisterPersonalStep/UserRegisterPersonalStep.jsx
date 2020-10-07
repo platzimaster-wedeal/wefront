@@ -46,6 +46,7 @@ const UserRegisterPersonalStep = ({setInformation}) => {
       name="first_name"
       id="first_name"
       onChange={setFirstName}
+      value={firstName}
      />
     </div>
     <div className="user-register__form-step--inputs">
@@ -56,6 +57,7 @@ const UserRegisterPersonalStep = ({setInformation}) => {
       id="last_name"
       name="last_name"
       onChange={setLastName}
+      value={lastName}
      />
     </div>
    </div>
@@ -68,6 +70,7 @@ const UserRegisterPersonalStep = ({setInformation}) => {
       name="telephone"
       id="phone"
       onChange={setTelephone}
+      value={telephone}
      />
     </div>
     <div className="user-register__form-step--inputs">
@@ -78,6 +81,7 @@ const UserRegisterPersonalStep = ({setInformation}) => {
       id="date_of_birth"
       name="date_of_birth"
       onChange={setBirth}
+      value={birth}
      />
     </div>
    </div>
@@ -101,6 +105,7 @@ const UserRegisterPersonalStep = ({setInformation}) => {
      name="email"
      id="email"
      onChange={setEmail}
+     value={email}
     />
    </div>
   </div>

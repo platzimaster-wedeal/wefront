@@ -60,8 +60,8 @@ const SelectCategories = ({
 
    <ul className="select-categories__select-list">
     {filterCategory &&
-     filterCategory.map((category) => (
-      <li key={category.id} onClick={() => handleSelectCategory(category)}>
+     filterCategory.map((category, i) => (
+      <li key={i} onClick={() => handleSelectCategory(category)}>
        {currentCategories.includes(category) ? (
         <Labels name={category.title} active />
        ) : (
@@ -74,9 +74,9 @@ const SelectCategories = ({
    <small className="select-categories__title">Selected Options</small>
    <ul className="select-categories__list">
     {currentCategories && currentCategories.length > 0 ? (
-     currentCategories.map((category) => (
+     currentCategories.map((category, i) => (
       <li
-       key={category.id}
+       key={i}
        className="select-categories__list--close"
        onClick={() => handleDeleteCategory(category)}>
        {" "}

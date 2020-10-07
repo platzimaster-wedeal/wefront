@@ -51,6 +51,7 @@ const ProfileHeader = ({ user, isUser = false }) => {
      dispatchGetProfile({type: GET_PROFILE, payload: resp_user})
      setIsModalChangeImg(false)
      setIsPatched(true)
+     setIsLoadingPatchImg(false)
     } catch(err) {
       setIsErrorPatchImg(err)
       setIsModalChangeImg(false)
@@ -75,7 +76,7 @@ const ProfileHeader = ({ user, isUser = false }) => {
    </strong>
 
    <div className="profile-header__actions">
-    <ProfileHeaderAction isProfile={isUser} userId={user.id_user}/>
+    <ProfileHeaderAction isProfile={isUser} userId={user && user.user_id}/>
    </div>
     {!isLoadingPatchImg && isModalChangeImg && (
       <ModalContainer>

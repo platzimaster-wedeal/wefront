@@ -1,4 +1,4 @@
-import { GET_PROFILE, PATCH_PROFILE, GET_LOCATION, SET_PREFERENCE_PROFILE } from '../../types/Auth/ProfileTypes'
+import { GET_PROFILE, PATCH_PROFILE, GET_LOCATION, SET_PREFERENCE_PROFILE, SET_CONNECTIONS } from '../../types/Auth/ProfileTypes'
 
 const INITIAL_STATE = {
   username: '',
@@ -35,6 +35,9 @@ export default (state = INITIAL_STATE, action) => {
 
     case SET_PREFERENCE_PROFILE:
       return {...state, employeer: action.payload }
+
+    case SET_CONNECTIONS:
+      return {...state, connections: action.payload }
 
     default:
       return {...state}

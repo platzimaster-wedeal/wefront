@@ -30,11 +30,12 @@ const ConnectionsCards = ({connections, isLoading, isError = null}) => {
    <div className="ConnectionsCards__container--list">
     {isError ? (<span>{isError}</span>) : isLoading ? (<Loading />) : connections && connections.length > 0 ? connections.map((person) => (
      <ProfileSmallCard
-      Key={person}
-      subtitle="FullStack Developer"
-      title="Julio Denis"
-      altImage="Julio Smiling"
-      imageSource={julioPhoto}>
+      Key={person.id_user}
+      idUser={person.id_user}
+      subtitle={person.last_name}
+      title={person.first_name}
+      altImage={person.first_name}
+      imageSource={person.avatar}>
       {(hovered) =>
        hovered ? (
         <PersonCard

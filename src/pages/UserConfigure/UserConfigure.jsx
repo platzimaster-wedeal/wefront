@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
 import { GET_PROFILE } from '../../redux/types/Auth/ProfileTypes'
 
 // Services
-import { patchProfile, getProfile } from '../../services/AuthService/profileService'
+import { patchProfile, getProfile, putProfile } from '../../services/AuthService/profileService'
 
 // Layouts
 import ChangeViewProfile from "../../layouts/ChangeViewProfile/ChangeViewProfile";
@@ -38,7 +38,10 @@ const UserConfigure = () => {
   const onError = () => setIsErrorPatch(null)
   
   const [isPatched, setIsPatched] = useState(false)
-  const onPatched = () => setIsPatched(false)
+  const onPatched = () => {
+    setIsPatched(false)
+    setIsLoadingPatch(false)
+  }
 
   const [profileGeneralData, setProfileGeneralData] = useState({})
   const [profilePersonalData, setProfilePersonalData] = useState({})
@@ -48,25 +51,18 @@ const UserConfigure = () => {
     try {
       setIsLoadingPatch(true)
       let data = {}
-      if(profile.employeer) {
-        data = {
-          ...profileGeneralData,
-          ...profilePersonalData,
-          ...profileEmployeerData
-        }
-      } else {
-        data = {
-          ...profileGeneralData,
-          ...profilePersonalData,
-        }
+      data = {
+        ...profile,
+        ...profileGeneralData,
+        ...profilePersonalData,
+        ...profileEmployeerData
       }
-      console.log(data, '___________CONFIGURE DATA___________')
-
-      const resp_patch = await patchProfile(id, data)
+      const resp_patch = await putProfile(id, data)
       const resp_get = await getProfile(id)
       getProfileDispatch({type: GET_PROFILE, payload: resp_get.body})
       setIsLoadingPatch(false)
       setIsPatched(true)
+      setIsLoadingPatch(false)
     }catch(err) {
       setIsLoadingPatch(false)
       setIsErrorPatch(err)
@@ -74,6 +70,14 @@ const UserConfigure = () => {
     }
 
   }
+
+  // ---------- Update data -----------
+  useEffect(() => {
+    const update = async () => {
+      const resp_get = await getProfile(id)
+      getProfileDispatch({type: GET_PROFILE, payload: resp_get.body})
+    }
+  }, [profile])
 
 // ----------------- RENDER OF THE COMPONENT -----------------
 

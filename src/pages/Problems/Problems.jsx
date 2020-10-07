@@ -26,6 +26,7 @@ const Problems = () => {
   const history = useHistory()
 
 // ----------------- Redux state  -----------------
+  const { connections } = useSelector(state => state.ProfileReducer)
   const { problems } = useSelector(state => state.ProblemsReducer)
 
   
@@ -45,8 +46,9 @@ const Problems = () => {
  const onCreateProblem = async (data) => {
    try {
     setIsLoading(true)
-    console.log(data, '_____________DATA PROBLEM___________---')
     const resp = await createProblem(data)
+    setIsCreated(true)
+    setIsLoading(false)
    } catch(err) {
      setIsError(err)
      setIsLoading(false)
@@ -60,13 +62,13 @@ const Problems = () => {
  return (
   <HeaderContainer>
    <ChangeView
-    SecondView={<ConnectionsCards />}
+    SecondView={<ConnectionsCards connections={connections} />}
     firstViewTitle="Problems"
     secondViewTitle="Connections">
     <FeedContainer strategyAction={actionProblem} type="problem" data={problems}/>
     {isModalProblem && (
      <ModalContainer>
-      <Modal title="Creata a new Problem" onClose={actionProblem}>
+      <Modal title="Create a new Problem" onClose={actionProblem}>
        <CreatePostProblem onCancel={actionProblem} onCancel={actionProblem} onCreate={onCreateProblem} />
       </Modal>
      </ModalContainer>
@@ -83,14 +85,14 @@ const Problems = () => {
     )}
     {isCreated && (
      <ModalContainer>
-        <Modal title="Awesome" >
+        <Modal title="Awesome" onClose={onCreated}>
           <ModalMessage type="great" message="Great! You problem was created succesful!" onClose={onCreated} />
         </Modal>
      </ModalContainer>
     )}
     {isError && (
      <ModalContainer>
-        <Modal title="Oops!">
+        <Modal title="Oops!" onClose={onError}>
           <ModalMessage type="error" message="We sorry something went wrong" onClose={onError} />
         </Modal>
      </ModalContainer>
