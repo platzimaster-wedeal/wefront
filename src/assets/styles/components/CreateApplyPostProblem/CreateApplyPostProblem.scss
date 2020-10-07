@@ -1,0 +1,72 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../FontSize.scss";
+@import "../../partials/text.scss";
+@import "../../partials/sizes.scss";
+
+.PostProblem__title {
+  color: $color-black-90;
+  margin: $space-size-normal 0;
+  @include font-size($font-size-normal);
+
+  @include media(tablet) {
+    @include font-size($font-size-medium);
+  }
+}
+
+.PostProblem__price__schedule {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  & p{
+    margin-right: $space-size-normal; 
+  }
+}
+
+.PostProblem__price, .PostProblem__schedule {
+  font-weight: 800;
+  color: $color-black-90;
+  @include font-size($font-size-normal);
+
+  span {
+    color: $color-primary;
+    @include font-size($font-size-normal);
+    text-decoration: underline;
+  }
+}
+
+.PostProblem__optional--tile {
+  font-weight: 800;
+  margin-top: $space-size-big;
+  margin-bottom: $space-size-small;
+  color: $color-black-90;
+  @include font-size($font-size-normal);
+
+  @include media(tablet) {
+    @include font-size($font-size-medium);
+  }
+}
+
+.PostProblem__input {
+  width: 100% !important;
+  height: 150px !important;
+  @include font-size($font-size-normal);
+  color: $color-black-90;
+
+
+  &::placeholder {
+    font-style: italic;
+    font-weight: 200;
+    color: $color-black-60;
+    @include font-size($font-size-normal);
+  }
+}
+
+.PostProblem__buttons {
+  & button {
+    margin-top: $space-size-small;
+    margin-right: $space-size-small;
+    
+  }
+}

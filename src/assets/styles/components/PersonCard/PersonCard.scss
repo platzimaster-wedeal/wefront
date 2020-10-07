@@ -1,0 +1,76 @@
+@import '../../partials/colors.scss';
+@import '../../partials/fonts.scss';
+@import '../../partials/sizes.scss';
+@import '../../partials/shadows.scss';
+
+
+.card {
+    display: flex;
+    width: 420px;
+    height: auto;
+    box-shadow: $shadow-normal;
+    font-family: $font-secondary;
+    border-radius: 12px;
+    padding: $space-size-small;
+    background-color: white;
+
+    
+
+    &__profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .card__profile--img {
+            width: 90px;
+            height: 90px;
+        }
+
+        
+        .card__profile--stars {
+            padding-top: 11px;
+            width: 130px;
+            font-size: 21px;
+            color: $color-black-30;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .card__profile--btn {
+            width: 120px;
+            height: 36px;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 21px;
+            line-height: 25px;
+            letter-spacing: 0.03em;
+            margin-top: 19px;
+
+        }
+    }
+    &__description {
+        display: flex;
+        flex-direction: column;
+        h1 {
+            color: $color-primary;
+            @include font-size($font-size-medium);
+            font-style: normal;
+            font-weight: 500;
+            padding: $space-size-medium 0;
+            letter-spacing: 0.03em;
+        }
+        .card__description--subtitle {
+            color:$color-black-60;
+            font-style: italic;
+            @include font-size($font-size-small);
+            font-weight: 200;
+            letter-spacing: 0.03em;
+            padding: 3px 0; 
+        }
+        p {
+            color: $color-black-60;
+            font-style: italic;
+            font-weight: 200;
+            @include font-size($font-size-small);
+            letter-spacing: 0.03em;
+        }
+    }
+}

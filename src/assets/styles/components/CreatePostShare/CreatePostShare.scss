@@ -1,0 +1,79 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../FontSize.scss";
+@import "../../partials/text.scss";
+@import "../../partials/sizes.scss";
+
+.CreatePostShare__container {
+ display: flex;
+ flex-direction: column;
+ padding: 0;
+
+ & strong {
+   @include font-size($font-size-normal);
+   color: $color-black-60;
+ }
+
+ &__header {
+   display: flex;
+   flex-flow: row nowrap;
+   width: 100%;
+   align-items: flex-end;
+   padding: $space-size-normal 0;
+
+   & img {
+     width: 51px;
+     height: 51px;
+     margin-right: $space-size-small;
+   }
+
+   &--name {
+     display: flex;
+     flex-flow: column nowrap;
+     align-items: flex-start;
+     
+     @include media(tablet) {
+       flex-flow: row nowrap;
+       align-items: flex-end;
+     }
+   }
+
+   & h3 {
+     @include font-size($font-size-normal + 6);
+
+     @include media(tablet) {
+       @include font-size($font-size-big);
+     }
+   }
+
+  
+ }
+
+ & .input-file__view {
+   margin: $space-size-small 0;
+ }
+}
+
+.CreatePostShare__input {
+ @include font-size($font-size-normal);
+ color: $color-black-90;
+ width: 100% !important;
+ margin: $space-size-small 0;
+
+ @include media(tablet) {
+  width: 90% !important;
+ }
+
+ &::placeholder {
+    @include font-size($font-size-small);
+    font-style: italic;
+    color: $color-black-60;
+ }
+}
+
+.CreatePostShare__buttons {
+  & button {
+    margin-right: $space-size-normal;
+  }
+}
+

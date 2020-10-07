@@ -5,8 +5,18 @@
 @import '../../partials/spacing.scss';
 @import '../../partials/text.scss';
 
-.button__container {
+.container__test {
     display: flex;
-    padding: 10px;
-    height: 100vh;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px auto;
+    border: 1px solid $color-primary
 }
+.julio__components__test {
+    padding: 50px;
+    display: block;
+}
+

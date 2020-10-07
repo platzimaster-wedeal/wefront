@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the component PostProblemRequirements :D Visual tests for the component should the comopnent have the same tree 1`] = `
+<section
+  className="post-problem-requirements"
+>
+  <strong
+    className="post-problem-requirements__title"
+  >
+    Minimun Requirements
+  </strong>
+  <ul
+    className="post-problem-requirements__list"
+  >
+    <li>
+      <div
+        className="requirements__container"
+      >
+        <svg
+          className="requirements__container-icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+          />
+        </svg>
+        <p
+          className="requirements__container-content"
+        >
+          Knowledge about PCs
+        </p>
+      </div>
+    </li>
+    <li>
+      <div
+        className="requirements__container"
+      >
+        <svg
+          className="requirements__container-icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+          />
+        </svg>
+        <p
+          className="requirements__container-content"
+        >
+          Knowledge about PCs
+        </p>
+      </div>
+    </li>
+  </ul>
+</section>
+`;

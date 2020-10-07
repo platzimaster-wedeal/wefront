@@ -1,0 +1,26 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.worker-main-information {
+  position: relative;
+  max-width: 320px;
+  width: auto;
+  padding: $space-size-big;
+
+
+  @include media(tablet){
+    max-width: 40%;
+  }
+
+  &__title {
+    margin: $space-size-extra-small 0;
+    font-weight: 400;
+    @include font-size($font-size-normal);
+
+    @include media(tablet) {
+      @include font-size($font-size-normal);
+    }
+    
+  }
+}

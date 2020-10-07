@@ -1,12 +1,29 @@
 @import '../../partials/colors.scss';
 @import '../../partials/shadows.scss';
+@import "../../breakpoints.scss";
+
 
 .button-actionSA {
     background-color: $color-background;
-    border-radius: 17%;
+    border-radius: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: $color-primary;
-    box-shadow: $shadow-normal;
+    box-shadow: $shadow-small;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    
+    @include media(mobile-l) {
+        width: 24px;
+        height: 24px;
+        font-size: 20px;
+    }
+    @include media(tablet) {
+        width: 42px;
+        height: 42px;
+        font-size: 30px;
+    }
 }

@@ -1,0 +1,62 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.landing-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 72px;
+  padding: $space-size-large;
+  background-color: #fff;
+  box-shadow: $shadow-small;
+
+  &__logo {
+    color: $color-primary;
+    @include font-size($font-size-big);
+
+    @include media(tablet) {
+      @include font-size($font-size-big);
+    }
+  }
+
+  &__nav {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+
+    & ul  {
+      display: none;
+      flex-flow: row nowrap;
+      align-items: center;
+
+      @include media(desktop-s) {
+        display: flex;
+      }
+    }
+
+    & ul li {
+      margin: $space-size-small !important;
+      @include font-size($font-size-normal);
+
+      & a {
+        color: $color-black;
+        &:hover {
+          color: $color-primary;
+        } 
+      }
+    }
+
+    & button {
+      margin: $space-size-small !important;
+    }
+  }
+}

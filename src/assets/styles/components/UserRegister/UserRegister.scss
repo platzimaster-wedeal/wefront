@@ -1,0 +1,88 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.user-register {
+  position: relative;
+  display: flex;
+  flex-flow: column; 
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  padding: $space-size-medium;
+  background-color: #fff;
+  box-shadow: $shadow-normal;
+
+  .user-register-terms{
+    display: flex;
+    flex-flow: column nowrap;
+    @include font-size($font-size-small);
+    color: $color-black-90;
+
+    & small {
+      color: $color-black-90;
+      padding: $space-size-normal 0;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  @include media(tablet) {
+    width: 100%;
+  }
+
+  &__title {
+    color: $color-primary;
+    padding: $space-size-extra-small 0;
+    border-bottom: 3px solid $color-primary;
+    margin-bottom: $space-size-small;
+  }
+
+  &__step {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+
+  &__inputs {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 6px;
+
+    & label {
+      @include font-size($font-size-normal);
+      color: $color-black-60;
+      padding: 3px 0;
+      font-weight: 700;
+    }
+    
+  }
+
+  &__actions {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: $space-size-small 0;
+    & button {
+      margin-bottom: $space-size-extra-small;
+    }
+    & small {
+      padding: 3px 0;
+      cursor: pointer;
+      
+      &:hover {
+        color: $color-black;;
+        text-decoration: underline;
+      }
+    }
+  }
+}

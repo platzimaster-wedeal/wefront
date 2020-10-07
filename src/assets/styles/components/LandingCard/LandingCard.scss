@@ -1,0 +1,64 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.landing-card {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  padding: $space-size-medium;
+  margin: $space-size-medium 0;
+  border-radius: 21px;
+  background-color: #fff;
+  box-shadow: $shadow-small;
+  transition: .3s ease-in-out;
+  cursor: pointer;
+
+  @include media(tablet) {
+    width: 270px;
+    height: 270px;
+  }
+
+  &__title {
+    position: relative;
+    color: $color-primary;
+    width: 100%;
+    text-shadow: 0 0 0 $color-primary;
+    transition: .3s ease-in-out;
+    @include font-size($font-size-normal);
+    z-index: 9;
+
+    @include media(tablet) {
+      @include font-size($font-size-big);
+    }
+  }
+
+  &:hover{ 
+    box-shadow: $shadow-large-green;
+    transform: scale(1.01);
+
+  }
+  &:hover &__title {
+    color: $color-primary;
+    text-shadow: 0 0 6px $color-primary-60;
+  }
+
+  &__figure {
+    position: absolute;
+    width: 100%;
+    bottom: $space-size-medium;
+    left: 0;
+    right: 0;
+    margin: 0;
+    z-index: 3;
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  } 
+}

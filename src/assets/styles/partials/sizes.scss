@@ -1,6 +1,47 @@
-$font-size-large: 66px;
-$font-size-big: 60px;
-$font-size-medium: 42px;
-$font-size-normal: 30px;
-$font-size-small: 21px;
-$font-size-extra-small: 15px;
+$font-size-large: 60px;
+$font-size-big: 42px;
+$font-size-medium: 30px;
+$font-size-normal: 18px;
+$font-size-small: 15px;
+
+$space-size-extra-large: 60px;
+$space-size-large: 36px;
+$space-size-extra-big: 27px;
+$space-size-big: 21px;
+$space-size-medium: 18px;
+$space-size-normal: 15px;
+$space-size-small: 12px;
+$space-size-extra-small: 9px;
+
+
+/*This mixin executes a sass function so that the font size that we define adjusts to the different devices.*/
+
+/* HOW TO USE IT
+
+You must import this mixin in every .scss file that will contain component styles and needs the font-size property
+
+Example:
+
+@import "../FontSize.scss";
+
+.header a {
+  color: #fff;
+  text-decoration: none;
+  font-family: $basicFontFamily;
+  font-size: 16px;
+  font-weight: 500;
+  @include font-size(16px);
+}
+
+**********************/
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+  line-height: calculateRem($size) 1.5;
+}

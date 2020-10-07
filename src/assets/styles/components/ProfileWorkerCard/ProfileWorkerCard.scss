@@ -1,0 +1,74 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../Breakpoints.scss';
+
+.profile-worker-card {
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 90%;
+  padding: $space-size-small;
+  margin: $space-size-small 0;
+  border-top: 1px solid $color-black-30;
+  border-bottom: 1px solid $color-black-30;
+  cursor: pointer;
+
+  &:hover .profile-worker-card__content-action {
+    opacity: 1;
+  }
+
+  &__picture {
+    margin: 0;
+    padding: 0;
+    margin-right: $space-size-small;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  &__content-header {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: $space-size-extra-small 0;
+    border-bottom: 3px solid $color-primary;
+
+    & h3 {
+      color: $color-primary;
+      @include font-size($font-size-normal);
+      margin: 0;
+      padding: 0;
+
+      @include media(tablet) {
+        @include font-size($font-size-medium);
+      }
+    }
+  }
+  &__content-action {
+    position: absolute;
+    right: 3%;
+    top: 30%;    
+    opacity: 0;
+    transition: .6s ease-in-out;
+
+    @include media(tablet) {
+      right: 3%;
+      top: 21%;
+    } 
+  }
+
+  &__description {
+    padding: 3px 0;
+  }
+
+  &__stats {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+}

@@ -1,0 +1,14 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.post-problem-graphic-data {
+  position: relative;
+  width: 80%;
+  display: flex;
+  flex-flow: row nowrap;
+
+  & div {
+    margin-right: $space-size-normal;
+  }
+}

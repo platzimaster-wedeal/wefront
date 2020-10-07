@@ -1,0 +1,44 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.add-experience {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+ 
+
+  &__inputs {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    margin: $space-size-extra-small 0;
+
+    & label {
+      @include font-size($font-size-normal);
+      margin-bottom: $space-size-small;
+      font-weight: bold;
+      color: $color-black-90;
+    }
+    & input[type="text"], textarea {
+      width: 90%;
+    }
+
+    & strong {
+      @include font-size($font-size-normal);
+      font-weight: 500;
+    }
+
+    & p {
+      @include font-size($font-size-normal);
+    }
+  }
+
+  & button {
+    align-self: flex-start;
+  }
+}

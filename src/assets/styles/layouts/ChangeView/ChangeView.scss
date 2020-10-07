@@ -1,0 +1,108 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+
+.change-view-header {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  box-shadow: $shadow-small-green;
+
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    
+    & a {
+      padding: $space-size-extra-small;
+    }
+
+    &--selected {
+      color: $color-primary;
+      font-weight: 900;
+      border-bottom: 1px solid $color-primary;
+    }
+  }
+
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.change-view {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  padding: $space-size-normal;
+
+  @include media(tablet){
+    align-items: center;
+  }
+
+  &--current {
+    transform: translateX(0);
+    opacity: 1;
+
+    @include media(tablet) {
+      transform: initial;
+      opacity: initial;
+    }
+  }
+
+  &--hidden {
+    transform: translateX(-100%);
+    opacity: 0;
+    @include media(tablet) {
+      transform: initial;
+      opacity: initial;
+    }
+  }
+
+  &__first {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    margin: 0 $space-size-extra-big;
+    height: 90%;
+    overflow-y: scroll;
+
+    @include media(tablet) {
+      position: relative;
+      padding: $space-size-large;
+      margin: 0 $space-size-small;
+      height: 100%;
+      width: 60%;
+      overflow: initial;
+      overflow-y: scroll;
+    }
+  }
+
+  &__second {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    margin: 0 $space-size-extra-big;
+
+    @include media(tablet) {
+      position: relative;
+      width: 40%;
+      height: 90%;
+      margin: 0 $space-size-small;
+    }
+  }
+}

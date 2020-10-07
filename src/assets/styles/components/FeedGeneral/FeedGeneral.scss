@@ -1,0 +1,20 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.feed-general {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  border-radius: 15px; 
+  background-color: #fff;
+  box-shadow: $shadow-normal;
+  padding: $space-size-big;
+  height: auto;
+
+  @include media(tablet){
+    padding: $space-size-large;
+  }
+}

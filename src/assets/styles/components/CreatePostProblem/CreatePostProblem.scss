@@ -1,0 +1,58 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../Breakpoints.scss';
+
+.create-post-problem {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  width: 100%;
+  padding: $space-size-normal 0;
+
+  & h3 {
+    align-self: center; 
+    box-sizing: border-box;
+    margin: 0;
+    padding: $space-size-big 0;
+    color: $color-primary;
+    @include font-size($font-size-medium);
+  }
+
+  &__inputs {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: $space-size-normal $space-size-small;
+
+    & label {
+      font-weight: 600;
+      @include font-size($font-size-normal);
+      padding: $space-size-extra-small 0;
+    }
+
+    &--select {
+      display: inline-flex;
+      margin-right: $space-size-large;
+      margin-bottom: $space-size-normal;
+
+      & label {
+        color: $color-black-60;
+        font-weight: 300;
+        display: inline-flex; 
+        margin-right: $space-size-small;
+      }
+    }
+  }
+
+  &--row {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  &__actions {
+    padding: $space-size-normal 0;
+    & button {
+      margin-right: $space-size-normal; 
+    }
+  }
+} 

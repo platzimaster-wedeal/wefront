@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the component ProblemStatusInformation :D Visual tests for the component should the comopnent have the same tree 1`] = `
+<article
+  className="problem-status-information"
+>
+  <section
+    className="post-header"
+  >
+    <figure
+      className="post-header__picture"
+      onClick={[Function]}
+    >
+      <img
+        className="image image__isOnline undefined"
+        src={Object {}}
+      />
+    </figure>
+    <div
+      className="post-header__user-info"
+    >
+      <div
+        className="post-header__user-info--main"
+      >
+        <h3
+          onClick={[Function]}
+        >
+          Alan Walks
+        </h3>
+        <span>
+          Has a new problem!
+        </span>
+      </div>
+      <strong
+        className="post-header__user-info--profession"
+      >
+        <span
+          className="label label__inactive"
+        >
+          Engineer
+        </span>
+      </strong>
+    </div>
+    <small
+      className="post-header__time"
+    >
+      1hr
+    </small>
+  </section>
+  <div
+    className="form-step false "
+  >
+    <div
+      className="form-step__title"
+      onClick={[Function]}
+    >
+      <h2>
+        Current Status
+      </h2>
+      <svg
+        fill="currentColor"
+        height={30}
+        size={30}
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width={30}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+        />
+      </svg>
+    </div>
+    <div
+      className="form-step__children form-step__children--close"
+    >
+      <span
+        className="problem-status-information__status-message"
+      >
+        The user 
+        @Alan
+         is solving the problem.
+      </span>
+      <button
+        className="button button__primary undefined"
+        onClick={[Function]}
+        type="button"
+      >
+        Problem Solved
+      </button>
+    </div>
+  </div>
+</article>
+`;

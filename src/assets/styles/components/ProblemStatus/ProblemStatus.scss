@@ -1,0 +1,38 @@
+@import '../../partials/colors';
+@import '../../partials/sizes';
+@import '../../partials/fonts';
+@import '../../Breakpoints';
+@import '../../FontSize';
+
+.problem-status {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  color: $color-black-90;
+  font-style: italic;
+  font-size: 30px;
+
+  & small{
+    @include media(mobile-n) {
+      @include font-size($font-size-small);
+    }
+    @include media(tablet) {
+      @include font-size($font-size-normal);
+    }
+  }
+
+  & svg {
+    margin-right: 6px;
+  }
+
+  &__state--true svg {
+    fill: $color-primary;
+  }
+
+  &__state--false svg {
+    fill: $color-black-60;
+  }
+
+ 
+}

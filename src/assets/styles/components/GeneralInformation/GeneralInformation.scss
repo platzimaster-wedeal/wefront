@@ -1,0 +1,78 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../partials/shadows.scss";
+@import "../../partials/text.scss";
+@import "../../partials/sizes.scss";
+
+.GeneralInformation__container {
+ position: relative;
+ width: 100%;
+ padding: $space-size-medium;
+ background: #fff;
+ border-radius: 12px;
+ box-shadow: $shadow-small;
+
+ figure {
+   margin: 0;
+   margin-right: $space-size-small;
+   padding: 0;
+   position: relative;
+ }
+}
+
+.GeneralInformation__item--edit {
+  width: 18px;
+  height: 18px;
+}
+
+.item--icon {
+  color: $color-primary;
+  @include font-size(30px);
+
+ }
+
+ .button-actionSA {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  cursor: pointer;
+ }
+
+.GeneralInformation__title {
+ @include font-size($font-size-normal);
+ font-weight: 500;
+ color: $color-primary;
+
+ @include media(tablet) {
+  @include font-size($font-size-medium);
+ }
+}
+
+hr {
+  border: 1px solid $color-primary !important;
+  border-radius: 3px !important;
+  margin: $space-size-small 0 !important;
+  @include media(tablet){
+    border: 2px solid $color-primary !important;
+  }
+ 
+}
+
+.GeneralInformation__item {
+ display: flex;
+ align-items: center;
+ margin-bottom: $space-size-small;
+
+ &:last-child {
+  margin-bottom: 0;
+ }
+}
+
+.item--text {
+ color: $color-black-60;
+ font-style: normal;
+ font-weight: 300;
+ letter-spacing: 0.02em;
+ @include font-size($font-size-normal);
+
+}

@@ -1,0 +1,35 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.modal-message {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+
+  & svg {
+    fill: $color-primary;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: $space-size-medium 0;
+    @include font-size($font-size-normal);
+    text-align: center;
+    color: $color-black-90;
+  }
+
+  &__actions {
+    display: flex; 
+    flex-flow: row nowrap;
+
+    & button {
+      margin: $space-size-normal;
+    }
+  }
+}

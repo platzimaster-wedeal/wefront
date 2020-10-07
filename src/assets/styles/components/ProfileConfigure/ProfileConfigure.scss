@@ -1,0 +1,46 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.profile-configure {
+  position: relative;
+  width: 100%;
+  padding: $space-size-big 0;
+
+  &__inputs {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: $space-size-normal $space-size-small;
+
+    & label {
+      font-weight: 600;
+      @include font-size($font-size-normal);
+      padding: $space-size-extra-small 0;
+    }
+
+    &--select {
+      display: inline-flex;
+      margin-right: $space-size-large;
+      margin-bottom: $space-size-normal;
+
+      & label {
+        color: $color-black-60;
+        font-weight: 300;
+        display: inline-flex; 
+        margin-right: $space-size-small;
+      }
+    }
+  }
+
+  &--row {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  &__actions {
+    padding: $space-size-normal 0;
+    & button {
+      margin-right: $space-size-normal; 
+    }
+  }
+}

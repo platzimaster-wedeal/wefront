@@ -1,0 +1,79 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../Breakpoints.scss';
+
+.form-step {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: hidden;
+  width: 100%;
+  border-top: 1px solid $color-black-30;
+  border-bottom: 1px solid $color-black-30;
+  padding: $space-size-extra-small 0;
+  margin: $space-size-normal 0;
+
+  @include media(tablet) {
+    padding: $space-size-normal 0;
+  }
+
+  h2 {
+    color: $color-black-90;
+    transition: 0.2s ease-out;
+    line-height: 36px;
+    @include font-size($font-size-normal);
+
+    @include media(tablet){
+      @include font-size($font-size-medium);
+    }
+  }
+
+  svg {
+    transition: 0.2s ease-out;
+  }
+
+  &--complete {
+    h2 {
+      color: $color-primary;
+    }
+
+    svg {
+      color: $color-primary;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: $space-size-extra-small 0;
+    cursor: pointer;
+
+    &:hover {
+       h2 {
+         color: $color-primary-60;
+       }
+       svg {
+         color: $color-primary-60;
+       }
+    }
+  }
+
+  &__children {
+    padding:  0;
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+  }
+
+  &__children--open {
+    height: auto;
+    padding: $space-size-normal 0;
+  }
+  &__children--close {
+    padding:  0;
+    height: 0;
+    opacity: 0;
+  }
+
+}

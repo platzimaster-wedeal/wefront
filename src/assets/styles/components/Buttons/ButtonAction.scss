@@ -1,4 +1,6 @@
 @import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import "../../breakpoints.scss";
 
 .button-action {
     background-color: $color-primary;
@@ -7,4 +9,25 @@
     justify-content: center;
     align-items: center;
     color: $color-background;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    box-shadow: $shadow-small;
+    &:hover {
+        transform: scale(1.06);
+        box-shadow: $shadow-normal;
+    }
+
+    @include media(mobile-l) {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+    @include media(tablet) {
+        width: 60px;
+        height: 60px;
+        font-size: 40px;
+    }   
 }

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the component ProfileHeader :D Visual tests for the component should the comopnent have the same tree 1`] = `
+<div
+  className="profile-header-photo"
+>
+  <figure
+    className="profile-header-photo__figure"
+  >
+    <img
+      alt="Tupac Shakur Walks"
+      aria-label="Tupac Shakur Walks"
+      src={Object {}}
+    />
+  </figure>
+  <h2
+    className="profile-header-photo__name"
+  >
+    Tupac Shakur Walks
+  </h2>
+</div>
+`;

@@ -1,0 +1,24 @@
+@import '../../partials/colors.scss';
+@import '../../partials/fonts.scss';
+@import '../../partials/sizes.scss';
+
+.label {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  white-space: nowrap;
+  font-weight: 300;
+  width: auto;
+  font-style: italic;
+  color: $color-white;
+  padding: 3px 30px;
+  border-radius: 24px;
+  @include font-size($font-size-normal - 3);
+}
+
+.label__active {
+  background-color: $color-primary;
+}
+
+.label__inactive {
+  background-color: $color-black-30;
+}

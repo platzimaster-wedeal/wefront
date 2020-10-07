@@ -1,0 +1,36 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../FontSize.scss";
+@import "../../partials/text.scss";
+@import "../../partials/sizes.scss";
+
+.ProfileProblems__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: $space-size-normal;
+ 
+  &:last-child {
+   margin-bottom: 0;
+  }
+ }
+
+.ProfileProblems__item--icon {
+  color: $color-black-90;
+  margin-right: $space-size-extra-small;
+  @include font-size($font-size-normal);
+
+   @include media(tablet) {
+    @include font-size($font-size-medium);
+   }
+ }
+
+.ProfileProblems__id {
+  color: $color-black-90;
+  font-style: normal;
+  font-weight: 500;
+  text-decoration: underline;
+  letter-spacing: 0.02em;
+  @include font-size($font-size-normal);
+ 
+ }
+ 

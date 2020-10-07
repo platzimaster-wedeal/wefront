@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the component WorkerInformationLastProblems :D Visual tests for the component should the comopnent have the same tree 1`] = `
+<div
+  className="worker-information-last-problems"
+>
+  <strong
+    className="worker-information-last-problems__title"
+  >
+    Last Problems Solved
+  </strong>
+  <ul
+    className="worker-information-last-problems__list"
+  >
+    <span>
+      This user doesn't have solve any problem yet.
+    </span>
+  </ul>
+</div>
+`;

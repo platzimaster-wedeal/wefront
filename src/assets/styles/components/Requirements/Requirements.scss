@@ -1,0 +1,30 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../partials/sizes.scss";
+@import "../../Breakpoints.scss";
+@import "../../partials/text.scss";
+
+.requirements__container {
+ display: flex;
+ align-items: center;
+}
+
+p.requirements__container-content {
+  color: $color-black-90;
+  font-weight: 300;
+  font-style: normal;
+  @include font-size($font-size-small);
+
+  @include media(tablet) {
+    @include font-size($font-size-normal);
+  }
+ }
+
+.requirements__container-icon {
+ color: $color-primary;
+ margin-right: 14px;
+ @include font-size(21px);
+ @include media(tablet) {
+  @include font-size(30px);
+ }
+}

@@ -24,9 +24,6 @@ module.exports = {
     exclude: "/node_module/",
     use: {
      loader: "babel-loader",
-     options: {
-      presets: ["@babel/preset-env", "@babel/preset-react"],
-     },
     },
    },
    {
@@ -68,7 +65,7 @@ module.exports = {
       options: {
        filename: "[name]-[hash].[ext]",
        outputPath: "assets/images",
-       publicPath: "assets/images",
+       publicPath: "/assets/images",
       },
      },
     ],
@@ -81,7 +78,7 @@ module.exports = {
       options: {
        filename: "[name]-[hash].[ext]",
        outputPath: "assets/fonts",
-       publicPath: "assets/fonts",
+       publicPath: "/assets/fonts",
       },
      },
     ],
@@ -92,6 +89,7 @@ module.exports = {
  plugins: [
   new HtmlWebpackPlugin({
    template: "public/index.html",
+   favicon: "./public/WeDealFavicon.ico"
   }),
 
   new MiniCssExtractPlugin({

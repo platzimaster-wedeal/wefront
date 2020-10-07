@@ -1,0 +1,64 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../Breakpoints.scss';
+
+.problem-status-card {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: $space-size-normal 0;
+  margin: $space-size-normal 0;
+  cursor: pointer;
+  border-top: 1px solid rgba(0,0,0,.1);
+  border-bottom: 1px solid rgba(0,0,0,.1);
+
+  &:hover {
+    & .problem-status-card__action{
+      opacity: 1;
+    }
+
+    & .problem-status-card__header h3 {
+      color: $color-primary;
+    }
+  }
+
+  &__header {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    padding: 3px 0;
+    border-bottom: 3px solid $color-primary;
+
+    @include media(tablet){
+      align-items: flex-end; 
+    }
+
+    & h3 {
+      margin: 0;
+      padding: 0;
+      color: $color-black-90;
+      transition: .6s ease-in-out;
+      @include font-size($font-size-normal);
+
+      @include media(tablet) {
+        @include font-size($font-size-medium);
+      }
+    }
+  }
+
+  &__action {
+    position: absolute;
+    right: 6%;
+    top: 42%;
+    opacity: 0;
+    transition: .6s ease-in-out;
+
+    @include media(tablet) {
+      top: 0%;
+    }    
+  }
+}

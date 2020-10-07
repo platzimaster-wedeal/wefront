@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the component PostProblemPayment :D Visual tests for the component should the comopnent have the same tree 1`] = `
+<div
+  className="post-problem-payment"
+>
+  <label
+    className="post-problem-payment__title"
+    htmlFor="problem-price"
+  >
+    Payment
+  </label>
+  <p
+    className="post-problem-payment__action-price"
+  >
+    Select your price:
+     
+    <span
+      className="post-problem-payment__current-price"
+    >
+      $
+      0
+    </span>
+  </p>
+  <div
+    className="post-problem-payment__range-price"
+  >
+    <small>
+      min: 
+      <span>
+         $0 
+      </span>
+    </small>
+    <small>
+      max: 
+      <span>
+         $1000 
+      </span>
+    </small>
+  </div>
+  <input
+    max={1000}
+    min={0}
+    onChange={[Function]}
+    type="range"
+  />
+</div>
+`;

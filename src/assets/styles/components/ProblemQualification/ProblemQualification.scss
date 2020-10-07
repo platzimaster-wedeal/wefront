@@ -1,0 +1,79 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.problem-qualification {
+  position: relative;
+  width: 100%;
+  margin-bottom: $space-size-extra-small ;
+  height: auto;
+
+  &__input {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: $space-size-medium 0;
+
+    & strong {
+      @include font-size($font-size-normal);
+      font-weight: 500;
+      color: $color-black-90;
+    }
+
+    & p {
+      padding: $space-size-extra-small 0;
+      line-height: $space-size-big;
+      @include font-size($font-size-small);
+
+      @include media(tablet) {
+       @include font-size($font-size-normal);
+      }
+    }
+
+    & input[type="range"] {
+      width: 100%;
+    }
+
+    &--user-opinion {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start;
+
+      & img {
+        margin-right: $space-size-small;
+      }
+    }
+  }
+
+  &__stars {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    @include media(tablet) {
+      width: 72%;
+    }
+
+    &--label {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+
+      & .graphic-data strong {
+        display: none;
+      }
+      @include media(mobile-l) {
+        & .graphic-data strong {
+           display: flex;
+        }
+      }
+    }
+  }
+
+  &__action {
+    padding: $space-size-normal 0;
+  }
+}

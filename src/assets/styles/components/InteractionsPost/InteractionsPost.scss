@@ -1,0 +1,50 @@
+@import "../../partials/colors.scss";
+@import "../../partials/sizes.scss";
+@import "../../partials/fonts.scss";
+@import "../../FontSize.scss";
+@import "../../partials/text.scss";
+@import "../../Breakpoints.scss";
+
+.interactionsPost__container {
+ display: inline-flex;
+ justify-content: space-between;
+ flex-wrap: nowrap;
+ align-items: center;
+ width: 90%;
+}
+
+.interactionsPost__favs,
+.interactionsPost__shares,
+.interactionsPost__comments {
+ display: inline-flex;
+ align-items: center;
+ margin-right: 9px;
+ font-family: $font-secondary;
+ font-weight: bold;
+ color: $color-black-60;
+ @include font-size($font-size-small);
+ cursor: pointer;
+
+ @include media(tablet) {
+  @include font-size($font-size-normal); 
+  margin-right: initial;
+ }
+
+ svg {
+  font-weight: normal;
+  margin-right: 3px;
+  @include font-size(24px);
+
+  @include media(tablet) {
+    @include font-size(24px); 
+  }
+ }
+}
+
+.interactionsPost__icon--active {
+  color: $color-primary
+}
+
+.interactionsPost__icon--inactive {
+  color: $color-black-30
+}

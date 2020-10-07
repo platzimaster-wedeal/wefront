@@ -1,0 +1,79 @@
+@import '../../partials/colors.scss';
+@import '../../partials/sizes.scss';
+@import '../../partials/fonts.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+.header-search {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  max-height: 72px;
+  background-color: #fff;
+  box-shadow: $shadow-normal;
+  padding: $space-size-big;
+  z-index: 99;
+
+  @include media(tablet) {
+    padding: $space-size-large;
+  }
+
+  &__logo {
+    @include font-size($font-size-medium);
+    color: $color-primary;
+    font-family: $font-primary-bold;
+    margin-right: $space-size-medium;
+
+    @include media(tablet) {
+      @include font-size($font-size-big);
+    }
+  }
+
+  &__search {
+    position: relative;
+    min-width: 180px;
+    width: 100%;
+  }
+
+  &__nav {
+    display: none;
+
+    @include media(desktop-s) {
+      display: flex;
+    }
+
+    & a {
+      padding: 0 $space-size-small;
+      font-weight: 600;
+      color: $color-black-30;
+      font-family: $font-primary;
+
+      &:hover {
+        color: $color-primary-60;
+      }
+    }
+    &--active {
+      color: $color-primary !important;
+    }
+
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  &__picture {
+    width: 51px;
+    height: 51px;
+
+    @include media(tablet) {
+      width: 54px;
+      height: 54px;
+    } 
+  }
+  
+}

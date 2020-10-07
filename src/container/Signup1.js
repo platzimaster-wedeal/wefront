@@ -5,7 +5,7 @@ import { registerRequest } from "../actions";
 import "../assets/styles/components/Signup1.scss";
 
 // compontents
-import SelectDate from "../components/SelectDate";
+import SelectDate from "../components/DatePicker/SelectDate";
 
 const Signup1 = (props) => {
  const [form, setValues] = useState({

@@ -1,15 +1,24 @@
 @import './partials/fonts.scss';
 @import './reboot.scss';
 
+@import './FontSize.scss';
+@import './partials/sizes.scss';
 @import './Media.scss';
 @import './Vars.scss';
+
+// Mixins
+@import './Breakpoints.scss';
 
 @import './partials/sizes.scss';
 @import './partials/spacing.scss';
 @import './partials/colors.scss';
 @import './partials/shadows.scss';
 @import './partials/text.scss';
+@import './partials/inputs.scss';
+@import './partials/buttons.scss';
 
+// Animations
+@import './partials/animations.scss';
 
 :root {
   --color-primary: $color-primary;
@@ -17,3 +26,38 @@
   --color-white: $color-white;
   --color-background: $color-background;
 }
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $color-background;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+  border-radius: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,.0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  // background: rgba(0,0,0,.0);
+  background: $color-primary-30;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  // background: rgba(0,0,0,.0);
+  background: $color-primary-60;
+}
+

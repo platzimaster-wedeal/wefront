@@ -1,0 +1,27 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../Breakpoints.scss';
+
+.add-option-list {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  width: 100%;
+
+  & ul {
+    margin: $space-size-extra-small 0;
+  }
+
+  & label {
+    color: $color-black-90;
+  }
+
+  &__input {
+    display: flex;
+    flex-flow: row nowrap;
+
+    & input[type="text"] {
+      margin-right: $space-size-small;
+    }
+  }
+}

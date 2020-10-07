@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the component WorkerInformationRequirements :D Visual tests for the component should the comopnent have the same tree 1`] = `
+<div
+  className="worker-information-requirements"
+>
+  <strong
+    className="worker-information-requirements__title"
+  >
+    Requirements
+  </strong>
+  <ul
+    className="worker-information-requirements__list"
+  >
+    <div
+      className="requirements__container"
+    >
+      <svg
+        className="requirements__container-icon"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+        />
+      </svg>
+      <p
+        className="requirements__container-content"
+      >
+        There is no requirements!
+      </p>
+    </div>
+  </ul>
+</div>
+`;

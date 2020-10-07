@@ -1,0 +1,36 @@
+@import '../../partials/sizes.scss';
+@import '../../partials/colors.scss';
+@import '../../partials/shadows.scss';
+@import '../../Breakpoints.scss';
+
+
+.modal-notification {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: $space-size-normal;
+  width: 30%;
+  height: auto;
+  box-shadow: $shadow-normal;
+
+  &--great {
+    background-color: #fff;
+    border: 2px solid $color-primary;
+
+    & span {
+      color: $color-black-90;
+    }
+  }
+
+  &--great {
+    background-color: #fff;
+    border: 2px solid red;
+
+    & span {
+      color: $color-black-90;
+    }
+  }
+}
