@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { useInputForm } from '../../hooks/useInputForm/useInputForm'
 
+// redux
+import { useSelector } from 'react-redux'
+
 // Stlyes
 import "../../assets/styles/components/CreatePostProblem/CreatePostProblem.scss";
 
@@ -11,23 +14,28 @@ import SelectDate from "../DatePicker/SelectDate";
 
 const CreatePostProblemGeneral = ({setInformation}) => {
 
+  const { categories } = useSelector(state => state.CategoriesReducer)
+
   const [title, setTitle] = useInputForm('')
   const [shortDescription, setShortDescription] = useInputForm('')
-  const [modality, setModality] = useInputForm('')
-  const [price, setPrice] = useInputForm('')
-  const [categories, setCategories] = useState([])
-  const [schedule, setSchedule] = useState([])
+  const [modality, setModality] = useInputForm('pressencial')
+  const [minPrice, setMinPrice] = useInputForm(0)
+  const [maxPrice, setMaxPrice] = useInputForm(0)
+  const [problemCategories, setProblemCategories] = useState([])
+  const [schedule, setSchedule] = useInputForm('')
 
   useEffect(() => {
+
     setInformation({
       title,
       short_description: shortDescription,
       modality,
-      price,
-      categories,
+      salary_range1: Number(minPrice),
+      salary_range2: Number(maxPrice),
+      category: problemCategories[0],
       schedule
     })
-  }, [title, shortDescription, modality, price, categories, schedule]) 
+  }, [title, shortDescription, modality, minPrice, maxPrice, problemCategories, schedule]) 
 
  return (
   <FormStep title="General Information">
@@ -49,27 +57,36 @@ const CreatePostProblemGeneral = ({setInformation}) => {
     <div className="create-post-problem__inputs--select">
      <label htmlFor="modality">Modality:</label>
      <select id="modality" onChange={setModality}>
-      <option value="remote">Remote</option>
-      <option value="presence">Presence</option>
+      <option defaultValue="pressencial">Presence</option>
+      <option defaultValue="remote">Remote</option>
      </select>
     </div>
    </div>
 
    <div className="create-post-problem__inputs">
-    <SelectCategories setCategories={setCategories} />
+    <SelectCategories title="Categories" categories={categories} userCategories={problemCategories} setCategories={setProblemCategories}  />
    </div>
 
    <div className="create-post-problem__inputs">
     <label>Schedule</label>
     <div className="create-post-problem__inputs--select">
      <label htmlFor="modality">Select a Date:</label>
-     <SelectDate setState={setSchedule} />
+     <input
+      type="date"
+      placeholder="Tell us your last name"
+      id="date_of_birth"
+      name="date_of_birth"
+      onChange={setSchedule}
+     />
     </div>
    </div>
 
    <div className="create-post-problem__inputs">
     <label>Approximate Price:</label>
-    <input type="number" placeholder="Price" onChage={setPrice}/>
+    <label>Min:</label>
+    <input type="number" placeholder="Price" onChange={setMinPrice}/>
+    <label>Max:</label>
+    <input type="number" placeholder="Price" onChange={setMaxPrice}/>
    </div>
   </FormStep>
  );

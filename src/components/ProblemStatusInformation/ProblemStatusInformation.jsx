@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux'
 
 // Stlyes
 import "../../assets/styles/components/ProblemStatusInformation/ProblemStatusInformation.scss";
@@ -14,19 +15,26 @@ import Modal from "../Modals/Modal";
 
 const ProblemStatusInformation = ({
  isUser,
- problemUser,
  problemStatus = true,
- problemWorker = "@Alan",
+ problemWorker = "@",
  workersApplied = [],
+ setInformation,
+ onQualificate
 }) => {
- // Handle Problem Solved
+  
+  // const profile = useSelector(state => state.ProfileReducer)
+
+  const [profile, setProfile] = useState({}) 
+
+
+ // ---------------- Handle Problem Solved
  const [isProblemSolved, setIsProblemSolved] = useState(false);
 
  const handleProblemSolved = () => setIsProblemSolved(!isProblemSolved);
 
- // Define the status of the problem
+ // ---------------- Define the status of the problem ----------------
  const RenderStatus = () => {
-  if (problemStatus)
+  if (problemStatus !== "solving")
    return (
     <>
      <span className="problem-status-information__status-message">
@@ -68,9 +76,9 @@ const ProblemStatusInformation = ({
 
    {isUser && !problemStatus && RenderWorkers()}
 
-   {isProblemSolved && (
+   {isUser && isProblemSolved && (
     <FormStep title="Qualification Of Worker">
-     <ProblemQualification />
+     <ProblemQualification setInformation={setInformation} onQualificate={onQualificate} />
     </FormStep>
    )}
   </article>

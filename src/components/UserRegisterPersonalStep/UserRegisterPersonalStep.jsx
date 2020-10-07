@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { useSelector } from 'react-redux'
 import {useInputForm} from '../../hooks/useInputForm/useInputForm'
 
 
@@ -7,10 +8,13 @@ import "../../assets/styles/components/UserRegisterSteps/UserRegisterSteps.scss"
 
 const UserRegisterPersonalStep = ({setInformation}) => {
 
+  const { countries } = useSelector(state => state.CountriesReducer)
+
   const [firstName, setFirstName] = useInputForm('')
   const [lastName, setLastName] = useInputForm('')
   const [telephone, setTelephone] = useInputForm('')
   const [birth, setBirth] = useInputForm('')
+  const [country, setCountry] = useInputForm('')
   const [email, setEmail] = useInputForm('')
 
   useEffect(() => {
@@ -19,9 +23,12 @@ const UserRegisterPersonalStep = ({setInformation}) => {
       last_name: lastName,
       telephone,
       date_of_birth: birth,
+      id_city: Number(country),
       email
     })
-  }, [firstName, lastName, telephone, birth, email])
+  }, [firstName, lastName, telephone, birth, email, country])
+
+
 
  return (
   <div className="user-register__form-step">
@@ -73,6 +80,18 @@ const UserRegisterPersonalStep = ({setInformation}) => {
       onChange={setBirth}
      />
     </div>
+   </div>
+   <div className="user-register__form-step--inputs">
+    <label htmlFor="email">Country</label>
+      <select onChange={setCountry}>
+        <option>Select a country</option>
+        {
+          countries && countries.length > 0 ? countries.map(country => (
+            <option value={country.id} key={country.id}>{country.name}</option>
+          )) : 'There is no countries available'
+        }
+        
+      </select>
    </div>
    <div className="user-register__form-step--inputs">
     <label htmlFor="email">Email</label>

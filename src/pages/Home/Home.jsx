@@ -2,19 +2,17 @@ import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from 'react-router-dom'
 
 // Hooks
-import { useGetLocation } from '../../hooks/useGetLocation/useGetLocation'
-
+import { useSelector, useDispatch } from "react-redux";
 
 // Services
 import { getProblems } from '../../services/ProblemsService/problemsService'
 import { getPosts, createPost } from '../../services/PostsServices/postsServices'
 
 // Redux
-import { useSelector, useDispatch } from "react-redux";
 import { GET_PROBLEMS } from "../../redux/types/Problems/ProblemsTypes";
 import { GET_POSTS } from "../../redux/types/Posts/PostTypes";
 import { GET_SHARES } from "../../redux/types/Shares/ShareTypes";
-import { INSERT_SHARE } from "../../redux/types/Shares/ShareTypes";
+
 import { GET_LOCATION } from "../../redux/types/Auth/ProfileTypes";
 
 // Utils
@@ -38,9 +36,6 @@ import FeedContainer from "../../container/FeedContainer/FeedContainer";
 const Home = () => {
   const history = useHistory()
 
-  // Handle get Location
-  const getLocationDispatch = useDispatch()
-  // const [location, locationError, locationLaoding] = useGetLocation()
 
   // Posts Redux State
   const { id } = useSelector(state => state.AuthReducer)
@@ -62,11 +57,6 @@ const dispatchGetShares = useDispatch()
 const dispatchSetPosts = useDispatch()
 
 useEffect( () => {
-  // Get location
-  // const { latitude, longitude } = location
-  // getLocationDispatch({type: GET_LOCATION, payload: {latitude, longitude}})
-  // console.log(profile.location, 'THIS IS A TEST FOR HOME')
-
 // Defining next request
   const prevNumber = prevPage.current = pageOfGet 
   const getData = async () => {
@@ -76,23 +66,23 @@ useEffect( () => {
         dispatchGetProblems({type: GET_PROBLEMS, payload: [...resp_problems.body]})
         dispatchGetShares({type: GET_SHARES, payload: [...resp_shares.body]})
         dispatchSetPosts({type: GET_POSTS, payload: [...resp_shares.body, ...resp_problems.body]})
+        // dispatchSetPosts({type: GET_POSTS, payload: []})
         setIsLoading(false)
       } catch(err){
         setIsLoading(false)
         console.error(err)
       }
   }
-  if(posts.length > 0) {
-    setIsLoading(false)
-    return 
-  } else {
+
+  if(!posts.length > 0) {
     getData()
+  } else {
+    setIsLoading(false)
   }
 }, [pageOfGet])
 
 
 // ---------------- Handle create share
-const newShareDispatch = useDispatch()
 const [isLoadingShare, setIsLoadingShare] = useState(false)
 const [shareData, setShareData] = useState({})
 
@@ -103,7 +93,10 @@ const onErrorShare = () => {
 }
 
 const [isShareCreated, setIsShareCreated] = useState(false)
-const onCreatedShare = () => setIsShareCreated(false)
+const onCreatedShare = () => {
+  setIsShareCreated(false)
+  setIsModalShare(false)
+}
 
 const onNewShare = async () => {
   try {
@@ -111,9 +104,9 @@ const onNewShare = async () => {
     await setShareData((prev) => {
       return {...prev, publication_date: new Date().toString()}
     })
-    newShareDispatch({type: INSERT_SHARE, payload: {...shareData}})
-    const resp = await createPost(newShare)
+    const resp = await createPost(shareData)
     setIsShareCreated(true)
+    setIsLoadingShare(false)
   } catch(err) {
     setIsLoadingShare(false)
     setIsErrorShare(err)
@@ -121,6 +114,8 @@ const onNewShare = async () => {
   }
 
 }
+
+// ----------------- RENDER OF THE COMPONENT -----------------
 
  return (
   <HeaderContainer>

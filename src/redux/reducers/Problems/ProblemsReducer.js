@@ -33,12 +33,12 @@ const INITIAL_STATE = {
     categories: [],
     modality: 0,
     requirements: [],
+    status: "availble",
     price: 0,
     id_user: 0,
   },
   applyProblem: {
-    id_employeer: null,
-    id_job_offer: null,
+    id_employee: null,
     status: "solving",
     id_employer_job_offer: null
   },
@@ -55,7 +55,7 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, currentProblem: {...action.payload} }
       
     case INSERT_PROBLEM:
-      return {...state, newProblem: {...action.payload} }
+      return {...state, newProblem: action.payload }
 
     case PATCH_PROBLEM:
       return {...state, newProblem: {...action.payload} }

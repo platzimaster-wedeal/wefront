@@ -23,7 +23,7 @@ const HeaderSearchBar = ({ results }) => {
  const handleSubmit = (ev) => ev.preventDefault();
 
  return (
-  <form className="header-search-bar">
+  <div className="header-search-bar">
    <input
     type="text"
     placeholder="Search and find the best workers"
@@ -60,7 +60,7 @@ const HeaderSearchBar = ({ results }) => {
      <MdFilterList size="42" />
     </span>
    </section>
-  </form>
+  </div>
  );
 };
 

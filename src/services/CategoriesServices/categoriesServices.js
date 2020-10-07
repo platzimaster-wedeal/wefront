@@ -1,6 +1,6 @@
 import { useRequestGet } from '../../hooks/useRequestGet/useRequestGet'
 
-const URL = ''
+const URL = 'https://wedeal.herokuapp.com/api/v1/workAreas/'
 
 export const getCategories = async () => {
   const data = await useRequestGet(URL)
@@ -10,5 +10,5 @@ export const getCategories = async () => {
     throw new Error(resp.body)
   }
 
-  return resp.body
+  return resp
 }

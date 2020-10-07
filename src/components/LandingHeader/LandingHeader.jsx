@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 // styles
 import "../../assets/styles/components/LandingHeader/LandingHeader.scss";
@@ -7,7 +7,12 @@ import "../../assets/styles/components/LandingHeader/LandingHeader.scss";
 // Components
 import Button from "../Buttons/Button";
 
-const LandingHeader = ({ goToLogin, goToRegister, isRegister, isLanding }) => {
+const LandingHeader = ({ isRegister, isLanding }) => {
+
+  const history = useHistory()
+  const goToRegister = () => history.push('/register')
+  const goToLogin = () => history.push('/login')
+
  return (
   <header className="landing-header">
    <Link to="/">

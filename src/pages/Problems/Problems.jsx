@@ -25,10 +25,11 @@ import FeedContainer from "../../container/FeedContainer/FeedContainer";
 const Problems = () => {
   const history = useHistory()
 
- // Posts Redux State
-  const { problems, newProblem } = useSelector(state => state.ProblemsReducer)
+// ----------------- Redux state  -----------------
+  const { problems } = useSelector(state => state.ProblemsReducer)
 
- // Handle Create Problem
+  
+// ----------------- Handle Create problem -----------------
  const [isLoading, setIsLoading] = useState(false)
 
  const [isCreated, setIsCreated] = useState(false)
@@ -41,10 +42,11 @@ const Problems = () => {
  const [isModalProblem, setIsModalProblem] = useState(false);
  const actionProblem = () => setIsModalProblem(!isModalProblem);
 
- const onCreateProblem = async () => {
+ const onCreateProblem = async (data) => {
    try {
     setIsLoading(true)
-    const resp = await createProblem(newProblem)
+    console.log(data)
+    const resp = await createProblem(data)
    } catch(err) {
      setIsError(err)
      setIsLoading(false)
@@ -63,7 +65,7 @@ const Problems = () => {
     {isModalProblem && (
      <ModalContainer>
       <Modal title="Creata a new Problem" onClose={actionProblem}>
-       <CreatePostProblem onCancel={actionProblem} onCancel={actionProblem} onCreate={onCreateProblem}/>
+       <CreatePostProblem onCancel={actionProblem} onCancel={actionProblem} onCreate={onCreateProblem} />
       </Modal>
      </ModalContainer>
     )}

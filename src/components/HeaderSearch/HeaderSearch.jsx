@@ -13,7 +13,7 @@ import ProfilePicture from "../ProfilePictures/ProfilePicture";
 import HeaderSearchBar from "../HeaderSearchBar/HeaderSearchBar";
 import HeaderProfileMenu from "../HeaderProfileMenu/HeaderProfileMenu";
 
-const HeaderSearch = ({user = {}}) => {
+const HeaderSearch = ({user = {}, onLogout}) => {
  return (
   <header className="header-search">
    <Link to="/home" className="header-search__logo">
@@ -36,9 +36,10 @@ const HeaderSearch = ({user = {}}) => {
    </nav>
    <div className="header-search__actions">
     <HeaderProfileMenu
-     profileImg={user.avatar || PhotoUser}
+     profileImg={user.avatar}
      profileName={user.first_name || "No Name"}
      profileType={user.employeer ? "worker" : "Person"}
+     onLogout={onLogout}
     />
    </div>
   </header>

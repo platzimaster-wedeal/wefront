@@ -25,14 +25,14 @@ const SelectCategories = ({
   if (currentCategories.includes(category)) return null;
 
   setCurrentCategories((prevs) => [...prevs, category]);
-  setCategories((prevs) => [...prevs, category])
+  setCategories((prevs) => [...prevs, category.id])
  };
 
  // Handle the filter of the categories, for use find the skill or category that need
  const handleFilterCategory = (ev) => {
   ev.preventDefault();
   let filterCategories = categoryOptions.filter((category) =>
-   category.toLowerCase().includes(ev.currentTarget.value.toLowerCase())
+   category.title.toLowerCase().includes(ev.currentTarget.value.toLowerCase())
   );
   setFilterCategory(filterCategories);
  };
@@ -40,7 +40,7 @@ const SelectCategories = ({
  // Handle the event of delete some selected category of user
  const handleDeleteCategory = (category) => {
   const newCurrentCategories = currentCategories.filter(
-   (currCategory) => currCategory != category
+   (currCategory) => currCategory.title != category.title
   );
   setCurrentCategories(newCurrentCategories);
   setCategories(newCurrentCategories);
@@ -61,11 +61,11 @@ const SelectCategories = ({
    <ul className="select-categories__select-list">
     {filterCategory &&
      filterCategory.map((category) => (
-      <li key={category} onClick={() => handleSelectCategory(category)}>
+      <li key={category.id} onClick={() => handleSelectCategory(category)}>
        {currentCategories.includes(category) ? (
-        <Labels name={category} active />
+        <Labels name={category.title} active />
        ) : (
-        <Labels name={category} />
+        <Labels name={category.title} />
        )}
       </li>
      ))}
@@ -76,11 +76,11 @@ const SelectCategories = ({
     {currentCategories && currentCategories.length > 0 ? (
      currentCategories.map((category) => (
       <li
-       key={category}
+       key={category.id}
        className="select-categories__list--close"
        onClick={() => handleDeleteCategory(category)}>
        {" "}
-       <Labels name={category} active />{" "}
+       <Labels name={category.title} active />{" "}
       </li>
      ))
     ) : (

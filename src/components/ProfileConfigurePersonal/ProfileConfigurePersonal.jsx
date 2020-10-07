@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import { useSelector } from 'react-redux'
 
 import { useInputForm } from '../../hooks/useInputForm/useInputForm'
 
@@ -9,7 +11,9 @@ import "../../assets/styles/components/ProfileConfigure/ProfileConfigure.scss";
 import FormStep from "../FormStep/FormStep";
 import SelectCategories from "../SelectCategories/SelectCategories";
 
-const ProfileConfigurePersonal = ({profileName, profileLastName, profileEmail, profilePhone, profileCountry}) => {
+const ProfileConfigurePersonal = ({profileName, profileLastName, profileEmail, profilePhone, profileCountry, setInformation}) => {
+
+  const { countries } = useSelector(state => state.CountriesReducer)
 
  
   const [first_name, setFirstName] = useInputForm(profileName)
@@ -17,6 +21,18 @@ const ProfileConfigurePersonal = ({profileName, profileLastName, profileEmail, p
   const [email, setUserEmail] = useInputForm(profileEmail)
   const [phone, setUserPhone] = useInputForm(profilePhone)
   const [country, setUserCountry] = useInputForm(profileCountry)
+  const [birth, setBirth] = useInputForm(profileCountry)
+
+  useEffect(() => {
+    setInformation({
+      first_name,
+      last_name,
+      email,
+      telephone: phone,
+      id_city: Number(country),
+      date_of_birth: birth
+    })
+  }, [first_name, last_name, email, phone, country])
 
  return (
   <FormStep title="Personal Information">
@@ -38,6 +54,17 @@ const ProfileConfigurePersonal = ({profileName, profileLastName, profileEmail, p
    </div>
 
    <div className="profile-configure__inputs">
+     <label htmlFor="date_of_birth">Birth</label>
+     <input
+      type="date"
+      placeholder="Tell us your last name"
+      id="date_of_birth"
+      name="date_of_birth"
+      onChange={setBirth}
+     />
+   </div>
+
+   <div className="profile-configure__inputs">
     <label>Location:</label>
 
     <div className="profile-configure__inputs--row">
@@ -45,8 +72,12 @@ const ProfileConfigurePersonal = ({profileName, profileLastName, profileEmail, p
      </div>
      <div className="profile-configure__inputs--select">
       <label htmlFor="nationality">Location:</label>
-      <select id="location">
-       <option>COL</option>
+      <select id="location" onChange={setUserCountry}>
+        {
+          countries && countries.length > 0 && countries.map(country => (
+            <option key={country.id} value={country.id}>{country.name}</option>
+          ))
+        }
       </select>
      </div>
     </div>

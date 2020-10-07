@@ -1,12 +1,12 @@
 import { useRequestPost } from '../../hooks/useRequestPost/useRequestPost'
 import { useRequestPostForm } from '../../hooks/useRequestPostForm/useRequestPostForm'
-import { useRequestGet } from '../../hooks/useRequestGet/useRequestGet'
+import { useRequestGet, useRequestGetToken } from '../../hooks/useRequestGet/useRequestGet'
 
 const URL_GET = 'https://wedeal.herokuapp.com/api/v1/posts'
 const URL_GET_POST = (id) => `https://wedeal.herokuapp.com/api/v1/posts/${id}`
 
 export const getPosts = async () => {
-  const data = await useRequestGet(URL_GET)
+  const data = await useRequestGetToken(URL_GET)
   const resp = await data.json()
 
   if(resp.error) {
@@ -18,7 +18,7 @@ export const getPosts = async () => {
 
 
 export const getPost = async (id) => {
-  const data = await useRequestGet(URL_GET_POST(id))
+  const data = await useRequestGetToken(URL_GET_POST(id))
   const resp = await data.json()
 
   if(resp.error) {

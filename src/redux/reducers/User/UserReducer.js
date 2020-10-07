@@ -2,11 +2,12 @@ import { GET_USER, PATCH_USER, FOLLOW_USER, UNFOLLOW_USER, INSERT_USER } from '.
 
 const INITIAL_STATE = {
   username: '',
-  name: '',
+  first_name: '',
+  last_name: '',
+  myAvatar: null,
   email: '',
-  profileImage: '',
-  phone: 0,
-  type: 0,
+  telephone: 0,
+  employeer: 0,
   languages: [],
   latitude: 0,
   longitude: 0,
@@ -31,10 +32,10 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, ...action.payload }
 
     case FOLLOW_USER:
-      return {...state, followed: true }
+      return {...state, followed: true, followers: state.followers+1 }
 
     case UNFOLLOW_USER:
-      return {...state, followed: false}
+      return {...state, followed: false, followers: state.followers-1}
   
     default:
       return {...state}

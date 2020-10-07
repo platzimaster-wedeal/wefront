@@ -11,7 +11,7 @@ import ProfileConfigureWorker from "../ProfileConfigureWorker/ProfileConfigureWo
 import ProfilePreference from "../ProfilePreference/ProfilePreference";
 import Button from "../Buttons/Button";
 
-const ProfileConfigure = ({ isWorker, user }) => {
+const ProfileConfigure = ({ isWorker, user, setGeneralInformation, setPersonalInformation, setEmployeerInformation, onSave }) => {
 
  return (
   <section className="profile-configure">
@@ -26,6 +26,7 @@ const ProfileConfigure = ({ isWorker, user }) => {
       profileProfession={user.profession}
       profileDescription={user.description}
       profileLanguages={user.languages}
+      setInformation={setGeneralInformation}
    />
    <ProfileConfigurePersonal 
       profileName={user.first_name}
@@ -33,18 +34,20 @@ const ProfileConfigure = ({ isWorker, user }) => {
       profileEmail={user.email}
       profilePhone={user.telephone}
       profileCountry={user.country}
+      setInformation={setPersonalInformation}
    />
    {isWorker ? (
     <ProfileConfigureWorker 
-      categories={user.skills}
+      userSkills={user.skills}
       experience={user.experience}
+      setInformation={setEmployeerInformation}
     />
    ) : (
     <ProfilePreference />
    )}
 
    <div className="profile-configure__actions">
-    <Button active>Save</Button>
+    <Button active onClick={onSave}>Save</Button>
     <Button>Cancel</Button>
    </div>
   </section>

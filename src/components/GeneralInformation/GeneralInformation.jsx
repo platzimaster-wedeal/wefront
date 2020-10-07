@@ -7,7 +7,7 @@ import SmallButtonSA from "../Buttons/SmallButtonSA";
 
 import "../../assets/styles/components/GeneralInformation/GeneralInformation.scss";
 
-const GeneralInformation = ({ username, followers, location, isProfile = false }) => {
+const GeneralInformation = ({ username, followers = 0, location, isProfile = false }) => {
  const handleEditInfo = () => alert("Voy a editar");
 
  return (
@@ -25,7 +25,7 @@ const GeneralInformation = ({ username, followers, location, isProfile = false }
      <MdGroup className="item--icon" />
     </figure>
 
-    <p className="item--text">{followers || 0} Followers</p>
+    <p className="item--text">{followers} Followers</p>
    </div>
    <div className="GeneralInformation__item">
     <figure>

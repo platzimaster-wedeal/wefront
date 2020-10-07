@@ -28,12 +28,12 @@ const ProblemsDetail = () => {
 
 const history = useHistory()
 
-// Redux state
+// ----------------- Redux state
 const { id } = useSelector(state => state.AuthReducer )
 const { currentProblem, applyProblem } = useSelector(state => state.ProblemsReducer )
 const { employeer } = useSelector(state => state.ProfileReducer )
 
-// Handle GET problem
+// ----------------- Handle GET problem -----------------
 const { idProblem } = useParams()
 const getProblemDispatch = useDispatch()
 const [isLoading, setIsLoading] = useState(true)
@@ -53,7 +53,7 @@ useEffect(() => {
   handleGetProblem()
 }, [isLoading, isError, idProblem])
 
-// Handle Apply Problem
+// ----------------- Handle Apply Problem ----------------- 
 const applyProblemDispatch = useDispatch()
 const [isLoadingApply, setIsLoadingApply] = useState(false)
 const [isApplied, setIsApplied] = useState(false)
@@ -80,6 +80,7 @@ const onApply = async () => {
   }
 }
 
+// ----------------- RENDER OF THE COMPONENT -----------------
  return (
   <HeaderContainer>
    <ChangeView

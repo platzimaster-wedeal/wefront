@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { useInputForm } from "../../hooks/useInputForm/useInputForm";
 
+// redux
+import { useSelector } from 'react-redux'
+
 // Styles
 import "../../assets/styles/components/UserRegisterSteps/UserRegisterSteps.scss";
 
@@ -9,6 +12,10 @@ import FormStep from "../FormStep/FormStep";
 import SelectCategories from "../SelectCategories/SelectCategories";
 
 const UserRegisterTypeStep = ({setInformation}) => {
+
+  // Redux state
+  const { categories } = useSelector(state => state.CategoriesReducer)
+
  const [typeUser, setTypeUser] = useInputForm(1);
  const [languages, setLanguages] = useState([]);
  const [skills, setSkils] = useState([]);
@@ -16,8 +23,8 @@ const UserRegisterTypeStep = ({setInformation}) => {
  useEffect(() => {
    setInformation({
      employeer: typeUser,
-     languages,
-     skills,
+     id_language: languages[0],
+     id_work_area: skills[0],
    })
  },[typeUser, skills, languages])
 
@@ -31,19 +38,19 @@ const UserRegisterTypeStep = ({setInformation}) => {
     <div className="user-register__form-step--inputs">
      <label htmlFor="employeer">Preference</label>
      <select name="employeer" id="employeeer" onChange={setTypeUser}>
-      <option value="1">Employeeer</option>
+      <option defaultValue="1">Employeeer</option>
       <option value="0">Employee</option>
      </select>
     </div>
    </div>
 
-   {typeUser === "0" ? (
+   {typeUser !== "0" ? (
     <FormStep title="Person Information">
      <div className="user-register__form-step--inputs">
       <label htmlFor="employeer">Languages</label>
       <SelectCategories
        title="Select the languages that you speak"
-       categories={["spanish", "english"]}
+       categories={[{title: 'Spanish', id: 49}, {title: 'English', id: 37}]}
        userCategories={languages}
        setCategories={setLanguages}
       />
@@ -55,13 +62,13 @@ const UserRegisterTypeStep = ({setInformation}) => {
       <label htmlFor="employeer">Skills</label>
       <SelectCategories
        title="Select the languages that you speak"
-       categories={["spanish", "english"]}
+       categories={[{title: 'Spanish', id: 49}, {title: 'English', id: 37}]}
        userCategories={languages}
        setCategories={setLanguages}
       />
       <SelectCategories
        title="Select the Skills that you have"
-       categories={["Art", "Engineer"]}
+       categories={categories}
        userCategories={skills}
        setCategories={setSkils}
       />

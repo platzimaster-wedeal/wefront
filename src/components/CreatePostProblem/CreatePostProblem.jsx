@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-
-// Redux 
-import { useDispatch } from 'react-redux'
-import { INSERT_PROBLEM } from '../../redux/types/Problems/ProblemsTypes'
+import { useSelector } from 'react-redux'
 
 // Styles
 import "../../assets/styles/components/CreatePostProblem/CreatePostProblem.scss";
@@ -11,29 +8,36 @@ import CreatePostProblemGeneral from "../CreatePostProblemGeneral/CreatePostProb
 import CreatePostProblemSpecific from "../CreatePostProblemSpecific/CreatePostProblemSpecific";
 import Button from "../Buttons/Button";
 
-const CreatePostProblem = ({ onCancel, onCreate }) => {
+const CreatePostProblem = ({ onCancel, onCreate, setProblemData }) => {
+
+  const { id } = useSelector(state => state.AuthReducer) 
+  const { first_name } = useSelector(state => state.ProfileReducer)
 
 // Handle create new problem data
-const newProblemDispatch = useDispatch()
 const [problemInfomartion, setProblemInformation] = useState({})
 const [problemSpecificInfomartion, setProblemSpecificInformation] = useState({})
 
- const handleSubmitForm = (ev) => {
-  ev.preventDefault();
-  newProblemDispatch({type: INSERT_PROBLEM, payload: {...problemInfomartion, ...problemSpecificInfomartion}})
-  onCreate()
+ const handleSubmitForm = async () => {
+   const data = {
+     id_employer: Number(id),
+     employer_name: first_name,
+    ...problemInfomartion,
+    ...problemSpecificInfomartion
+  }
+  const resp = await onCreate(data)
+  
  };
 
  return (
-  <form onSubmit={handleSubmitForm} className="create-post-problem">
+  <div  className="create-post-problem">
    <CreatePostProblemGeneral setInformation={setProblemInformation} />
    <CreatePostProblemSpecific setInformation={setProblemSpecificInformation} />
 
    <div className="create-post-problem__actions">
-    <Button active type="submit">Create!</Button>
+    <Button active onClick={handleSubmitForm}>Create!</Button>
     <Button onClick={onCancel}>Cancel</Button>
    </div>
-  </form>
+  </div>
  );
 };
 

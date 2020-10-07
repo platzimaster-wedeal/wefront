@@ -44,7 +44,7 @@ const { isAuth } = useSelector(state => state.AuthReducer)
         </>
       )
     }
-     <Route component={Landing} />
+     <Route component={UserLogin} />
 
    </Switch>
   </BrowserRouter>

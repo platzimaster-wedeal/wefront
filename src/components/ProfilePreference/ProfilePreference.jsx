@@ -24,7 +24,7 @@ const ProfilePreference = ({ isWorker }) => {
    </div>
    <div className="profile-preference__preference">
     {isWorker ? (
-     <GraphicData active value="Employ">
+     <GraphicData active value="Worker">
       {" "}
       <MdWork size="24" />{" "}
      </GraphicData>
@@ -39,7 +39,7 @@ const ProfilePreference = ({ isWorker }) => {
    {isModalPreference && (
     <ModalContainer>
      <Modal title="Profile Preference" onClose={handlePreference}>
-      <SelectProfileType />
+      <SelectProfileType onClose={handlePreference}/>
      </Modal>
     </ModalContainer>
    )}

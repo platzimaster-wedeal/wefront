@@ -1,11 +1,13 @@
 import { useRequestPost } from '../../hooks/useRequestPost/useRequestPost'
-import { useRequestGet } from '../../hooks/useRequestGet/useRequestGet'
+import { useRequestPostForm } from '../../hooks/useRequestPostForm/useRequestPostForm'
+import { useRequestUpdateForm } from '../../hooks/useRequestUpdateForm/useRequestUpdateForm'
+import { useRequestGet,useRequestGetToken  } from '../../hooks/useRequestGet/useRequestGet'
 
-const URL_GET = (id) => `https://wedeal.herokuapp.com/api/v1/users/${id}`;
-const URL_PATCH = '';
+const URL_GET = (id) => `https://wedeal.herokuapp.com/api/v1/users/${id}`
+const URL_PATCH = (id) => `https://wedeal.herokuapp.com/api/v1/users/${id}`
 
 export const getProfile = async (id) => {
-    const data = await useRequestGet(URL_GET(id));
+    const data = await useRequestGetToken(URL_GET(id));
     const resp = await data.json()
     
     if(resp.error) {
@@ -15,8 +17,8 @@ export const getProfile = async (id) => {
     return resp
 }
 
-export const patchUser = async (data) => {
-    const resp_data = await useRequestPost(URL_PATCH, data);
+export const patchProfile = async (id, data) => {
+    const resp_data = await useRequestUpdateForm(URL_PATCH(id), data);
     const resp = await resp_data.json()
     
     if(resp.error) {
