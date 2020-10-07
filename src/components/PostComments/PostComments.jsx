@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PhotoUser from "../../assets/static/img/users/user.jpg";
 
 // Styles
-import "../../assets/styles/Components/PostComments/PostComments.scss";
+import "../../assets/styles/components/PostComments/PostComments.scss";
 
 // Components
 import ProfilePicture from "../ProfilePictures/ProfilePicture";

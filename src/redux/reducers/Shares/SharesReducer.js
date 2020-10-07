@@ -1,4 +1,4 @@
-import { INSERT_SHARE, GET_SHARES, GET_NEXT_SHARES } from '../../Types/Shares/ShareTypes'
+import { INSERT_SHARE, GET_SHARES, GET_NEXT_SHARES } from '../../types/Shares/ShareTypes'
 
 const INITIAL_STATE = {
   pageShares: 1, 

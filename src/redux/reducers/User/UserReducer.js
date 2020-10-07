@@ -1,4 +1,4 @@
-import { GET_USER, PATCH_USER, FOLLOW_USER, UNFOLLOW_USER, INSERT_USER } from '../../Types/User/UserTypes'
+import { GET_USER, PATCH_USER, FOLLOW_USER, UNFOLLOW_USER, INSERT_USER } from '../../types/User/UserTypes'
 
 const INITIAL_STATE = {
   username: '',
