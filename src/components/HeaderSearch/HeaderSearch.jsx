@@ -12,6 +12,7 @@ import PhotoUser from "../../assets/static/img/users/user.jpg";
 import ProfilePicture from "../ProfilePictures/ProfilePicture";
 import HeaderSearchBar from "../HeaderSearchBar/HeaderSearchBar";
 import HeaderProfileMenu from "../HeaderProfileMenu/HeaderProfileMenu";
+import HeaderNotifications from "../HeaderNotifications/HeaderNotifications"
 
 const HeaderSearch = ({user = {}}) => {
  return (
@@ -35,6 +36,7 @@ const HeaderSearch = ({user = {}}) => {
     </NavLink>
    </nav>
    <div className="header-search__actions">
+     <HeaderNotifications user="andresM" action="Has recommend you!" time="1hr"/>
     <HeaderProfileMenu
      profileImg={user.avatar || PhotoUser}
      profileName={user.first_name || "No Name"}

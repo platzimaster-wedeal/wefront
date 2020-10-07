@@ -26,7 +26,9 @@
   &--active {
     width: 360px;
     height: auto;
-    z-index: 18;
+    z-index: 20;
+    top: 25px;
+    right: 30px;
     padding: $space-size-medium $space-size-big;
   }
 }
