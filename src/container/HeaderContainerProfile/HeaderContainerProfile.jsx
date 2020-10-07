@@ -23,6 +23,8 @@ const HeaderContainerProfile = ({ children }) => {
   const profile = useSelector(state => state.ProfileReducer)
 
   const onLogout = () => {
+    window.localStorage.removeItem('token')
+    window.localStorage.removeItem('id')
     logoutDispatch({type: DELETE_AUTH})
     history.push('/')
   }

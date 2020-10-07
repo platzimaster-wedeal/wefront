@@ -31,7 +31,7 @@ const history = useHistory()
 // ----------------- Redux state
 const { id } = useSelector(state => state.AuthReducer )
 const { currentProblem } = useSelector(state => state.ProblemsReducer )
-const { employeer } = useSelector(state => state.ProfileReducer )
+const { employeer, id_employee } = useSelector(state => state.ProfileReducer )
 
 // ----------------- Handle GET problem -----------------
 const { idProblem } = useParams()
@@ -90,6 +90,7 @@ const onApply = async () => {
     <FeedDetail title="About The Problem">
      <PostProblemDetail 
       idUser={id} 
+      idEmployee={id_employee} 
       problem={currentProblem} 
       isLoading={isLoading} 
       isError={isError}
@@ -102,7 +103,7 @@ const onApply = async () => {
    {
      isErrorApply && (
         <ModalContainer>
-          <Modal title="Oops!">
+          <Modal title="Oops!" onClose={onError}>
             <ModalMessage type="error" message="We sorry! Something wrong happen!" onClose={onError} />
           </Modal>
         </ModalContainer> 
@@ -123,7 +124,7 @@ const onApply = async () => {
    {
      isApplied && (
         <ModalContainer>
-          <Modal title="Awesome!">
+          <Modal title="Awesome!" onClose={onApplied}>
             <ModalMessage type="Great" message="Congrats! You apply to his problem! Wait for the response :D" onClose={onApplied} />
           </Modal>
         </ModalContainer> 

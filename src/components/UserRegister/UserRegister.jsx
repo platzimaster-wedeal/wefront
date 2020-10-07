@@ -121,7 +121,7 @@ const UserRegister = ({onSubmit, isLoading, isError}) => {
 
    <div className="user-register__step">
     {
-      isError ? <span>Error</span> : isLoading ? <Loading /> : RenderStep(currentStep)
+      isError ? <span>Error</span> : isLoading ? <div className="user-register__loading"><Loading /></div> : RenderStep(currentStep)
 
     }
     </div>

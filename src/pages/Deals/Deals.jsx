@@ -27,6 +27,7 @@ const Deals = () => {
 
   // ----------------- Redux state  -----------------
   const { id } = useSelector(state => state.AuthReducer)
+  const { id_employee } = useSelector(state => state.ProfileReducer)
   const { problems, newProblem, profileDeals } = useSelector(state => state.ProblemsReducer)
 
 
@@ -43,7 +44,8 @@ const Deals = () => {
     const getDeals = async () => {
       try {
         setIsLoadingDeals(true)
-        const resp_deals = await getProblemUser(id)
+        const resp_deals = await getProblemUser(id_employee)
+        console.log(resp_deals)
         setProfileDeals({type: GET_PROFILE_DEALS, payload: resp_deals.body })
         setIsLoadingDeals(false)
       }catch(err) {
@@ -117,14 +119,14 @@ const Deals = () => {
     )}
     {isCreated && (
      <ModalContainer>
-        <Modal title="Awesome" >
+        <Modal title="Awesome" onClose={onCreated}>
           <ModalMessage type="great" message="Great! You problem was created succesful!" onClose={onCreated} />
         </Modal>
      </ModalContainer>
     )}
     {isError && (
      <ModalContainer>
-        <Modal title="Oops!">
+        <Modal title="Oops!" onClose={onError}>
           <ModalMessage type="error" message="We sorry something went wrong" onClose={onError} />
         </Modal>
      </ModalContainer>

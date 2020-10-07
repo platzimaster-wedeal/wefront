@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useParams } from 'react-router-dom'
+
 
 // Redux 
 import { useSelector, useDispatch } from 'react-redux'
@@ -19,6 +21,8 @@ const ProfileHeaderActions = ({
  userId
 }) => {
  const history = useHistory();
+ const { idUser } = useParams()
+
 
  const followDispatch = useDispatch()
  const [isLoadingFollow, setIsLoadingFollow] = useState(false)
@@ -29,7 +33,7 @@ const ProfileHeaderActions = ({
  const onFollow = async () => {
    try {
      setIsLoadingFollow(true)
-     const resp = await postFollowUser(id, userId)
+     const resp = await postFollowUser(id, idUser)
      followDispatch({type: FOLLOW_USER})
      setIsLoadingFollow(false)
    } catch(err) {
@@ -41,7 +45,7 @@ const ProfileHeaderActions = ({
  const unFollow = async () => {
   try {
     setIsLoadingFollow(true)
-    const resp = await postUnfollowUser(id, userId)
+    const resp = await postUnfollowUser(id, idUser)
     followDispatch({type: UNFOLLOW_USER})
     setIsLoadingFollow(false)
   } catch(err) {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useSelector } from 'react-redux'
 
@@ -11,7 +11,7 @@ import "../../assets/styles/components/ProfileConfigure/ProfileConfigure.scss";
 import FormStep from "../FormStep/FormStep";
 import SelectCategories from "../SelectCategories/SelectCategories";
 
-const ProfileConfigurePersonal = ({profileName, profileProfession, profileLastName, profileEmail, profilePhone, profileCountry, setInformation}) => {
+const ProfileConfigurePersonal = ({profileName, profileProfession, profileBirth, profileLastName, profileEmail, profilePhone, profileCountry, setInformation}) => {
 
   const { countries } = useSelector(state => state.CountriesReducer)
 
@@ -20,17 +20,30 @@ const ProfileConfigurePersonal = ({profileName, profileProfession, profileLastNa
   const [last_name, setLastName] = useInputForm(profileLastName)
   const [email, setUserEmail] = useInputForm(profileEmail)
   const [phone, setUserPhone] = useInputForm(profilePhone)
+  const [birth, setBirth] = useState(profileBirth)
   const [country, setUserCountry] = useInputForm(profileCountry)
 
+
+  // useEffect(() => {
+  //   if(profileBirth) {
+  //     let newFormatDate = new Date(profileBirth);
+  //     newFormatDate = newFormatDate.getFullYear()+'-' + (newFormatDate.getMonth()+1) + '-'+newFormatDate.getDate()
+  //     setBirth(newFormatDate)
+  //   }
+  // }, [])
+
   useEffect(() => {
+    
+    
     setInformation({
       first_name,
       last_name,
       email,
       telephone: phone,
-      id_city: Number(country),
+      date_of_birth: birth
+      // id_city: Number(country),
     })
-  }, [first_name, last_name, email, phone, country])
+  }, [first_name, last_name, email, phone, country, birth])
 
  return (
   <FormStep title="Personal Information">
@@ -45,6 +58,10 @@ const ProfileConfigurePersonal = ({profileName, profileProfession, profileLastNa
    <div className="profile-configure__inputs">
     <label htmlFor="email">Email:</label>
     <input type="text" placeholder="Tell us your new email" id="email" value={email} onChange={setUserEmail} />
+   </div>
+   <div className="profile-configure__inputs">
+    <label htmlFor="date_of_birth">Birth:</label>
+    <input type="date" id="date_of_birth" value={birth} onChange={ev => setBirth(ev.currentTarget.value)} />
    </div>
    <div className="profile-configure__inputs">
     <label htmlFor="phone">Phone:</label>

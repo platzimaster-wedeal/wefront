@@ -60,7 +60,7 @@ export const applyToProblem = async (data) => {
     const resp = await resp_data.json()
 
     if(resp.error) {
-      throw new Error("Something went wrong with the apply to problem")
+      throw new Error(resp.body)
     }
 
     return resp

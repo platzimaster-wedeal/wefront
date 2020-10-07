@@ -43,7 +43,6 @@ const UserProfile = () => {
   // ------------------------ Handle validation of user ----------------------
   // ---------------- Effect of profile ----------------
   useEffect(() => {
-    
     if(!idUser || Number(idUser) === id) {
       setIsProfile(true)
       return

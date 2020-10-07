@@ -47,6 +47,7 @@ useEffect(() => {
       name="username"
       id="username"
       onChange={setUsername}
+      value={username}
      />
     </div>
     <div className="user-register__form-step--inputs">
@@ -57,6 +58,7 @@ useEffect(() => {
       id="profession"
       name="profession"
       onChange={setDegree}
+      value={degree}
      />
     </div>
    </div>
@@ -70,6 +72,7 @@ useEffect(() => {
       name="password"
       id="password"
       onChange={setPassword}
+      value={password}
      />
     </div>
     <div className="user-register__form-step--inputs">
@@ -80,6 +83,7 @@ useEffect(() => {
       name="confirm_password"
       id="confirm_password"
       onChange={setConfirmPassword}
+      value={confirmPassword}
      />
     </div>
    </div>
@@ -91,6 +95,7 @@ useEffect(() => {
      name="description"
      placeholder="Write a short description about you"
      onChange={setDescription}
+     value={description}
     />
    </div>
 

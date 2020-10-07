@@ -8,9 +8,6 @@ import GraphicData from "../GraphicData/GraphicData";
 
 const PostProblemGraphicData = ({ location = "USA", modality = "Remote" }) => (
  <div className="post-problem-graphic-data">
-  <GraphicData value={location} active>
-   <MdLocationOn size={30} />
-  </GraphicData>
   <GraphicData value={modality}>
    <MdWifiTethering size={30} />
   </GraphicData>

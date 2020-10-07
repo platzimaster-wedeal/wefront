@@ -13,6 +13,7 @@ import Button from "../Buttons/Button";
 
 const ProfileConfigure = ({ isWorker, user, setGeneralInformation, setPersonalInformation, setEmployeerInformation, onSave }) => {
 
+
  return (
   <section className="profile-configure">
    <ProfileHeaderSmall 
@@ -32,7 +33,7 @@ const ProfileConfigure = ({ isWorker, user, setGeneralInformation, setPersonalIn
       profileLastName={user.last_name}
       profileEmail={user.email}
       profilePhone={user.telephone}
-      profileCountry={user.country}
+      profileBirth={user.date_of_birth}
       setInformation={setPersonalInformation}
    />
    {isWorker ? (

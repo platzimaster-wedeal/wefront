@@ -12,12 +12,12 @@ import SelectCategories from "../SelectCategories/SelectCategories";
 import ProfilePreference from "../ProfilePreference/ProfilePreference";
 import AddExperienceList from "../AddExperienceList/AddExperienceList";
 
-const ProfileConfigureWorker = ({userSkills, experience, setInformation}) => {
+const ProfileConfigureWorker = ({userSkills = [], experience = [], setInformation}) => {
 
   const { categories } = useSelector(state => state.CategoriesReducer)
 
   const [experienceList, setExperienceList] = useState(experience)
-  const [skills, setSkills] = useState(userSkills)
+  const [skills, setSkills] = useState([userSkills])
 
   useEffect(() => {
     setInformation({
