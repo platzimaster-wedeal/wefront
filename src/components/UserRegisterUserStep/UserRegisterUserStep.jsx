@@ -13,7 +13,7 @@ const UserRegisterUserStep = ({setInformation}) => {
 
 // State
 const [username, setUsername] = useInputForm('')
-const [profession, setProfession] = useInputForm('')
+const [degree, setDegree] = useInputForm('')
 const [password, setPassword] = useInputForm('')
 const [confirmPassword, setConfirmPassword] = useInputForm('')
 const [description, setDescription] = useInputForm('')
@@ -24,12 +24,13 @@ const [avatar, setAvatar, avatarFile] = useInputFile('')
 useEffect(() => {
   setInformation({
     username,
-    profession,
+    degree_title: degree,
     password,
+    confirmPassword,
     description,
     myAvatar: avatarFile
   })
-}, [username, profession, password, description, avatar])
+}, [username, degree, password, description, avatar])
 
  return (
   <div className="user-register__form-step">
@@ -55,7 +56,7 @@ useEffect(() => {
       placeholder="Tell us your Profession"
       id="profession"
       name="profession"
-      onChange={setProfession}
+      onChange={setDegree}
      />
     </div>
    </div>

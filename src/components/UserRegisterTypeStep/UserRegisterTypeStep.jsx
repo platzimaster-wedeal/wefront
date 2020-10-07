@@ -13,20 +13,33 @@ import SelectCategories from "../SelectCategories/SelectCategories";
 
 const UserRegisterTypeStep = ({setInformation}) => {
 
-  // Redux state
+  // ------------ Redux state ------------
   const { categories } = useSelector(state => state.CategoriesReducer)
 
- const [typeUser, setTypeUser] = useInputForm(1);
+ const [employeer, setEmployeer] = useState(1);
+ const [employee, setEmployee] = useState(0);
  const [languages, setLanguages] = useState([]);
  const [skills, setSkils] = useState([]);
 
+ const handleTypeUser = (ev) => {
+  const value = ev.currentTarget.value
+  if(Number(value) === 1) {
+    setEmployee(0)
+    setEmployeer(1)
+  } else {
+    setEmployee(1)
+    setEmployeer(0)
+  }
+ }
+
  useEffect(() => {
    setInformation({
-     employeer: typeUser,
+     employeer: employeer,
+     employee: employee,
      id_language: languages[0],
      id_work_area: skills[0],
    })
- },[typeUser, skills, languages])
+ },[employeer, employee, skills, languages])
 
  return (
   <div className="user-register__form-step">
@@ -37,27 +50,13 @@ const UserRegisterTypeStep = ({setInformation}) => {
    <div className="user-register__form-step--row">
     <div className="user-register__form-step--inputs">
      <label htmlFor="employeer">Preference</label>
-     <select name="employeer" id="employeeer" onChange={setTypeUser}>
-      <option defaultValue="1">Employeeer</option>
+     <select name="employeer" id="employeeer" onChange={handleTypeUser}>
+      <option value="1">Employeeer</option>
       <option value="0">Employee</option>
      </select>
     </div>
    </div>
-
-   {typeUser !== "0" ? (
-    <FormStep title="Person Information">
-     <div className="user-register__form-step--inputs">
-      <label htmlFor="employeer">Languages</label>
-      <SelectCategories
-       title="Select the languages that you speak"
-       categories={[{title: 'Spanish', id: 49}, {title: 'English', id: 37}]}
-       userCategories={languages}
-       setCategories={setLanguages}
-      />
-     </div>
-    </FormStep>
-   ) : (
-    <FormStep title="Worker Information">
+    <FormStep title="User Information">
      <div className="user-register__form-step--inputs">
       <label htmlFor="employeer">Skills</label>
       <SelectCategories
@@ -74,7 +73,6 @@ const UserRegisterTypeStep = ({setInformation}) => {
       />
      </div>
     </FormStep>
-   )}
   </div>
  );
 };

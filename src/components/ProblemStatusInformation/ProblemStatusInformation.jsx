@@ -59,7 +59,7 @@ const ProblemStatusInformation = ({
   return (
    <FormStep title="Workers That Applied">
     {workersApplied && workersApplied.length > 0 ? (
-     workersApplied.map((worker, i) => <ProfileWorkerCard key={i} />)
+     workersApplied.map((worker, i) => <ProfileWorkerCard id="" name="" picture="" description="" follows="" key={i} />)
     ) : (
      <span className="problem-status-information__workers-message">
       No workers have come forward yet

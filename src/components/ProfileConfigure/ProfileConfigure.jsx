@@ -19,7 +19,6 @@ const ProfileConfigure = ({ isWorker, user, setGeneralInformation, setPersonalIn
       name={user.first_name}
       source={user.avatar}
       description={user.description}
-      profession={user.professsion}
    />
    <ProfileConfigureGeneral 
       profileUsername={user.username}
@@ -38,7 +37,7 @@ const ProfileConfigure = ({ isWorker, user, setGeneralInformation, setPersonalIn
    />
    {isWorker ? (
     <ProfileConfigureWorker 
-      userSkills={user.skills}
+      userSkills={user.id_work_area}
       experience={user.experience}
       setInformation={setEmployeerInformation}
     />

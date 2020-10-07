@@ -9,7 +9,12 @@
   position: relative;
   width: auto;
   height:auto;
-  padding: $space-size-normal;
+  padding: 0;
+  margin: 0;
+  @include media(tablet) {
+    padding: $space-size-normal;
+    margin: $space-size-small;
+  }
 }
 
 .HeaderProfileMenu__container_nav {
@@ -72,6 +77,8 @@
  cursor: pointer;
  z-index: 21;
  overflow: hidden;
+ margin: 0;
+
 
  & img {
   object-fit: cover;

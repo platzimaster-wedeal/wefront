@@ -4,10 +4,14 @@ import { useParams } from 'react-router-dom'
 // Reux
 import { useSelector, useDispatch } from 'react-redux'
 import { GET_USER } from '../../redux/types/User/UserTypes' 
+import { GET_PROFILE_DEALS } from '../../redux/types/Problems/ProblemsTypes'
+
 
 // Services
 import { getUser } from '../../services/UserService/userService'
 import { getUserFollowers } from '../../services/UserService/userService'
+import { createProblem, getProblemUser } from "../../services/ProblemsService/problemsService"
+
 
 
 // Layouts
@@ -36,9 +40,10 @@ const UserProfile = () => {
   const user = useSelector(state => state.UserReducer)
   const { profilePosts } = useSelector(state => state.PostsReducer)
 
-  // Handle validation of user
-  // Effect of profile
+  // ------------------------ Handle validation of user ----------------------
+  // ---------------- Effect of profile ----------------
   useEffect(() => {
+    
     if(!idUser || Number(idUser) === id) {
       setIsProfile(true)
       return
@@ -46,7 +51,32 @@ const UserProfile = () => {
 
   }, [profile, isProfile, idUser])
 
-  // Effect of user
+// Get deals
+const setProfileDeals = useDispatch()
+
+  useEffect(() => {
+    const getProblems = async (id_user) => {
+      try {
+        setIsLoadingUser(true)
+        console.log(id_user)
+        const resp_deals = await getProblemUser(id_user)
+        setProfileDeals({type: GET_PROFILE_DEALS, payload: resp_deals.body })
+        setIsLoadingUser(false)
+      }catch(err) {
+        setIsLoadingUser(false)
+        setIsError(err)
+        throw new Error(err)
+      }
+    }
+    if(isProfile === true) {
+      getProblems(id)
+    } else if(isProfile === false && idUser){
+      getProblems(idUser)
+    }
+
+  }, [isProfile])
+
+  // ---------------- Effect of user ---------------- 
   const getUserDispatch = useDispatch()
   const [isLoadingUser, setIsLoadingUser] = useState(false)
   const [isError, setIsError] = useState(null)

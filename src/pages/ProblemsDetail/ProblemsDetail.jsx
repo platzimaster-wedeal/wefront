@@ -30,7 +30,7 @@ const history = useHistory()
 
 // ----------------- Redux state
 const { id } = useSelector(state => state.AuthReducer )
-const { currentProblem, applyProblem } = useSelector(state => state.ProblemsReducer )
+const { currentProblem } = useSelector(state => state.ProblemsReducer )
 const { employeer } = useSelector(state => state.ProfileReducer )
 
 // ----------------- Handle GET problem -----------------
@@ -54,7 +54,7 @@ useEffect(() => {
 }, [isLoading, isError, idProblem])
 
 // ----------------- Handle Apply Problem ----------------- 
-const applyProblemDispatch = useDispatch()
+const [applyProblem, setApplyProblem] = useState({})
 const [isLoadingApply, setIsLoadingApply] = useState(false)
 const [isApplied, setIsApplied] = useState(false)
 const onApplied = () => {
@@ -74,7 +74,7 @@ const onApply = async () => {
     setIsLoadingApply(false)
     setIsApplied(true)
   } catch(err) {
-    setIsError(err)
+    setIsErrorApply(err)
     setIsLoadingApply(false)
     console.error(err)
   }
@@ -92,7 +92,9 @@ const onApply = async () => {
       idUser={id} 
       problem={currentProblem} 
       isLoading={isLoading} 
-      isError={isError} 
+      isError={isError}
+      setDataApply={setApplyProblem}
+      idJobOffer={currentProblem.id_employer_job_offer}
       onApply={onApply}  
     />
     </FeedDetail>

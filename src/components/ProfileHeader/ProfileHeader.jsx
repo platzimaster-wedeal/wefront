@@ -24,7 +24,7 @@ const ProfileHeader = ({ user, isUser = false }) => {
 
   const { id } = useSelector(state => state.AuthReducer)
 
- // Handle Change images
+ // ---------------- Handle Change images ----------------
  const [isModalChangeImg, setIsModalChangeImg] = useState(false);
  const handleModal = () => setIsModalChangeImg(!isModalChangeImg);
  const [pictureName, setPicture, pictureFile] = useInputFile()
@@ -45,7 +45,6 @@ const ProfileHeader = ({ user, isUser = false }) => {
 
  const onChange = async () => {
    try {
-     console.log(id, '________ID PROFILE________')
      setIsLoadingPatchImg(true)
      const resp = await patchProfile(id, {...user, myAvatar: pictureFile})
      const resp_user = await getProfile(id)

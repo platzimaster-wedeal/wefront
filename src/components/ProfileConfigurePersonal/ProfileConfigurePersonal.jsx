@@ -11,7 +11,7 @@ import "../../assets/styles/components/ProfileConfigure/ProfileConfigure.scss";
 import FormStep from "../FormStep/FormStep";
 import SelectCategories from "../SelectCategories/SelectCategories";
 
-const ProfileConfigurePersonal = ({profileName, profileLastName, profileEmail, profilePhone, profileCountry, setInformation}) => {
+const ProfileConfigurePersonal = ({profileName, profileProfession, profileLastName, profileEmail, profilePhone, profileCountry, setInformation}) => {
 
   const { countries } = useSelector(state => state.CountriesReducer)
 
@@ -21,7 +21,6 @@ const ProfileConfigurePersonal = ({profileName, profileLastName, profileEmail, p
   const [email, setUserEmail] = useInputForm(profileEmail)
   const [phone, setUserPhone] = useInputForm(profilePhone)
   const [country, setUserCountry] = useInputForm(profileCountry)
-  const [birth, setBirth] = useInputForm(profileCountry)
 
   useEffect(() => {
     setInformation({
@@ -30,7 +29,6 @@ const ProfileConfigurePersonal = ({profileName, profileLastName, profileEmail, p
       email,
       telephone: phone,
       id_city: Number(country),
-      date_of_birth: birth
     })
   }, [first_name, last_name, email, phone, country])
 
@@ -53,16 +51,7 @@ const ProfileConfigurePersonal = ({profileName, profileLastName, profileEmail, p
     <input type="text" placeholder="Tell us your new phone" id="phone" value={phone} onChange={setUserPhone} />
    </div>
 
-   <div className="profile-configure__inputs">
-     <label htmlFor="date_of_birth">Birth</label>
-     <input
-      type="date"
-      placeholder="Tell us your last name"
-      id="date_of_birth"
-      name="date_of_birth"
-      onChange={setBirth}
-     />
-   </div>
+   
 
    <div className="profile-configure__inputs">
     <label>Location:</label>

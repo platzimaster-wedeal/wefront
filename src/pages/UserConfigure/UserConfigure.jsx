@@ -60,6 +60,7 @@ const UserConfigure = () => {
           ...profilePersonalData,
         }
       }
+      console.log(data, '___________CONFIGURE DATA___________')
 
       const resp_patch = await patchProfile(id, data)
       const resp_get = await getProfile(id)

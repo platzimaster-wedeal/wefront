@@ -9,22 +9,20 @@ import "../../assets/styles/components/ProfileConfigure/ProfileConfigure.scss";
 import FormStep from "../FormStep/FormStep";
 import SelectCategories from "../SelectCategories/SelectCategories";
 
-const ProfileConfigureGeneral = ({profileUsername, profileProfession, profileDescription, profileLanguages, setInformation}) => {
+const ProfileConfigureGeneral = ({profileUsername, profileDescription, profileLanguages, setInformation}) => {
 
 
   const [username, setUsername] = useInputForm(profileUsername)
-  const [profession, setProfession] = useInputForm(profileProfession)
   const [description, setDescription] = useInputForm(profileDescription)
   const [userLanguages, setUserLanguages] = useState(profileLanguages)
 
   useEffect(() => {
     setInformation({
       username,
-      profession,
       description,
       id_language: userLanguages[0]
     })
-  }, [username, profession, description, userLanguages])
+  }, [username, description, userLanguages])
 
 
  return (
@@ -32,10 +30,6 @@ const ProfileConfigureGeneral = ({profileUsername, profileProfession, profileDes
    <div className="profile-configure__inputs">
     <label htmlFor="username">Nickname:</label>
     <input type="text" placeholder="Tell us your new nickname" id="username" value={username} onChange={setUsername} />
-   </div>
-   <div className="profile-configure__inputs">
-    <label htmlFor="profession">Profession:</label>
-    <input type="text" placeholder="Tell us your Profession" id="profession" value={profession} onChange={setProfession} />
    </div>
    <div className="profile-configure__inputs">
     <label htmlFor="description">Short Description:</label>

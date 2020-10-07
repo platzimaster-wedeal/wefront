@@ -35,7 +35,7 @@ const PostInteractions = ({ favs, shares, comments }) => {
     )}
     {favs} Favs
    </button>
-   <button
+   {/* <button
     onClick={() => handelShareClick()}
     type="button"
     className="interactionsPost__shares ">
@@ -45,7 +45,7 @@ const PostInteractions = ({ favs, shares, comments }) => {
      <MdShare className="interactionsPost__icon--inactive" />
     )}
     {shares} Shares
-   </button>
+   </button> */}
    <button
     onClick={() => handelCommentsClick()}
     type="button"
@@ -57,7 +57,6 @@ const PostInteractions = ({ favs, shares, comments }) => {
     )}
     {comments} Comments
    </button>
-   <button></button>
   </div>
  );
 };

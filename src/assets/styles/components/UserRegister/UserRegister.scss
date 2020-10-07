@@ -14,6 +14,20 @@
   background-color: #fff;
   box-shadow: $shadow-normal;
 
+  .user-register-terms{
+    display: flex;
+    flex-flow: column nowrap;
+    @include font-size($font-size-small);
+    color: $color-black-90;
+
+    & small {
+      color: $color-black-90;
+      padding: $space-size-normal 0;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
   @include media(tablet) {
     width: 100%;
   }
