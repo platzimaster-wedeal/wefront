@@ -13,7 +13,7 @@ import { getConnections } from '../../services/AuthService/profileService'
 import { GET_PROBLEMS } from "../../redux/types/Problems/ProblemsTypes";
 import { GET_POSTS } from "../../redux/types/Posts/PostTypes";
 import { GET_SHARES } from "../../redux/types/Shares/ShareTypes";
-import { SET_CONNECTIONS } from "../../redux/types/Auth/profileTypes";
+import { SET_CONNECTIONS } from "../../redux/types/Auth/ProfileTypes";
 
 import { GET_LOCATION } from "../../redux/types/Auth/ProfileTypes";
 
