@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
 // pages
 import Landing from "../pages/Landing/Landing";
@@ -22,8 +22,7 @@ import CompanyData from "../container/CompanyData";
 import Draw from "../container/Draw";
 
 const App = () => {
-
-const { isAuth } = useSelector(state => state.AuthReducer)
+ const { isAuth } = useSelector((state) => state.AuthReducer);
 
  return (
   <BrowserRouter>
@@ -45,7 +44,6 @@ const { isAuth } = useSelector(state => state.AuthReducer)
       )
     }
      <Route component={UserLogin} />
-
    </Switch>
   </BrowserRouter>
  );

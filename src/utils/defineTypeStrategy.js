@@ -7,19 +7,19 @@ export const defineTypeStrategy = (type) => {
     icon: MdModeEdit,
     title: "Do you want share, something?",
     placeholder: "What are you thinking?",
-   }
+   };
   case "problem":
    return {
     icon: MdAdd,
     title: "Do you want create a new problem?",
     placeholder: "What is your problem?",
-   }
+   };
 
   default:
-    return {
-      icon: MdModeEdit,
-      title: "Do you want share, something?",
-      placeholder: "What are you thinking?",
-    }
+   return {
+    icon: MdModeEdit,
+    title: "Do you want share, something?",
+    placeholder: "What are you thinking?",
+   };
  }
 };

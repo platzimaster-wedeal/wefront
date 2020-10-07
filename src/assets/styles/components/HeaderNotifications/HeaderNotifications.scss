@@ -1,0 +1,93 @@
+@import "../../partials/colors.scss";
+@import "../../partials/fonts.scss";
+@import "../../partials/shadows.scss";
+@import "../../FontSize.scss";
+@import "../../partials/text.scss";
+@import "../../partials/sizes.scss";
+
+.HeaderNotifications__container {
+ position: relative;
+ width: auto;
+ height: auto;
+ padding: $space-size-normal;
+ margin-right: -50px;
+}
+
+.HeaderNotifications__content_container {
+ position: absolute;
+ top: 0;
+ right: 0;
+ width: 0;
+ height: 0;
+ background-color: #fff;
+ box-shadow: $shadow-normal;
+ overflow-y: scroll;
+ border-radius: 12px;
+
+ &--active {
+  @include media(mobile-2) {
+    width: 260px;
+  }
+
+  @include media(tablet) {
+    width: 460px;
+  }
+  
+  height: auto;
+  z-index: 18;
+  top: 5px;
+  padding: $space-size-medium $space-size-big;
+ }
+}
+
+.HeaderNotifications__icon {
+ position: relative;
+ width: 40px;
+ height: 40px;
+ color: $color-primary;
+ cursor: pointer;
+ z-index: 19;
+ overflow: hidden;
+}
+
+.HeaderNotifications__title {
+  @include font-size($font-size-normal + 5);
+ color: $color-primary;
+}
+
+.HeaderNotifications__content--ul {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+
+ li {
+  @include font-size($font-size-normal);
+  padding: $space-size-medium $space-size-small;
+  border-top: 1px solid $color-black-30;
+
+  span {
+    position: relative;
+    
+
+    @include media(mobile-2) {
+      left: 40px;
+    }
+
+    @include media(tablet) {
+      left: 100px;
+    }
+  }
+ }
+
+ li:last-of-type {
+  border-bottom: 1px solid $color-black-30;
+ }
+}
+
+.content__ul--link {
+  color: #0a3525;
+}
+
+.content__ul--link:hover {
+  color: $color-primary;
+}
