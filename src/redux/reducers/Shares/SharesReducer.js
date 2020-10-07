@@ -6,10 +6,9 @@ const INITIAL_STATE = {
   newShare: {
     title: '',
     description: '',
-    file: '',
+    myFile: null,
     favs: 0,
     comments: [],
-    status: 0,
     id_user: 0,
   }
 }

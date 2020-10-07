@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { PATCH_USER } from '../../redux/types/User/UserTypes' 
+import {GET_COUNTRIES} from '../../redux/types/Countries/CountriesTypes'
+
 
 // Styles
 import "../../assets/styles/components/UserRegister/UserRegister.scss";
@@ -12,7 +14,24 @@ import UserRegisterUserStep from "../UserRegisterUserStep/UserRegisterUserStep";
 import UserRegisterTypeStep from "../UserRegisterTypeStep/UserRegisterTypeStep";
 import Loading from "../Loading/Loading";
 
+import { getCountries } from '../../services/CountriesServices/countriesServices'
+
+
 const UserRegister = ({onSubmit, isLoading, isError}) => {
+
+  const countries = useSelector(state => state.CountriesReducer)
+  const getCountriesDispatch = useDispatch()
+
+
+  useEffect(() => {
+    const getData = async () => {
+        const data_countries = await getCountries()
+        return getCountriesDispatch({type: GET_COUNTRIES, payload: [...data_countries.body]})
+    }
+    if(!countries.length > 0) {
+      getData()
+    }
+  },[])
 
 
   // Redux State
@@ -22,6 +41,8 @@ const UserRegister = ({onSubmit, isLoading, isError}) => {
   const [personalInfo, setPersonalInfo] = useState({})
   const [generalInfo, setGeneralInfo] = useState({})
   const [userInfo, setUserInfo] = useState({})
+
+  const patch_user = useSelector(state => state.UserReducer)
 
  const nextStep = () => {
    switch (currentStep) {
@@ -45,7 +66,7 @@ const UserRegister = ({onSubmit, isLoading, isError}) => {
  const RenderStep = (step) => {
   switch (step) {
    case 0:
-    return <UserRegisterPersonalStep setInformation={setPersonalInfo} />;
+    return <UserRegisterPersonalStep setInformation={setPersonalInfo} countries={countries.length > 0 && countries} />;
     break;
    case 1:
     return <UserRegisterUserStep setInformation={setGeneralInfo} />;

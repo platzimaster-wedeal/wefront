@@ -19,7 +19,7 @@ const PostShare = ({
    <PostHeader 
     name={post.name}
     avatar={post.avatar}
-    profession={post.profession}
+    id={post.id_user}
     share 
     />
    <div className="post-share__content">
@@ -28,13 +28,13 @@ const PostShare = ({
       ? post.content
       : "Optional description until I know what to put here, besides, a need to know how it looks :D"}
     </p>
-    <PostInteractions />
+    <PostInteractions favs={post.likes} shares={post.shares} />
    </div>
-   <div className="post-share__comments">
+   {/* <div className="post-share__comments">
     {comments && seeComments && comments.length > 0 && (
      <PostComments comments={comments} isPost />
     )}
-   </div>
+   </div> */}
   </article>
  );
 };

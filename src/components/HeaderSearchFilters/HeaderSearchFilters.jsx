@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from 'react-redux'
 import { useInputForm } from "../../hooks/useInputForm/useInputForm";
 
 // Styles
@@ -9,16 +10,20 @@ import SelectCategories from "../SelectCategories/SelectCategories";
 import Button from "../Buttons/Button";
 
 const HeaderSearchFilters = () => {
+
+  const { categories } = useSelector(state => state.CategoriesReducer)
+
  const [location, setLocation] = useInputForm("");
  const [minimumPrice, setMinimumPrice] = useInputForm(0);
  const [maximumPrice, setMaximumPrice] = useInputForm(0);
+ const [filterCategories, setFilterCategories] = useState([])
 
  const handleSubmit = (ev) => {
   ev.preventDefault();
  };
 
  return (
-  <form onSubmit={handleSubmit} className="header-search-filters">
+  <div className="header-search-filters">
    <strong className="header-search-filters__title">Filters</strong>
 
    <div className="header-search-filters__inputs">
@@ -38,7 +43,9 @@ const HeaderSearchFilters = () => {
    <div className="header-search-filters__inputs">
     <strong>Category</strong>
     <SelectCategories
-     categories={["Art", "Engineer", "AI"]}
+     categories={categories}
+     userCategories={filterCategories}
+     setCategories={setFilterCategories}
      title="Select a category:"
     />
    </div>
@@ -75,10 +82,10 @@ const HeaderSearchFilters = () => {
     </div>
    </div>
 
-   <Button active className="header-search-filters__action">
+   <Button onClick={handleSubmit} active className="header-search-filters__action">
     Apply
    </Button>
-  </form>
+  </div>
  );
 };
 

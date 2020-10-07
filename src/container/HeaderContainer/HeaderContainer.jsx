@@ -1,7 +1,9 @@
 import React from "react";
+import { useHistory } from 'react-router-dom'
 
 // Redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { DELETE_AUTH } from '../../redux/types/Auth/AuthTypes'
 
 // Layouts
 import ChangeView from "../../layouts/ChangeView/ChangeView";
@@ -13,11 +15,19 @@ import Modal from "../../components/Modals/Modal";
 
 const HeaderContainer = ({ children }) => {
 
+  const history = useHistory()
+
   const profile = useSelector(state => state.ProfileReducer)
+  const logoutDispatch = useDispatch()
+
+  const onLogout = () => {
+    logoutDispatch({type: DELETE_AUTH})
+    history.push('/')
+  }
 
  return (
   <div>
-   <HeaderSearch user={profile}/>
+   <HeaderSearch user={profile} onLogout={onLogout} />
    {children}
   </div>
  );

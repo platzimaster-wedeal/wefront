@@ -1,6 +1,6 @@
 import { useRequestGet } from '../../hooks/useRequestGet/useRequestGet'
 
-const URL = ''
+const URL = 'https://wedeal.herokuapp.com/api/v1/languages/'
 
 export const getLanguages = async () => {
   const data = await useRequestGet(URL)

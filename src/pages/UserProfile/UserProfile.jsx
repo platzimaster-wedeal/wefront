@@ -7,6 +7,8 @@ import { GET_USER } from '../../redux/types/User/UserTypes'
 
 // Services
 import { getUser } from '../../services/UserService/userService'
+import { getUserFollowers } from '../../services/UserService/userService'
+
 
 // Layouts
 import ChangeViewProfile from "../../layouts/ChangeViewProfile/ChangeViewProfile";
@@ -56,7 +58,12 @@ const UserProfile = () => {
       try {
         setIsLoadingUser(true)
         const { body } = await getUser(idUser)
-        getUserDispatch({type: GET_USER, payload: {...body}})
+        const respFollowers = await getUserFollowers(idUser)
+        const userData = {
+          ...body,
+          followers: respFollowers.body[0].total_followers
+        }
+        getUserDispatch({type: GET_USER, payload: {...userData}})
         setIsLoadingUser(false)
       } catch(err) {
         setIsError(err)
@@ -70,6 +77,7 @@ const UserProfile = () => {
 
  // Handle modal share
  const [isModalShare, setIsModalShare] = useState(false);
+ const [shareData, setShareData] = useState({})
  const actionShare = () => setIsModalShare(!isModalShare);
 
  return (
@@ -87,6 +95,7 @@ const UserProfile = () => {
         name={profile.first_name} 
         avatar={profile.avatar} 
         onCancel={actionShare} 
+        setInformation={setShareData}
        />
       </Modal>
      </ModalContainer>

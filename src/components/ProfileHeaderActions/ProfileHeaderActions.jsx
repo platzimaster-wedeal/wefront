@@ -1,24 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
+
+// Redux 
+import { useSelector, useDispatch } from 'react-redux'
+import { FOLLOW_USER, UNFOLLOW_USER } from '../../redux/types/User/UserTypes' 
+
+
 import { useHistory } from "react-router-dom";
 import Button from "../buttons/Button";
 
+// Services
+import { postFollowUser, postUnfollowUser } from '../../services/UserService/userService'
+
+
 const ProfileHeaderActions = ({
  isProfile = false,
- isFollowed = false,
- onFollow,
  onRecommend,
  onEdit,
+ userId
 }) => {
  const history = useHistory();
+
+ const followDispatch = useDispatch()
+ const [isLoadingFollow, setIsLoadingFollow] = useState(false)
+ const { id } = useSelector(state => state.AuthReducer)
+ const { followed } = useSelector(state => state.UserReducer)
+
+//  Follow user
+ const onFollow = async () => {
+   try {
+     setIsLoadingFollow(true)
+     const resp = await postFollowUser(id, userId)
+     followDispatch({type: FOLLOW_USER})
+     setIsLoadingFollow(false)
+   } catch(err) {
+      console.error(err)
+   }
+ }
+
+//  Unfollow user
+ const unFollow = async () => {
+  try {
+    setIsLoadingFollow(true)
+    const resp = await postUnfollowUser(id, userId)
+    followDispatch({type: UNFOLLOW_USER})
+    setIsLoadingFollow(false)
+  } catch(err) {
+     console.error(err)
+  }
+ }
+
  const goToEdit = () => history.push("/user/configuration");
 
  return (
   <>
-   {!isProfile ? (
+   {!isProfile ? isLoadingFollow ? 'Loading...' : followed ? (
+    <Button onClick={unFollow}> Followed </Button>
+   ) : (
     <div className="profile-header__actions">
      <Button onClick={onFollow} active>
-      {" "}
-      {isFollowed ? "Followed" : "Follow"}{" "}
+      Follow
      </Button>
     </div>
    ) : (

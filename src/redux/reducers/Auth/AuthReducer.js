@@ -12,7 +12,7 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, isAuth: true, id: action.payload }
 
     case DELETE_AUTH: 
-      return {...state, isAuth: false}
+      return {...state, isAuth: false, id: null}
     default:
       return {...state}
   }

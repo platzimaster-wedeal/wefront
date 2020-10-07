@@ -15,9 +15,13 @@
   }
 
   &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: $space-size-medium 0;
     @include font-size($font-size-normal);
-    color: $color-black-30;
+    text-align: center;
+    color: $color-black-90;
   }
 
   &__actions {

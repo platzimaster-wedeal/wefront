@@ -7,8 +7,6 @@ import "../../assets/styles/components/ProblemQualificationStars/ProblemQualific
 const ProblemQualificationStars = ({ qualification = 4.6 }) => {
  const totalStars = Math.floor(qualification);
  const mediumStars = qualification - totalStars;
- console.log(mediumStars, "helo");
- console.log(totalStars, "heloInt");
 
  const RenderFullStars = (totalStars) => {
   let arrayStars = [];

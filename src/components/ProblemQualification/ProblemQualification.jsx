@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PhotoUser from "../../assets/static/img/users/user.jpg";
 import { useInputForm } from "../../hooks/useInputForm/useInputForm";
 import {
@@ -15,16 +15,21 @@ import ProblemQualificationStars from "../ProblemQualificationStars/ProblemQuali
 import GraphicData from "../GraphicData/GraphicData";
 import Button from "../Buttons/Button";
 
-const ProblemQualification = ({ problemWorker = "@Alan", userPhoto }) => {
- // Handle stars range
- const [rangeStars, setRangeStars] = useInputForm(0.0);
- console.log(rangeStars);
+const ProblemQualification = ({ problemWorker = "@Alan", userPhoto, setInformation, onQualificate }) => {
 
- // Handle submit of form
- const onSubmit = (ev) => ev.preventDefault();
+  
+
+ // ---------------- Handle stars range
+ const [rangeStars, setRangeStars] = useInputForm(0.0);
+  useEffect(() => {
+    setInformation({
+      qualification: rangeStars
+    })
+  }, [rangeStars])
+
 
  return (
-  <form onSubmit={onSubmit} className="problem-qualification">
+  <div className="problem-qualification">
    <div className="problem-qualification__input">
     <strong>Qualification</strong>
     <p>
@@ -63,11 +68,11 @@ const ProblemQualification = ({ problemWorker = "@Alan", userPhoto }) => {
     </div>
    </div>
    <div className="problem-qualification__action">
-    <Button type="submit" active>
+    <Button active onClick={onQualificate}>
      Qualificate!
     </Button>
    </div>
-  </form>
+  </div>
  );
 };
 

@@ -4,9 +4,9 @@ import "../../assets/styles/components/CreateApplyPostProblem/CreateApplyPostPro
 import Button from "../Buttons/Button";
 
 const CreateApplyPostProblem = ({
- price = 999,
+ price,
  currency = "USD",
- schedule = "12/08/2020",
+ schedule,
  onCancel,
  onApply
 }) => {
@@ -17,11 +17,11 @@ const CreateApplyPostProblem = ({
     <p className="PostProblem__price">
      Price:{" "}
      <span>
-      ${price} {currency}
+      ${price} {currency || ''}
      </span>
     </p>
     <p className="PostProblem__schedule">
-     Schedule: <span>{schedule}</span>
+     Schedule: <span>{schedule || ''}</span>
     </p>
    </div>
    <p className="PostProblem__optional--tile">Comment:</p>

@@ -1,6 +1,6 @@
 import { getCookie } from '../../utils/getCookie'
 
-export const useRequestGet = (url) => {
+export const useRequestGetToken = (url) => {
 
   const token = getCookie('token')
 
@@ -11,6 +11,20 @@ export const useRequestGet = (url) => {
     headers: {
       'Authorization': `Bearer ${token || ''}`,
     },
+  })
+
+  return resp
+
+}
+
+
+export const useRequestGet = (url) => {
+
+
+  const resp = fetch(url, {
+    method: 'GET',
+    mode: 'cors',
+    cache: 'no-cache',
   })
 
   return resp

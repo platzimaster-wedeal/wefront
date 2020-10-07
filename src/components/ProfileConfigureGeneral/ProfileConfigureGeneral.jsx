@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from "react";
 
 import { useInputForm } from '../../hooks/useInputForm/useInputForm'
 
@@ -10,14 +9,22 @@ import "../../assets/styles/components/ProfileConfigure/ProfileConfigure.scss";
 import FormStep from "../FormStep/FormStep";
 import SelectCategories from "../SelectCategories/SelectCategories";
 
-const ProfileConfigureGeneral = ({profileUsername, profileProfession, profileDescription, profileLanguages}) => {
+const ProfileConfigureGeneral = ({profileUsername, profileProfession, profileDescription, profileLanguages, setInformation}) => {
 
-  const { languages } = useSelector(state => state.LanguagesReducer)
 
   const [username, setUsername] = useInputForm(profileUsername)
   const [profession, setProfession] = useInputForm(profileProfession)
   const [description, setDescription] = useInputForm(profileDescription)
-  const [userLanguages, setUserLanguages] = useInputForm(profileLanguages)
+  const [userLanguages, setUserLanguages] = useState(profileLanguages)
+
+  useEffect(() => {
+    setInformation({
+      username,
+      profession,
+      description,
+      id_language: userLanguages[0]
+    })
+  }, [username, profession, description, userLanguages])
 
 
  return (
@@ -44,9 +51,9 @@ const ProfileConfigureGeneral = ({profileUsername, profileProfession, profileDes
    <div className="profile-configure__inputs">
     <SelectCategories
      title="Languages"
-     categories={languages}
+     categories={[{title: 'Spanish', id: 49}, {title: 'English', id: 37}]}
      userCategories={userLanguages}
-     setState={setUserLanguages}
+     setCategories={setUserLanguages}
     />
    </div>
   </FormStep>

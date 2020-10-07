@@ -15,7 +15,8 @@ import ProfileExperienceList from "../ProfileExperienceList/ProfileExperienceLis
 
 const AddExperienceList = ({
  title = "Add your option",
- options = ["1"],
+ options = [],
+ setOptions,
  type = null,
  isAuth = true,
 }) => {
@@ -28,29 +29,31 @@ const AddExperienceList = ({
  const handleViewExp = () => setIsModalSeeExp(!isModalSeeExp);
 
  const [currentOptions, setCurrentOptions] = useState(options);
- const [option, setOption] = useState("");
 
- const handleAddOption = (ev) => {
-  ev.preventDefault();
-  if (option.length > 0) {
-   setCurrentOptions((prev) => [...prev, option]);
-   setOption("");
+ const [newOption, setNewOption] = useState({})
+ const handleAddOption = () => {
+
+  if (newOption.title.length > 0) {
+   setCurrentOptions((prev) => [...prev, newOption]);
+   setOptions((prev) => [...prev, newOption])
   }
+  setIsModalAddExp(false)
  };
 
- const handleOption = (ev) => {
-  ev.preventDefault();
-  setOption(ev.currentTarget.value);
+ const handleOption = () => {
+  setOption((prev) => [...prev, newOption]);
+  setOptions((prev) => [...prev, newOption])
+  setIsModalAddExp(false)
  };
 
  return (
-  <form onSubmit={handleOption} className="add-option-list">
+  <div className="add-option-list">
    <label htmlFor={title}> {title} </label>
    <ul>
     {currentOptions.length > 0 ? (
      currentOptions.map((currOpt) => (
       <li key={currOpt} onClick={handleViewExp}>
-       <Requirements active title={currOpt} />
+       <Requirements active title={currOpt.title} />
       </li>
      ))
     ) : (
@@ -66,7 +69,7 @@ const AddExperienceList = ({
    {isModalAddExp && (
     <ModalContainer>
      <Modal title="Add Experience" onClose={handleModal}>
-      <AddExperience />
+      <AddExperience onAdd={handleAddOption} setOption={setNewOption} />
      </Modal>
     </ModalContainer>
    )}
@@ -77,7 +80,7 @@ const AddExperienceList = ({
      </Modal>
     </ModalContainer>
    )}
-  </form>
+  </div>
  );
 };
 

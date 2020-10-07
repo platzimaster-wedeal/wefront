@@ -113,6 +113,7 @@
  padding: $space-size-small;
  font-weight: 700;
  @include font-size($font-size-small);
+ cursor: pointer;
 
  svg {
   width: 21px;

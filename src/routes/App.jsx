@@ -31,21 +31,19 @@ const App = () => {
     <Route exact path="/login" component={UserLogin} />
     <Route exact path="/register" component={UserRegister} />
 
-    {isAuth && (
-     <>
-      <Route exact path="/home" component={Home} />
-      <Route exact path="/problems" component={Problems} />
-      <Route
-       exact
-       path="/detail/problem/:idProblem"
-       component={ProblemsDetail}
-      />
-      <Route exact path="/user/configuration" component={UserConfigure} />
-      <Route exact path="/user/profile/:idUser?" component={UserProfile} />
-      <Route exact path="/user/deals" component={Deals} />
-     </>
-    )}
-    <Route component={Landing} />
+    {
+      isAuth && (
+        <>
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/problems" component={Problems} />
+          <Route exact path="/detail/problem/:idProblem" component={ProblemsDetail} />
+          <Route exact path="/user/configuration" component={UserConfigure} />
+          <Route exact path="/user/profile/:idUser?" component={UserProfile} />
+          <Route exact path="/user/deals" component={Deals} />
+        </>
+      )
+    }
+     <Route component={UserLogin} />
    </Switch>
   </BrowserRouter>
  );

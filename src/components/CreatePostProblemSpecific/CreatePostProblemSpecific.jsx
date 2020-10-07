@@ -19,7 +19,7 @@ const CreatePostProblemSpecific = ({setInformation}) => {
    setInformation({
      long_description: longDescription,
      myFile: file,
-     requirements
+     requirements: requirements[0]
    })
  }, [longDescription, file, requirements])
 

@@ -16,7 +16,7 @@ const CreatePostShare = ({ idUser, name = "No Name", avatar, onCancel, onCreate,
  useEffect(() => {
    setInformation({
      content,
-     file,
+     myFile: file,
      id_user: idUser,
    })
  }, [content, file, idUser])

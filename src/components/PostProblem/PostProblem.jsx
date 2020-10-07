@@ -21,6 +21,7 @@ const PostProblem = ({ post, onClick }) => {
       title={post && post.title}
       idProblem={post && post.id}
       short_description={post && post.short_description}
+      modality={post && post.modality}
     />
     <div className="post-problem__actions">
      <Button active onClick={() => onClick(post ? post.id : 1)}>

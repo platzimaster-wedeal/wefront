@@ -4,7 +4,7 @@ import { MdExitToApp } from "react-icons/md";
 
 import "../../assets/styles/components/HeaderProfileMenu/HeaderProfileMenu.scss";
 
-const HeaderProfileNav = ({ profileName, profileType }) => {
+const HeaderProfileNav = ({ profileName, profileType, onLogout }) => {
  return (
   <div>
    <div className="HeaderProfileMenu__name--profileImg">
@@ -46,7 +46,7 @@ const HeaderProfileNav = ({ profileName, profileType }) => {
    </nav>
    <div className="HeaderProfileMenu__logout">
     <MdExitToApp />
-    <p>Logout</p>
+    <p onClick={onLogout}>Logout</p>
    </div>
    <div className="HeaderProfileMenu__footer">
     <p className="HeaderProfileMenu__footer--terms">

@@ -8,12 +8,12 @@ import "../../assets/styles/components/ModalMessage/ModalMessage.scss";
 import Button from "../Buttons/Button";
 import InputFile from "../inputFile/InputFile";
 
-const ModalAddImage = ({ title, message, placeholder, onClick }) => {
+const ModalAddImage = ({ title, message, placeholder, onClick, state, setState }) => {
  return (
   <div className="cardSelect">
    <div className="cardSelect__form--select">
     <strong>{title || "Change Image"}</strong>
-    <InputFile placeholder={placeholder || "Select an image"} />
+    <InputFile placeholder={placeholder || "Select an image"} state={state} setState={setState} />
    </div>
    <div className="cardSelect__form--buttons">
     <Button active onClick={onClick}>

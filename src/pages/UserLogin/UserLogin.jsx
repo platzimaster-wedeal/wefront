@@ -12,6 +12,7 @@ import {GET_COUNTRIES} from '../../redux/types/Countries/CountriesTypes'
 // Services
 import { getAuth } from '../../services/AuthService/authService'
 import { getProfile } from '../../services/AuthService/profileService'
+import { getUserFollowers } from '../../services/UserService/userService'
 import { getCategories } from '../../services/CategoriesServices/categoriesServices'
 import { getLanguages } from '../../services/LanguagesServices/languagesServices'
 import { getCountries } from '../../services/CountriesServices/countriesServices'
@@ -33,7 +34,7 @@ const UserLogin = () => {
   const getAuthDispatch = useDispatch()
   const getProfileDispatch = useDispatch()
 
-   // Handle Get general data
+// ----------------- HANDLE GET GENERAL DATA -----------------
   const getLanguagesDispatch = useDispatch()
   const getCategoriesDispatch = useDispatch()
   const getCountriesDispatch = useDispatch()
@@ -41,17 +42,14 @@ const UserLogin = () => {
   useEffect(() => {
      const getGeneralData = async () => {
         try {
-            const data_languages = await getLanguages()
-            getLanguagesDispatch({type: GET_LANGUAGES, payload: [...data_languages]})
 
             const data_categories = await getCategories()
-            getCategoriesDispatch({type: GET_CATEGORIES, payload: [...data_categories]})
+            getCategoriesDispatch({type: GET_CATEGORIES, payload: [...data_categories.body]})
 
             const data_countries = await getCountries()
-            getCountriesDispatch({type: GET_COUNTRIES, paylaod: [...data_countries.body]})
-            console.log(data_countries)
+            getCountriesDispatch({type: GET_COUNTRIES, payload: [...data_countries.body]})
         }catch(err){
-           console.log(err)
+           console.error(err, '______ERROR COUNTRIES______')
         }
         
      }
@@ -59,7 +57,7 @@ const UserLogin = () => {
      
   }, [])
 
-   // Handle login of the user
+// ----------------- HANDLE LOGIN PROFILE -----------------
   const handleLogin = async (data) => {    
       try {
          setIsLoading(true)
@@ -68,12 +66,18 @@ const UserLogin = () => {
          getAuthDispatch({type: GET_AUTH, payload: body.id_user})
          
          const respProfile = await getProfile(body.id_user)
-         getProfileDispatch({type: GET_PROFILE, payload: {...respProfile.body}})
+         const respFollowers = await getUserFollowers(body.id_user)
+         const profileData = {
+            ...respProfile.body,
+            followers: respFollowers.body[0].total_followers
+         }
+         getProfileDispatch({type: GET_PROFILE, payload: {...profileData}})
          return history.push('/home')
 
       } catch(err) {
          setIsError(err.message)
          setIsLoading(false)
+         console.error(err)
       }
   } 
 
