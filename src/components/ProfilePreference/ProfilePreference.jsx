@@ -39,7 +39,7 @@ const ProfilePreference = ({ isWorker }) => {
    {isModalPreference && (
     <ModalContainer>
      <Modal title="Profile Preference" onClose={handlePreference}>
-      <SelectProfileType onClose={handlePreference}/>
+      <SelectProfileType onClose={handlePreference} />
      </Modal>
     </ModalContainer>
    )}

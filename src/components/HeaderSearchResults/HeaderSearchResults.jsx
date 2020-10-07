@@ -51,12 +51,12 @@ const HeaderSearchResults = ({ results = [] }) => {
   <div className="header-search-results">
    <div className="header-search-results__header">
     <strong
-     className={viewPersons ? "header-search-results__header--active" : ''}
+     className={viewPersons ? "header-search-results__header--active" : ""}
      onClick={handleViewPersons}>
      Persons
     </strong>
     <strong
-     className={!viewPersons ? "header-search-results__header--active" : ''}
+     className={!viewPersons ? "header-search-results__header--active" : ""}
      onClick={handleViewPersons}>
      Problems
     </strong>

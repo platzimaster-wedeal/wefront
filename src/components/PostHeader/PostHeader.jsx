@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-
 // Stlyes
 import "../../assets/styles/components/PostHeader/PostHeader.scss";
 
@@ -11,13 +10,14 @@ import Labels from "../Labels/Labels";
 
 const PostHeader = ({ id, name, share, time, profession, picture }) => {
  const history = useHistory();
- const DEFAULT_IMG = 'https://imgurl.me/images/2020/09/11/profilededaultbb7053428141edf1.png'
+ const DEFAULT_IMG =
+  "https://imgurl.me/images/2020/09/11/profilededaultbb7053428141edf1.png";
  const goToProfile = () => history.push(`/user/profile/${id}`);
 
  return (
   <section className="post-header">
    <figure className="post-header__picture" onClick={goToProfile}>
-    <ProfilePicture active source={picture || DEFAULT_IMG } alt={name} />
+    <ProfilePicture active source={picture || DEFAULT_IMG} alt={name} />
    </figure>
    <div className="post-header__user-info">
     <div className="post-header__user-info--main">

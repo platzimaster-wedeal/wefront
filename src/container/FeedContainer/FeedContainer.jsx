@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
 // Utils
 import { defineTypeStrategy } from "../../utils/defineTypeStrategy";
@@ -8,9 +8,14 @@ import { defineTypeStrategy } from "../../utils/defineTypeStrategy";
 import StrategyCard from "../../components/StrategyCard/StrageyCard";
 import FeedGeneral from "../../components/FeedGeneral/FeedGeneral";
 
-const FeedContainer = ({ strategyAction, type, data, isLoading, isError = null }) => {
-
-const { avatar } = useSelector(state => state.ProfileReducer)
+const FeedContainer = ({
+ strategyAction,
+ type,
+ data,
+ isLoading,
+ isError = null,
+}) => {
+ const { avatar } = useSelector((state) => state.ProfileReducer);
 
  const strategy = defineTypeStrategy(type);
  return (

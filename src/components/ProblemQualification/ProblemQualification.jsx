@@ -15,18 +15,21 @@ import ProblemQualificationStars from "../ProblemQualificationStars/ProblemQuali
 import GraphicData from "../GraphicData/GraphicData";
 import Button from "../Buttons/Button";
 
-const ProblemQualification = ({ problemWorker = "@Alan", userPhoto, setInformation, onQualificate }) => {
-
-  
-
- // ---------------- Handle stars range
+const ProblemQualification = ({
+ problemWorker = "@Alan",
+ userPhoto,
+ setInformation,
+ onQualificate,
+}) => {
+ // ---------------- Handle qualification
  const [rangeStars, setRangeStars] = useInputForm(0.0);
-  useEffect(() => {
-    setInformation({
-      qualification: rangeStars
-    })
-  }, [rangeStars])
-
+ const [comment, setComment] = useInputForm("");
+ useEffect(() => {
+  setInformation({
+   qualification: rangeStars,
+   comment,
+  });
+ }, [rangeStars, comment]);
 
  return (
   <div className="problem-qualification">
@@ -64,7 +67,12 @@ const ProblemQualification = ({ problemWorker = "@Alan", userPhoto, setInformati
     </p>
     <div className="problem-qualification__input--user-opinion">
      <ProfilePicture active source={userPhoto || PhotoUser} />
-     <input type="text" placeholder="What are you thinking?" />
+     <input
+      type="text"
+      placeholder="What are you thinking?"
+      value={comment}
+      onChange={setComment}
+     />
     </div>
    </div>
    <div className="problem-qualification__action">

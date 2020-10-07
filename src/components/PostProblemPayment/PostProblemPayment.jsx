@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
 // Styles
 import "../../assets/styles/components/PostProblemPayment/PostProblemPayment.scss";
@@ -6,8 +6,14 @@ import "../../assets/styles/components/PostProblemPayment/PostProblemPayment.scs
 // Components
 import Button from "../Buttons/Button";
 
-const PostProblemPayment = ({ agreed = false, agreedPrice = 0, salaryMin = 0, salaryMax = 1000, setState, state }) => {
-
+const PostProblemPayment = ({
+ agreed = false,
+ agreedPrice = 0,
+ salaryMin = 0,
+ salaryMax = 1000,
+ setState,
+ state,
+}) => {
  return (
   <div className="post-problem-payment">
    <label className="post-problem-payment__title" htmlFor="problem-price">

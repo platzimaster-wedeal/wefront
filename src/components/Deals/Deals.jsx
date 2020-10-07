@@ -14,11 +14,22 @@ const Deals = ({ deals, isLoading, isError }) => {
     <h3>My Deals</h3>
    </div>
    <div className="deals__list">
-   {
-     isLoading ? (<Loading />) : isError ? (<span>We sorry, something went wrong</span>) : deals && deals.length > 0 ? (
-      deals.map((deal, i) => <ProblemStatusCard key={i} />)
-     ) : <span>You don't have current Deals</span>
-   }
+    {isLoading ? (
+     <Loading />
+    ) : isError ? (
+     <span>We sorry, something went wrong</span>
+    ) : deals && deals.length > 0 ? (
+     deals.map((deal, i) => (
+      <ProblemStatusCard
+       key={i}
+       nameProblem={deal.title}
+       idProblem={deal.id || deal.problem_id}
+       statusProblem={deal.status}
+      />
+     ))
+    ) : (
+     <span>You don't have current Deals</span>
+    )}
    </div>
   </article>
  );

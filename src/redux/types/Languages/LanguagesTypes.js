@@ -1,1 +1,1 @@
-export const GET_LANGUAGES = 'GET_LANGUAGES'
+export const GET_LANGUAGES = "GET_LANGUAGES";

@@ -25,7 +25,7 @@ const SelectCategories = ({
   if (currentCategories.includes(category)) return null;
 
   setCurrentCategories((prevs) => [...prevs, category]);
-  setCategories((prevs) => [...prevs, category.id])
+  setCategories((prevs) => [...prevs, category.id]);
  };
 
  // Handle the filter of the categories, for use find the skill or category that need
@@ -43,7 +43,7 @@ const SelectCategories = ({
    (currCategory) => currCategory.title != category.title
   );
   setCurrentCategories(newCurrentCategories);
-  setCategories(newCurrentCategories.map(curr => curr.id));
+  setCategories(newCurrentCategories.map((curr) => curr.id));
  };
 
  return (
