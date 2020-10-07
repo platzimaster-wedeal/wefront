@@ -11,7 +11,7 @@
   justify-content: space-between;
   position: relative;
   width: 100%;
-  height: 72px;
+  /* max-height: 72px; */
   background-color: #fff;
   box-shadow: $shadow-normal;
   padding: $space-size-big;
@@ -59,6 +59,11 @@
       color: $color-primary !important;
     }
 
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
   }
 
   &__picture {

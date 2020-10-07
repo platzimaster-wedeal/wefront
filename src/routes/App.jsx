@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
 // pages
 import Landing from "../pages/Landing/Landing";
@@ -22,8 +22,7 @@ import CompanyData from "../container/CompanyData";
 import Draw from "../container/Draw";
 
 const App = () => {
-
-const { isAuth } = useSelector(state => state.AuthReducer)
+ const { isAuth } = useSelector((state) => state.AuthReducer);
 
  return (
   <BrowserRouter>
@@ -32,20 +31,21 @@ const { isAuth } = useSelector(state => state.AuthReducer)
     <Route exact path="/login" component={UserLogin} />
     <Route exact path="/register" component={UserRegister} />
 
-    {
-      isAuth && (
-        <>
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/problems" component={Problems} />
-          <Route exact path="/detail/problem/:idProblem" component={ProblemsDetail} />
-          <Route exact path="/user/configuration" component={UserConfigure} />
-          <Route exact path="/user/profile/:idUser?" component={UserProfile} />
-          <Route exact path="/user/deals" component={Deals} />
-        </>
-      )
-    }
-     <Route component={Landing} />
-
+    {isAuth && (
+     <>
+      <Route exact path="/home" component={Home} />
+      <Route exact path="/problems" component={Problems} />
+      <Route
+       exact
+       path="/detail/problem/:idProblem"
+       component={ProblemsDetail}
+      />
+      <Route exact path="/user/configuration" component={UserConfigure} />
+      <Route exact path="/user/profile/:idUser?" component={UserProfile} />
+      <Route exact path="/user/deals" component={Deals} />
+     </>
+    )}
+    <Route component={Landing} />
    </Switch>
   </BrowserRouter>
  );
