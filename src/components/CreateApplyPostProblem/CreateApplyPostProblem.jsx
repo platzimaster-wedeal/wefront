@@ -8,7 +8,7 @@ const CreateApplyPostProblem = ({
  currency = "USD",
  schedule,
  onCancel,
- onApply
+ onApply,
 }) => {
  return (
   <Fragment>
@@ -17,11 +17,11 @@ const CreateApplyPostProblem = ({
     <p className="PostProblem__price">
      Price:{" "}
      <span>
-      ${price} {currency || ''}
+      ${price} {currency || ""}
      </span>
     </p>
     <p className="PostProblem__schedule">
-     Schedule: <span>{schedule || ''}</span>
+     Schedule: <span>{schedule || ""}</span>
     </p>
    </div>
    <p className="PostProblem__optional--tile">Comment:</p>
@@ -35,9 +35,7 @@ const CreateApplyPostProblem = ({
     <Button active onClick={onApply}>
      Apply
     </Button>
-    <Button onClick={onCancel}>
-     Cancel
-    </Button>
+    <Button onClick={onCancel}>Cancel</Button>
    </div>
   </Fragment>
  );

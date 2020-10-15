@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PhotoUser from "../../assets/static/img/users/user.jpg";
 
 // Stlyes
-import "../../assets/styles/Components/HeaderSearchResults/HeaderSearchResults.scss";
+import "../../assets/styles/components/HeaderSearchResults/HeaderSearchResults.scss";
 
 // Components
 import ProfileSmallCard from "../ProfileSmallCard/ProfileSmallCard";
@@ -51,12 +51,12 @@ const HeaderSearchResults = ({ results = [] }) => {
   <div className="header-search-results">
    <div className="header-search-results__header">
     <strong
-     className={viewPersons ? "header-search-results__header--active" : ''}
+     className={viewPersons ? "header-search-results__header--active" : ""}
      onClick={handleViewPersons}>
      Persons
     </strong>
     <strong
-     className={!viewPersons ? "header-search-results__header--active" : ''}
+     className={!viewPersons ? "header-search-results__header--active" : ""}
      onClick={handleViewPersons}>
      Problems
     </strong>

@@ -34,6 +34,10 @@
             @include font-size($font-size-medium);
             letter-spacing: 0.03em;
             color: $color-black-60;
+            cursor: pointer;
+            &:hover {
+                color: $color-primary;
+            }
         }
         .profileCard__container--subtitle {
             font-style: italic;

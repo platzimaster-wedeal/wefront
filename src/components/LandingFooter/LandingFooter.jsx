@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FooterImg from "../../assets/static/img/landing/WeStayInTouch.png"
+import FooterImg from "../../assets/static/img/landing/WeStayInTouch.png";
 
 // styles
 import "../../assets/styles/components/LandingFooter/LandingFooter.scss";
@@ -22,7 +22,7 @@ const LandingFooter = () => {
      </li>
     </ul>
    </div>
-    <img className="FooterImg" src={FooterImg} alt=""/>
+   <img className="FooterImg" src={FooterImg} alt="" />
    <div className="landing__footer--terms">
     <Link to="/">
      <h1 className="footer__terms--logo">W</h1>

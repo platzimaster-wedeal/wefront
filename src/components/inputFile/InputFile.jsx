@@ -7,12 +7,10 @@ const InputFile = ({
  widt,
  height,
  placeholder = "Add something",
- name, 
+ name,
  setState,
- state
+ state,
 }) => {
-
-
  return (
   <div className="input-file__view">
    <input type="file" onChange={setState} id={name} name={name} />

@@ -10,21 +10,26 @@ import PostProblemPrevisualization from "../PostProblemPrevisualization/PostProb
 import Button from "../Buttons/Button";
 
 const PostProblem = ({ post, onClick }) => {
-const history = useHistory();
-
+ const history = useHistory();
 
  return (
   <article className="post-problem">
-   <PostHeader id={post && post.id_employer} name={post && post.employer_name} picture={post.user_avatar} />
+   <PostHeader
+    id={post && post.user_id}
+    name={post && post.employer_name}
+    picture={post.user_avatar}
+   />
    <div className="post-problem__content">
-    <PostProblemPrevisualization 
-      title={post && post.title}
-      idProblem={post && post.id}
-      short_description={post && post.short_description}
-      modality={post && post.modality}
+    <PostProblemPrevisualization
+     title={post && post.title}
+     idProblem={(post && post.problem_id) || post.id}
+     short_description={post && post.short_description}
+     modality={post && post.modality}
     />
     <div className="post-problem__actions">
-     <Button active onClick={() => onClick(post ? post.id : 1)}>
+     <Button
+      active
+      onClick={() => onClick(post.problem_id ? post.problem_id : post.id)}>
       See More!
      </Button>
     </div>

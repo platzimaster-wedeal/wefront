@@ -13,10 +13,13 @@ const ProfileProblemsContainer = ({ isProfile = false, problems = [] }) => {
    {isProfile ? (
     <ButtonAction className="ProfileProblems__icon--add" icon={MdAdd} />
    ) : null}
-   {problems && problems.length > 0 ? problems.map((problem) => (
-    <ProfileProblemsItems key={problem} problemId={150 + problem} />
-   )) : <span>No problems for now </span>
-   }
+   {problems && problems.length > 0 ? (
+    problems.map((problem) => (
+     <ProfileProblemsItems key={problem} problemId={150 + problem} />
+    ))
+   ) : (
+    <span>No problems for now </span>
+   )}
   </div>
  );
 };

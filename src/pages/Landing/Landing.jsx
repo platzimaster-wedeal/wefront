@@ -16,7 +16,7 @@ import LandingHeader from "../../components/LandingHeader/LandingHeader";
 import LandingParagraph from "../../components/LandingParagraph/LandingParagraph";
 import LandingCardSmall from "../../components/LandingCardSmall/LandingCardSmall";
 import LandingCard from "../../components/LandingCard/LandingCard";
-import LandingFooter from "../../components/LandingFooter/LandingFooter"
+import LandingFooter from "../../components/LandingFooter/LandingFooter";
 
 const Landing = () => {
  // History of react router dom
@@ -32,7 +32,6 @@ const Landing = () => {
   <section className="landing-page">
    <LandingHeader goToLogin={goToLogin} isLanding isRegister />
 
-
    {/* First section */}
    <article className="landing-page__section" id="introduction">
     <div className="landing-page__section--content to-right">
@@ -42,8 +41,8 @@ const Landing = () => {
      />
      <div className="landing-page__section--cards">
       <LandingCardSmall title="What?" animations="to-right" />
-      <LandingCardSmall title="Why?"  animations="to-right"/>
-      <LandingCardSmall title="Who?" animations="to-right"/>
+      <LandingCardSmall title="Why?" animations="to-right" />
+      <LandingCardSmall title="Who?" animations="to-right" />
      </div>
     </div>
     <figure className="landing-page__section--img to-left">
@@ -101,9 +100,8 @@ const Landing = () => {
      <img src={WeFindClose} alt="We find the closest workers" />
     </figure>
    </article>
-   <LandingFooter/>
+   <LandingFooter />
   </section>
-  
  );
 };
 

@@ -8,20 +8,17 @@ import PostHeader from "../PostHeader/PostHeader";
 import PostInteractions from "../PostInteractions/PostInteractions";
 import PostComments from "../PostComments/PostComments";
 
-const PostShare = ({
- post,
- comments = false,
-}) => {
+const PostShare = ({ post, comments = false }) => {
  const [seeComments, setSeeComments] = useState(true);
 
  return (
   <article className="post-share">
-   <PostHeader 
-    name={post.employer_name}
+   <PostHeader
+    name={post.user_firstname}
     avatar={post.user_avatar}
-    id={post.id_employer}
-    share 
-    />
+    id={post.id_user}
+    share
+   />
    <div className="post-share__content">
     <p>
      {post && post.content

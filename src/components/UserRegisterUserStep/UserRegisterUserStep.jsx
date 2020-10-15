@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from "react";
-import {useInputForm} from '../../hooks/useInputForm/useInputForm'
-import {useInputFile} from '../../hooks/useInputFile/useInputFile'
-
+import React, { useState, useEffect } from "react";
+import { useInputForm } from "../../hooks/useInputForm/useInputForm";
+import { useInputFile } from "../../hooks/useInputFile/useInputFile";
 
 // Styles
 import "../../assets/styles/components/UserRegisterSteps/UserRegisterSteps.scss";
@@ -9,28 +8,25 @@ import "../../assets/styles/components/UserRegisterSteps/UserRegisterSteps.scss"
 // Components
 import InputFile from "../inputFile/InputFile";
 
-const UserRegisterUserStep = ({setInformation}) => {
+const UserRegisterUserStep = ({ setInformation }) => {
+ // State
+ const [username, setUsername] = useInputForm("");
+ const [degree, setDegree] = useInputForm("");
+ const [password, setPassword] = useInputForm("");
+ const [confirmPassword, setConfirmPassword] = useInputForm("");
+ const [description, setDescription] = useInputForm("");
+ const [avatar, setAvatar, avatarFile] = useInputFile("");
 
-// State
-const [username, setUsername] = useInputForm('')
-const [degree, setDegree] = useInputForm('')
-const [password, setPassword] = useInputForm('')
-const [confirmPassword, setConfirmPassword] = useInputForm('')
-const [description, setDescription] = useInputForm('')
-const [avatar, setAvatar, avatarFile] = useInputFile('')
-
-
-
-useEffect(() => {
+ useEffect(() => {
   setInformation({
-    username,
-    degree_title: degree,
-    password,
-    confirmPassword,
-    description,
-    myAvatar: avatarFile
-  })
-}, [username, degree, password, description, avatar])
+   username,
+   degree_title: degree,
+   password,
+   confirmPassword,
+   description,
+   myAvatar: avatarFile,
+  });
+ }, [username, degree, password, description, avatar]);
 
  return (
   <div className="user-register__form-step">
@@ -47,6 +43,7 @@ useEffect(() => {
       name="username"
       id="username"
       onChange={setUsername}
+      value={username}
      />
     </div>
     <div className="user-register__form-step--inputs">
@@ -57,6 +54,7 @@ useEffect(() => {
       id="profession"
       name="profession"
       onChange={setDegree}
+      value={degree}
      />
     </div>
    </div>
@@ -70,6 +68,7 @@ useEffect(() => {
       name="password"
       id="password"
       onChange={setPassword}
+      value={password}
      />
     </div>
     <div className="user-register__form-step--inputs">
@@ -80,6 +79,7 @@ useEffect(() => {
       name="confirm_password"
       id="confirm_password"
       onChange={setConfirmPassword}
+      value={confirmPassword}
      />
     </div>
    </div>
@@ -91,12 +91,18 @@ useEffect(() => {
      name="description"
      placeholder="Write a short description about you"
      onChange={setDescription}
+     value={description}
     />
    </div>
 
    <div className="user-register__form-step--inputs">
     <label htmlFor="myAvatar">Photo</label>
-    <InputFile placeholder="Select an profile image" name="myAvatar" state={avatar} setState={setAvatar} />
+    <InputFile
+     placeholder="Select an profile image"
+     name="myAvatar"
+     state={avatar}
+     setState={setAvatar}
+    />
    </div>
   </div>
  );

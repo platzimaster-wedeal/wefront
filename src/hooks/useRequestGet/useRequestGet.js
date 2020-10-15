@@ -1,32 +1,26 @@
-import { getCookie } from '../../utils/getCookie'
+import { getCookie } from "../../utils/getCookie";
 
 export const useRequestGetToken = (url) => {
+ const token = getCookie("token");
 
-  const token = getCookie('token')
+ const resp = fetch(url, {
+  method: "GET",
+  mode: "cors",
+  cache: "no-cache",
+  headers: {
+   Authorization: `Bearer ${token || ""}`,
+  },
+ });
 
-  const resp = fetch(url, {
-    method: 'GET',
-    mode: 'cors',
-    cache: 'no-cache',
-    headers: {
-      'Authorization': `Bearer ${token || ''}`,
-    },
-  })
-
-  return resp
-
-}
-
+ return resp;
+};
 
 export const useRequestGet = (url) => {
+ const resp = fetch(url, {
+  method: "GET",
+  mode: "cors",
+  cache: "no-cache",
+ });
 
-
-  const resp = fetch(url, {
-    method: 'GET',
-    mode: 'cors',
-    cache: 'no-cache',
-  })
-
-  return resp
-
-}
+ return resp;
+};

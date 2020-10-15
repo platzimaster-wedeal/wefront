@@ -22,7 +22,7 @@ const AddOptionList = ({
   ev.preventDefault();
   if (option.length > 0) {
    setCurrentOptions((prev) => [...prev, option]);
-   setState((prev) => [...prev, option])
+   setState((prev) => [...prev, option]);
    setOption("");
   }
  };

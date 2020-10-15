@@ -8,10 +8,9 @@ import "../../assets/styles/components/LandingHeader/LandingHeader.scss";
 import Button from "../Buttons/Button";
 
 const LandingHeader = ({ isRegister, isLanding }) => {
-
-  const history = useHistory()
-  const goToRegister = () => history.push('/register')
-  const goToLogin = () => history.push('/login')
+ const history = useHistory();
+ const goToRegister = () => history.push("/register");
+ const goToLogin = () => history.push("/login");
 
  return (
   <header className="landing-header">

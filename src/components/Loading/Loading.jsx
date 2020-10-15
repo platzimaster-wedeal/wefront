@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 
 // Styles
-import '../../assets/styles/components/Loading/Loading.scss'
+import "../../assets/styles/components/Loading/Loading.scss";
 
 const Loading = () => (
-<div className="loading">
-  <div className="loading-square" /> 
+ <div className="loading">
+  <div className="loading-square" />
   <span className="loading-text">Loading</span>
-</div>
-)
+ </div>
+);
 
-export default Loading
+export default Loading;

@@ -1,6 +1,6 @@
 import React, { useEffect, createRef } from "react";
-import { useInputForm } from '../../hooks/useInputForm/useInputForm'
-import {useInputFile} from '../../hooks/useInputFile/useInputFile'
+import { useInputForm } from "../../hooks/useInputForm/useInputForm";
+import { useInputFile } from "../../hooks/useInputFile/useInputFile";
 import PhotoUser from "../../assets/static/img/users/user.jpg";
 import { MdInsertPhoto } from "react-icons/md";
 import "../../assets/styles/components/CreatePostShare/CreatePostShare.scss";
@@ -9,17 +9,24 @@ import InputFile from "../inputFile/InputFile";
 import Button from "../Buttons/Button";
 import ProfilePicture from "../ProfilePictures/ProfilePicture";
 
-const CreatePostShare = ({ idUser, name = "No Name", avatar, onCancel, onCreate, setInformation }) => {
+const CreatePostShare = ({
+ idUser,
+ name = "No Name",
+ avatar,
+ onCancel,
+ onCreate,
+ setInformation,
+}) => {
  const [fileName, setFileName, file] = useInputFile();
- const [content, setContent] = useInputForm('')
+ const [content, setContent] = useInputForm("");
 
  useEffect(() => {
-   setInformation({
-     content,
-     myFile: file,
-     id_user: idUser,
-   })
- }, [content, file, idUser])
+  setInformation({
+   content,
+   myFile: file,
+   id_user: idUser,
+  });
+ }, [content, file, idUser]);
 
  return (
   <form className="CreatePostShare__container">

@@ -25,7 +25,7 @@ const SelectCategories = ({
   if (currentCategories.includes(category)) return null;
 
   setCurrentCategories((prevs) => [...prevs, category]);
-  setCategories((prevs) => [...prevs, category.id])
+  setCategories((prevs) => [...prevs, category.id]);
  };
 
  // Handle the filter of the categories, for use find the skill or category that need
@@ -43,7 +43,7 @@ const SelectCategories = ({
    (currCategory) => currCategory.title != category.title
   );
   setCurrentCategories(newCurrentCategories);
-  setCategories(newCurrentCategories.map(curr => curr.id));
+  setCategories(newCurrentCategories.map((curr) => curr.id));
  };
 
  return (
@@ -60,8 +60,8 @@ const SelectCategories = ({
 
    <ul className="select-categories__select-list">
     {filterCategory &&
-     filterCategory.map((category) => (
-      <li key={category.id} onClick={() => handleSelectCategory(category)}>
+     filterCategory.map((category, i) => (
+      <li key={i} onClick={() => handleSelectCategory(category)}>
        {currentCategories.includes(category) ? (
         <Labels name={category.title} active />
        ) : (
@@ -74,9 +74,9 @@ const SelectCategories = ({
    <small className="select-categories__title">Selected Options</small>
    <ul className="select-categories__list">
     {currentCategories && currentCategories.length > 0 ? (
-     currentCategories.map((category) => (
+     currentCategories.map((category, i) => (
       <li
-       key={category.id}
+       key={i}
        className="select-categories__list--close"
        onClick={() => handleDeleteCategory(category)}>
        {" "}
