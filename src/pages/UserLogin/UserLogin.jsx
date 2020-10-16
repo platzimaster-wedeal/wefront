@@ -17,7 +17,7 @@ import { getUserFollowers } from "../../services/UserService/userService";
 import { getCategories } from "../../services/CategoriesServices/categoriesServices";
 import { getLanguages } from "../../services/LanguagesServices/languagesServices";
 import { getCountries } from "../../services/CountriesServices/countriesServices";
-import { getPredictUser } from "../../services/ResultsServices/resultsServices";
+import { getPredictUser, registerUser } from "../../services/ResultsServices/resultsServices";
 
 // Tools
 import { setCookie } from "../../utils/setCookie";
@@ -71,7 +71,8 @@ const UserLogin = () => {
    window.localStorage.setItem("token", body.token_user);
    window.localStorage.setItem("id", body.id_user);
 
-   // const respPredictUser = await getPredictUser(body.id_user)
+   const respRegisterUser = await registerUser(body.id_user)
+   const respPredictUser = await getPredictUser(body.id_user)
    const respProfile = await getProfile(body.id_user);
    const respFollowers = await getUserFollowers(body.id_user);
    const profileData = {

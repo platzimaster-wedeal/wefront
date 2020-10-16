@@ -31,7 +31,7 @@ const Deals = () => {
  // ----------------- Redux state  -----------------
  const { id } = useSelector((state) => state.AuthReducer);
  const { id_employer } = useSelector((state) => state.ProfileReducer);
- const { problems, newProblem, profileProblems } = useSelector(
+ const { problems, newProblem, profileDeals } = useSelector(
   (state) => state.ProblemsReducer
  );
 
@@ -58,13 +58,10 @@ const Deals = () => {
    }
   };
 
-  getDeals();
-
-  // if(profileDeals.lenght > 0) {
-  //   const deals = profileProblems.filter(problem => problem.state === "solving")
-  //   setProfileDeals({type: GET_PROFILE_DEALS, payload: deals })
-  // }
- }, []);
+  if(profileDeals.length === 0) {
+    getDeals();
+  }
+ }, [profileDeals]);
 
  // ----------------- Handle Create of Problem -----------------
  const [isLoading, setIsLoading] = useState(false);
@@ -95,13 +92,13 @@ const Deals = () => {
  return (
   <HeaderContainer>
    <ChangeView
-    SecondView={<DealsComponent deals={profileProblems} />}
+    SecondView={<DealsComponent deals={profileDeals} />}
     firstViewTitle="Current Problems"
     secondViewTitle="Deals">
     <FeedContainer
      strategyAction={actionProblem}
      type="problem"
-     data={profileProblems}
+     data={profileDeals}
     />
 
     {/* Modals */}

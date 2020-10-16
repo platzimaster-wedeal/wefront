@@ -5,17 +5,20 @@ import { MdShare } from "react-icons/md";
 import { MdInsertComment } from "react-icons/md";
 import "../../assets/styles/components/InteractionsPost/InteractionsPost.scss";
 
-const PostInteractions = ({ favs, shares, comments }) => {
+const PostInteractions = ({ favs, shares, comments, onLike = () => {}, onUnlike = () => {} }) => {
  const [activeFavs, setActiveFavs] = useState(false);
  const [activeShare, setActiveShare] = useState(false);
  const [activeComments, setActiveComments] = useState(false);
 
  const handelFavsClick = () => {
-  activeFavs ? setActiveFavs(false) : setActiveFavs(true);
- };
-
- const handelShareClick = () => {
-  activeShare ? setActiveShare(false) : setActiveShare(true);
+   if(activeFavs){
+    setActiveFavs(false) 
+    onUnlike()
+   } else {
+     setActiveFavs(true);
+     onLike()
+   }
+  
  };
 
  const handelCommentsClick = () => {
@@ -35,17 +38,6 @@ const PostInteractions = ({ favs, shares, comments }) => {
     )}
     {favs} Favs
    </button>
-   {/* <button
-    onClick={() => handelShareClick()}
-    type="button"
-    className="interactionsPost__shares ">
-    {activeShare ? (
-     <MdShare className="interactionsPost__icon--active" />
-    ) : (
-     <MdShare className="interactionsPost__icon--inactive" />
-    )}
-    {shares} Shares
-   </button> */}
    <button
     onClick={() => handelCommentsClick()}
     type="button"
@@ -55,7 +47,7 @@ const PostInteractions = ({ favs, shares, comments }) => {
     ) : (
      <MdInsertComment className="interactionsPost__icon--inactive" />
     )}
-    {comments} Comments
+    Comments
    </button>
   </div>
  );

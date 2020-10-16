@@ -6,6 +6,7 @@ import {
  GET_NEXT_PROBLEMS,
  APPLY_PROBLEM,
  GET_PROFILE_DEALS,
+ GET_USER_DEALS
 } from "../../types/Problems/ProblemsTypes";
 
 const INITIAL_STATE = {
@@ -51,6 +52,7 @@ const INITIAL_STATE = {
   id_employer_job_offer: null,
  },
  profileDeals: [],
+ userDeals: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -74,7 +76,10 @@ export default (state = INITIAL_STATE, action) => {
    return { ...state, applyProblem: { ...action.payload } };
 
   case GET_PROFILE_DEALS:
-   return { ...state, profileProblems: [...action.payload] };
+   return { ...state, profileDeals: [...action.payload] };
+
+  case GET_USER_DEALS:
+   return { ...state, userDeals: [...action.payload] };
 
   default:
    return { ...state };

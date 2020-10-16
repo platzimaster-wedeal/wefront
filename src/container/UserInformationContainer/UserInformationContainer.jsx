@@ -7,7 +7,8 @@ import "../../assets/styles/containers/UserInformationContainer/UserInformationC
 import ProfileProblemsContainer from "../../components/ProfileProblems/ProfileProblemsContainer";
 import GeneralInformation from "../../components/GeneralInformation/GeneralInformation";
 
-const UserInformationContainer = ({ isProfile, user = {} }) => {
+const UserInformationContainer = ({ isProfile, user = {}, problems = [] }) => {
+
  return (
   <div className="user-information-container">
    <GeneralInformation
@@ -16,7 +17,7 @@ const UserInformationContainer = ({ isProfile, user = {} }) => {
     followers={user.followers}
     location={user.country}
    />
-   <ProfileProblemsContainer isProfile={isProfile} />
+   <ProfileProblemsContainer isProfile={isProfile} problems={problems}  />
   </div>
  );
 };

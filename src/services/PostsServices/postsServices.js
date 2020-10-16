@@ -1,4 +1,4 @@
-import { useRequestPost } from "../../hooks/useRequestPost/useRequestPost";
+import { useRequestPost, useRequestDelete } from "../../hooks/useRequestPost/useRequestPost";
 import { useRequestPostForm } from "../../hooks/useRequestPostForm/useRequestPostForm";
 import {
  useRequestGet,
@@ -7,6 +7,7 @@ import {
 
 const URL_GET = "https://wedeal.herokuapp.com/api/v1/posts";
 const URL_GET_POST = (id) => `https://wedeal.herokuapp.com/api/v1/posts/${id}`;
+const URL_LIKE_POST = (idPost, idUser) => `https://wedeal.herokuapp.com/api/v1/likes/${idPost}/users/${idUser}`;
 
 export const getPosts = async () => {
  const data = await useRequestGetToken(URL_GET);
@@ -40,3 +41,25 @@ export const createPost = async (data) => {
 
  return resp;
 };
+
+export const likePost = async (idPost, idUser) => {
+  const data = await useRequestPost(URL_LIKE_POST(idPost, idUser), {})
+  const resp = await data.json()
+
+  if(resp.error) {
+    throw new Error(resp.body)
+  }
+
+  return resp;
+}
+
+export const unlikePost = async (idPost, idUser) => {
+  const data = await useRequestDelete(URL_LIKE_POST(idPost, idUser), {})
+  const resp = await data.json()
+
+  if(resp.error) {
+    throw new Error(resp.body)
+  }
+
+  return resp;
+}
