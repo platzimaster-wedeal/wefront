@@ -9,13 +9,16 @@ const PostDefineType = ({ data }) => {
  const goToDetail = (id) => history.push(`/detail/problem/${id}`);
 
  switch (data.type_post) {
-  case null:
-   return <PostShare post={data} />;
-   break;
-  case 0:
+  case true:
    return <PostShare post={data} />;
    break;
   case 1:
+   return <PostShare post={data} />;
+   break;
+  case null:
+   return <PostProblem post={data} onClick={goToDetail} />;
+   break;
+  case false:
    return <PostProblem post={data} onClick={goToDetail} />;
    break;
 

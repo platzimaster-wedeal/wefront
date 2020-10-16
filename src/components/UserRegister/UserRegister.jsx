@@ -58,7 +58,7 @@ const UserRegister = ({ onSubmit, isLoading, isError }) => {
  const [isErrorDataForm, setIsErrorDataForm] = useState(null);
  const onErrorData = () => {
   setIsErrorDataForm(null);
-  history.push("/login");
+  setCurrentStep(0);
  };
  const nextStep = async () => {
   switch (currentStep) {

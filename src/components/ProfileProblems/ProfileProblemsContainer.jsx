@@ -15,7 +15,7 @@ const ProfileProblemsContainer = ({ isProfile = false, problems = [] }) => {
    ) : null}
    {problems && problems.length > 0 ? (
     problems.map((problem) => (
-     <ProfileProblemsItems key={problem} problemId={150 + problem} />
+     <ProfileProblemsItems key={problem.problem_id} title={problem.title} problemId={problem.problem_id} />
     ))
    ) : (
     <span>No problems for now </span>
