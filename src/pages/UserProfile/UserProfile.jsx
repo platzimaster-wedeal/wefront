@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 // Reux
 import { useSelector, useDispatch } from "react-redux";
 import { GET_USER } from "../../redux/types/User/UserTypes";
-import { GET_PROFILE_DEALS } from "../../redux/types/Problems/ProblemsTypes";
+import { GET_PROFILE_DEALS, GET_USER_DEALS } from "../../redux/types/Problems/ProblemsTypes";
 
 // Services
 import { getUser } from "../../services/UserService/userService";
@@ -13,6 +13,7 @@ import {
  createProblem,
  getProblemUser,
 } from "../../services/ProblemsService/problemsService";
+import { createPost } from "../../services/PostsServices/postsServices";
 
 // Layouts
 import ChangeViewProfile from "../../layouts/ChangeViewProfile/ChangeViewProfile";
@@ -37,13 +38,17 @@ const UserProfile = () => {
  const { id } = useSelector((state) => state.AuthReducer);
  const profile = useSelector((state) => state.ProfileReducer);
  const user = useSelector((state) => state.UserReducer);
- const { profileProblems } = useSelector((state) => state.ProblemsReducer);
+ const { profileDeals, userDeals } = useSelector((state) => state.ProblemsReducer);
 
  // ------------------------ Handle validation of user ----------------------
  // ---------------- Effect of profile ----------------
  useEffect(() => {
-  if (!idUser || Number(idUser) === id) {
+  if (!idUser) {
    setIsProfile(true);
+
+   if(idUser && Number(idUser) === id) {
+     setIsProfile(true)
+   }
    return;
   }
  }, [profile, isProfile, idUser]);
@@ -55,29 +60,34 @@ const UserProfile = () => {
   const getProblems = async (id_user) => {
    try {
     setIsLoadingUser(true);
-    console.log(id_user);
     const resp_deals = await getProblemUser(id_user);
-    setProfileDeals({ type: GET_PROFILE_DEALS, payload: resp_deals.body });
+    if(isProfile){
+      setProfileDeals({ type: GET_PROFILE_DEALS, payload: resp_deals.body });
+    } else {
+      setProfileDeals({type: GET_USER_DEALS, payload: resp_deals.body})
+    }
     setIsLoadingUser(false);
    } catch (err) {
     setIsLoadingUser(false);
     setIsError(err);
-    throw new Error(err);
    }
   };
-  if (isProfile === true) {
-   getProblems(id);
-  } else if (isProfile === false && idUser) {
-   getProblems(idUser);
+
+  if(profileDeals.length === 0) {
+    if (isProfile === true) {
+      getProblems(id);
+    } else if (isProfile === false && idUser) {
+      getProblems(idUser);
+    }
   }
- }, [isProfile]);
+ }, [isProfile, profileDeals, id]);
 
  // ---------------- Effect of user ----------------
  const getUserDispatch = useDispatch();
  const [isLoadingUser, setIsLoadingUser] = useState(false);
  const [isError, setIsError] = useState(null);
  useEffect(() => {
-  if (Number(idUser)) {
+  if (idUser && Number(idUser) !== id) {
    setIsProfile(false);
   }
   const getUserData = async () => {
@@ -97,14 +107,47 @@ const UserProfile = () => {
     console.error(err);
    }
   };
-  getUserData();
- }, [idUser]);
+  if(idUser && !isProfile){
+    getUserData();
+  }
+ }, [idUser, isProfile]);
 
- // Handle modal share
+
+ // ---------------- Handle create Share ----------------
  const [isModalShare, setIsModalShare] = useState(false);
+ const [isLoadingShare, setIsLoadingShare] = useState(false);
  const [shareData, setShareData] = useState({});
  const actionShare = () => setIsModalShare(!isModalShare);
+ const [isErrorShare, setIsErrorShare] = useState(null);
+ const onErrorShare = () => {
+  setIsErrorShare(null);
+  setIsModalShare(false);
+ };
+ const [isShareCreated, setIsShareCreated] = useState(false);
+ const onCreatedShare = () => {
+  setIsShareCreated(false);
+  setIsModalShare(false);
+ };
 
+ const onNewShare = async () => {
+  try {
+   setIsLoadingShare(true);
+   await setShareData((prev) => {
+    return { ...prev, publication_date: new Date().toString() };
+   });
+   console.log(shareData)
+   const resp = await createPost(shareData);
+   setIsShareCreated(true);
+   setIsLoadingShare(false);
+  } catch (err) {
+   setIsLoadingShare(false);
+   setIsErrorShare(err);
+   console.error(err);
+  }
+ };
+
+
+ // ---------------- Render of the component ----------------
  return (
   <HeaderContainerProfile>
    <ProfileHeader isUser={isProfile} user={isProfile ? profile : user} />
@@ -116,24 +159,59 @@ const UserProfile = () => {
       <FeedContainer
        strategyAction={actionShare}
        type="share"
-       data={profileProblems}
+       data={isProfile ? profileDeals : userDeals}
       />
      )
     }
-    firstViewTitle="Posts"
-    secondViewTitle="Information">
+    firstViewTitle="Information"
+    secondViewTitle="Posts">
     <UserInformationContainer
      isProfile={isProfile}
      user={isProfile ? profile : user}
+     problems={profileDeals}
     />
     {isModalShare && (
      <ModalContainer>
       <Modal title="Share Something!" onClose={actionShare}>
        <CreatePostShare
         name={profile.first_name}
+        idUser={id}
         avatar={profile.avatar}
         onCancel={actionShare}
+        onCreate={onNewShare}
         setInformation={setShareData}
+       />
+      </Modal>
+     </ModalContainer>
+    )}
+    {isLoadingShare && (
+     <ModalContainer>
+      <Modal title="Share Something!" onClose={actionShare}>
+       <>
+        <Loading />
+        <span>Wait a moment while we validate the data :D</span>
+       </>
+      </Modal>
+     </ModalContainer>
+    )}
+    {isShareCreated && (
+     <ModalContainer>
+      <Modal title="Awesome" onClose={onCreatedShare}>
+       <ModalMessage
+        type="great"
+        message="Your post was shared!"
+        onClose={onCreatedShare}
+       />
+      </Modal>
+     </ModalContainer>
+    )}
+    {isErrorShare && (
+     <ModalContainer>
+      <Modal title="Oops!" onClose={onErrorShare}>
+       <ModalMessage
+        type="error"
+        message="Sorry something went wrong!"
+        onClose={onErrorShare}
        />
       </Modal>
      </ModalContainer>

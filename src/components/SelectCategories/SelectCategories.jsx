@@ -53,7 +53,7 @@ const SelectCategories = ({
    </label>
    <input
     type="text"
-    placeholder="Search and select the skills that you want"
+    placeholder={title}
     id="categories"
     onChange={handleFilterCategory}
    />

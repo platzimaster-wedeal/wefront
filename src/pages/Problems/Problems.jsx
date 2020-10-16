@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 // Redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { GET_PROBLEMS } from "../../redux/types/Problems/ProblemsTypes";
+import { SET_CONNECTIONS } from "../../redux/types/Auth/ProfileTypes";
+
 
 // Services
-import { createProblem } from "../../services/ProblemsService/problemsService";
+import { getConnections } from "../../services/AuthService/profileService";
+import { createProblem, getProblems } from "../../services/ProblemsService/problemsService";
+
 
 // Layouts
 import ChangeView from "../../layouts/ChangeView/ChangeView";
@@ -26,8 +31,36 @@ const Problems = () => {
  const history = useHistory();
 
  // ----------------- Redux state  -----------------
+ const { id } = useSelector((state) => state.AuthReducer);
  const { connections } = useSelector((state) => state.ProfileReducer);
  const { problems } = useSelector((state) => state.ProblemsReducer);
+
+// ----------------- GET PROBLEMS  -----------------
+ const [isLoadingProblems, setIsLoadingProblems] = useState(false)
+ const [isErrorProblems, setIsErrorProblems] = useState(null);
+ const dispatch = useDispatch();
+
+ useEffect(() => {
+   const getData = async () => {
+     try {
+       setIsLoadingProblems(true)
+       const data = await getProblems()
+       dispatch({type: GET_PROBLEMS, payload: data.body})
+
+       const data_connections = await getConnections(id);
+       dispatch({type: SET_CONNECTIONS, payload: data_connections.body})
+       setIsLoadingProblems(false)
+     } catch(err) {
+       setIsLoadingProblems(false)
+       setIsErrorProblems(err)
+     }
+   }
+
+   if(problems.length === 0) {
+     getData()
+   }
+   
+ }, [problems, connections, id])
 
  // ----------------- Handle Create problem -----------------
  const [isLoading, setIsLoading] = useState(false);
@@ -85,6 +118,13 @@ const Problems = () => {
         <Loading />
         <span>Wait a moment while we save the information :D</span>
        </>
+      </Modal>
+     </ModalContainer>
+    )}
+    {isLoadingProblems && (
+     <ModalContainer>
+      <Modal title="Getting Problems">
+        <Loading />
       </Modal>
      </ModalContainer>
     )}

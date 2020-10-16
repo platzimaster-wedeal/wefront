@@ -9,6 +9,8 @@ const URL_PREDICT_USER = (id) =>
  `https://wedeal-models.herokuapp.com/user/${id}`;
 const URL_PREDICT_JOB = (id) =>
  `https://wedeal-models.herokuapp.com/job_offer/${id}`;
+const URL_REGISTER_USER = (id) =>
+ `https://wedeal-models.herokuapp.com/vertex/${id}`;
 
 export const getPredictUser = async (id) => {
  const data = await useRequestGet(URL_PREDICT_USER(id));
@@ -31,3 +33,15 @@ export const getPredictJob = async (id) => {
 
  return resp;
 };
+
+
+export const registerUser = async (id) => {
+  const data = await useRequestGet(URL_REGISTER_USER(id))
+  const resp = data.json()
+
+  if(resp.error) {
+    throw new Error(resp.body);
+  }
+
+  return resp;
+}
