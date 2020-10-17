@@ -39,18 +39,18 @@ const ConnectionsCards = ({ connections, isLoading, isError = null }) => {
        title={person.first_name}
        altImage={person.first_name}
        imageSource={person.avatar}>
-       {(hovered) =>
-        hovered ? (
-         <PersonCard
-          className="personCard"
-          imgSource={julioPhoto}
-          title="Julio Denis"
-          subtitle="FullStack Develop">
-          Hi I'm Julio Denis
-         </PersonCard>
-        ) : (
-         false
-        )
+       {(hovered) => (<></>)
+        // hovered ? (
+        //  <PersonCard
+        //   className="personCard"
+        //   imgSource={julioPhoto}
+        //   title="Julio Denis"
+        //   subtitle="FullStack Develop">
+        //   Hi I'm Julio Denis
+        //  </PersonCard>
+        // ) : (
+        //  false
+        // )
        }
       </ProfileSmallCard>
      ))
