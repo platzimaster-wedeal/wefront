@@ -22,6 +22,7 @@ const UserRegisterPersonalStep = ({ setInformation }) => {
    telephone,
    date_of_birth: birth,
    id_city: Number(country),
+   country_id: Number(country),
    email,
   });
  }, [firstName, lastName, telephone, birth, email, country]);

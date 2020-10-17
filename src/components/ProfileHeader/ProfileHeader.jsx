@@ -67,18 +67,18 @@ const ProfileHeader = ({ user, isUser = false }) => {
    <ProfileHeaderPhoto
     name={user && user.first_name}
     avatar={user && user.avatar}
-    isProfile={isUser}
+    isUser={isUser}
     onPhoto={handleModal}
    />
    <small className="profile-header__description">
     {user && user.description}
    </small>
    <strong className="profile-header__profession">
-    {user && user.profession}
+    {user && user.title}
    </strong>
 
    <div className="profile-header__actions">
-    <ProfileHeaderAction isProfile={isUser} userId={user && user.user_id} />
+    <ProfileHeaderAction isUser={isUser} userId={user && user.user_id} />
    </div>
    {!isLoadingPatchImg && isModalChangeImg && (
     <ModalContainer>

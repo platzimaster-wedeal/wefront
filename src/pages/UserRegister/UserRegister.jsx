@@ -65,6 +65,7 @@ const UserRegister = () => {
  const onClose = () => history.push("/login");
 
  const onSubmit = async (data) => {
+   console.log(data, 'Register')
   try {
    setIsLoading(true);
    const resp = await registerUser(data);

@@ -23,7 +23,7 @@ const GeneralInformation = ({
     <figure>
      <MdPerson className="item--icon" />
     </figure>
-    <p className="item--text">{username || "@Tupac"}</p>
+    <p className="item--text">{username || "@"}</p>
    </div>
    <div className="GeneralInformation__item">
     <figure>

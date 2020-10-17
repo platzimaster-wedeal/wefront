@@ -18,6 +18,7 @@ const ProfileWorkerCard = ({
  profession = "Artist",
  description,
  follows = 24,
+ onClick = () => {}
 }) => {
  return (
   <article className="profile-worker-card">
@@ -34,6 +35,7 @@ const ProfileWorkerCard = ({
     <ButtonAction
      icon={MdRemoveRedEye}
      className="profile-worker-card__content-action"
+     onClick={onClick}
     />
 
     <small className="profile-worker-card__description">

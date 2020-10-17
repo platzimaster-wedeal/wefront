@@ -5,15 +5,14 @@ import "../../assets/styles/components/WorkerInformation/WorkerInformation.scss"
 
 import WorkerMainInformation from "../WorkerMainInformation/WorkerMainInformation";
 
-const WorkerInformation = ({ onClick }) => {
+const WorkerInformation = ({ onClick, profile }) => {
  return (
   <article className="worker-information">
    <div className="worker-information__title">
     <h3>Worker Information</h3>
-    <strong onClick={onClick}>See all information</strong>
    </div>
 
-   <WorkerMainInformation />
+   <WorkerMainInformation valoration={profile.qualification_average} email={profile.email} profession={profile.title} />
   </article>
  );
 };

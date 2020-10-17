@@ -95,6 +95,7 @@ const PostProblemDetail = ({
    getOfferInformation();
   }
  }, [problem.id_employer_job_offer, idJobOffer]);
+ const [idWorker, setIdWorker] = useState(0);
  const [dataQualificate, setDataQualificate] = useState({});
  const [isLoadingScore, setIsLoadingScore] = useState(false);
  const [isQualificated, setIsQualificated] = useState(false);
@@ -102,7 +103,7 @@ const PostProblemDetail = ({
   const dataScore = {
    ...dataQualificate,
    id_employer: idUser,
-   id_employee: 15,
+   id_employee: idWorker,
   };
   try {
    setIsLoadingScore(true);
@@ -118,29 +119,40 @@ const PostProblemDetail = ({
  // ----------------------- Get workers of job offers -----------------------
  const [workersJob, setWorkersJob] = useState({});
  const { id_employer } = useSelector((state) => state.ProfileReducer);
+ const [isFetchedProblem, setIsFetchedProblem] = useState(false)
  useEffect(() => {
   const getWorkers = async () => {
    try {
-    const data = await getWorkersJob(id_employer);
+    const data = await getWorkersJob(problem.id);
+    console.log(data.body)
     setWorkersJob(data.body);
    } catch (err) {}
   };
-  if (id_employer) {
+  if (problem.id && !isFetchedProblem) {
    getWorkers();
+   setIsFetchedProblem(true)
   }
- }, [id_employer]);
+ }, [problem]);
 
  // ---------------- defining UI of button action ----------------
  const defineAction = () => {
-  if (problem.employer_job_offer_status.trim() === "available")
-   return (
-    <PostProblemStatus status={problem.employer_job_offer_status.trim()} />
-   );
-  if (!isUser)
+  if (!isUser && problem.employer_job_offer_status)
    return (
     <Button active onClick={setIsOpenApply}>
-     Apply!
+      Apply!
     </Button>
+   );
+
+  if (!isUser && !problem.employer_job_offer_status)
+   return (
+    <PostProblemStatus status={problem.employer_job_offer_status && 'solving'} />
+   );
+
+  if (isUser)
+   return (
+     <>
+    <PostProblemStatus status={problem.employer_job_offer_status ? 'Available' : 'Solving'} />
+    </> 
    );
  };
 
@@ -159,7 +171,7 @@ const PostProblemDetail = ({
     location={problem.location}
    />
    <PostProblemDescription description={problem.long_description} />
-   <PostProblemRequirements requirements={problem.requeriments} />
+   <PostProblemRequirements requirements={problem.requirements} />
    <PostProblemSchedule schedule={problem.schedule} />
 
    {!isUser && problem.employer_job_offer_status ? (
@@ -171,12 +183,12 @@ const PostProblemDetail = ({
       state={price}
      />
     </>
-   ) : (
+   ) : isUser && !problem.employer_job_offer_status && (
     <PostProblemPayment agreed agreedPrice={problem.salary_range2} />
    )}
 
    <div className="post-problem-detail__actions">{defineAction()}</div>
-   {isUser && problem.employer_job_offer_status.trim() === "available" && (
+   {isUser && problem.employer_job_offer_status === true && (
     <Button active onClick={setIsOpenStatus}>
      {" "}
      Status{" "}
@@ -208,6 +220,7 @@ const PostProblemDetail = ({
        setInformation={setDataQualificate}
        onQualificate={onQualificate}
        workersApplied={workersJob}
+       setIdWorker={setIdWorker}
       />
      </Modal>
     </ModalContainer>

@@ -22,7 +22,7 @@ const { id } = useSelector(state => state.AuthReducer)
  const [seeComments, setSeeComments] = useState(true);
 
 //  ------------- Handle Like
-const [likes, setLikes] = useState(post.total_likes);
+const [likes, setLikes] = useState(post.users_likes);
 const onLike = async () => {
   try {
     const resp = await likePost(post.id, id)
@@ -55,16 +55,23 @@ const onUnlike = async () => {
       ? post.content
       : "Optional description until I know what to put here, besides, a need to know how it looks :D"}
     </p>
+    {
+      post.file_url.lenght > 0 && (
+        <figure className="post-share__content--image">
+          <img src={post.file_url} alt={post.content} />
+        </figure>
+      ) 
+    }
     <PostInteractions favs={likes} onLike={onLike} onUnlike={onUnlike} />
    </div>
-   <div className="post-share__comments">
+   {/* <div className="post-share__comments">
     {post.comment_content && seeComments && post.comment_content.length > 0 ? (
      <PostComments comments={post.comment_content} isPost />
     ) : (
       <span>There is no comments</span>   
     )
     }
-   </div>
+   </div> */}
   </article>
  );
 };

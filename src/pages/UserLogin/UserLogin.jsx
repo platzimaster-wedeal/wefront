@@ -68,11 +68,13 @@ const UserLogin = () => {
    const { body } = await getAuth(data);
    setCookie("token", body.token_user, 1);
    getAuthDispatch({ type: GET_AUTH, payload: body.id_user });
+   console.log(body.id_user)
    window.localStorage.setItem("token", body.token_user);
    window.localStorage.setItem("id", body.id_user);
 
-   const respRegisterUser = await registerUser(body.id_user)
-   const respPredictUser = await getPredictUser(body.id_user)
+  //  const respRegisterUser = await registerUser(body.id_user)
+  //  const respPredictUser = await getPredictUser(body.id_user)
+
    const respProfile = await getProfile(body.id_user);
    const respFollowers = await getUserFollowers(body.id_user);
    const profileData = {

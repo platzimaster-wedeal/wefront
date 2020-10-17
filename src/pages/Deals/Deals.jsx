@@ -39,6 +39,7 @@ const Deals = () => {
  const setProfileDeals = useDispatch();
 
  const [isLoadingDeals, setIsLoadingDeals] = useState(false);
+ const [isFetched, setIsFetched] = useState(false);
  const [isErrorDeals, setIsErrorDeals] = useState(null);
  const onDealsError = () => {
   setIsLoading(false);
@@ -51,6 +52,7 @@ const Deals = () => {
     const resp_deals = await getProblemUser(id_employer);
     setProfileDeals({ type: GET_PROFILE_DEALS, payload: resp_deals.body });
     setIsLoadingDeals(false);
+    setIsFetched(true)
    } catch (err) {
     setIsLoadingDeals(false);
     setIsErrorDeals(err);
@@ -58,7 +60,7 @@ const Deals = () => {
    }
   };
 
-  if(profileDeals.length === 0) {
+  if(profileDeals.length === 0 && !isFetched) {
     getDeals();
   }
  }, [profileDeals]);

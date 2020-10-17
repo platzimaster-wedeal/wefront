@@ -17,7 +17,7 @@ const URL_APPLY = "https://wedeal.herokuapp.com/api/v1/applyProblem";
 const URL_GET_JOB_OFFER = (id) =>
  `https://wedeal.herokuapp.com/api/v1/applyProblem/${id}`;
 const URL_GET_WORKERS_OFFER = (id) =>
- `https://wedeal.herokuapp.com/api/v1/users/problems/${id}/getProblems`;
+ `https://wedeal.herokuapp.com/api/v1/problems/${id}/getPostulated`;
 
 export const getProblems = async () => {
  const data = await useRequestGetToken(URL_GET_PROBLEMS);
