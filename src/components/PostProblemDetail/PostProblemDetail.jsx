@@ -15,6 +15,7 @@ import {
  getJobOffer,
  getWorkersJob,
  getFullProblem,
+ problemSolved
 } from "../../services/ProblemsService/problemsService";
 
 // Styles
@@ -114,6 +115,7 @@ const PostProblemDetail = ({
   try {
    setIsLoadingScore(true);
    const resp = await postScoreUser(dataScore);
+   const respSolved = await problemSolved(problem.id_employer_job_offer)
    setIsQualificated(true);
    setIsLoadingScore(false);
   } catch (err) {
@@ -154,11 +156,7 @@ const PostProblemDetail = ({
    );
 
   if (isUser)
-   return (
-     <>
-    <PostProblemStatus status={problem.employer_job_offer_status ? 'Available' : 'Solving'} />
-    </> 
-   );
+   return (<PostProblemStatus status={problem.employer_job_offer_status ? true : false} />);
  };
 
  const RenderDetail = () => (

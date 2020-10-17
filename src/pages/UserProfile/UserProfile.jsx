@@ -168,7 +168,7 @@ const [isFetchedDeals, setIsFetchedDeals] = useState(false)
     <UserInformationContainer
      isProfile={isProfile}
      user={isProfile ? profile : user}
-     problems={isProfile ? profileDeals : userDeals}
+     problems={isProfile ? profileDeals.filter(problem => problem.status === true) : userDeals}
     />
     {isModalShare && (
      <ModalContainer>
