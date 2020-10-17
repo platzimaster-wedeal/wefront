@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 // Hooks
 import { useInputForm } from "../../hooks/useInputForm/useInputForm";
@@ -49,6 +50,8 @@ const PostProblemDetail = ({
  onApply,
 }) => {
  const { id } = useSelector((state) => state.AuthReducer);
+ const profile = useSelector((state) => state.ProfileReducer);
+ const history = useHistory()
 
  // ----------------------- Validating the user -----------------------
  const [isUser, setIsUser] = useState(false);
@@ -99,10 +102,13 @@ const PostProblemDetail = ({
  const [dataQualificate, setDataQualificate] = useState({});
  const [isLoadingScore, setIsLoadingScore] = useState(false);
  const [isQualificated, setIsQualificated] = useState(false);
+ const goToHome = () => {
+   history.push('/home')
+ }
  const onQualificate = async () => {
   const dataScore = {
    ...dataQualificate,
-   id_employer: idUser,
+   id_employer: Number(profile.id_employer),
    id_employee: idWorker,
   };
   try {
@@ -124,7 +130,6 @@ const PostProblemDetail = ({
   const getWorkers = async () => {
    try {
     const data = await getWorkersJob(problem.id);
-    console.log(data.body)
     setWorkersJob(data.body);
    } catch (err) {}
   };
@@ -254,10 +259,11 @@ const PostProblemDetail = ({
    {/* // ---------------- Modal score problem and worker */}
    {isQualificated && (
     <ModalContainer>
-     <Modal title="Scoring the solution!" onClose={setIsOpenApply}>
+     <Modal title="Scoring the solution!" onClose={goToHome}>
       <ModalMessage
        type="great"
        message="Awesome! The problem was solved and scored!"
+       onClose={goToHome}
       />
      </Modal>
     </ModalContainer>

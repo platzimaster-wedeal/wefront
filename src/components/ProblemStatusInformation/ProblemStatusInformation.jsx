@@ -56,23 +56,24 @@ const ProblemStatusInformation = ({
   );
  };
 
+  const [isSelectedEmployee, setIsSelectedEmployee] = useState(false)
  const RenderWorkers = () => {
   return (
    <FormStep title="Workers That Applied">
-    {workersApplied ? (
+    {workersApplied && workersApplied.length > 0 ? (
+     workersApplied.map((worker, i) => (
       <ProfileWorkerCard
-       id={workersApplied.id_employer }
-       name={workersApplied.employer_name}
-       picture={workersApplied.user_avatar}
+       id={worker.id_user_employee }
+       name={worker.employee_firstname}
+       picture={worker.avatar}
        onClick={() => {
-         console.log('Hello')
          setIsProblemSolved(!isProblemSolved)
-         setIdWorker(workersApplied.employee_postulated)
+         setIdWorker(worker.employee_postulated)
+         setIsSelectedEmployee(true)
        }}
-      //  description={worker.user}
-      //  follows=""
-       key={workersApplied.employee_postulated}
+       key={i}
       />
+     ))
     ) : (
      <span className="problem-status-information__workers-message">
       No workers have come forward yet
@@ -87,7 +88,7 @@ const ProblemStatusInformation = ({
    <PostHeader name={problemEmployer} picture={employerAvatar} />
    <FormStep title="Current Status">{RenderStatus()}</FormStep>
 
-   {isUser && problemStatus && RenderWorkers()}
+   {isUser && problemStatus && !isSelectedEmployee && RenderWorkers()}
 
    {isUser && isProblemSolved && (
     <FormStep title="Qualification Of Worker">
