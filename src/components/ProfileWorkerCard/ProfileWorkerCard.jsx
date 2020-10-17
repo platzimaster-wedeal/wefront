@@ -1,5 +1,6 @@
 import React from "react";
-import { MdRemoveRedEye, MdPeople } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { MdDone, MdPeople } from "react-icons/md";
 
 // Imgs
 import PhotoUser from "../../assets/static/img/users/user.jpg";
@@ -16,8 +17,8 @@ const ProfileWorkerCard = ({
  picture,
  name = "Tupac Shakur",
  profession = "Artist",
- description,
- follows = 24,
+ id,
+ onClick = () => {}
 }) => {
  return (
   <article className="profile-worker-card">
@@ -26,25 +27,16 @@ const ProfileWorkerCard = ({
    </figure>
 
    <div className="profile-worker-card__content">
-    <div className="profile-worker-card__content-header">
+    <Link className="profile-worker-card__content-header" to={`/user/profile/${id}`}>
      <h3>{name}</h3>
-     <small>{profession}</small>
-    </div>
+     {/* <small>{profession}</small> */}
+    </Link>
 
     <ButtonAction
-     icon={MdRemoveRedEye}
+     icon={MdDone}
      className="profile-worker-card__content-action"
+     onClick={onClick}
     />
-
-    <small className="profile-worker-card__description">
-     {description || "Hi there, I'm Tupac :D"}
-    </small>
-
-    <div className="profile-worker-card__stats">
-     <GraphicData active value={follows}>
-      <MdPeople size="24" />
-     </GraphicData>
-    </div>
    </div>
   </article>
  );

@@ -1,5 +1,5 @@
 import { useRequestPostForm } from "../../hooks/useRequestPostForm/useRequestPostForm";
-import { useRequestPost } from "../../hooks/useRequestPost/useRequestPost";
+import { useRequestPost, useRequestPatch } from "../../hooks/useRequestPost/useRequestPost";
 import {
  useRequestGet,
  useRequestGetToken,
@@ -17,7 +17,9 @@ const URL_APPLY = "https://wedeal.herokuapp.com/api/v1/applyProblem";
 const URL_GET_JOB_OFFER = (id) =>
  `https://wedeal.herokuapp.com/api/v1/applyProblem/${id}`;
 const URL_GET_WORKERS_OFFER = (id) =>
- `https://wedeal.herokuapp.com/api/v1/users/problems/${id}/getProblems`;
+ `https://wedeal.herokuapp.com/api/v1/problems/${id}/getPostulated`;
+const URL_PROBLEM_SOLVED = (id) =>
+ `https://wedeal.herokuapp.com/api/v1/problems/${id}`;
 
 export const getProblems = async () => {
  const data = await useRequestGetToken(URL_GET_PROBLEMS);
@@ -97,6 +99,17 @@ export const getJobOffer = async (id) => {
 
 export const getWorkersJob = async (id) => {
  const resp_data = await useRequestGetToken(URL_GET_WORKERS_OFFER(id));
+ const resp = await resp_data.json();
+
+ if (resp.error) {
+  throw new Error(resp.body);
+ }
+
+ return resp;
+};
+
+export const problemSolved = async (id) => {
+ const resp_data = await useRequestPatch(URL_PROBLEM_SOLVED(id), {});
  const resp = await resp_data.json();
 
  if (resp.error) {

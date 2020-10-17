@@ -38,7 +38,7 @@ const PostInteractions = ({ favs, shares, comments, onLike = () => {}, onUnlike 
     )}
     {favs} Favs
    </button>
-   <button
+   {/* <button
     onClick={() => handelCommentsClick()}
     type="button"
     className="interactionsPost__comments">
@@ -48,7 +48,7 @@ const PostInteractions = ({ favs, shares, comments, onLike = () => {}, onUnlike 
      <MdInsertComment className="interactionsPost__icon--inactive" />
     )}
     Comments
-   </button>
+   </button> */}
   </div>
  );
 };

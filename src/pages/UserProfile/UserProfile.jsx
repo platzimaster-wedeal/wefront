@@ -45,22 +45,22 @@ const UserProfile = () => {
  useEffect(() => {
   if (!idUser) {
    setIsProfile(true);
+  }
 
-   if(idUser && Number(idUser) === id) {
-     setIsProfile(true)
-   }
-   return;
+  if(Number(idUser) === id) {
+    setIsProfile(true)
   }
  }, [profile, isProfile, idUser]);
 
  // Get deals
  const setProfileDeals = useDispatch();
-
+const [isFetchedDeals, setIsFetchedDeals] = useState(false)
  useEffect(() => {
   const getProblems = async (id_user) => {
    try {
     setIsLoadingUser(true);
     const resp_deals = await getProblemUser(id_user);
+    setIsFetchedDeals(true)
     if(isProfile){
       setProfileDeals({ type: GET_PROFILE_DEALS, payload: resp_deals.body });
     } else {
@@ -73,7 +73,7 @@ const UserProfile = () => {
    }
   };
 
-  if(profileDeals.length === 0) {
+  if(profileDeals.length === 0 && !isFetchedDeals) {
     if (isProfile === true) {
       getProblems(id);
     } else if (isProfile === false && idUser) {
@@ -168,7 +168,7 @@ const UserProfile = () => {
     <UserInformationContainer
      isProfile={isProfile}
      user={isProfile ? profile : user}
-     problems={profileDeals}
+     problems={isProfile ? profileDeals.filter(problem => problem.status === true) : userDeals}
     />
     {isModalShare && (
      <ModalContainer>

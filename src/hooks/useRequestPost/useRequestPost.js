@@ -38,3 +38,24 @@ export const useRequestDelete = (url, data) => {
 
  return resp;
 };
+
+export const useRequestPatch = (url, data) => {
+ const token = getCookie("token");
+
+ const resp = fetch(url, {
+  method: "PATCH",
+  mode: "cors",
+  cache: "no-cache",
+  headers: {
+   Authorization: `Bearer ${token || ""}`,
+   "Content-Type": "application/json",
+   "Access-Control-Allow-Origin": "*",
+   Accept: "application/json",
+  },
+  redirect: "follow",
+  referrerPolicy: "no-referrer",
+  body: JSON.stringify(data),
+ });
+
+ return resp;
+};

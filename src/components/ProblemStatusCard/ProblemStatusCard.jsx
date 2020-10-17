@@ -15,7 +15,7 @@ const ProblemStatusCard = ({
  nameProblem = "Error with my PC",
 }) => {
  const history = useHistory();
- const goToDetail = () => history.push("/detail/problem/id");
+ const goToDetail = () => history.push(`/detail/problem/${idProblem}`);
 
  return (
   <article className="problem-status-card">

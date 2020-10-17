@@ -25,6 +25,7 @@ const ProfileConfigure = ({
     name={user.first_name}
     source={user.avatar}
     description={user.description}
+    profession={user.title}
    />
    <ProfileConfigureGeneral
     profileUsername={user.username}
