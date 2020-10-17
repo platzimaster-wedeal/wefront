@@ -1,5 +1,5 @@
 import React from "react";
-import { MdShowChart, MdLanguage, MdStar } from "react-icons/md";
+import { MdWork, MdLanguage, MdStar } from "react-icons/md";
 
 // Styles
 import "../../assets/styles/components/WorkerMainInformation/WorkerMainInformation.scss";
@@ -7,20 +7,20 @@ import "../../assets/styles/components/WorkerMainInformation/WorkerMainInformati
 import GraphicData from "../GraphicData/GraphicData";
 
 const WorkerMainInformation = ({
- recommandantions = 82,
- languages = "Spanish",
+ email,
  valoration = "4.5",
+ profession = ""
 }) => (
  <div className="worker-main-information">
   <strong className="worker-main-information__title">Main Information</strong>
   <ul>
    <li>
-    <GraphicData active={true} value={`${recommandantions} recommendations`}>
-     <MdShowChart size={30} />
+    <GraphicData active={true} value={profession}>
+     <MdWork size={30} />
     </GraphicData>
    </li>
    <li>
-    <GraphicData active={true} value={languages}>
+    <GraphicData active={true} value={email}>
      <MdLanguage size={30} />
     </GraphicData>
    </li>

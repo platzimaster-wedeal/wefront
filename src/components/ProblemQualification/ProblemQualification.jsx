@@ -6,6 +6,8 @@ import {
  MdSentimentVerySatisfied,
 } from "react-icons/md";
 
+import { useSelector } from "react-redux";
+
 // Stlyes
 import "../../assets/styles/components/ProblemQualification/ProblemQualification.scss";
 
@@ -16,11 +18,14 @@ import GraphicData from "../GraphicData/GraphicData";
 import Button from "../Buttons/Button";
 
 const ProblemQualification = ({
- problemWorker = "@Alan",
- userPhoto,
+ problemWorker = "@",
  setInformation,
  onQualificate,
 }) => {
+
+  const { avatar } = useSelector(state => state.ProfileReducer)
+
+
  // ---------------- Handle qualification
  const [rangeStars, setRangeStars] = useInputForm(0.0);
  const [comment, setComment] = useInputForm("");
@@ -66,7 +71,7 @@ const ProblemQualification = ({
      Do you want to tell something about <span>{problemWorker}</span>
     </p>
     <div className="problem-qualification__input--user-opinion">
-     <ProfilePicture active source={userPhoto || PhotoUser} />
+     <ProfilePicture active source={avatar} />
      <input
       type="text"
       placeholder="What are you thinking?"

@@ -28,6 +28,7 @@ import HeaderContainer from "../../container/HeaderContainer/HeaderContainer";
 import FeedContainer from "../../container/FeedContainer/FeedContainer";
 
 const Deals = () => {
+  const history = useHistory()
  // ----------------- Redux state  -----------------
  const { id } = useSelector((state) => state.AuthReducer);
  const { id_employer } = useSelector((state) => state.ProfileReducer);
@@ -39,6 +40,7 @@ const Deals = () => {
  const setProfileDeals = useDispatch();
 
  const [isLoadingDeals, setIsLoadingDeals] = useState(false);
+ const [isFetched, setIsFetched] = useState(false);
  const [isErrorDeals, setIsErrorDeals] = useState(null);
  const onDealsError = () => {
   setIsLoading(false);
@@ -51,6 +53,7 @@ const Deals = () => {
     const resp_deals = await getProblemUser(id_employer);
     setProfileDeals({ type: GET_PROFILE_DEALS, payload: resp_deals.body });
     setIsLoadingDeals(false);
+    setIsFetched(true)
    } catch (err) {
     setIsLoadingDeals(false);
     setIsErrorDeals(err);
@@ -58,7 +61,7 @@ const Deals = () => {
    }
   };
 
-  if(profileDeals.length === 0) {
+  if(profileDeals.length === 0 && !isFetched) {
     getDeals();
   }
  }, [profileDeals]);
@@ -66,7 +69,7 @@ const Deals = () => {
  // ----------------- Handle Create of Problem -----------------
  const [isLoading, setIsLoading] = useState(false);
  const [isCreated, setIsCreated] = useState(false);
- const onCreated = () => history.push("/user/deals");
+ const onCreated = () => history.push("/problems");
  const [isError, setIsError] = useState(null);
  const onError = () => {
   setIsError(null);
@@ -75,7 +78,7 @@ const Deals = () => {
  const [isModalProblem, setIsModalProblem] = useState(false);
  const actionProblem = () => setIsModalProblem(!isModalProblem);
 
- const onCreateProblem = async () => {
+ const onCreateProblem = async (newProblem) => {
   try {
    setIsLoading(true);
    const resp = await createProblem(newProblem);
@@ -98,7 +101,7 @@ const Deals = () => {
     <FeedContainer
      strategyAction={actionProblem}
      type="problem"
-     data={profileDeals}
+     data={profileDeals.filter(problem => problem.status === true)}
     />
 
     {/* Modals */}

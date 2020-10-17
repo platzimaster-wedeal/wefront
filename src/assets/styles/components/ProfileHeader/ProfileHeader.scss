@@ -22,11 +22,11 @@
   }
 
   &__profession {
-     @include font-size($font-size-normal);
+     @include font-size($font-size-small);
     color: $color-black-60;
 
     @include media(tablet) {
-      @include font-size($font-size-medium);
+      @include font-size($font-size-normal);
     }
   }
 

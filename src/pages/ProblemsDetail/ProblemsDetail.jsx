@@ -36,6 +36,7 @@ const ProblemsDetail = () => {
  // ----------------- Redux state
  const { id } = useSelector((state) => state.AuthReducer);
  const { currentProblem } = useSelector((state) => state.ProblemsReducer);
+ const { connections } = useSelector((state) => state.ProfileReducer);
  const { employeer, id_employee } = useSelector(
   (state) => state.ProfileReducer
  );
@@ -86,12 +87,11 @@ const ProblemsDetail = () => {
    console.error(err);
   }
  };
-
  // ----------------- RENDER OF THE COMPONENT -----------------
  return (
   <HeaderContainer>
    <ChangeView
-    SecondView={<ConnectionsCards />}
+    SecondView={<ConnectionsCards connections={connections} />}
     firstViewTitle="About Problem"
     secondViewTitle="Connections">
     <FeedDetail title="About The Problem">

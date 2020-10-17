@@ -15,7 +15,7 @@ import {
 } from "../../services/UserService/userService";
 
 const ProfileHeaderActions = ({
- isProfile = false,
+ isUser,
  onRecommend,
  onEdit,
  userId,
@@ -56,7 +56,7 @@ const ProfileHeaderActions = ({
 
  return (
   <>
-   {!isProfile ? (
+   {!isUser ? (
     isLoadingFollow ? (
      "Loading..."
     ) : followed ? (

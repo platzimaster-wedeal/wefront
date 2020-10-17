@@ -7,12 +7,12 @@ import "../../assets/styles/components/ProfileHeaderPhoto/ProfileHeaderPhoto.scs
 // Components
 import SmallButtonSA from "../Buttons/SmallButtonSA";
 
-const ProfileHeaderPhoto = ({ name, avatar, onPhoto, isProfile = false }) => {
+const ProfileHeaderPhoto = ({ name, avatar, onPhoto, isUser = false }) => {
  return (
   <div className="profile-header-photo">
    <figure className="profile-header-photo__figure">
     <img src={avatar} alt={name} aria-label={name} />
-    {isProfile && (
+    {isUser && (
      <SmallButtonSA
       icon={MdPhotoCamera}
       width="24px"
