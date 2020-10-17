@@ -29,4 +29,8 @@
       }
     }
   }
+
+  &__list {
+    overflow-y: scroll;
+  }
 }
